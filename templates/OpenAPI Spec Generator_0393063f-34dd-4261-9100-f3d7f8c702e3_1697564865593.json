@@ -1,0 +1,548 @@
+{
+  "id": "0393063f-34dd-4261-9100-f3d7f8c702e3",
+  "meta": {
+    "name": "OpenAPI Spec Generator",
+    "author": "Omnitool.ai team",
+    "description": "Generate an OpenAPI specification YAML file directly from API documentation using Large Language Model (LLM) with prompt tweaking.",
+    "category": "",
+    "help": "1. Navigate to the custom UI.\n2. Enter the details of the target API.\n3. Await the result in the Chat, which will be provided as a .txt file.\n4. Use [Swagger Editor](https://editor.swagger.io/) to validate the generated OpenAPI specification.",
+    "created": 1697564650323,
+    "updated": 1697564863231,
+    "pictureUrl": "machine_001.png",
+    "tags": [
+      "#productivity",
+      "#development",
+      "#intermediate",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2964": {
+        "id": 2964,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "Generate an OpenAPI specification YAML file directly from API documentation using Large Language Model (LLM) with prompt tweaking.",
+          "help": "1. Navigate to the custom UI.\n2. Enter the details of the target API.\n3. Await the result in the Chat, which will be provided as a .txt file.\n4. Use [Swagger Editor](https://editor.swagger.io/) to validate the generated OpenAPI specification.",
+          "license": "CC0",
+          "tags": [
+            "productivity",
+            "development",
+            "#intermediate",
+            "#llm",
+            "template"
+          ],
+          "title": "OpenAPI Spec Generator",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1396.3216048654185,
+          -3087.1803869833516
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2967": {
+        "id": 2967,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/plain",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2970,
+                "output": "text",
+                "data": {}
+              },
+              {
+                "node": 3036,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": [
+              {
+                "node": 3026,
+                "output": "document",
+                "data": {}
+              }
+            ]
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2131.3840341178957,
+          -2222.454587062192
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2969": {
+        "id": 2969,
+        "data": {
+          "api_doc": "",
+          "button": "",
+          "checklist": "",
+          "example": "",
+          "images": "",
+          "replace": null,
+          "source": "## API document:\n{input:api_doc}\n\n## Checklist:\n{input:checklist}\n\n## OpenAPI Example:\n{input:example}",
+          "x-omni-dynamicInputs": {
+            "api_doc": {
+              "customSocket": "text",
+              "name": "api_doc",
+              "title": "api_doc",
+              "type": "string"
+            },
+            "checklist": {
+              "customSocket": "text",
+              "name": "checklist",
+              "title": "checklist",
+              "type": "string"
+            },
+            "example": {
+              "customSocket": "text",
+              "name": "example",
+              "title": "example",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "api_doc": {
+            "connections": [
+              {
+                "node": 3037,
+                "output": "api_doc",
+                "data": {}
+              }
+            ]
+          },
+          "checklist": {
+            "connections": [
+              {
+                "node": 2971,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "example": {
+            "connections": [
+              {
+                "node": 2970,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3036,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          754.8399802655144,
+          -2205.104493401359
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2970": {
+        "id": 2970,
+        "data": {
+          "text": "openapi: 3.0.3\ninfo:\n  title: Perplexity.ai Chat API\n  version: 1.0.0\n  description: API for generating chat completions using various models.\nservers:\n  - url: https://api.perplexity.ai\npaths:\n  /chat/completions:\n    post:\n      operationId: chatCompletions\n      summary: Generate chat completions based on the provided messages and model.\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                model:\n                  type: string\n                  description: The AI model to use for generating the chat completion.\n                  enum: [llama-2-70b-chat, llama-2-13b-chat, codellama-34b-instruct, mistral-7b-instruct]\n                  default: mistral-7b-instruct\n                messages:\n                  type: array\n                  description: Array of message objects representing the chat history.\n                  items:\n                    $ref: '#/components/schemas/Message'\n                max_tokens:\n                  type: integer\n                  description: Maximum number of tokens to generate for the completion.\n                temperature:\n                  type: number\n                  description: Controls the randomness of the model's output.\n                  default: 1\n                  minimum: 0\n                  maximum: 2\n                top_p:\n                  type: number\n                  description: Controls the diversity of the model's output by limiting the token selection to a subset.\n                  default: 1\n                  minimum: 0\n                  maximum: 1\n                stream:\n                  type: boolean\n                  description: Indicates if the response should be streamed.\n                  default: false\n                presence_penalty:\n                  type: number\n                  description: Adjusts the likelihood of tokens being present in the output.\n                  default: 0\n                  minimum: -2.0\n                  maximum: 2.0\n                frequency_penalty:\n                  type: number\n                  description: Adjusts the frequency of tokens in the output.\n                  default: 1.0\n                  minimum: 0\n                  maximum: 2.0\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: string\n                    description: Unique identifier for the completion request.\n                  created:\n                    type: string\n                    description: Timestamp of when the completion was generated.\n                  model:\n                    type: string\n                    description: The model used for generating the completion.\n                  usage:\n                    type: object\n                    description: Information about token usage for the completion.\n                    properties:\n                      total_tokens:\n                        type: integer\n                        description: Total tokens used for the completion.\n                      prompt_tokens:\n                        type: integer\n                        description: Tokens used for the prompt.\n                      completions_tokens:\n                        type: integer\n                        description: Tokens used for the generated completion.\n                  choices:\n                    type: array\n                    description: Array of generated completion choices.\n                    items:\n                      type: object\n                      properties:\n                        text:\n                          type: string\n                          description: The generated completion text.\n                        index:\n                          type: integer\n                          description: Index of the choice.\n        '422':\n          description: Validation Error\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  error:\n                    type: string\n                    description: Detailed error message.\n      security:\n        - BearerToken: []\ncomponents:\n  schemas:\n    Message:\n      type: object\n      required:\n        - content\n        - role\n      properties:\n        content:\n          type: string\n          description: Content of the message.\n        role:\n          type: string\n          description: Role of the entity sending the message.\n          enum: [system, user, assistant]\n  securitySchemes:\n    BearerToken:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      description: Bearer token authentication using JWT.",
+          "x-omni-title": "Spec Example",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2969,
+                "input": "example",
+                "data": {}
+              },
+              {
+                "node": 2967,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          6.043232968952339,
+          -2054.8970343182477
+        ],
+        "name": "omnitool.input_text"
+      },
+      "2971": {
+        "id": 2971,
+        "data": {
+          "text": "- **General Structure and Metadata**:\n  - Ensure the OpenAPI version is specified (e.g., `openapi: 3.0.3`).\n  - Provide metadata in the `info` section, including `title`, `description`, `version`, and other relevant details.\n  - Specify the `servers` to indicate where the API is hosted.\n\n- **Endpoints and Operations**:\n  - Clearly define all API paths and their respective HTTP methods.\n  - Use meaningful HTTP verbs (`GET`, `POST`, `PUT`, `DELETE`, etc.).\n  - Add `operationId` for each operation to uniquely identify it.\n  - Provide a `summary` and `description` for each operation to explain its purpose and functionality.\n\n- **Parameters and Request Bodies**:\n  - Clearly define all parameters (path, query, header) and specify their `type`, `description`, and whether they are `required`.\n  - For request bodies, define the expected schema and provide examples if possible.\n  - List `enum` values if they're mentioned in the documentation.\n  - Specify constraints like `min`, `max`, `pattern`, etc., if they are mentioned in the documentation.\n  - Add `default` values where applicable.\n\n- **Responses**:\n  - Define possible response status codes for each operation.\n  - Describe the expected response schema for each status code.\n  - Provide meaningful `description` for each response status.\n  - Include example responses where possible.\n\n- **Components and Reusability**:\n  - Use the `components` section to define reusable schemas, parameters, responses, and other elements.\n  - Reference these components in the API paths to avoid duplication and ensure consistency.\n  - Organize components logically, e.g., group related schemas together.\n\n- **Security**:\n  - Define `securitySchemes` in the `components` section.\n  - Apply security requirements to operations or globally to all operations.\n  - Ensure sensitive data is appropriately protected, and avoid exposing sensitive information in URLs.\n\n- **Data Types and Formats**:\n  - Specify data `type` and `format` for all parameters and schema properties (e.g., `string`, `integer`, `date-time`).\n  - Use appropriate data types, such as `integer` for numbers without decimals and `number` for floating-point values.\n\n- **Validation and Constraints**:\n  - Use constraints like `minLength`, `maxLength`, `minimum`, `maximum`, etc., to validate input data.\n  - Specify which properties/parameters are `required` following the format of the provided example. When defining an object type, you can list out the properties that are required instead of using \"required: true\", for example: \n```\nUser:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        email:\n          type: string\n      required:\n        - name\n        - email\n```\n  - Use the `pattern` constraint for string values that need to match a specific regex pattern.\n\n- **Documentation and Usability**:\n  - Ensure that the spec is readable and understandable, even for non-technical users.\n  - Use meaningful names for paths, parameters, schemas, etc.\n  - Include external documentation links if more detailed explanations are available elsewhere.",
+          "x-omni-title": "Checklist",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2969,
+                "input": "checklist",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1.6167040980551803,
+          -2684.469305105347
+        ],
+        "name": "omnitool.input_text"
+      },
+      "3026": {
+        "id": 3026,
+        "data": {
+          "fileName": "generated_openapi",
+          "storageType": "Permanent",
+          "text": "",
+          "textType": "text/plain",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3036,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "document": {
+            "connections": [
+              {
+                "node": 2967,
+                "input": "documents",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1981.764428799141,
+          -1641.4277618095587
+        ],
+        "name": "omnitool.write_document"
+      },
+      "3036": {
+        "id": 3036,
+        "data": {
+          "function": null,
+          "instruction": "You are an expert in OpenAPI with a keen eye for detail. Your task is to meticulously generate a precise and well-structured OpenAPI 3.0.x spec based on the provided information. I will provide you with the target API documentation, an example OpenAPI yaml spec, and a guiding checklist. Please produce the OpenAPI spec and return it in structured YAML format. Return me only the yaml spec without any explanation. Remember to format it in yaml format.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2969,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 2967,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 3026,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          1381.9829547638246,
+          -2377.982292624086
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "3037": {
+        "id": 3037,
+        "data": {
+          "api_doc": "Getimg API. \n\nYou need to use API Key to authenticate every request made to the API. You can view and manage your API keys in here. All API keys have the prefix key-.\n\nBe sure to keep your API keys secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, etc.\n\nAuthentication to the API is performed via Bearer Token. Provide your API key in the Authorization header (e.g. -H \"Authorization: Bearer key-**************\").\n\nAPI requests must be made over HTTPS. Calls made over plain HTTP will fail. Requests without authentication will also fail.\n\nText to Image\nPOST\nhttps://api.getimg.ai/v1/stable-diffusion/text-to-image\nGenerates an image based on given text prompt. Supports different models each capable of producing unique style.\n\nLOG IN TO SEE FULL REQUEST HISTORY\nTIME\tSTATUS\tUSER AGENT\t\nMake a request to see history.\n0 Requests This Month\n\nSEE ALL REQUESTS\nBODY PARAMS\nmodel\nstring\nModel ID supported by this pipeline and family. Use /v1/models?pipeline=text-to-image&family=stable-diffusion to list all available models.\n\nprompt\nstring\nrequired\nText input required to guide the image generation.\n\nnegative_prompt\nstring\nText input that will not guide the image generation.\n\nwidth\ninteger\nThe width of the generated image in pixels. To achieve\nbest results use width specified in model base_resolution.\n\nWidth needs to be multiple of 64.\n\nheight\ninteger\nThe height of the generated image in pixels. To achieve\nbest results use height specified in model base_resolution.\n\nHeight needs to be multiple of 64.\n\nsteps\ninteger\nThe number of denoising steps. More steps usually can produce higher quality images, but take more time to generate.\n\nguidance\nnumber\nGuidance scale as defined in Classifier-Free Diffusion Guidance. Higer guidance forces the model to better follow the prompt, but result in lower quality output.\n\nseed\ninteger\nMakes generation deterministic. Using the same seed and set of parameters will produce identical image each time.\n\nscheduler\nstring\nScheduler used to denoise the encoded image latents.\n\nDefault: dpmsolver++\n\n\noutput_format\nstring\nFile format of the output image\n\nDefault: jpeg\n\n\nRESPONSES\n\n200\nOK\n\n\n400\nBad Request\n\n\n401\nUnauthorized\n\n\n429\nToo Many Requests",
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "OpenAPI Generator",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Generate an OpenAPI specification YAML directly from a API documentation",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Getimg API. \n\nYou need to use API Key to authenticate every request made to the API. You can view and manage your API keys in here. All API keys have the prefix key-.\n\nBe sure to keep your API keys secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, etc.\n\nAuthentication to the API is performed via Bearer Token. Provide your API key in the Authorization header (e.g. -H \"Authorization: Bearer key-**************\").\n\nAPI requests must be made over HTTPS. Calls made over plain HTTP will fail. Requests without authentication will also fail.\n\nText to Image\nPOST\nhttps://api.getimg.ai/v1/stable-diffusion/text-to-image\nGenerates an image based on given text prompt. Supports different models each capable of producing unique style.\n\nLOG IN TO SEE FULL REQUEST HISTORY\nTIME\tSTATUS\tUSER AGENT\t\nMake a request to see history.\n0 Requests This Month\n\nSEE ALL REQUESTS\nBODY PARAMS\nmodel\nstring\nModel ID supported by this pipeline and family. Use /v1/models?pipeline=text-to-image&family=stable-diffusion to list all available models.\n\nprompt\nstring\nrequired\nText input required to guide the image generation.\n\nnegative_prompt\nstring\nText input that will not guide the image generation.\n\nwidth\ninteger\nThe width of the generated image in pixels. To achieve\nbest results use width specified in model base_resolution.\n\nWidth needs to be multiple of 64.\n\nheight\ninteger\nThe height of the generated image in pixels. To achieve\nbest results use height specified in model base_resolution.\n\nHeight needs to be multiple of 64.\n\nsteps\ninteger\nThe number of denoising steps. More steps usually can produce higher quality images, but take more time to generate.\n\nguidance\nnumber\nGuidance scale as defined in Classifier-Free Diffusion Guidance. Higer guidance forces the model to better follow the prompt, but result in lower quality output.\n\nseed\ninteger\nMakes generation deterministic. Using the same seed and set of parameters will produce identical image each time.\n\nscheduler\nstring\nScheduler used to denoise the encoded image latents.\n\nDefault: dpmsolver++\n\n\noutput_format\nstring\nFile format of the output image\n\nDefault: jpeg\n\n\nRESPONSES\n\n200\nOK\n\n\n400\nBad Request\n\n\n401\nUnauthorized\n\n\n429\nToo Many Requests\n\n",
+                        "description": "Include all relevant details, especially the authentication information.",
+                        "input": true,
+                        "key": "api_doc",
+                        "label": "Paste the API documentation ",
+                        "rows": 10,
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "api_doc": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "api_doc",
+              "title": "api_doc",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "api_doc": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "api_doc",
+              "title": "api_doc",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "api_doc": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "api_doc": {
+            "connections": [
+              {
+                "node": 2969,
+                "input": "api_doc",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -601.7194474378861,
+          -1933.8690667764172
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

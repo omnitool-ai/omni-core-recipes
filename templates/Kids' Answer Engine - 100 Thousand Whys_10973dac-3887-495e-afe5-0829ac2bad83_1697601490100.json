@@ -1,0 +1,1216 @@
+{
+  "id": "10973dac-3887-495e-afe5-0829ac2bad83",
+  "meta": {
+    "name": "Kids' Answer Engine - 100 Thousand Whys",
+    "author": "omnitool.ai team",
+    "description": "Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration.",
+    "category": "",
+    "help": "## Kids' Answer Engine - 100 Thousand Whys 🧪🔬\n\nWelcome to this recipe! Inspired by the popular Chinese children's science book series, \"100 Thousand Whys\", it uses a combination of LLM and Stable Diffusion to craft engaging answers and illustrations for the 'Why' questions, nurturing a child's thirst for knowledge.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n- Replicate\n\n**Models:**\n- replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Type in your 'Why' question.\n- Hit Run Recipe button!\n- View the generated answer and illustration in the **Chat** box.",
+    "created": 1697600336257,
+    "updated": 1697601480069,
+    "pictureUrl": "ulla.png",
+    "tags": [
+      "#education",
+      "#books",
+      "#intermediate",
+      "#diffusion",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "102": {
+        "id": 102,
+        "data": {
+          "enabled": true,
+          "frequency_penalty": 0,
+          "function_call": "",
+          "functions": "",
+          "instruction": "As the esteemed school book illustrator, your goal is to design a series of illustrations that seamlessly complement the explanation of the given concept. Your task is to meticulously design each picture to provide visual support and enhance the understanding of the given concept. \n\nGuidelines:\n- Compartment the provided concept into three main ideas it tried to convey. Extract the most important subjects and actions in the concept. \n- You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: {\"1\": \"a picture illustration for the first compartment\", \"2\": \"a picture illustration of the second compartment\", \"3\": \"picture illustration of the third compartment\"}\n- If there is a proposed experiment in the given context, describe the experiment only in the third picture.\n\nFor example:\n\n{\"1\": \"a happy magnet, with eyes and a smile, pulling a metal spoon towards itself. The spoon is shown moving in the air, with dotted lines indicating its path towards the magnet.\", \"2\": \"the same happy magnet, this time feeling sad and confused, next to a plastic toy that it cannot stick to. The plastic toy is shown with a speech bubble that says 'Sorry, buddy!'. In the background, there is a paperclip stuck to the magnet, indicating its ability to stick to certain materials.\", \"3\": \"a scene where the child is exploring different materials with the magnet. They are shown holding the magnet in one hand and trying it out on different materials like a piece of paper, a rubber ball, a metal key, and a pencil. Each material is shown with a label to indicate if it sticks to the magnet or not. The child's face is full of wonder and curiosity.\"}\n\n{\"1\": \"A visual of the new moon phase. Show the moon positioned between the sun and Earth, with no reflective surface visible from Earth. Use an image of the moon and sun in proportion to each other and the Earth.\", \"2\": \"A visual of the waxing and waning crescent phases. Use an image of the portion of the moon visible from Earth, gradually increasing or decreasing in size, with the sun partially visible in the background to indicate the reflection of sunlight.\", \"3\": \"A visual of the full moon phase. Use an image of the fully visible moon, reflecting all the sunlight that it receives from the sun. Include a proportional image of the Earth to indicate that the moon orbits it.\"}\n\n{\"1\": \"A tree in full greenery with a blue sky background is shown. A leaf is zoomed in showing its internal structure, with all the parts labeled. Particularly, the chlorophyll is shown as abundant green blobs.\", \"2\": \"The same tree in autumn with a solemn, calm atmosphere. The tree is shown with colored leaves, the fallen ones on the ground, and some leaves still hanging on branches. A diagram shows the leaf structure again, but this time the colors contribute to the full picture. Chlorophyll blobs are smaller or absent, giving way to the orange and yellow pigments in a complex structure.\", \"3\": \"A hands-on experiment scene shows a clear plastic bag with a leaf turning yellow inside. The process depicts a pencil, a plastic bag, and rubbing alcohol as materials with simple instructions. There are other bags with different leaves around, already treated with alcohol, showing the pigments extracted from each one.\"}",
+          "logit_bias": null,
+          "max_tokens": "inf",
+          "messages": "",
+          "model": "gpt-4",
+          "n": 1,
+          "presence_penalty": 0,
+          "prompt": "",
+          "stop": "",
+          "stream": false,
+          "temperature": 0.3,
+          "top_p": 1,
+          "user": "",
+          "x-omni-title": "Generate Illustration Description via ChatGPT",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3257,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 108,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -0.6407171252924826,
+          -1805.1398109044928
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "108": {
+        "id": 108,
+        "data": {
+          "enabled": true,
+          "text": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 102,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "json": {
+            "connections": [
+              {
+                "node": 111,
+                "input": "object",
+                "data": {}
+              },
+              {
+                "node": 112,
+                "input": "object",
+                "data": {}
+              },
+              {
+                "node": 113,
+                "input": "object",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          439.0608758758762,
+          -1092.3324653060183
+        ],
+        "name": "omnitool.text_to_json"
+      },
+      "111": {
+        "id": 111,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.\"1\"",
+          "x-omni-title": "Fetch 1st Illustration Description",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 108,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 491,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          896.0442980829934,
+          -1536.8355006855393
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "112": {
+        "id": 112,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.\"2\"",
+          "x-omni-title": "Fetch 2nd Illustration Description",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 108,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 493,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          915.804368097665,
+          -1171.9708241534368
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "113": {
+        "id": 113,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.\"3\"",
+          "x-omni-title": "Fetch 3rd Illustration Description",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 108,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 494,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          932.127669314511,
+          -833.3221956357697
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "130": {
+        "id": 130,
+        "data": {
+          "enabled": true,
+          "text": "You are a helpful assistant interpreting user inputs for a generative image program. You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: {\"positive\": \"the prompt\", \"negative\": \"the negative prompt\"}\nThe prompt field will contain anything the user wants to include in their image, the negative field will have any element the user does not want included in their image. You will compress tokens in the fields by separating the terms within the fields with commas. Try to combine the \nYou will always append the following list to the negative prompt: \"lowres, bad quality, deformed, mutated, blurry, out of frame, watermark\" If the image includes a person, also add \"ugly, zombie, bad anatomy\" to the negative prompt. Other things to include in the negative prompt are \"lowres, poorly drawn, text\"\nYou will always prepend the following list to the positive prompt in the front: \"(((in the style of Arthur Rackham))), 4k, 8k, high quality\"\nIf there is only one word, (or even no input at all), be creative and add elements to make a fun interesting prompt yourself.\n\nexamples: \nUser input: a dog on a field under a blue sky Your output: {\"positive\": \"(((in the style of book illustration))), A beautiful painting of a dog on a field, landscape, blue sky, 4k, 8k, high quality, magnificent, medium shot, details, nature, god rays\", \"negative\": \"low quality artifacts, lowres, bad quality, deformed, mutated, out of frame, watermark\"}\n\nUser input: anime house \nYour output: {\"positive\": \"(((in the style of book illustration))), A detailed digital illustration of a house, 4k, 8k, high quality, stunning beautiful, sharp focus, strong lines\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\"}\n\nUser input: kitten in a teacup \nYour output: {\"positive\": \"(((in the style of book illustration))), A photograph of a super cute teacup kitten, showing his head, smiling happily, the kitten is fluffy, intricate detail, cinematic, 8 k, cel shaded, unreal engine, featured on artstation, pixiv, insane detail\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\"}",
+          "x-omni-title": "Prompt for Illustration",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 491,
+                "input": "instruction",
+                "data": {}
+              },
+              {
+                "node": 493,
+                "input": "instruction",
+                "data": {}
+              },
+              {
+                "node": 494,
+                "input": "instruction",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          877.0485070974635,
+          -2096.9309917125656
+        ],
+        "name": "omnitool.input_text"
+      },
+      "132": {
+        "id": 132,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-title": "Chat Output",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3257,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 1015,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 1016,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 1017,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3271.2235312148778,
+          -1146.4834604750856
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "311": {
+        "id": 311,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration.",
+          "enabled": true,
+          "help": "## Kids' Answer Engine - 100 Thousand Whys 🧪🔬\n\nWelcome to this recipe! Inspired by the popular Chinese children's science book series, \"100 Thousand Whys\", it uses a combination of LLM and Stable Diffusion to craft engaging answers and illustrations for the 'Why' questions, nurturing a child's thirst for knowledge.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n- Replicate\n\n**Models:**\n- replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Type in your 'Why' question.\n- Hit Run Recipe button!\n- View the generated answer and illustration in the **Chat** box.",
+          "license": "CC0",
+          "tags": [
+            "education",
+            "books",
+            "intermediate",
+            "diffusion",
+            "LLM",
+            "template"
+          ],
+          "title": "Kids' Answer Engine - 100 Thousand Whys",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1639.285209921428,
+          -1931.0935505798354
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "491": {
+        "id": 491,
+        "data": {
+          "enabled": true,
+          "instruction": "You are a helpful assistant interpreting user inputs for a generative image program. You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: { \"checkpoint\" : \"model checkpoint\", \"positive\": \"the prompt\", \"negative\": \"the negative prompt\", \"width\": 640, \"height\": 640 }\nThe prompt field will contain anything the user wants to include in their image, the negative field will have any element the user does not want included in their image. You will compress tokens in the fields by separating the terms within the fields with commas. By default the checkpoint field has the value \"deliberate_v2\". If the user specifies a style on the following list, you will change the checkpoint accordingly: - for photos use \"analog-diffusion-1.0\" - for cosplay, people or realistic images use \"protogenX53Photorealism_10\" - for anime or cartoons use \"protogenV22Anime_22\" - for landscapes use \"deliberate_v11\" - for coloring pages, use \"coloringPage_v10\" and add \"coloring page of a\" to the prompt.\nIf the user mentions they would like a landscape picture, change the width to 768. If the user mentions they would like a portrait picture, change the height to 768. If the user specifies the dimensions, choose the closest value from 512, 640, 768, 896, 1024. (Never include width or height information in the prompt or negative prompt fields.)\nYou will always append the following list to the negative prompt: \"lowres, bad quality, deformed, mutated, blurry, out of frame, watermark\" If the image includes a person, also add \"ugly, zombie, bad anatomy\" to the negative prompt. Other things to include in the negative prompt are \"lowres, poorly drawn, text\"\nYou will always append the following list to the positive prompt: \"4k, 8k, high quality\"\nIf there is only one word, (or even no input at all), be creative and add elements to make a fun interesting prompt yourself.\nexamples: User input: a dog on a field under a blue sky Your output: {checkpoint: \"deliberate_v2\", \"positive\": \"A beautiful painting of a dog on a field, landscape, blue sky, 4k, 8k, high quality, magnificent, medium shot, details, nature, god rays\", \"negative\": \"low quality artifacts, lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 768, \"height\": 640}\nUser input: anime house Your output: {checkpoint: \"protogenV22Anime_22\", \"positive\": \"A detailed digital illustration of a house, 4k, 8k, high quality, stunning beautiful, sharp focus, strong lines\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}\nUser input: kitten in a teacup Your output: {checkpoint: \"analog-diffusion-1.0\", \"positive\": \"A photograph of a super cute teacup kitten, showing his head, smiling happily, the kitten is fluffy, intricate detail, cinematic, 8 k, cel shaded, unreal engine, featured on artstation, pixiv, insane detail\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}",
+          "prompt": "Butterfly in a field",
+          "x-omni-title": "Generate 1st Stable Diffusion Prompt",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 111,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "instruction": {
+            "connections": [
+              {
+                "node": 130,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "positive": {
+            "connections": [
+              {
+                "node": 1015,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "negative": {
+            "connections": [
+              {
+                "node": 1015,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          1669.0240601510277,
+          -1907.2211136400063
+        ],
+        "name": "openai.SDpromptParser"
+      },
+      "493": {
+        "id": 493,
+        "data": {
+          "enabled": true,
+          "instruction": "You are a helpful assistant interpreting user inputs for a generative image program. You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: { \"checkpoint\" : \"model checkpoint\", \"positive\": \"the prompt\", \"negative\": \"the negative prompt\", \"width\": 640, \"height\": 640 }\nThe prompt field will contain anything the user wants to include in their image, the negative field will have any element the user does not want included in their image. You will compress tokens in the fields by separating the terms within the fields with commas. By default the checkpoint field has the value \"deliberate_v2\". If the user specifies a style on the following list, you will change the checkpoint accordingly: - for photos use \"analog-diffusion-1.0\" - for cosplay, people or realistic images use \"protogenX53Photorealism_10\" - for anime or cartoons use \"protogenV22Anime_22\" - for landscapes use \"deliberate_v11\" - for coloring pages, use \"coloringPage_v10\" and add \"coloring page of a\" to the prompt.\nIf the user mentions they would like a landscape picture, change the width to 768. If the user mentions they would like a portrait picture, change the height to 768. If the user specifies the dimensions, choose the closest value from 512, 640, 768, 896, 1024. (Never include width or height information in the prompt or negative prompt fields.)\nYou will always append the following list to the negative prompt: \"lowres, bad quality, deformed, mutated, blurry, out of frame, watermark\" If the image includes a person, also add \"ugly, zombie, bad anatomy\" to the negative prompt. Other things to include in the negative prompt are \"lowres, poorly drawn, text\"\nYou will always append the following list to the positive prompt: \"4k, 8k, high quality\"\nIf there is only one word, (or even no input at all), be creative and add elements to make a fun interesting prompt yourself.\nexamples: User input: a dog on a field under a blue sky Your output: {checkpoint: \"deliberate_v2\", \"positive\": \"A beautiful painting of a dog on a field, landscape, blue sky, 4k, 8k, high quality, magnificent, medium shot, details, nature, god rays\", \"negative\": \"low quality artifacts, lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 768, \"height\": 640}\nUser input: anime house Your output: {checkpoint: \"protogenV22Anime_22\", \"positive\": \"A detailed digital illustration of a house, 4k, 8k, high quality, stunning beautiful, sharp focus, strong lines\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}\nUser input: kitten in a teacup Your output: {checkpoint: \"analog-diffusion-1.0\", \"positive\": \"A photograph of a super cute teacup kitten, showing his head, smiling happily, the kitten is fluffy, intricate detail, cinematic, 8 k, cel shaded, unreal engine, featured on artstation, pixiv, insane detail\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}",
+          "prompt": "Butterfly in a field",
+          "x-omni-title": "Generate 2nd Stable Diffusion Prompt",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 112,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "instruction": {
+            "connections": [
+              {
+                "node": 130,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "positive": {
+            "connections": [
+              {
+                "node": 1016,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "negative": {
+            "connections": [
+              {
+                "node": 1016,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          1687.2770210608617,
+          -1379.8605921363549
+        ],
+        "name": "openai.SDpromptParser"
+      },
+      "494": {
+        "id": 494,
+        "data": {
+          "enabled": true,
+          "instruction": "You are a helpful assistant interpreting user inputs for a generative image program. You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: { \"checkpoint\" : \"model checkpoint\", \"positive\": \"the prompt\", \"negative\": \"the negative prompt\", \"width\": 640, \"height\": 640 }\nThe prompt field will contain anything the user wants to include in their image, the negative field will have any element the user does not want included in their image. You will compress tokens in the fields by separating the terms within the fields with commas. By default the checkpoint field has the value \"deliberate_v2\". If the user specifies a style on the following list, you will change the checkpoint accordingly: - for photos use \"analog-diffusion-1.0\" - for cosplay, people or realistic images use \"protogenX53Photorealism_10\" - for anime or cartoons use \"protogenV22Anime_22\" - for landscapes use \"deliberate_v11\" - for coloring pages, use \"coloringPage_v10\" and add \"coloring page of a\" to the prompt.\nIf the user mentions they would like a landscape picture, change the width to 768. If the user mentions they would like a portrait picture, change the height to 768. If the user specifies the dimensions, choose the closest value from 512, 640, 768, 896, 1024. (Never include width or height information in the prompt or negative prompt fields.)\nYou will always append the following list to the negative prompt: \"lowres, bad quality, deformed, mutated, blurry, out of frame, watermark\" If the image includes a person, also add \"ugly, zombie, bad anatomy\" to the negative prompt. Other things to include in the negative prompt are \"lowres, poorly drawn, text\"\nYou will always append the following list to the positive prompt: \"4k, 8k, high quality\"\nIf there is only one word, (or even no input at all), be creative and add elements to make a fun interesting prompt yourself.\nexamples: User input: a dog on a field under a blue sky Your output: {checkpoint: \"deliberate_v2\", \"positive\": \"A beautiful painting of a dog on a field, landscape, blue sky, 4k, 8k, high quality, magnificent, medium shot, details, nature, god rays\", \"negative\": \"low quality artifacts, lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 768, \"height\": 640}\nUser input: anime house Your output: {checkpoint: \"protogenV22Anime_22\", \"positive\": \"A detailed digital illustration of a house, 4k, 8k, high quality, stunning beautiful, sharp focus, strong lines\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}\nUser input: kitten in a teacup Your output: {checkpoint: \"analog-diffusion-1.0\", \"positive\": \"A photograph of a super cute teacup kitten, showing his head, smiling happily, the kitten is fluffy, intricate detail, cinematic, 8 k, cel shaded, unreal engine, featured on artstation, pixiv, insane detail\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}",
+          "prompt": "Butterfly in a field",
+          "x-omni-title": "Generate 3rd Stable Diffusion Prompt",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 113,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "instruction": {
+            "connections": [
+              {
+                "node": 130,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "positive": {
+            "connections": [
+              {
+                "node": 1017,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "negative": {
+            "connections": [
+              {
+                "node": 1017,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          1732.049733480486,
+          -845.0990781176064
+        ],
+        "name": "openai.SDpromptParser"
+      },
+      "1015": {
+        "id": 1015,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 512,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DPMSolverMultistep",
+          "seed": -1,
+          "width": 512,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Generate 1st Illustration",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 491,
+                "output": "positive",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 491,
+                "output": "negative",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2434.5411012767254,
+          -2664.067630390406
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "1016": {
+        "id": 1016,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 512,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DPMSolverMultistep",
+          "seed": -1,
+          "width": 512,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Generate 2nd Illustration",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 493,
+                "output": "positive",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 493,
+                "output": "negative",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2458.317263504033,
+          -1432.7748200289855
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "1017": {
+        "id": 1017,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 512,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DPMSolverMultistep",
+          "seed": -1,
+          "width": 512,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Generate 3rd Illustration",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 494,
+                "output": "positive",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 494,
+                "output": "negative",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2457.4953598144416,
+          -183.221526601423
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "1150": {
+        "id": 1150,
+        "data": {
+          "Prompt": "Why is the ocean blue?",
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Kids' Answer Engine - 100 Thousand Whys",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Why is the ocean blue?",
+                        "description": "A string",
+                        "input": true,
+                        "key": "Prompt",
+                        "label": "Ask me any 'Why':",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "Prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A string",
+              "name": "Prompt",
+              "socketOpts": {},
+              "title": "Prompt",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "Prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A string",
+              "name": "Prompt",
+              "socketOpts": {},
+              "title": "Prompt",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "Prompt": {
+            "connections": [
+              {
+                "node": 3257,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1083.947914183003,
+          -1115.8793229300497
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "1287": {
+        "id": 1287,
+        "data": {
+          "function": null,
+          "instruction": "You are a helpful bot.  You can help people by answering their questions.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 1,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": []
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          130.68591071292963,
+          -822.5096395145301
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "3257": {
+        "id": 3257,
+        "data": {
+          "Criteria": "",
+          "Instruction": "You are now the world's best and fastest teacher for young children. Your goal is to teach a 4 year-old kid complicated concepts, in a very innovative and understanding way. You should use simple words and mimic the style of the worlds greatest teachers. You should always include in the beginning a real (or fictitious or analogy even) world example of this concept for the kids to better visualize it. You should always attempt to use the simplest language and least amount of words possible to teach the kids (does not apply to the real world examples). \n\nExtra: Always begin every interaction with very informal and charismatic language. Kids need to feel like what you are about to talk about isn't that hard to understand.\n\nExtra: If the terminology is too difficult for the kid, consider using another term or analogy.\n\nExtra: Propose an experiment that could potentially help teaching the concept effectively\n\nExample:\n\"Have you ever heard a loud noise during a thunderstorm? That's thunder! When lightning bolts pass through the air, they heat up the air really quickly. The hot air tries to escape and pushes against the cooler air around it, creating a sound wave we hear as thunder. It's like when you pop popcorn and it makes a popping sound. The heated air inside the popcorn kernel expands and pops, just like the heated air in the thunderstorm creates a sound wave we hear as thunder!\"",
+          "Prompt": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 1150,
+                "output": "Prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 102,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -517.1559280564852,
+          -1316.917099069671
+        ],
+        "name": "omnitool.large_language_model"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

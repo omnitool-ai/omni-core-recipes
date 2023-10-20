@@ -1,0 +1,507 @@
+{
+  "id": "1eb37d86-9d7d-46bd-88f4-40fd2a7daf6c",
+  "meta": {
+    "name": "RPG Icon Artist",
+    "author": "Omnitool.ai team",
+    "description": "A skilled artist who transforms your text prompts into captivating RPG-style icons",
+    "help": "",
+    "created": 1695917666177,
+    "updated": 1695919912579,
+    "pictureUrl": "artist2.png",
+    "tags": [
+      "gaming",
+      "art & design"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "107": {
+        "id": 107,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2213,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1074.0326654258695,
+          -82.93291855583851
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "893": {
+        "id": 893,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "A skilled artist who transforms your text prompts into captivating RPG-style icons",
+          "enabled": true,
+          "help": "",
+          "license": "CC-BY-SA",
+          "title": "RPG Icon Artist",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1082.3016303094605,
+          -582.7395568428134
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "916": {
+        "id": 916,
+        "data": {
+          "_prompt": "",
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "replace": null,
+          "source": "{{input: Prompt}} app icon",
+          "x-omni-dynamicInputs": {
+            "_prompt": {
+              "customSocket": "text",
+              "name": "_prompt",
+              "title": " Prompt",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "_prompt": {
+            "connections": [
+              {
+                "node": 2192,
+                "output": "_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2213,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -81.85829297462956,
+          -231.57141914903508
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2192": {
+        "id": 2192,
+        "data": {
+          "_prompt": "",
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "RPG Icon Artist",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "A skilled artist who transforms your text prompts into captivating RPG-style icons",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "p",
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "input": true,
+                        "key": "_prompt",
+                        "label": " Prompt",
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "_prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_prompt",
+              "title": " Prompt",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "_prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_prompt",
+              "title": " Prompt",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "_prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "_prompt": {
+            "connections": [
+              {
+                "node": 916,
+                "input": "_prompt",
+                "data": {}
+              },
+              {
+                "node": 2230,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -566.8688594677118,
+          -404.6209717767497
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2213": {
+        "id": 2213,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "Banking app icon",
+          "prompt_strength": 0.8,
+          "refine": "no_refiner",
+          "refine_steps": 0,
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2229,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 916,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 107,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          485.68029231761454,
+          -371.2576205821421
+        ],
+        "name": "omni-extension-replicate:run.nandycc/sdxl-app-icons"
+      },
+      "2229": {
+        "id": 2229,
+        "data": {
+          "number": 0,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2213,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -89.85152670829801,
+          -534.6013228231923
+        ],
+        "name": "omnitool.number_input"
+      },
+      "2230": {
+        "id": 2230,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2192,
+                "output": "_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          453.08787432485894,
+          -722.653261583719
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

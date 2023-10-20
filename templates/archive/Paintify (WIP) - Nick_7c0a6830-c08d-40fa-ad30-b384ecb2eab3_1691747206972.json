@@ -1,0 +1,217 @@
+{
+  "id": "7c0a6830-c08d-40fa-ad30-b384ecb2eab3",
+  "version": "draft",
+  "meta": {
+    "created": 1687701859941,
+    "description": "No description.",
+    "name": "Paintify (public) - Nick",
+    "pictureUrl": "omni.png",
+    "tags": [],
+    "updated": 1691747201437
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "11": {
+        "id": 11,
+        "data": {
+          "audio": "",
+          "chat_history": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_input\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1272.7221895437478,
+          -393.30654089202903
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "12": {
+        "id": 12,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          230.3062051476557,
+          -673.6815792291878
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "13": {
+        "id": 13,
+        "data": {
+          "cfg_scale": 6.25,
+          "checkpoint": "deliberate_v2",
+          "denoising_strength": 0.56,
+          "height": 512,
+          "init_images": "",
+          "mask": "",
+          "n_iter": 1,
+          "negative_prompt": "bad_prompt_version2-neg, photograph, realistic, room, 3d, people, naked, underwear, canvas frame, cartoon, 3d, ((disfigured)), ((bad\n art)), ((deformed)),((extra limbs)),((close up)),((b&w)), wierd colors, blurry,\n (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, muta\nted hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((def\normed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limb\ns)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatom\ny), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), ((\n(extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fing\ners), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands,\npoorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra lim\nbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame,\nblurry, bad art, bad anatomy",
+          "prompt": "a beautiful abstract painting authentic masterpiece in the style of henri marisse #flawless  crazy wild straight lines pollution, line art, fire, abstract -furniture -room volumetric fog pollution palette dystopian",
+          "sampler_name": "DPM++ 2M",
+          "seed": -12675285145,
+          "steps": 22,
+          "width": 512,
+          "x_settings": "",
+          "preview": ""
+        },
+        "inputs": {
+          "init_images": {
+            "connections": [
+              {
+                "node": 15,
+                "output": "image",
+                "data": {}
+              }
+            ]
+          },
+          "denoising_strength": {
+            "connections": []
+          },
+          "mask": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "sampler_name": {
+            "connections": []
+          },
+          "n_iter": {
+            "connections": []
+          },
+          "steps": {
+            "connections": []
+          },
+          "cfg_scale": {
+            "connections": []
+          },
+          "width": {
+            "connections": [
+              {
+                "node": 15,
+                "output": "width",
+                "data": {}
+              }
+            ]
+          },
+          "height": {
+            "connections": [
+              {
+                "node": 15,
+                "output": "height",
+                "data": {}
+              }
+            ]
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "x_settings": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": []
+          },
+          "parameters": {
+            "connections": []
+          },
+          "info": {
+            "connections": []
+          }
+        },
+        "position": [
+          -282.4535918351299,
+          -275.3576624803083
+        ],
+        "name": "automatic1111.simpleImage2Image"
+      },
+      "15": {
+        "id": 15,
+        "data": {
+          "image": ""
+        },
+        "inputs": {
+          "image": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 13,
+                "input": "init_images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": [
+              {
+                "node": 13,
+                "input": "width",
+                "data": {}
+              }
+            ]
+          },
+          "height": {
+            "connections": [
+              {
+                "node": 13,
+                "input": "height",
+                "data": {}
+              }
+            ]
+          },
+          "size": {
+            "connections": []
+          },
+          "mimeType": {
+            "connections": []
+          },
+          "ext": {
+            "connections": []
+          },
+          "fid": {
+            "connections": []
+          },
+          "url": {
+            "connections": []
+          }
+        },
+        "position": [
+          -827.9551553985523,
+          -65.69572284092186
+        ],
+        "name": "omnitool.image_info"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

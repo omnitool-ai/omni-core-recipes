@@ -1,0 +1,483 @@
+{
+  "id": "18871f43-b480-43df-9584-1ee1ca3d38a4",
+  "meta": {
+    "name": "Yearbook Photo Studio",
+    "author": "Anonymous",
+    "description": "Utilise a combination of LLM, the text-to-image Stable Diffusion XL Model, and face-swap techniques to transform a user's current photo into a retro yearbook image",
+    "category": "",
+    "help": "## 📚🤖 **Yearbook Photo Studio**\n\n🌟 Welcome to the studio! Dive into this recipe, which combines three models from the **Replicate** extension and **LLM** to craft your retro yearbook photo.\n\n### 🛠 **Prerequisites**:\n\n🔑 **API Keys**:\n- **OpenAI**\n- **Replicate**\n\n🔗 **Extensions**:\n- **Replicate**\n\n🤖 **Models**:\n- **Large Language Model**: Default to OpenAI GPT 3.5\n- **Image-to-text (CLIP)**: Replicate: `rmokady/clip_prefix_caption`\n- **Text-to-image (Stable Diffusion XL)**: Replicate: `stability-ai/sdxl`\n- **Faceswap**: Replicate: `lucataco/faceswap`\n\n### 🚀 **How to Use**:\n\n1. Navigate to the **Chat** window.\n2. Upload your head photo or simply click on the 📸 camera to take a selfie.\n3. Hit the ▶️ **Run** button!\n4. 🎉 Revel in your AI-generated yearbook photo displayed in the chat!\n\n### 🧐 Want to Dive Deeper?\n- Enter **/explain** in the chat to uncover a detailed breakdown of this recipe!",
+    "created": 1697643682951,
+    "updated": 1697643682951,
+    "pictureUrl": "yearbook_001.jpg",
+    "tags": [
+      "#lifestyle",
+      "#art",
+      "#faceswap",
+      "#intermediate",
+      "#diffusion"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "701": {
+        "id": 701,
+        "data": {
+          "enabled": true,
+          "swap_image": "https://replicate.delivery/pbxt/JN97ny6RmjfrxizbgyHnPGGP8Kxzw6UI20ekarOg7dbo02Pi/elon.jpg",
+          "target_image": "https://replicate.delivery/pbxt/JN97nntkJiijxKQ4iY8JUvVmy9PwY3VETJjBVUczrIqr2pwP/tony.jpg",
+          "x-omni-comment": "Faceswap with face enhancer\n\n**In this recipe**, we use faceswap (Roop) to place your target face onto the yearbook photo base image .",
+          "x-omni-title": "Replicate: lucataco/faceswap",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "swap_image": {
+            "connections": [
+              {
+                "node": 1326,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "target_image": {
+            "connections": [
+              {
+                "node": 1018,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 702,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1588.8491102346381,
+          -814.3882651004633
+        ],
+        "name": "omni-core-replicate:run.lucataco/faceswap"
+      },
+      "702": {
+        "id": 702,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-comment": "Send data from this block's input to the chat window. Images, Audio, Documents and Video are automatically embedded as interactive elements.\n\n**In this recipe**, we use this to send the final image back to the chat.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 701,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2088.068981012729,
+          -769.4996685859712
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1018": {
+        "id": 1018,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "nsfw, sexy, nude, cartoon, illustration, animation, extra detail, chaotic distribution of objects",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "a portrait style professional photograph, close-up, messy shoulder-length waves hairstyle, chestnut brown hair color, high quality, detailed, sharp focus, vibrant colors, 4k, 8k",
+          "prompt_strength": 1,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "width": 1024,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n**In this recipe**, we utilize the SDXL model to create a retro yearbook photo as our base image. This is derived from the prompt we generated earlier, and we also use negative prompt to enhance the result. For more insights, hover over the parameters to see the tooltips, or refer to [https://replicate.com/stability-ai/sdxl](https://replicate.com/stability-ai/sdxl).",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1407,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 701,
+                "input": "target_image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1032.9604504496153,
+          -655.7061370517856
+        ],
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
+      },
+      "1326": {
+        "id": 1326,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "x-omni-comment": "Receive data (text, images, audio, video, and documents) directly from the chat window, transforming the recipe into a simple chatbot.\nText, images, audio, video and documents are supplied via chat by typing and/or uploading.\nThe JSON output is automatically populated if the text is valid JSON.\n\n\n**In this recipe**, the Chat Input block is used to receive the target face image that will be used for face swapping.",
+          "x-omni-title": "Chat Input",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 701,
+                "input": "swap_image",
+                "data": {}
+              },
+              {
+                "node": 1339,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -452.14170336942993,
+          -887.5780898912452
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "1327": {
+        "id": 1327,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "OpenAI, Stability AI, Replicate, Ron Mokady and Amir Hertz, @lucataco93",
+          "description": "Utilise a combination of LLM, the text-to-image Stable Diffusion XL Model, and face-swap techniques to transform a user's current photo into a retro yearbook image",
+          "help": "## 📚🤖 **Yearbook Photo Studio**\n\n🌟 Welcome to the studio! Dive into this recipe, which combines three models from the **Replicate** extension and **LLM** to craft your retro yearbook photo.\n\n### 🛠 **Prerequisites**:\n\n🔑 **API Keys**:\n- **OpenAI**\n- **Replicate**\n\n🔗 **Extensions**:\n- **Replicate**\n\n🤖 **Models**:\n- **Large Language Model**: Default to OpenAI GPT 3.5\n- **Image-to-text (CLIP)**: Replicate: `rmokady/clip_prefix_caption`\n- **Text-to-image (Stable Diffusion XL)**: Replicate: `stability-ai/sdxl`\n- **Faceswap**: Replicate: `lucataco/faceswap`\n\n### 🚀 **How to Use**:\n\n1. Navigate to the **Chat** window.\n2. Upload your head photo or simply click on the 📸 camera to take a selfie.\n3. Hit the ▶️ **Run** button!\n4. 🎉 Revel in your AI-generated yearbook photo displayed in the chat!\n\n### 🧐 Want to Dive Deeper?\n- Enter **/explain** in the chat to uncover a detailed breakdown of this recipe!",
+          "license": "CC0",
+          "tags": [
+            "#lifestyle",
+            "#art",
+            "#faceswap",
+            "#intermediate",
+            "#diffusion",
+            "template"
+          ],
+          "title": "Yearbook Photo Studio",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -931.699396267222,
+          -896.3334884708904
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "1338": {
+        "id": 1338,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-comment": "Send data from this block's input to the chat window. Images, Audio, Documents and Video are automatically embedded as interactive elements.\n\n**In this recipe**, you can connect any socket to the Chat Output block to display data in the chat. This offers transparency into the results at each stage.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1407,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1913.4229541700943,
+          -70.12358183668874
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1339": {
+        "id": 1339,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "model": "coco",
+          "use_beam_search": false,
+          "x-omni-comment": "Simple image captioning model using CLIP and GPT-2.\n\n**In this recipe**, the Image-to-text block is used to extract a initial understanding in description of the your current photo.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 1326,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "use_beam_search": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 1407,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          48.944609064697175,
+          -497.05526201888176
+        ],
+        "name": "omni-core-replicate:run.rmokady/clip_prefix_caption"
+      },
+      "1407": {
+        "id": 1407,
+        "data": {
+          "instruction": "You are a helpful assistant interpreting user inputs for a generative image program. I'll provide you a photo description. You output a prompt in a string of keywords that contains the most important features from the description. Ensure to always include gender.\n\nHowever, for this photo, change the age to be in 20-25 year-old.\n\nYou will always prepend the following string to the prompt: \n\n\"Create a school yearbook photo with linen backdrop background. The photo is analog, close-up portrait, retro, faded.\"\n\nIf there is only one word, or no input, or the input doesn't describe a person, just ignore the input and be creative and add elements to make a fun interesting prompt yourself.\n\nFor example: \n\"Create a school yearbook photo with linen backdrop background. The photo is analog, close-up portrait, retro, faded. male, 20 year-old, vibrant polo shirt, bold horizontal stripes, popped collar, high-waisted jeans, feathered hair, chestnut brown, deep-set hazel eyes, confident smile\"",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3,
+          "x-omni-comment": "Generate text using OpenAI's GPT models\n\n**In this recipe**, we leverage LLM to generate a prompt in the form of a string of keywords, which is used to guide the text-to-image generation model, such as Stable Diffusion XL. We prepend descriptive keywords and provide examples to manipulate the output.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1339,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1018,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 1338,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          550.3757390189606,
+          -603.2736609192241
+        ],
+        "name": "openai.simpleChatGPT"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": {},
+  "_flags": [
+    "owner"
+  ]
+}

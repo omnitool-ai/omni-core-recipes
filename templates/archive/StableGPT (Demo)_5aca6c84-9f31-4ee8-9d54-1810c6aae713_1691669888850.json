@@ -1,0 +1,348 @@
+{
+  "id": "5aca6c84-9f31-4ee8-9d54-1810c6aae713",
+  "version": "draft",
+  "meta": {
+    "created": 1691648480463,
+    "description": "A stable diffusion workflow that just needs you to say what you want.",
+    "name": "StableGPT (Demo)",
+    "pictureUrl": "artist.png",
+    "tags": [],
+    "updated": 1691669885798
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "5": {
+        "id": 5,
+        "data": {
+          "cfg_scale": 7,
+          "checkpoint": "v1-5-pruned-emaonly",
+          "filter_nsfw": true,
+          "height": 512,
+          "negative_prompt": "",
+          "preview": "",
+          "prompt": "",
+          "restore_faces": true,
+          "sampler_name": "DPM++ 2M",
+          "seed": -1,
+          "steps": 30,
+          "tiling": false,
+          "width": 640,
+          "x_settings": ""
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 19,
+                "output": "positive",
+                "data": {}
+              }
+            ]
+          },
+          "seed": {
+            "connections": []
+          },
+          "sampler_name": {
+            "connections": []
+          },
+          "steps": {
+            "connections": []
+          },
+          "cfg_scale": {
+            "connections": []
+          },
+          "width": {
+            "connections": [
+              {
+                "node": 19,
+                "output": "width",
+                "data": {}
+              }
+            ]
+          },
+          "height": {
+            "connections": [
+              {
+                "node": 19,
+                "output": "height",
+                "data": {}
+              }
+            ]
+          },
+          "restore_faces": {
+            "connections": []
+          },
+          "tiling": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 19,
+                "output": "negative",
+                "data": {}
+              }
+            ]
+          },
+          "checkpoint": {
+            "connections": [
+              {
+                "node": 19,
+                "output": "checkpoint",
+                "data": {}
+              }
+            ]
+          },
+          "filter_nsfw": {
+            "connections": []
+          },
+          "x_settings": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 20,
+                "input": "imageList",
+                "data": {}
+              }
+            ]
+          },
+          "parameters": {
+            "connections": []
+          },
+          "info": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          }
+        },
+        "position": [
+          676.3549601191999,
+          -67.17836592504977
+        ],
+        "name": "automatic1111.simpleStableDiffusion"
+      },
+      "19": {
+        "id": 19,
+        "data": {
+          "instruction": "You are a helpful assistant interpreting user inputs for a generative image program. You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: { \"checkpoint\" : \"model checkpoint\", \"positive\": \"the prompt\", \"negative\": \"the negative prompt\", \"width\": 640, \"height\": 640 }\nThe prompt field will contain anything the user wants to include in their image, the negative field will have any element the user does not want included in their image. You will compress tokens in the fields by separating the terms within the fields with commas. By default the checkpoint field has the value \"deliberate_v2\". If the user specifies a style on the following list, you will change the checkpoint accordingly: - for photos use \"analog-diffusion-1.0\" - for cosplay, people or realistic images use \"protogenX53Photorealism_10\" - for anime or cartoons use \"protogenV22Anime_22\" - for landscapes use \"deliberate_v11\" - for coloring pages, use \"coloringPage_v10\" and add \"coloring page of a\" to the prompt.\nIf the user mentions they would like a landscape picture, change the width to 768. If the user mentions they would like a portrait picture, change the height to 768. If the user specifies the dimensions, choose the closest value from 512, 640, 768, 896, 1024. (Never include width or height information in the prompt or negative prompt fields.)\nYou will always append the following list to the negative prompt: \"lowres, bad quality, deformed, mutated, blurry, out of frame, watermark\" If the image includes a person, also add \"ugly, zombie, bad anatomy\" to the negative prompt. Other things to include in the negative prompt are \"lowres, poorly drawn, text\"\nYou will always append the following list to the positive prompt: \"4k, 8k, high quality\"\nIf there is only one word, (or even no input at all), be creative and add elements to make a fun interesting prompt yourself.\nexamples: User input: a dog on a field under a blue sky Your output: {checkpoint: \"deliberate_v2\", \"positive\": \"A beautiful painting of a dog on a field, landscape, blue sky, 4k, 8k, high quality, magnificent, medium shot, details, nature, god rays\", \"negative\": \"low quality artifacts, lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 768, \"height\": 640} User input: anime house Your output: {checkpoint: \"protogenV22Anime_22\", \"positive\": \"A detailed digital illustration of a house, 4k, 8k, high quality, stunning beautiful, sharp focus, strong lines\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640} User input: kitten in a teacup Your output: {checkpoint: \"analog-diffusion-1.0\", \"positive\": \"A photograph of a super cute teacup kitten, showing his head, smiling happily, the kitten is fluffy, intricate detail, cinematic, 8 k, cel shaded, unreal engine, featured on artstation, pixiv, insane detail\", \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}",
+          "prompt": ""
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 349,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "instruction": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "positive": {
+            "connections": [
+              {
+                "node": 5,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": [
+              {
+                "node": 5,
+                "input": "width",
+                "data": {}
+              }
+            ]
+          },
+          "height": {
+            "connections": [
+              {
+                "node": 5,
+                "input": "height",
+                "data": {}
+              }
+            ]
+          },
+          "negative": {
+            "connections": [
+              {
+                "node": 5,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "checkpoint": {
+            "connections": [
+              {
+                "node": 5,
+                "input": "checkpoint",
+                "data": {}
+              }
+            ]
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          124.18009422269446,
+          -148.30799260194766
+        ],
+        "name": "openai.SDpromptParser"
+      },
+      "20": {
+        "id": 20,
+        "data": {
+          "imageList": "",
+          "upscaler_1": "SwinIR_4x",
+          "upscaling_resize": 4
+        },
+        "inputs": {
+          "upscaling_resize": {
+            "connections": []
+          },
+          "upscaler_1": {
+            "connections": []
+          },
+          "imageList": {
+            "connections": [
+              {
+                "node": 5,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "html_info": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 350,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1160.452447951608,
+          315.50625298742
+        ],
+        "name": "automatic1111.simpleUpscale"
+      },
+      "349": {
+        "id": 349,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "Beach at sunset"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 19,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -343.4404219985298,
+          -73.27027623886377
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "350": {
+        "id": 350,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 20,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1645.8995014241946,
+          317.309246019487
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

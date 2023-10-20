@@ -1,0 +1,633 @@
+{
+  "id": "28e8f7d3-2d53-483f-82b7-ceec14a93a54",
+  "meta": {
+    "name": "Stable Artist Hunter",
+    "author": "Omnitool.ai team",
+    "description": "Find the artist from those who are trained data in the Stable Diffusion model",
+    "help": "",
+    "created": 1695982796050,
+    "updated": 1695984300744,
+    "pictureUrl": "artist_hunter.png",
+    "tags": [
+      "art & design"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "198": {
+        "id": 198,
+        "data": {
+          "enabled": true,
+          "frequency_penalty": 0,
+          "function": null,
+          "function_call": "",
+          "functions": "",
+          "instruction": "Based on the following description of a desired style or theme, I would like you to recommend an artist who best represents this style or theme. Please recommend only from the list provided and respond with the artist's name only, no other details are necessary.\n\nHere's the artist list:\n-----\nThomas Kinkade,landscape art,painter\nVincent Van Gogh,cityscape,landscape art\nLeonid Afremov,painter\nClaude Monet,landscape art,portrait\nEdward Hopper,genre painting,american realism\nNorman Rockwell,realism,figurative art\nWilliam-Adolphe Bouguereau,mythological painting,pont-aven school\nAlbert Bierstadt,landscape art,painter\nJohn Singer Sargent,landscape art,portrait\nPierre-Auguste Renoir,mythological painting,landscape art\nFrida Kahlo,surrealism,portrait\nJohn William Waterhouse,pre-raphaelite brotherhood,neo-pompeian\nWinslow Homer,realism,marine art\nWalt Disney\nThomas Moran,explorer,landscape art\nPhil Koch\nPaul Cézanne,landscape art,genre painting\nCamille Pissarro,landscape art,the wrightsman pictures\nErin Hanson,artist\nThomas Cole,landscape art,painter\nRaphael,mythological painting,allegory\nSteve Henderson,designer\nPablo Picasso,sculptor,painter\nCaspar David Friedrich,landscape art,german romanticism\nAnsel Adams,artsy artist id,artsy\nDiego Rivera,muralist,museum of modern art online collection\nSteve McCurry,photographer\nBob Ross,landscape art,painter\nJohn Atkinson Grimshaw,mythological painting,landscape art\nRob Gonsalves,magic realism,painter\nPaul Gauguin,landscape art,tate artist id\nJames Tissot,realism,japonisme\nEdouard Manet,landscape art,genre painting\nAlphonse Mucha,symbolism,poster artist\nAlfred Sisley,painter,still life\nFabian Perez,painter\nGustave Courbet,realism,landscape art\nZaha Hadid,architectural painting,architect\nJean-Léon Gérôme,academic art,neo-pompeian\nCarl Larsson,landscape art,genre painting\nMary Cassatt,landscape art,genre painting\nSandro Botticelli,mythological painting,early renaissance\nDaniel Ridgway Knight,genre painting,landscape art\nJoaquín Sorolla,portrait,impressionism\nAndy Warhol,portrait,pop art\nKehinde Wiley,painter,contemporary art\nAlfred Eisenstaedt,photographer,portrait\nGustav Klimt,landscape art,religious art\nDante Gabriel Rossetti,figurative art,allegory\nTom Thomson,landscape art,painter\nEdgar Degas,genre painting,impressionism\nUtagawa Hiroshige,landscape art,painter\nCamille Corot,realism,landscape art\nEdward Steichen,photographer,pictorialism\nDavid Hockney,digital art,graphics\nIvan Aivazovsky,mythological painting,landscape art\nJosephine Wall,painter,fantasy\nPeter Paul Rubens,mythological painting,landscape art\nHenri Rousseau,landscape art,figure painting\nEdward Burne-Jones,mythological painting,genre painting\nPixar\nAlexander McQueen,designer\nAnders Zorn,landscape art,marine art\nJean Auguste Dominique Ingres,romanticism,neoclassicism\nFranz Xaver Winterhalter,landscape art,academic art\nKatsushika Hokusai,japonisme,portrait\nJohn Constable,realism,landscape art\nCanaletto,landscape art,painter\nShepard Fairey,graffiti artist,contemporary art\nGordon Parks,film director,social realism\nGeorge Inness,landscape art,painter\nAnthony van Dyck,mythological painting,allegory\nVivian Maier,street photography,photographer\nCatrin Welz-Stein\nLawren Harris,landscape art,painter\nSalvador Dali,landscape art,allegory\nDavid Bowie,rock ‘n’ roll is here to pay,montreux jazz festival database\nAgnes Cecile\nTitian,mythological painting,venetian school\nMartin Johnson Heade,landscape art,marine art\nScott Naismith\nWilliam Morris,arts and crafts movement,decorative arts\nBerthe Morisot,portrait painting,painter\nVladimir Kush,painter\nWilliam Holman Hunt,pre-raphaelite brotherhood,portrait\nEdvard Munch,landscape art,genre painting\nJoseph Mallord William Turner,landscape art,marine art\nGustave Doré,romanticism,allegory\nThomas Eakins,realism,art of painting\nIlya Repin,realism,genre painting\nAmedeo Modigliani,landscape art,portrait\nJohannes Vermeer,genre painting,portrait\nEyvind Earle,painter\nIvan Shishkin,realism,landscape art\nRembrandt Van Rijn,mythological painting,landscape art\nGil Elvgren,painter\nNicholas Roerich,mythological painting,landscape art\nHenri Matisse,landscape art,neo-impressionism\nThomas Gainsborough,landscape art,rococo\nArtgerm\nStudio Ghibli\nGrant Wood,landscape art,regionalism\nJeremy Mann,researcher\nMark Keathley\nMaxfield Parrish,genre art,mythological painting\nAndrew Wyeth,realism,landscape art\nRHADS\nDavid Lynch,magic realism,independent cinema usa\nFrederic Remington,realism,landscape art\nJan Van Eyck,northern renaissance,genre painting\nMikko Lagerstedt\nBanksy,contemporary art,graffiti\nMichael Cheval,actor\nAnna Razumovskaya,lady-in-waiting\nJean-François Millet,genre painting,landscape art\nThomas W Schaller\nCharlie Bowater\nEl Greco,mythological painting,landscape art\nPaolo Roversi,photographer\nCarne Griffiths\nMan Ray,abstract art,assemblage\nAugust Sander,photographer\nAndrew Macara,painter\nEvelyn De Morgan,pre-raphaelite brotherhood,painter\nWilliam Blake,romanticism,allegory\nSally Mann,landscape art,contemporary art\nOleg Oprisco\nYuumei,visual artist\nHelmut Newton,photographer\nHenry Ossawa Tanner,realism,landscape art\nAsher Brown Durand,landscape art,painter\nteamLab\nAugust Macke,landscape art,painter\nArmand Guillaumin,impressionism,painter\nTerry Redlin,artist\nAntoine Blanchard,painter,school of paris\nAnna Ancher,impressionism,painter\nOhara Koson,printmaker,nihonga\nWalter Langley,painter\nYayoi Kusama,abstract art,feminist art\nStan Lee,publisher,comics\nChuck Close,contemporary art,portrait\nAlbert Edelfelt,realism,painter\nMark Seliger,photographer\nEugene Delacroix,landscape art,romanticism\nJohn Lavery,painter,portrait\nTheo van Rysselberghe,neo-impressionism,painter\nMarc Chagall,landscape art,religious art\nRolf Armstrong,painter\nBrent Heighton\nA.J.Casson\nEgon Schiele,landscape art,allegory\nMaximilien Luce,painter,pointillism\nGeorges Seurat,landscape art,genre painting\nGeorge Frederic Watts,symbolism,academic art\nArthur Hughes,pre-raphaelite brotherhood,painter\nAnton Mauve,hague school,painter\nLucian Freud,school of london,landscape art\nJessie Willcox Smith,illustrator\nLeonardo Da Vinci,high renaissance,painter\nEdward John Poynter,history painting,painter\nBrooke Shaden,photographer\nJ.M.W. Turner,landscape art,marine art\nWassily Kandinsky,abstract art,graphics\nWes Anderson,film director\nJean-Honoré Fragonard,landscape art,painter\nAmanda Clark,researcher\nTom Roberts,artist,heidelberg school\nAntonello da Messina,portrait painting,early renaissance\nMakoto Shinkai,animated film,film director\nHayao Miyazaki,film director\nSlim Aarons,photographer\nAlfred Stevens,realism,painter\nAlbert Lynch,genre painting,painter\nAndre Kohn\nDaniel Garber,landscape art,painter\nJacek Yerka,painter,surrealism\nBeatrix Potter,fairy tale,writer\nRene Magritte,cityscape,landscape art\nGeorgia O’Keeffe,abstract art,floral painting\nIsaac Levitan,realism,painter\nFrank Lloyd Wright,architect\nGustave Moreau,mythological painting,sculptor\nFord Madox Brown,pre-raphaelite brotherhood,painter\nAi Weiwei,conceptual art,installation art\nTim Burton,film director\nAlfred Cheney Johnston,photographer\nDuy Huynh\nMichael Parkes,researcher\nTintoretto,painter\nArchibald Thorburn,painter\nAudrey Kawasaki,painter\nGeorge Lucas,film producer,speculative fiction film\nArthur Streeton,landscape art,painter\nAlbrecht Durer,mythological painting,landscape art\nAndrea Kowch,painter\nDorina Costras\nAlex Ross,comics artist\nHasui Kawase,shin-hanga,landscape art\nLucas Cranach the Elder,mythological painting,german renaissance\nBriton Rivière,academic art,painter\nAntonio Mora,researcher\nMandy Disher\nHenri-Edmond Cross,painter,neo-impressionism\nAuguste Toulmouche,genre painting,painter\nHubert Robert,pre-romanticism,landscape art\nSyd Mead,designer,neo-futurism\nCarl Spitzweg,post-romanticism,painter\nAlyssa Monks,painter,portrait\nEdward Lear,landscape art,writer\nRalph McQuarrie,artist\nSailor Moon\nSimon Stalenhag,artist\nEdward Robert Hughes,painter\nJules Bastien-Lepage,painter,potato\nRichard S. Johnson,impressionism,painter\nRockwell Kent,landscape art,painter\nSparth\nArnold Böcklin,landscape art,portrait\nLovis Corinth,mythological painting,landscape art\nArnold Bocklin,landscape art,portrait\nRobert Hagan,naval officer\nGregory Crewdson,photographer\nThomas Benjamin Kennington,genre painting,painter\nAbbott Handerson Thayer,landscape art,painter\nGilbert Stuart,portrait,painter\nLouis Comfort Tiffany,artist,art nouveau\nRaphael Lacoste,art director\nJean Marc Nattier,history painting,painter\nJanek Sedlar,photographer\nSherree Valentine Daines,visual artist\nAlexander Jansson,illustrator\nJames Turrell,land art,light and space\nAlex Grey,figurative art,performance artist\nHenri De Toulouse Lautrec,genre painting,animal painting\nAnton Pieck,painter\nRamon Casas,impressionism,painter\nAndrew Atroshenko\nAndy Kehoe\nAndreas Achenbach,landscape art,painter\nH.P. Lovecraft\nEric Zener,painter\nKunisada,utagawa school,ukiyo-e artist\nJimmy Lawlor,association football player\nQuentin Tarantino,action film,actor\nMarianne North,landscape art,floral painting\nVivienne Westwood,designer,punk counterculture\nTom Bagshaw\nJeremy Lipking,painter\nJohn Martin,romanticism,landscape art\nCindy Sherman,artsy artist id,feminist art\nScott Listfield\nAlexandre Cabanel,genre painting,academic art\nArthur Rackham,fairy painting,painter\nArthur Hacker,painter,portrait\nHenri Fantin Latour,realism,mythological painting\nMark Ryden,painter\nPeter Holme III\nTed Nasmith,artist\nBill Gekas,photographer\nPaul Strand,photographer\nAnne Stokes,artist,illustrator\nDavid Teniers the Younger,mythological painting,landscape art\nAlan Lee,painter\nEd Freeman,helicopter pilot\nAndrey Remnev,iconographer\nAlasdair McLellan,photographer\nBotero,figurative art,allegory\nVittorio Matteo Corcos,portrait painting,genre painting\nEd Mell,painter\nWorthington Whittredge,painter\nJakub Różalski,illustrator\nAlex Gross,painter\nEdward Weston,photographer\nIlya Kuvshinov,artist\nFrancisco De Goya,mythological painting,romanticism\nBalthus,landscape art,surrealism\nJ.C. Leyendecker\nNathan Wirth\nAlbert Goodwin,painter\nFerdinand Hodler,symbolism,painter\nCharles Spencelayh,genre painting,painter\nLouise Dahl-Wolfe,photographer\nAmy Judd,researcher\nKitagawa Utamaro,ukiyo-e artist,ukiyo-e\nIgor Zenin\nCarlo Crivelli,painter,gothic art\nEdmund Leighton,genre painting,pre-raphaelite brotherhood\nBjarke Ingels,architect\nDiego Velázquez,mythological painting,landscape art\nBernardo Bellotto,cityscape,landscape art\nJohn Singleton Copley,portrait painting,artist\nHorace Vernet,landscape art,romanticism\nHiroshi Yoshida,association football player\nWalter Crane,symbolism,painter\nAnka Zhuravleva\nRobert Mcginnis,painter\nJohn Wilhelm\nAnna Dittmann\nBo Bartlett,realism,painter\nMichal Karcz\nMort Kunstler,painter\nAdrianus Eversen,painter\nBrad Kunkle\nBella Kotak\nPaul Delvaux,painter\nVicto Ngai,illustrator\nAbbott Fuller Graves,realism,painter\nPatrice Murciano\nAlexandre Calame,landscape art,painter\nBob Byerley\nCicely Mary Barker,painter\nKadir Nelson,graphic designer\nKengo Kuma,architect\nBrothers Grimm\nJovana Rikalo\nMalcolm Liepke\nBert Stern,photographer,portrait\nAlice Neel,cityscape,landscape art\nMoebius,western film,comics\nAlex Colville,painter\nAndreas Franke,volleyball player\nGjon Mili,photographer\nArthur Wardle,painter\nAlan Bean,military officer\nErnst Ludwig Kirchner,landscape art,genre painting\nKevin Sloan,association football player\nMiho Hirano\nRuss Mills\nBoris Kustodiev,genre art,painter\nAndrea Mantegna,mythological painting,allegory\nHsiao-Ron Cheng\nCarl Holsoe,painter\nJeff Goldblum,western,television actor\nTadao Ando,boxer\nTibor Nagy,researcher\nCharles-Francois Daubigny,painter,landscape art\nJacob Lawrence,genre painting,figure painting\nAndre Derain,landscape art,fauvism\nBert Hardy,photographer\nÉlisabeth Vigée Le Brun,rococo,portrait\nJeremy Geddes,painter\nPeter Wileman,visual artist\nAry Scheffer,history painting,painter\nColes Phillips,artist\nFrancis Bacon,figurative art,surrealism\nOlafur Eliasson,abstract art,installation artwork\nEric Wallis,researcher\nAlexander Millar,librarian\nAndre Kertesz,photographer\nPeter Mohrbacher\nJean-Michel Basquiat,figurative art,biography.com\nAkseli Gallen-Kallela,symbolism,romanticism\nGeorge Tooker,painter\nStevan Dohanos,painter\nDiane Arbus,portrait photography,photographer\nSofonisba Anguissola,genre painting,portrait\nJames Abbott McNeill Whistler,landscape art,marine art\nIgor Morski\nRay Caesar,painter\nPierre Bonnard,landscape art,tate artist id\nHelene Schjerfbeck,painter,naturalism\nGerda Wegener,painter,portrait\nPaolo Veronese,venetian school,allegory\nPieter Bruegel The Elder,landscape art,northern renaissance\nAnne-Louis Girodet,mythological painting,romanticism\nJohn Duncan,neurologist\nPaul Corfield\nGaston Bussière,symbolism,painter\nFlora Borsi,artist\nHoward Pyle,writer,brandywine school\nEduardo Kobra,street artist\nEdwin Henry Landseer,romanticism,landscape art\nOdd Nerdrum,painter\nAlberto Giacometti,abstract art,landscape art\nEdmund Dulac,painter,orientalism\nTakashi Murakami,figurative art,sculptor\nJohn Currin,painter,contemporary art\nRobert McCall,ice dancer\nArtemisia Gentileschi,mythological painting,portrait\nGuo Pei,fashion designer\nBartolome Esteban Murillo,genre painting,baroque painting\nRaja Ravi Varma,painter,portrait\nAdrian Smith,heavy metal guitarist,heavy metal\nHonoré Daumier,caricature,figure\nRemedios Varo,landscape art,surrealism\nErnst Haeckel,biologist\nBess Hamiti\nMarie Spartali Stillman,landscape art,pre-raphaelite brotherhood\nAlbert Marquet,painter,fauvism\nJeanloup Sieff,photographer\nIsmail Inceoglu\nBerndnaut Smilde,sculptor\nDonato Giancola,science fiction,painter\nGuillermo del Toro,psychological thriller,horror film\nBill Brandt,symbolism,photographer\nSantiago Calatrava,high-tech architecture,sculptor\nMarco Mazzoni,artist\nCyril Rolando\nCraig Davison\nRichard Burlet\nVictor Nizovtsev,painter\nRoger Dean,illustrator\nNorman Foster,architect,high-tech architecture\nJoseph Lorusso\nAron Wiesenfeld,comics artist\nZinaida Serebriakova\nMarc Simonetti,illustrator\nJames Paick\nSam Spratt\nAndreas Rocha\nJames Jean,painter\nMichael Whelan,illustration,fantastic realism\nM.C. Escher,abstract art,cityscape\nFrank Frazetta,painter,fantasy art\nSerge Marshennikov,painter\nLouis Icart,painter\nAlberto Vargas,painter\nFrank Gehry,architect,postmodern architecture\nFrederick McCubbin,landscape art,painter\nJohn Howe,illustrator\nShaun Tan,writer\nDora Maar,photographer,surrealism\nGiorgio De Chirico,abstract art,cityscape\nGeorges de La Tour,classicism,genre painting\nAnthony Thieme,painter\nAlex Andreev,painter\nThomas Saliot\nLouis Janmot,painter\nLaurie Lipton,artist\nHyacinthe Rigaud,portrait,baroque painting\nAlson Skinner Clark,landscape art,painter\nMikhail Nesterov,landscape art,religious art\nKonstantin Korovin,painter,still life\nOtto Dix,mythological painting,landscape art\nIain Faulkner,painter\nAlfred Munnings,painter\nCasey Weldon,american football player\nKarol Bak,painter\nAntony Gormley,figurative art,contemporary art\nRebeca Saray\nAntoni Gaudi,catalan modernism,architect\nHenry Asencio,painter,portrait\nCarrie Mae Weems,social-artistic project,installation art\nBrent Cotton\nKim Keever,artist\nThomas Allom,architect\nGabriele Münter,cityscape,portrait\nJohann Wolfgang von Goethe,theatre manager,sturm und drang\nPiet Mondrian,abstract art,landscape art\nJohn James Audubon,landscape art,animal painting\nJessica Rossier\nAdolph Menzel,realism,painter\nThomas Blackshear,painter\nPaul Klee,abstract art,surrealism\nKazimir Malevich,abstract art,figurative art\nIan McQue\nBruce Pennington,painter\nMichael Carson,researcher\nEugene von Guerard,painter\nMichelangelo Merisi Da Caravaggio,genre painting,painter\nJean Fouquet,renaissance,painter\nSou Fujimoto,architect\nNaoto Hattori\nCarl Gustav Carus,landscape art,botanist\nSimeon Solomon,pre-raphaelite brotherhood,history painting\nTyler Shields,photographer\nMax Ernst,abstract art,dada\nAnnibale Carracci,genre painting,painter\nKelly Vivanco\nFrederic Church,landscape art,painter\nNick Knight,photographer\nPeter Gric,painter,surrealism\nTristan Eaton,muralist\nAlex Timmermans\nKate Greenaway,painter\nArthur Lismer,painter\nThéodore Géricault,romanticism,painter\nPieter de Hooch,landscape art,genre painting\nJohn Salminen,landscape art,painter\nStephan Martiniere,artist\nMax Dupain,photographer\nCoby Whitmore,illustrator\nEdwin Austin Abbey,art of painting,painter\nFilippino Lippi,italian renaissance,painter\nAnish Kapoor,abstract art,contemporary art\nMax Weber,jurist\nBen Aronson,abstract expressionism,painter\nIrma Stern,modern art,genre painting\nJohn Berkey,painter\nBeeple,visual artist\nJC Leyendecker\nVhils,muralist\nPaul Henry,painter\nDan Witz,painter\nDora Carrington,painter,bloomsbury group\nPeter Max,graphics,batik\nFrancis Coates Jones,painter\nFernand Toussaint,painter\nAlbert Joseph Moore,symbolism,painter\nAtey Ghailan\nJean Nouvel,architect\nDavid Burdeny,photographer\nBrian M. Viveros\nSacha Goldberger,photographer\nOlivier Valsecchi\nHenry Moore,abstract art,figurative art\nZack Snyder,film director\nROA\nJeremiah Ketner\nLouise Bourgeois,abstract art,assemblage\nJean-Antoine Watteau,fête galante,painter\nAlbert Watson,photographer\nArt Frahm,painter\nDavid Ligare,painter\nBrian Kesinger,animator\nJames C Christensen,researcher\nPhil Noto,comics artist\nMarsden Hartley,abstract art,dada\nFranz Marc,abstract art,landscape art\nHerbert List,photographer\nAykut Aydogdu\nAlexej von Jawlensky,cityscape,landscape art\nJohn La Farge,painter,portrait\nTom Lovell,painter\ntokyogenso\nDr. Seuss,fairy tale,writer\nNC Wyeth\nLeonora Carrington,mythological painting,painter\nWill Barnet,painter\nElizabeth Gadd,researcher\nBoris Grigoriev,painter,russian avant-garde\nJacob van Ruisdael,landscape art,painter\nAlberto Seveso\nPatrick Brown,biochemist\nSean Yoro\nNoah Bradley,artist\nLoish,illustrator\nIvan Bilibin,illustrator,book illustration\nRoy Lichtenstein,pop art,still life\nJeffrey T. Larson\nUmberto Boccioni,landscape art,figurative art\nViktor Vasnetsov,symbolism,history painting\nBordalo II,painter\nJuan Gris,abstract art,figurative art\nRyan McGinley,photographer,contemporary art\nBoris Vallejo,science fiction art,painter\nWilliam Etty,painter\nAnton Raphael Mengs,painter,portrait\nPierre Puvis de Chavannes,symbolism,history painting\nJohn French Sloan,landscape art,ashcan school\nAugustus John,enciclopedia universal ilustrada europeo-americana,volume\nArthur Tress,photographer\nJames Ensor,cityscape,portrait\nMike Worrall,visual artist\nKonstantin Yuon,painter,landscape art\nAndreas Gursky,artist\nJohn Bauer,painter\nAlessio Albi\nGreg Hildebrandt,illustrator\nJames Gilleard\nPaul Ranson,symbolism,painter\nPawel Kuczynski,caricature,painter\nAlessandro Allori,allegory,religious art\nAlfred Parsons,botanical illustrator\nJohn Frederick Kensett,painter,landscape art\nAlex Prager,photographer\nAaron Jasinski\nJoel Meyerowitz,photographer\nLiam Wong,researcher\nRaymond Leech,botanist\nBrian Froud,painter\nReginald Marsh,painter,urban art\nGediminas Pranckevicius\nAlex Katz,landscape art,figurative art\nCharles Camoin,painter,portrait\nEmmanuelle Moureaux,architect\nJeff Koons,tate artist id,conceptual art\nChris Moore,illustrator\nAlfred Augustus Glendening,landscape art,painter\nMead Schaeffer,painter\nFilip Hodas\nGeorg Jensen,designer,art nouveau\nHoward Chandler Christy,landscape art,artist\nCarel Willink,magic realism,painter\nAlejandro Burdisio\nEdwin Deakin,landscape art,painter\nDan Mumford\nSandy Skoglund,photographer\nWilliam Hogarth,realism,genre painting\nMaria Kreyn\nDean Cornwell,realism,painter\nAubrey Beardsley,symbolism,aestheticism\nBastien Lecouffe-Deharme,photographer\nJean Metzinger,figurative art,landscape art\nWilliam Wegman,photographer\nClara Peeters,painter,still life\nPaul Gustav Fischer,cityscape,realism\nJeff Legg\nRoss Tran,visual artist\nKoson Ohara,printmaker,nihonga\nSandra Chevrier,contemporary artist\nAbraham Pether,painter\nJamie Hawkesworth,photographer\nOdilon Redon,landscape art,allegory\nIwan Baan,photographer\nGiuseppe de Nittis,painter\nCraig Mullins,illustrator\nEmilia Wilk\nSkottie Young,illustrator\nFrancis Picabia,abstract art,dada\nÉmile Bernard,cityscape,mythological painting\nAnne Packard\nAlex Alemany,painter\nAlan Kenny\nGerhard Richter,abstract art,cityscape\nEugène Grasset,symbolism,type designer\nBernard Buffet,landscape art,painter\nAnatoly Metlan\nSir James Guthrie,painter,portrait\nWilliam Henry Hunt,painter,portrait\nAndre De Dienes,photographer\nKay Nielsen,figurative art,sculptor\nAlain Laboile,photographer\nAlex Maleev,comics artist\nAdrian Donoghue\nDamien Hirst,assemblage,vanitas\nAaron Douglas,actor\nBen Goossens,photographer\nMike Campau\nThomas Dodd,biographer\nFrank Holl,painter,portrait\nLyonel Feininger,painter,expressionism\nAdriaen van Ostade,genre painting,painter\nChesley Bonestell,illustrator\nCarlos Schwabe,symbolism,painter\nChen Zhen,visual artist\nAndo Fuchs\nDouglas Smith,singer\nHikari Shimoda\nLuis Royo,painter,fantasy\nJohn Harris,publisher\nChris Leib\nFrederick Lord Leighton,mythological painting,allegory\nRebecca Louise Law,installation artist\nMax Beckmann,mythological painting,landscape art\nTomasz Alen Kopera,painter\nYanjun Cheng\nRaymond Swanland\nClive Madgwick,painter\nHendrik Kerstens,photographer\nRick Guidice\nJason Edmiston\nJim Lee,comics artist\nMatthias Jung,researcher\nHenry Moret,impressionism,painter\nAnne Bachelier,artist\nMary Blair,illustrator\nTove Jansson,novel,painter\nPeter Zumthor,architect\nRuth Bernhard,photographer\nChiharu Shiota,installation art,installation artist\nRaphaelle Peale,still life,painter\nHans Baldung,german renaissance,portrait\nAlois Arnegger,painter\nJames Gurney,illustrator\nPeter Sculthorpe,composer,opera\nElizabeth Shippen Green,illustrator\nEverett Raymond Kinstler,painter,portrait\nEdward Atkinson Hornel,painter\nGeorge Luks,painter,retrieved\nHendrick Avercamp,painter\nHarriet Backer,art of painting,graphics\nRyohei Hase,baseball player\nJoe Webb,american football player\nBrian Despain,artist\nChristophe Vacher,background artist\nAnton Corbijn,film director\nGeorge Grosz,dada,new objectivity\nCharles Dana Gibson,illustrator,portrait\nMark Brooks,researcher\nArmand Point,symbolism,painter\nJasmine Becket-Griffith,artist\nAmbrosius Benson,northern renaissance,painter\nGiuseppe Arcimboldo,allegory,religious art\nWadim Kashin\nKent Monkman,artist\nSusan Seddon Boulet\nPieter Aertsen,renaissance,history painting\nBeth Conklin\nBrian Mashburn,film actor\nUemura Shoen,painter,nihonga\nAlfred Guillou,q62090257,painter\nEvgeni Gordiets,painter\nDavid Inshaw,pop art,painter\nPieter Claesz,painter,still life\nAlvin Langdon Coburn,photographer\nJean Delville,symbolism,painter\nAugustus Edwin Mulready,genre painting,painter\nWim Wenders,new german cinema,film director\nAlex Garant\nChaïm Soutine,portrait painting,landscape art\nRebecca Guay,painter\nMartine Johanna\nHope Gangloff,painter,contemporary art\nEero Saarinen,modernism,architect\nAlan Moore,comics,comics writer\nCuno Amiet,painter,pont-aven school\nDavid Choe,painter\nBrett Weston,photographer\nJulie Bell,painter\nJames Montgomery Flagg,artist\nNeil Welliver,painter\nHenry Fuseli,romanticism,fairy painting\nMichael Sowa,researcher\nEmil Nolde,landscape art,watercolor\nRobert S. Duncanson,landscape art,portrait\nJackson Pollock,abstract art,abstract expressionism\nJean Giraud,western film,comics\nAndy Fairhurst\nAlan Schaller\nEsao Andrews,painter\nDaniel Buren,painter\nAnton Semenov,researcher\nFairfield Porter,painter\nGeorge Stubbs,landscape art,romanticism\nCraola\nHilma AF Klint,abstract art,landscape art\nAkos Major,judge\nMark Lovett,basketball player\nChristopher Balaskas\nMati Klarwein,painter,surrealism\nDavid A. Hardy,illustrator\nPeter Howson,genre painting,contemporary art\nBarkley L. Hendricks,painter,contemporary art\nItō Jakuchū,painter\nWilliam S. Burroughs,writer,science fiction\nFernand Khnopff,symbolism,painter\nAlexei Harlamoff,painter,portrait\nDan Flavin,installation art,minimalism\nGrace Cossington Smith,painter\nAndrew Ferez\nRobert Irwin,light and space,painter\nBruno Walpoth,sculptor\nErnst Haas,photographer\nPeter Kemp,swimmer\nJaume Plensa,digital art,figurative art\nKathryn Morris Trotter\nArthur Sarnoff,illustrator\nSimon Birch,buddy film,drama film\nDale Chihuly,abstract art,contemporary art\nKaren Wallis\nAntonio Donghi,magic realism,landscape art\nMarianne von Werefkin,symbolism,painter\nRyan Hewett\nAlice Pasquini,artist\nJoan Miró,abstract art,graphics\nHelene Knoop,painter\nMike Mignola,comics artist\nLarry Elmore,comics artist\nArtem Chebokha\nGiotto Di Bondone,mythological painting,allegory\nRichard Misrach,photographer\nMartin Deschambault\nAlessandro Gottardo,comics artist\nAgostino Arrivabene,painter\nZdzisław Beksiński,painter\nGareth Pugh,fashion designer\nKelly Mckernan\nAdi Granov,comics artist\nDebbie Criswell\nArtur Bordalo,painter\nAmanda Sage,painter\nMarek Okon\nAlfred Henry Maurer,modernism,painter\nSilvestro Lega,realism,painter\nSakai Hōitsu,painter,rimpa school\nElsa Beskow,children’s literature,writer\nMichelangelo Buonarroti,sculptor,high renaissance\nJosh Keyes,american football player\nBen Shahn,photographer,social realism\nAntonio Canova,mythological painting,figurative art\nMikhail Vrubel,symbolism,painter\nBeauford Delaney,painter,harlem renaissance\nHugh Ferriss,architect\nTamara Lempicka,portrait,painter\nYves Klein,abstract art,figurative art\nAndy Goldsworthy,land art,photographer\nAndroid Jones\nHarry Clarke,arts and crafts movement,painter\nLiu Ye,actor\nFrank Miller,film director\nMichael Hutter,actor\nRoberto Ferri,painter\nKay Sage,abstract art,landscape art\nErnie Barnes,painter\nAndré Lhote,painter,portrait\nAuguste Herbin,painter,oxford dictionary of modern and contemporary art\nHiroshi Sugimoto,figurative art,contemporary art\nJon Whitcomb,military officer\nChris Foss,painter\nMarina Abramović,conceptual art,performance artist\nMark Rothko,abstract art,painter\nAlbert Gleizes,landscape art,section d’or\nJoseph Stella,landscape art,religious art\nJoey Chou\nJane Newland\nCatherine Hyde\nBertil Nilsson,association football player\nPaul Lehr,painter\nTakato Yamamoto,painter\nGoro Fujita,go professional\nRobert Vonnoh,painter,portrait\nBilly Childish,garage punk,poet\nYasutomo Oka\nJames Thomas Watts,painter\nMartin Ansin\nZeen Chin\nKen Kelly,speculative fiction,painter\nJosan Gonzalez\nBrian K. Vaughan,screenwriter\nKobayashi Kiyochika,mangaka,ukiyo-e\nHugh Kretschmer\nBen Quilty,painter,portrait\nFenghua Zhong\nBettina Rheims,photographer\nAleksey Savrasov,realism,landscape art\nAlice Bailly,painter\nAdam Hughes,comics artist\nBernardo Strozzi,painter\nFranklin Booth,artist\nGreg Girard,photographer\nAnna Bocek\nNatalia Goncharova,futurism,painter\nGifford Beal,painter\nPaul Chadeisson,concept artist\nAdolf Hirémy-Hirschl,painter\nLori Earley,painter\nF Scott Hess\nDorothea Tanning,figurative art,painter\nJasper Johns,abstract art,figure\nSaul Steinberg,comics artist\nGrayson Perry,figurative art,artist\nFerdinand Knab,painter\nMickalene Thomas,painter,contemporary art\nConstantin Brancusi,abstract art,tinerimea artistică\nTokujin Yoshioka,designer\nBill Medcalf\nMark Arian\nAfarin Sajedi,artist\nTomer Hanuka,cartoonist\nJason Chan,researcher\nCassius Marcellus Coolidge,painter\nAntonio Mancini,painter,portrait\nMartiros Saryan,graphics,illustration\nLee Madgwick\nTim Doyle,screenwriter\nLes Edwards,painter\nFabio Hurtado,painter\nTim Hildebrandt,painter\nSonia Delaunay,abstract art,landscape art\nCharles Angrand,incoherents,portrait\nLoretta Lux,photographer\nKawanabe Kyōsai,painter\nKeith Haring,figurative art,contemporary art\nAmandine Van Ray\nLisa Keene,painter\nAlphonse Osbert,symbolism,painter\nStorm Thorgerson,photographer\nAnnie Soudain\nBill Jacklin,painter\nBill Ward,drummer,hard rock\nKilian Eng,dramaturge\nSamuel Melton Fisher,painter\nHaddon Sundblom,painter\nRodney Matthews,artist\nGeorge French Angas,explorer\nBruce Munro,lighting designer\nAlastair Magnaldo\nEllen Jewett\nWilliam Stout,painter\nJulie Blackmon,photographer\nAlena Aenami\nC. R. W. Nevinson,ambulance driver,landscape art\nLois van Baarle,illustrator\nApollinary Vasnetsov,landscape art,history painting\nSamuel Earp\nSaturno Butto,painter\nRichard Dadd,landscape art,marine art\nAnja Percival,visual artist\nMichal Lisowski\nTara McPherson,illustrator\nPaula Modersohn-Becker,painter,expressionism\nKlaus Wittmann,translator\nAnnie Swynnerton,painter\nDaniel Merriam,geologist\nIda Rentoul Outhwaite,illustrator\nRobert Farkas,researcher\nNicolas Mignard,mythological painting,painter\nAnselm Kiefer,abstract art,landscape art\nRon Mueck,figurative art,artist\nRobert Rauschenberg,assemblage,museum of modern art online collection\nGeorge Ault,painter,precisionism\nRobby Cavanaugh\nHieronymus Bosch,northern renaissance,genre painting\nHale Woodruff,painter\nAndrei Markin,politician\nDavid Bomberg,painter,vorticism\nAnni Albers,designer\nGrandma Moses,naïve art,folk art\nVictor Vasarely,abstract art,kinetic art\nRobert Williams,hip hop music,trap music\nDiego Dayer\nBob Eggleton,artist\nReylia Slaby\nEric Fischl,painter\nBill Carman\nArthur Boyd,landscape art,figurative art\nAustin Osman Spare,symbolism,artist\nFaith Ringgold,artsy artist id,painter\nAlan Parry,sports commentator\nOskar Kokoschka,landscape art,painter\nScarlett Hooft Graafland,photographer\nMary Anning,paleontologist\nAnna and Elena Balbusso\nSydney Prior Hall,painter,portrait\nNikolai Ge,russian symbolism,history painting\nAristarkh Lentulov,painter,post-impressionism\nBayard Wu\nJesper Ejsing\nRichard Doyle,fairy painting,retrieved\nBrett Whiteley,painter\nArthur Dove,painter\nGwen John,painter,portrait\nRichard Lindner,pop art,new figuration\nKaws\nBenedick Bana\nAndreas Levers\nZanele Muholi,photographer\nMaurice Sendak,graphic designer\nBridget Riley,abstract art,artsy artist id\nBill Viola,new media art,video art\nNorman Ackroyd,painter\nJohn Anster Fitzgerald,fairy painting,painter\nBrothers Hildebrandt\nAlexandr Averin\nCharles E. Burchfield,painter\nRichard Diebenkorn,abstract art,abstract expressionism\nAlbert Dubois-Pillet,painter,pointillism\nThomas Rowlandson,romanticism,caricaturist\nFrank Stella,abstract expressionism,shaped canvas\nRobert Antoine Pinchon,painter,landscape art\nGertrude Abercrombie,landscape art,surrealism\nHendrick Goltzius,history painting,painter\nLudwig Mies van der Rohe,modernism,architect\nYves Tanguy,abstract art,painter\nStephen Shore,photographer\nConrad Roset,illustrator\nWilliam Eggleston,photographer\nCandido Portinari,modern art,painter\nJamie Baldridge,artist\nSalomon van Ruysdael,landscape art,painter\nEdward Gorey,writer\nJack Kirby,superhero comics,science fiction\nEddie Mendoza\nArnold Schoenberg,serialism,20th-century classical music\nMargaret Macdonald Mackintosh,painter,art nouveau\nTatsuro Kiuchi\nOs Gemeos\nCharles Schulz,cartoonist\nMike Mayhew,painter,stuckism\nCharles Vess,artist,retrieved\nDustin Nguyen,actor\nPiet Hein Eek,designer\nPieter Jansz Saenredam,painter\nAlvaro Siza,architect\nRuan Jia\nSue Bryce\nVirgil Finlay,illustrator\nNicolas Delort,visual artist\nAtelier Olschinsky\nTracey Emin,installation art,sales representative\nZhichao Cai\nIsaac Cordal,sculptor\nShohei Otomo,artist\nTyler Edlin,artist\nErich Heckel,painter,expressionism\nDave Dorman,illustrator\nTom Whalen,politician\nJean Bourdichon,engraver\nJim Davis,cartoonist\nFang Lijun,painter\nIvan Albright,portrait,figure\nBarbara Hepworth,abstract art,catalan modernism\nHans Baluschek,painter,expressionism\nMilo Manara,comics,comics artist\nMilton Glaser,designer\nTim White,historical novel,fantasy\nYasuo Kuniyoshi,still life,catalan modernism\nAlexandre Benois,painter\nYinka Shonibare,contemporary art,photographer\nAlex Russell Flint\nEmmanuel Shiu\nJamie McKelvie,cartoonist\nAngela Barrett,researcher\nSimone Martini,sienese school,painter\nJoanna Kustra\nTravis Louie\nRaymond Briggs,writer\nJosé Clemente Orozco,genre painting,mural\nBojan Jevtic,researcher\nSean Scully,painter\nJózef Mehoffer,fribourg cathedral,portrait\nQuint Buchholz,author\nShaddy Safadi,artist\nPeter Elson,illustrator\nHayv Kahraman,painter\nJed Henry\nJohn Atherton,priest\nAdam Elsheimer,painter\nBijou Karman\nRay Donley,artist\nQuentin Blake,children’s writer\nLouis Wain,artist\nFrank Auerbach,painter,contemporary art\nKrenz Cushart\nMasamune Shirow,animator\nLászló Moholy-Nagy,abstract art,painter\nRoger de La Fresnaye,painter,cubism\nClaude Cahun,artist,self-portrait\nKenne Gregoire,painter\nLouis Rhead,poster artist\nAliza Razell\nSatoshi Kon,animator\nAbigail Larson,cross-country skier\nAaron Siskind,photographer\nBrian Stelfreeze,cover artist\nStanley Donwood,artist\nAntanas Sutkus,photographer\nGustaf Tenggren,illustrator\nJean Jullien,illustrator\nRichard Eurich,painter\nPaul Wonner,abstract expressionism,painter\nRich Davies\nPaulus Potter,landscape art,genre painting\nWolf Kahn,painter\nLynd Ward,illustrator,wordless novel\nJustin Gerard,researcher\nWillem de Kooning,abstract art,abstract expressionism\nAlvar Aalto,architect\nHajime Sorayama,artist,erotic art\nJim Burns,painter\nJenny Saville,painter,nude\nDonald Judd,abstract art,artist\nNan Goldin,contemporary art,photographer\nDavid Finch,comics artist\nJeff Simpson,tennis player\nVictoria Crowe,painter\nAlexey Kurbatov,sport cyclist\nEdward Julius Detmold,artist\nFrancesca Woodman,artsy artist id,self-portrait\nRob Liefeld,editor\nAlbert Koetsier\nZhang Kechun,photographer\nDarren Bacon\nRandolph Caldecott,painter\nLady Pink,painter\nCharles Schridde\nBill Sienkiewicz,comics artist\nGiacomo Balla,futurism,painter\nAndreas Vesalius,anatomist\nEttore Tito,painter,portrait\nNaomi Okubo\nOctavio Ocampo,artist\nUb Iwerks,film director\nCharles Blackman,artist\nAnton Domenico Gabbiani,baroque,painter\nCory Loftis,animator\nRobert Crumb,cartoonist\nChris Ware,illustrator\nAnnick Bouvattier\nAmbrosius Bosschaert,still life,floral painting\nDaniela Uhlig\nJohn Philip Falter,painter\nThomas Struth,photographer\nIngrid Baars,photographer\nAdam Martinakis,artist\nJean Arp,abstract art,dada\nNobuyoshi Araki,figurative art,contemporary art\nRoger Ballen,photographer\nKäthe Kollwitz,figurative art,printmaker\nSantiago Caruso\nJacob Hashimoto,artist\nLaurie Greasley\nGuy Billout,caricaturist\nSaul Tepper,illustrator\nWill Eisner,comics artist\nCharles Le Brun,classicism,portrait\nJohn Wayne Gacy,clown\nViviane Sassen,contemporary art,photographer\nAbram Efimovich Arkhipov,realism,painter\nMax Pechstein,painter,expressionism\nJordan Grimmer\nMike Deodato,comics artist\nGreg Rutkowski\nBhupen Khakhar,painter\nDavid Palumbo,poster artist\nJeff Lemire,comics writer\nClemens Ascher\nÉmile Gallé,école de nancy,art nouveau\nCedric Peyravernay\nBrooke DiDonato\nWarren Ellis,journalist\nDarwyn Cooke,comics artist\nJerry Pinkney,writer\nCarl Barks,actor\nVictor Brauner,surrealism,symbolism\nAnne Mccaffrey,speculative fiction,writer\nAnton Otto Fischer,marine art,artist\nJohannes Voss,researcher\nRobert Maguire,painter\nAdrian Ghenie,modernism,painter\nMab Graves\nMeryl McMaster,painter\nRalph Horsley,artist\nAleksi Briclot,comics artist\nLaurel Burch,painter\nJoe Bowler\nLorenz Hideyoshi\nAnne Dewailly,visual artist\nGabriel Dawe,artist\nMagnus Enckell,symbolism,painter\nRaymond Duchamp-Villon,sculptor,cubism\nTony DiTerlizzi,fantastic fiction,juvenile sciencefiction\nGerhard Munthe,painter\nQian Xuan,painter\nKatsuhiro Otomo,manga,screenwriter\nMasaaki Sasamoto,painter\nDaryl Mandryk\nJean-Baptiste Monge,painter\nDavid Burliuk,russian futurism,poet\nRufino Tamayo,modernism,painter\nJoel Sternfeld,photographer\nAntonio J. Manzanedo\nCraig Wylie,painter\nAdonna Khare,artist\nChris Turnham\nAnne Sudworth,painter\nAlec Soth,photographer\nEmory Douglas,artist\nAristide Maillol,symbolism,les nabis\nAdam Paquette\nBrad Rigney\nMaximilian Pirner,painter\nWilliam Zorach,sculptor,cubism\nRichard Hamilton,pop art,painter\nPhil Jimenez,penciller\nGeorge Cruikshank,caricaturist,painter\nBill Brauer\nPascal Blanche,comics artist\nAngus McKie,illustrator\nLeonetto Cappiello,poster artist,portrait\nAnato Finnstark\nJuergen Teller,photographer\nJeff Wall,landscape art,contemporary art\nJeff Easley,painter\nCosta Dvorezky\nDon Maitz,illustrator\nFranz Sedlacek,magic realism,painter\nKelly Sue Deconnick,comics writer\nAlexandre-Évariste Fragonard,troubadour style,sculptor\nLeiji Matsumoto,film director\nAmir Zand\nAlbert Pinkham Ryder,landscape art,romanticism\nKris Kuksi,sculptor\nKeith Parkinson,painter\nKeith Negley\nAshley Wood,comics artist\nGeof Darrow,comics artist\nMike Winkelmann (Beeple)\nLarry Sultan,photographer\nGerald Brom,illustrator\nBruce Timm,comics artist\nPatrick Dougherty,researcher\nArthur Stanley Wilkinson,artist\nTakeshi Obata,mangaka\nGlen Orbik,comics artist\nPipilotti Rist,installation art,feminism\nQing Han,researcher\nAnton Fadeev\nChris Van Allsburg,writer\nEttore Sottsass,architect\nClaire Hummel\nTsutomu Nihei,mangaka\nJorge Jacinto,researcher\nZhelong Xu,researcher\nJosef Albers,abstract art,painter\nDaniel Clowes,cartoonist\nSteve Argyle,artist\nWilliam Kentridge,film director\nKim Jung Gi,comics artist\nArshile Gorky,abstract art,abstract expressionism\nJoe Jusko,artist\nDave McKean,comics,photographer\nAndrew Robinson,television actor\nTomi Ungerer,children’s literature,erotic literature\nKitty Lange Kielland,landscape art,painter\nDavid Driskell,artist\nBrandon Woelfel\nMark Briscoe,professional wrestler\nDiane Dillon,illustrator\nBryan Hitch,comics artist\nDean Ellis,illustrator\nSydney Edmunds\nJohannes Itten,painter,expressionism\nKelly Freas,illustrator\nEd Binkley\nAdrian Paul Allinson,painter\nYiannis Moralis,painter\nAxel Törneman,painter\nDmitry Kustanovich,landscape art,painter\nHonor C. Appleton,painter\nArtus Scheiner,painter\nJoseph Ducreux,painter,portrait\nTodd McFarlane,cartoonist\nDao Le Trong\nDoug Chiang,film director\nWilliam Gropper,lithographer\nStuart Immonen,comics artist\nRoberto Parada,actor\nAlex Howitt\nMichael Heizer,abstract art,land art\nLisa Frank,businessperson\nJunji Ito,writer,horror comics\nErnst Fuchs,architect\nJim Mahfood,comics writer\nGrace Popp\nAdrian Tomine,illustrator\nTom Hammick,visual artist\nCharles Gwathmey,architect\nMarie Guillemine Benoist,genre painting,neoclassicism\nThornton Oakley,painter\nRobert Motherwell,abstract art,painter\nIryna Yermolova\nBrian Bolland,comics artist\nJoe Madureira,comics artist\nArthur Adams,zoologist\nRené Lalique,goldsmith,art deco\nJon Klassen,writer\nPeter Doig,painter\nChad Knight,actor\nMarcin Jakubowski,researcher\nBill Henson,photographer\nJoe Fenton,artist\nAlexandre Jacovleff,neoclassicism,painter\nBlek Le Rat,police officer\nHou China\nTaiyō Matsumoto,mangaka\nDorothy Lathrop,writer\nGiovanni Battista Gaulli,painter,fresco painting\nSidney Nolan,retrieved,painter\nKieron Gillen,journalist\nJosh Kao\nKlaus Burgle,graphic designer\nJamie Hewlett,comics artist\nElenore Abbott,painter,art nouveau\nYoshitaka Amano,character designer\ntheCHAMBA\nAyami Kojima,engineer\nJan van Kessel the Elder,still life,floral painting\nTodd Schorr,painter\nBarbara Kruger,artsy artist id,conceptual art\nHiroshi Nagai,researcher\nApollonia Saintclair,illustrator,erotic art\nJake Parker,illustrator\nChris Saunders,visual artist\nYoji Shinkawa,illustrator\nAkihiko Yoshida,video game developer\nAnne Brigman,artsy artist id,photographer\nKarl Schmidt-Rottluff,impressionism,sculptor\nAlfred Kubin,symbolism,writer\nWinsor McCay,cartoonist\nIan Miller,archaeologist\nViktoria Gavrilenko\nDain Yoon\nVictor Adame Minguez\nPeter De Seve,artist\nFrank Tinsley,illustrator\nYue Minjun,painter\nJamini Roy,kalighat painting,folk art\nAlbert Tucker,retrieved,painter\nAlex Horley,comics artist\nYohann Schepacz\nAl Feldstein,journalist\nOlivier Bonhomme,researcher\nJoseph Cornell,film director\nGlenn Fabry,painter\nBen Templesmith,screenwriter\nAndré Masson,painter,surrealism\nEd Brubaker,comics writer\nBecky Cloonan,comics artist\nBarnett Newman,abstract art,color field\nW. Heath Robinson,comics artist\nMarc Davis,screenwriter\nRichard Deacon,actor\nBrian Sum,researcher\nOSGEMEOS\nJerry Siegel,comics writer\nWendy Froud,dollmaker\nChris Mars,artist,alternative rock\nNicola Samori,painter\nCamille Walala\nMaria Sibylla Merian,lepidopterist\nBarthel Bruyn the Elder,portrait painting,german renaissance\nMilton Caniff,comics artist\nAkira Toriyama,mangaka,fantasy\nJoe De Mers\nConor Harrington,painter\nPhilip Guston,abstract art,abstract expressionism\nElaine de Kooning,abstract art,painter\nSeb Mckinnon,artist\nKuang Hong\nBarry Windsor Smith,comics artist\nPaul Barson\nGeorges Rouault,symbolism,curator\nRuxing Gao\nEd Emshwiller,video artist\nAgnes Martin,abstract art,abstract expressionism\nRafał Olbiński,painter\nGreg Simkins,painter,lowbrow\nBernie Wrightson,comics artist\nLee Krasner,abstract art,painter\nPiotr Jabłoński,amateur wrestler\nAlejandro Jodorowsky,surrealism,writer\nJeannette Guichard-Bunel,painter\nJack Davis,cartoonist\nBridget Bate Tichenor,painter,surrealism\nJohn Bratby,painter\nSteven Belledin\nHelen Frankenthaler,abstract art,abstract expressionism\nNeil Boyle,researcher\nHannah Hoch,dada,photomontage\nYuri Ivanovich Pimenov,scenography,painter\nRalph Steadman,caricaturist\nTony Moore,penciller\nClyde Caldwell,illustrator,fantasy\nBruno Catalano,sculptor\nMéret Oppenheim,dada,assemblage\nAugust Friedrich Schenck,animal painting,landscape art\nKarl Blossfeldt,photographer,new objectivity\nMikhail Larionov,rayonism,neo-impressionism\nJean-Paul Riopelle,les automatistes,painter\nEd Roth,artist\nSiya Oum\nRoz Chast,cartoonist\nVincent Di Fate,artist\nJohfra Bosschart,magic realism,painter\nGiovanni Battista Piranesi,neoclassicism,landscape art\nPatrick Woodroffe,artist\nButcher Billy\nLucy Madox Brown,genre painting,pre-raphaelite brotherhood\nAlex Schomburg,painter\nAlex Figini\nGenndy Tartakovsky,film director\nJean Dubuffet,abstract art,outsider art\nBruce Nauman,installation art,postminimalism\nAlbert Bloch,painter,expressionism\nJulie Mehretu,abstract art,visual artist\nFrank Xavier Leyendecker,illustrator\nNikolina Petolas\nGwenda Morgan,printmaker\nDavid Shrigley,painter,contemporary art\nAlexander Archipenko,abstract art,sculptor\nAlexander Kanoldt,painter,expressionism\nWangechi Mutu,contemporary art,figure\nJennyBird Alcantara\nMat Collishaw,video recording,contemporary art\nDesmond Morris,retrieved,surrealism\nLaurent Grasso,artist\nDavid Wiesner,writer\nNicolas de Stael,abstract art,still life\nOgawa Kazumasa,photographer\nTyler West,television presenter\nSteve Dillon,comics artist\nJohn Stezaker,painter,contemporary art\nRon Walotsky,video game artist\nDon Bluth,film director\nScott Brundage\nAlexandre Antigna,realism,painter\nPamela Colman Smith,illustrator\nHeinrich Kley,caricaturist\nWayne Barlowe,novelist\nStuart Davis,american modernism,painter\nJillian Tamaki,comics artist\nAl Williamson,comics artist\nCagnaccio Di San Pietro,painter\nSarah Lucas,abject art,installation art\nBrice Marden,painter,minimalism\nBrenda Zlamany,painter\nJason A. Engle\nRafael Albuquerque,painter\nAffandi,painter,expressionism\nRobert Chew,researcher\nOsamu Tezuka,film director\nTerry Oakes\nLiang Mark\nAlex Toth,comics artist\nMarius Borgeaud,painter\nJohn Blanche,illustrator\nAnn Stookey\nE. H. Shepard,artist\nChip Zdarsky,comics artist\nJames Gillray,caricaturist\nJeffrey Catherine Jones,artist\nNaoki Urasawa,manga,mangaka\nEdouard Riou,painter,orientalist painting\nGiovanni Battista Venanzi,painter\nNagel Patrick\nVincent Tanguay\nDaniele Afferni\nBarthel Bruyn the Younger,portrait painting,painter\nChris Claremont,writer\nAsaf Hanuka,caricaturist\nShinji Aramaki,film director\nClara Miller Burd,glass artist\nEtienne Hebinger\nHaroon Mirza,visual artist,contemporary art\nMarjane Satrapi,screenwriter\nJohn Cassaday,comics artist\nArturo Souto,painter\nColin Geller\nGloria Stoll Karn,printmaker,portrait\nRobert Stivers,lawyer\nErnest Crichlow,painter,social realism\nJon McCoy,basketball player\nArt Spiegelman,comics artist\nFarel Dalrymple,cartoonist\nShintaro Kago,mangaka\nArt Fitzpatrick,animator\nMilton Avery,painter\nConstant Permeke,painter,expressionism\nAugust von Pettenkofen,landscape art,painter\nGuido Borelli Da Caluso,painter\nGaetano Pesce,architect\nPeter Milligan,screenwriter\nMargaret Mee,botanical illustrator\nBo Chen,researcher\nKate Beaton,cartoonist\nAlbert Eckhout,painter\nRichard Corben,graphic designer\nJack Butler Yeats,painter\nMao Hamaguchi\nHethe Srodawa\nHanna-Barbera\nLeon Kossoff,painter,expressionism\nHein Gorny,photographer\nChris Ofili,figurative art,painter\nClarence Holbrook Carter,painter\nNaoko Takeuchi,illustrator\nAmy Earles\nMikalojus Konstantinas Ciurlionis,western classical music,art nouveau\nJoao Ruas,visual artist\nAlgernon Blackwood,writer\nIssac Levitan\nMiriam Schapiro,abstract art,artsy artist id\nKaethe Butcher\nFerdinand Van Kessel,painter,flemish baroque painting\nEddie Campbell,comics artist\nBill Traylor,outsider art,painter\nEnki Bilal,comics artist\nHoward Finster,folk art,painter\nJun Kaneko,artist\nMatti Suuronen,architect\nAlbert Robida,journalist,science fiction\nCharles Liu,astrophysicist\nWillem van Haecht,baroque painting,painter\nAlan Davis,comics artist\nDavid Spriggs,sculptor\nSebastian Errazuriz,artist\nKentaro Miura,mangaka\nEileen Agar,painter,surrealism\nHal Foster,comics artist\nEmil Alzamora\nEleanor Vere Boyle,pre-raphaelite brotherhood,painter\nAbraham Mintchine,painter\nJan Brett,writer\nShin Jeongho,politician\nSimon Bisley,comics artist\nDariusz Zawadzki,association football player\nMarc Samson,music critic\nChantal Joffe,painter\nJulia Contacessi\nMatt Fraction,comics writer\nEthan Van Sciver,comics artist\nEmily Kame Kngwarreye,painter\nAnto Carte,painter\nSam Bosma,illustrator\nKevin Gnutzmans\nAmiet Cuno\nAlbrecht Anker,portrait painting,impressionism\nHarold McCauley\nSteve Lieber,penciller\nJim Woodring,cartoonist\nAllen Williams,actor\nGustave Buchet,painter\nTomokazu Matsuyama,contemporary artist\nEiichiro Oda,mangaka\nPatrick Heron,painter,contemporary art\nBarbara Takenaga,painter\nNoriyoshi Ohrai,illustrator\nL. Birge Harrison,painter\nTill Freitag\nJohn Kenn Mortensen,voice actor\nPascale Campion\nPosuka Demizu,illustrator\nBasil Gogos,illustrator\nGeorge Herriman,cartoonist\nOssip Zadkine,abstract art,abstraction\nDavid McClellan\nFrancisco Martín,researcher\nCliff Chiang,comics artist\nRoy Gjertson\nGustave Van de Woestijne,symbolism,painter\nLorena Alvarez Gómez\nAlessandro Barbucci,comics artist\nHeinrich Lefler,painter\nGo Nagai,mangaka\nDave Gibbons,comics artist\nArthur Radebaugh,illustrator\nChing Yeh,researcher\nChristian Dimitrov,racing driver\nAlayna Lemmer\nAlison Bechdel,cartoonist\nWilliam Steig,writer\nJacques Nathan-Garamond,painter\nAndrzej Sykut\nGuido Crepax,erotic comic,comics artist\nLarry Poons,painter\nMatt Groening,animator\nAlfredo Jaar,visual artist\nRonald Balfour,historian\nTan Zhi Hui,pop music,singer\nPhilippe Druillet,graphic designer\nBenoit B. Mandelbrot,mathematician\nStephen Oakley,classical philologist\nOskar Fischinger,painter\nEllen Gallagher,abstract art,figurative art\nFaith 47\nHenry Raleigh,artist\nEmma Geary,artist\nVictor Medina,association football player\nSheilah Beckett,illustrator\nAaron Horkey,graphic designer\nJudy Chicago,artsy artist id,feminist art\nAdolph Gottlieb,abstract art,painter\nDavid Aja,comics artist\nKati Horna,photographer\nNick Sharratt,writer\nLyubov Popova,singer\nÉtienne-Louis Boullée,schoolteacher\nAlma Thomas,abstract art,abstract expressionism\nMaxwell Boas\nArkhyp Kuindzhi\nAndre Norton,science fiction,fantasy\nBart Sears,comics artist\nThomas Visscher\nAlfred Heber Hutty,painter\nJean-Louis Prevost,neurologist\nBen Nicholson,abstract art,painter\nBarclay Shaw,artist\nHans Bellmer,painter,surrealism\nAyan Nag\nBrian Oldham\nStuart Haygarth\nWalter Percy Day,painter\nWojciech Ostrycharz\nKen Fairclough\nWalt Kelly,comics artist\nAlbert Servaes,painter,expressionism\nRavi Zupa\nJohn Whitcomb\nJeff Kinney,author\nMaria Pascual Alberich,drawer\nStephen Gammell,illustrator\nRoberto Matta,abstract art,painter\nMuxxi\nWalter Kim\nCarmen Saldana,researcher\nBoris Groh,visual artist\nAquirax Uno,painter\nGiovanni Battista Bracelli,painter\nAlberto Burri,assemblage,art of painting\nSteve Ditko,comics artist\nFilippo Balbi,painter\nJimmy Ernst,abstract expressionism,painter\nAlex Petruk\nWim Crouwel,type designer\nTeophilus Tetteh\nPatrick Caulfield,pop art,painter\nInio Asano,mangaka\nLeticia Gillett\nLiubov Sergeevna Popova,abstract art,cityscape\nRichard Scarry,children’s literature,writer\nBruce Coville,writer\nRichard McGuire,cartoonist,montreux jazz festival database\nPixar Concept Artists\nAlexis Gritchenko,painter\nW.W. Denslow,artist\nJan Pietersz Saenredam\nAndre-Charles Boulle,sculptor\nAlberto Sughi,painter\nRudolf Freund,mathematician\nMichael Deforge,comics artist\nCory Arcangel,digital art,musician\nAminollah Rezaei,poet\nAggi Erguna\nSangyeob Park\nNi Chuanjing\nHirohiko Araki,mangaka\nMatt Bors,comics artist\nBill Durgin\nShawn Coss\nBarry McGee,painter\nJ. J. Grandville,symbolism,caricaturist\nJames Stokoe,comics artist\nSaner Edgar\nEtel Adnan,painter,hurufiyya movement\nAngela Sung\nLuisa Russo,penciller\nAllison Bechdel\nSamuel and Joseph Newsom\nAnne Truitt,sculptor,minimalism\nMatthias Grünewald,religious art,figure\nMartin Kippenberger,abstract art,sculptor\nKen Sugimori,illustrator\nChristian Grajewski\nYasushi Nirasawa,illustrator\nKuno Veeber,sculptor,constructivism\nHerve Groussin\nRomero Britto,neo-pop,pop art\nJohn Perceval,painter\nAlberto Biasi,painter\nNoelle Stevenson,comics artist\nAlexander Fedosav\nBakemono Zukushi\nUl Di Rico\nTed Wallace,politician\nRayner Alencar\nAlexander Milne Calder,sculptor\nAbdel Hadi Al Gazzar,painter\nJacques Le Moyne,cartographer\nHoward Hodgkin,painter,contemporary art\nSqueak Carnwath,painter\nEd Benedict,animator\nAlfred Kelsner,illustrator\nJeffrey Smith art\nTeresa Ramos,researcher\nEwald Rübsamen,zoologist\nAsger Jorn,cobra,situationist international\nAl Capp,cartoonist\nAnne Rothenstein,painter\nJessica Woulfe\nMordecai Ardon,artist\nBernard Aubertin,textile artist\nAtay Ghailan\nBill Watterson,cartoonist\nAbed Abdi,ironworker\nHendrick Cornelisz Vroom,painter,marine art\nShusei Nagaoko\nAnita Malfatti,avant-garde,painter\nAgostino Tassi,landscape art,painter\nH. R. (Hans Ruedi) Giger\nRobert William Hume\nSanford Kossin\nJulien Delval,illustrator\nNorman Bluhm,abstract expressionism,painter\nHeinz Edelmann,designer\nIstvan Banyai,animator\nHans Arnold,illustrator\nStanislav Poltavsky\nKlaus Janson,comics artist\nEliott Lilly\nCharline von Heyl,abstract art,painter\nAlbert Kotin,abstract expressionism,painter\nAlex Hirsch,animator\nDerek Boshier,contemporary art,sculptor\nYang Jialun\nJan Luyken,engraver\nAmadou Opa Bathily\nTari Márk Dávid\nEarl Norem,painter\nShotaro Ishinomori,mangaka\nHelio Oiticica,abstract art,tropicália\nSusan Luo,researcher\nFrits Van den Berghe,painter,expressionism\nCharles Addams,illustrator\nWilfredo Lam,figurative art,painter\nSaul Bass,graphic designer\nMargaret Brundage,painter\nAlice Rahon,painter,surrealism\nLouis Glackens,caricaturist\nPeter Bagge,writer\nDavid B. Mattingly,painter\nBarbara Stauffacher Solomon,painter\nLynda Barry,cartoonist\nBojan Koturanovic\nNHK Animation\nAlexander Bogen,art of painting,painter\nOtto Marseus van Schrieck,baroque,painter\nGordon Browne,painter\nJohn Totleben,comics artist\nKasia Nowowiejska,illustrator\nSven Nordqvist,writer\nJhonen Vasquez,comics artist\nBriana Mora\nRaina Telgemeier,cartoonist\nPhilippe Parreno,visual artist\nOlga Skomorokhova\nJef Wu\nAi Yazawa,mangaka\nHenriette Grindat,photographer\nPatricia Polacco,writer\nAnja Millen\nRumiko Takahashi,mangaka\nBerend Strik,painter\nAndrew Whem\nChristopher Jin Baron\nBrandon Mably\nAron Demetz,sculptor\nAugustus Jansson,artist,art deco\nLee Quinones,graffiti artist\nRobert M Cunningham\nEphraim Moses Lilien,photographer\nRobert Neubecker\nNick Silva\nJaya Suberg\nVictor Moscoso,cartoonist\nPeter Andrew Jones,illustrator\nChris Cunningham,film director\nStan And Jan Berenstain,writer\nTex Avery,film director\nJoachim Brohm,photographer\nRobert Childress,illustrator\nYoshiyuki Tomino,mecha,film director\nGuerrilla Girls,photographer,feminist art\nJohn Hoyland,painter,contemporary art\nGiovanni da Udina\nRebecca Sugar,screenwriter\nElliot Lilly\nAgnes Lawrence Pelton,landscape art,painter\nYaacov Agam,abstract art,artist\nAshley Willerton\nEmil Ferris,comics artist\nToumas Korpi\nOllie Hoff\nJack Gaughan,illustrator\nClovis Trouille,restorer\nToei Animations\n“Friedensreich Regentag \n Dunkelbunt Hundertwasser”\nToshiharu Mizutani\nAmédée Guillemin,journalist\nJerzy Duda-Gracz,painter\nYayi Morales\nArthur Garfield Dove,painter\nAmedee Ozenfant,purism,painter\nRyan Stegman,comics artist\nMartin John Heade\nRETNA (Marquis Lewis)\nIncarcerated Jerkfaces\nVito Acconci,installation art,architect\nRene Laloux,animator\nWolfgang Tillmans,abstract art,contemporary art\nKurzgesagt\nAdriaen van Outrecht\nBruno Munari,futurism,artist\nStanisław Szukalski,painter\nJulian Calle,politician\nLesley Vance,painter\nSara Wollfalk\nHervé Guibert,journalist\nFernando Herenu\nAntonio Roybal,painter\nRaffaello Sanizo\nDeath Burger,slasher film,comedy horror\nKarel Appel,abstract expressionism,cobra\nAllie Brosh,comics artist\nKapwani Kiwanga,artist\nGeorge Dionysus Ehret\nWarwick Globe\nIgor Wolski\nAlpo Jaakola,painter\nRodríguez ARS\nSam Kieth,comics artist\nPaul Laffoley,artist\nGary Larson,cartoonist\nArik Brauer,poet\nNathan Coley,artist,contemporary art\nAntoine Verney-Carron\nBenedetto Caliari,painter\nLuca Boni,screenwriter\nM.W. Kaluta\nGeorg Karl Pfahler,sculptor\nAlbert Benois,painter\nBen Wooten\nMatias Hannecke\nMarcus Selmer,photographer\nJoan Tuset,painter\nLynda Benglis,abstract art,artsy artist id\nJuliana Huxtable,digital art,visual artist\nJane Graverol,painter\nAnthony Gerace\nAlberto Magnelli,concrete art,painter\nBen Hatke,comics artist\nAndréi Arinouchkine,penciller\nTerada Katsuya\nTomma Abts,painter\nAmy Sillman,painter\nChris Uminga\nAuguste Mambour,poster artist\nPhil Foglio,comics artist\nRussell Ayto,writer\nGalan Pang\nKazuo Koike,comics,screenwriter\nMaginel Wright Enright Barney,writer\nDick Bickenbach\nKarel Thole,painter\nAries Moross,graphic designer\nMargaux Valonia\nGianluca Foli,illustrator\nJulius Horsthuis,artist\nNele Zirnite,etcher\nMarat Latypov,researcher\nValerie Hegarty,conceptual art,installation art\n---",
+          "logit_bias": null,
+          "max_tokens": "inf",
+          "messages": "",
+          "model": "gpt-3.5-turbo-16k",
+          "n": 1,
+          "presence_penalty": 0,
+          "prompt": "",
+          "stop": "",
+          "stream": false,
+          "temperature": 0.3,
+          "top_p": 1,
+          "user": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2720,
+                "output": "style",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 2136,
+                "input": "artist",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          -695.8050067269295,
+          -192.7100218112076
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "442": {
+        "id": 442,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2136,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          -144.83066447708,
+          610.1358641590755
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "445": {
+        "id": 445,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2721,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1115.353251665907,
+          164.36339063182135
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2136": {
+        "id": 2136,
+        "data": {
+          "artist": "",
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "replace": "",
+          "scene": "",
+          "source": "A picture of {input:scene}, (style of {input:artist}'s art:1.4)",
+          "style": "",
+          "x-omni-dynamicInputs": {
+            "artist": {
+              "customSocket": "text",
+              "name": "artist",
+              "title": "artist",
+              "type": "string"
+            },
+            "scene": {
+              "customSocket": "text",
+              "name": "scene",
+              "title": "scene",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "artist": {
+            "connections": [
+              {
+                "node": 198,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "scene": {
+            "connections": [
+              {
+                "node": 2720,
+                "output": "scene",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2721,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 442,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -150.15404319784207,
+          -49.52987636777135
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2720": {
+        "id": 2720,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "scene": "ironman",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Stable Artist Hunter",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Find the artist from those who are trained data in the Stable Diffusion model",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "description": "💡Hint: Please describe the scene you'd like to see as a example of the artist's style.",
+                        "input": true,
+                        "key": "scene",
+                        "label": "scene",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "description": "💡Hint: Please enter the specific style you are looking to find an artist for.",
+                        "input": true,
+                        "key": "style",
+                        "label": "style",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "style": "figurative art",
+          "x-omni-dynamicInputs": {
+            "scene": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "scene",
+              "title": "scene",
+              "type": "string"
+            },
+            "style": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "style",
+              "title": "style",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "scene": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "scene",
+              "title": "scene",
+              "type": "string"
+            },
+            "style": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "style",
+              "title": "style",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "scene": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "scene": {
+            "connections": [
+              {
+                "node": 2136,
+                "input": "scene",
+                "data": {}
+              }
+            ]
+          },
+          "style": {
+            "connections": [
+              {
+                "node": 198,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1288.3106637152391,
+          96.13272456053295
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2721": {
+        "id": 2721,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 1,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DDIM",
+          "seed": 0,
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2736,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2136,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 445,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          508.23933085107046,
+          -38.44061814273239
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2736": {
+        "id": 2736,
+        "data": {
+          "number": 0,
+          "number_format": "random",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2721,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -69.9262067062437,
+          -371.4221064236468
+        ],
+        "name": "omnitool.number_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

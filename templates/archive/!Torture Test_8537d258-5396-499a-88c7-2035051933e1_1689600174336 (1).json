@@ -1,0 +1,1097 @@
+{
+  "id": "8537d258-5396-499a-88c7-2035051933e1",
+  "version": "draft",
+  "meta": {
+    "name": "!Torture Test",
+    "description": "Everything, everywhere, all at once.",
+    "updated": 1689600172187,
+    "created": 1685695881348,
+    "pictureUrl": "trouble.png",
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1": {
+        "id": 1,
+        "data": {
+          "images": "",
+          "number": 0,
+          "text": "Elon Musk as James Bond Supervillain plotting world domination",
+          "audio": "",
+          "documents": "",
+          "chat_history": "",
+          "introduction": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "chat_history": {
+            "connections": []
+          },
+          "introduction": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 23,
+                "input": "replace",
+                "data": {}
+              },
+              {
+                "node": 44,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 47,
+                "input": "replace",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "chat_history": {
+            "connections": []
+          }
+        },
+        "position": [
+          -351.71501571373943,
+          693.2105907540587
+        ],
+        "name": "omnitool.api_input"
+      },
+      "23": {
+        "id": 23,
+        "data": {
+          "text": "",
+          "match": "PROMPT",
+          "replace": "awesome RPG icon of a"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 25,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 1,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 45,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          11.462938667369258,
+          -84.26657436889298
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "24": {
+        "id": 24,
+        "data": {
+          "images": "",
+          "audio": "",
+          "text": "",
+          "object": "",
+          "documents": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 53,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 29,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 50,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "position": [
+          2191.735693947278,
+          115.91277772705257
+        ],
+        "name": "omnitool.api_output"
+      },
+      "25": {
+        "id": 25,
+        "data": {
+          "text": "SRAW cosplay shot of a PROMPT, dynamic pose, (center frame), facing the camera, analog style, masterpiece, 8k, uhd, hdr, dslr, high quality, film grain, Fujifilm XT3, studio lighting, BACKGROUND, bokeh trending on artstation, studio photo, soft rim lighting, intricate details, lora:LowRA:0.65\nlora:add_detail:0.6"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 23,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -356.0384057475869,
+          -172.05481988908198
+        ],
+        "name": "omnitool.input_text"
+      },
+      "28": {
+        "id": 28,
+        "data": {
+          "prompt": "",
+          "seed": -1,
+          "sampler_name": "DPM++ 2M Karras",
+          "steps": 29,
+          "cfg_scale": 7,
+          "width": 896,
+          "height": 704,
+          "restore_faces": true,
+          "tiling": false,
+          "negative_prompt": "(deformed, distorted, disfigured:1.3), poorly drawn, nswf, sexually suggestive, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation, bad_prompt_version2, signature, ugly hands, too many limbs, asymmetric eyes, ugly skin",
+          "checkpoint": "deliberate_v2",
+          "filter_nsfw": true,
+          "x_settings": null
+        },
+        "inputs": {
+          "steps": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 45,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "tiling": {
+            "connections": []
+          },
+          "sampler_name": {
+            "connections": []
+          },
+          "cfg_scale": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "restore_faces": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "x_settings": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 29,
+                "input": "imageList",
+                "data": {}
+              },
+              {
+                "node": 58,
+                "input": "image",
+                "data": {}
+              },
+              {
+                "node": 57,
+                "input": "init_images",
+                "data": {}
+              }
+            ]
+          },
+          "seed": {
+            "connections": []
+          },
+          "parameters": {
+            "connections": []
+          },
+          "info": {
+            "connections": []
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          497.4227702886936,
+          -111.74009046744308
+        ],
+        "name": "automatic1111.simpleStableDiffusion"
+      },
+      "29": {
+        "id": 29,
+        "data": {
+          "resize_mode": "",
+          "gfpgan_visibility": 0,
+          "codeformer_visibility": 1,
+          "codeformer_weight": 0.1,
+          "upscaling_resize": 2,
+          "upscaling_crop": true,
+          "upscaler_1": "SwinIR_4x",
+          "upscaler_2": "None",
+          "extras_upscaler_2_visibility": 0,
+          "upscale_first": false,
+          "imageList": "",
+          "upscaling_factor": 2,
+          "upscaling_resize_w": 512,
+          "upscaling_resize_h": 512
+        },
+        "inputs": {
+          "imageList": {
+            "connections": [
+              {
+                "node": 28,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "resize_mode": {
+            "connections": []
+          },
+          "extras_upscaler_2_visibility": {
+            "connections": []
+          },
+          "upscaling_resize": {
+            "connections": []
+          },
+          "upscaling_resize_w": {
+            "connections": []
+          },
+          "upscaling_resize_h": {
+            "connections": []
+          },
+          "gfpgan_visibility": {
+            "connections": []
+          },
+          "codeformer_weight": {
+            "connections": []
+          },
+          "codeformer_visibility": {
+            "connections": []
+          },
+          "upscaler_1": {
+            "connections": []
+          },
+          "upscaler_2": {
+            "connections": []
+          },
+          "upscaling_crop": {
+            "connections": []
+          },
+          "upscale_first": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 24,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "html_info": {
+            "connections": []
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          915.4577272359102,
+          434.78453525481234
+        ],
+        "name": "automatic1111.advancedUpscale"
+      },
+      "44": {
+        "id": 44,
+        "data": {
+          "model": "gpt-3.5-turbo",
+          "temperature": 1.1,
+          "prompt": "",
+          "instruction": "You are a professional photographer and movie assistant who takes the users input and imagines a fitting scene background for a super high quality engaging photoshoot that would complement the user's chosen setup.\n\nStart your input with a 4 word summary of the camera angle and shot favoring perspectives that focus on make the character the main attraction, then add a 1-2 sentence description of no more than 45 words only if the user's input is too short, describe the set background and scene fitting for user's input without any additional commentary or embellishments.\n\nFocus on the set and backdrop You must use visual language describing things like location, props, lighting, time of day, season, mood, weather, visual effects present (such as reflections, caustics, god rays, fog and similar, dark theme, bright lights, neon), that fit and complement the user's theme etc.  \n\nUse precise comma separated words over long exposition. Do not contradict the users input."
+        },
+        "inputs": {
+          "temperature": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 45,
+                "input": "replace",
+                "data": {}
+              },
+              {
+                "node": 49,
+                "input": "replace",
+                "data": {}
+              },
+              {
+                "node": 51,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          -357.4762099159779,
+          93.21023773966857
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "45": {
+        "id": 45,
+        "data": {
+          "text": "",
+          "match": "BACKGROUND",
+          "replace": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 23,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 44,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 28,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          83.83723613712456,
+          159.02863644977185
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "47": {
+        "id": 47,
+        "data": {
+          "text": "**PROMPT**\nBACKGROUND",
+          "match": "PROMPT",
+          "replace": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 1,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 49,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          65.65641358243667,
+          516.3541369913402
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "49": {
+        "id": 49,
+        "data": {
+          "text": "",
+          "match": "BACKGROUND",
+          "replace": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 47,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 44,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 52,
+                "input": "replace",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          51.99824662397235,
+          795.5554824428307
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "50": {
+        "id": 50,
+        "data": {
+          "text": "",
+          "model_id": "eleven_monolingual_v1",
+          "parameter:voice_id": "TxGEqnHWrfWFTfGW9XjX"
+        },
+        "inputs": {
+          "model_id": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 51,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 24,
+                "input": "audio",
+                "data": {}
+              },
+              {
+                "node": 54,
+                "input": "file",
+                "data": {}
+              }
+            ]
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          1249.2449734933011,
+          444.9698936591585
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "51": {
+        "id": 51,
+        "data": {
+          "model": "gpt-3.5-turbo",
+          "temperature": 1.2,
+          "prompt": "",
+          "instruction": "You write short, emotional speeches given by the characters or a narrator for the user's input. Create an about 15 words piece fitting the user's input, matching tone and delivery to the described situation."
+        },
+        "inputs": {
+          "temperature": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 44,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 50,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          1233.2510501557217,
+          905.336564800361
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "52": {
+        "id": 52,
+        "data": {
+          "text": "PROMPT\n\n*\"SPEECH\"*",
+          "match": "PROMPT",
+          "replace": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 49,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 53,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1248.4665498744102,
+          84.13580977787889
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "53": {
+        "id": 53,
+        "data": {
+          "text": "",
+          "match": "SPEECH",
+          "replace": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 52,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 54,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 24,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1740.6573734394224,
+          75.15380120846329
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "54": {
+        "id": 54,
+        "data": {
+          "file": "",
+          "model": "whisper-1",
+          "prompt": "",
+          "response_format": "json",
+          "temperature": 0,
+          "language": "en"
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 50,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "language": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "json": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 53,
+                "input": "replace",
+                "data": {}
+              },
+              {
+                "node": 55,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          1653.693182255411,
+          666.8377273543067
+        ],
+        "name": "openai.simpleTranscription"
+      },
+      "55": {
+        "id": 55,
+        "data": {
+          "source_lang": "auto",
+          "target_lang": "de",
+          "num_beams": 1,
+          "split_sentences": true,
+          "prompt": ""
+        },
+        "inputs": {
+          "num_beams": {
+            "connections": []
+          },
+          "source_lang": {
+            "connections": []
+          },
+          "target_lang": {
+            "connections": []
+          },
+          "split_sentences": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 54,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 56,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "translations": {
+            "connections": []
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          2023.8613921865647,
+          834.7322702934684
+        ],
+        "name": "textsynth.simpleTranslation"
+      },
+      "56": {
+        "id": 56,
+        "data": {
+          "images": "",
+          "audio": "",
+          "text": "",
+          "object": "",
+          "documents": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 55,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 57,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "position": [
+          2422.3479123669313,
+          704.6517719628528
+        ],
+        "name": "omnitool.api_output"
+      },
+      "57": {
+        "id": 57,
+        "data": {
+          "init_images": "",
+          "denoising_strength": 0.66,
+          "mask": "",
+          "prompt": "",
+          "sampler_name": "DPM++ 2M",
+          "steps": 30,
+          "cfg_scale": 7,
+          "width": 768,
+          "height": 512,
+          "negative_prompt": "(deformed, distorted, disfigured:1.3), poorly drawn, nswf, sexually suggestive, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation, bad_prompt_version2, signature, ugly hands, too many limbs, asymmetric eyes, ugly skin",
+          "checkpoint": "elldrethsRetroMix_v10",
+          "seed": -1,
+          "n_iter": 1,
+          "x_settings": null
+        },
+        "inputs": {
+          "denoising_strength": {
+            "connections": []
+          },
+          "init_images": {
+            "connections": [
+              {
+                "node": 28,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "mask": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "n_iter": {
+            "connections": []
+          },
+          "steps": {
+            "connections": []
+          },
+          "sampler_name": {
+            "connections": []
+          },
+          "cfg_scale": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 58,
+                "output": "caption",
+                "data": {}
+              }
+            ]
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "x_settings": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 56,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "parameters": {
+            "connections": []
+          },
+          "info": {
+            "connections": []
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          918.6932436797837,
+          -412.21608852175547
+        ],
+        "name": "automatic1111.simpleImage2Image"
+      },
+      "58": {
+        "id": 58,
+        "data": {
+          "image": "",
+          "model": "clip"
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 28,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "caption": {
+            "connections": [
+              {
+                "node": 57,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "_omni_status": {
+            "connections": []
+          }
+        },
+        "position": [
+          555.7183332736423,
+          -322.1758293743735
+        ],
+        "name": "automatic1111.interrogate"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "langchain": {
+    "aiUsage": ""
+  },
+  "_flags": [
+    "public",
+    "readonly"
+  ]
+}

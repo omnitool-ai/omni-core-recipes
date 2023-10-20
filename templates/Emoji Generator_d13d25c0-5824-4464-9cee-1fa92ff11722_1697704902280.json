@@ -1,0 +1,688 @@
+{
+  "id": "d13d25c0-5824-4464-9cee-1fa92ff11722",
+  "meta": {
+    "name": "Emoji Generator",
+    "author": "Omnitool.ai team",
+    "description": "Generate custom, high-resolution Apple-style emojis with this small app powered by a fine-tuned Stable Diffusion XL Model. Input your desired emoji details and subject to create personalized emojis with option to remove the background.",
+    "category": "",
+    "help": "## Generate Apple Style Emojis 🍎🎨\n\nWelcome to this recipe! Create high-definition Apple style emojis for any subject, with the option to remove the background. This recipe utilizes the replicate model: fofr/sdxl-emoji.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: fofr/sdxl-emoji\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n1. Navigate to the custom UI window.\n2. Provide input details on how you want the emoji to look like and its subject.\n3. Hit **Run Recipe** or press ▶️ Run button!\n4. View the generated emoji in the **Chat** box.\n5. Enjoy the high-definition Apple style emoji!",
+    "created": 1697704580235,
+    "updated": 1697704890814,
+    "pictureUrl": "emoji_001.png",
+    "tags": [
+      "#art",
+      "#communication",
+      "#lifestyle",
+      "#intermediate",
+      "#diffusion"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "498": {
+        "id": 498,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "Uses fofr/sdxl-emoji via Replicate.",
+          "description": "Generate custom, high-resolution Apple-style emojis with this small app powered by a fine-tuned Stable Diffusion XL Model. Input your desired emoji details and subject to create personalized emojis with option to remove the background.",
+          "enabled": true,
+          "help": "## Generate Apple Style Emojis 🍎🎨\n\nWelcome to this recipe! Create high-definition Apple style emojis for any subject, with the option to remove the background. This recipe utilizes the replicate model: fofr/sdxl-emoji.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: fofr/sdxl-emoji\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n1. Navigate to the custom UI window.\n2. Provide input details on how you want the emoji to look like and its subject.\n3. Hit **Run Recipe** or press ▶️ Run button!\n4. View the generated emoji in the **Chat** box.\n5. Enjoy the high-definition Apple style emoji!",
+          "license": "CC0",
+          "tags": [
+            "#art",
+            "#communication",
+            "#lifestyle",
+            "#intermediate",
+            "#diffusion"
+          ],
+          "title": "Emoji Generator",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          119.12820156752377,
+          -1740.0581450494014
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "500": {
+        "id": 500,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 524,
+                "output": "off",
+                "data": {}
+              },
+              {
+                "node": 760,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2574.286705949443,
+          -1337.9072507348994
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "524": {
+        "id": 524,
+        "data": {
+          "enabled": true,
+          "files": "",
+          "switch": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "files": {
+            "connections": [
+              {
+                "node": 769,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "switch": {
+            "connections": [
+              {
+                "node": 2362,
+                "output": "switch",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "on": {
+            "connections": []
+          },
+          "off": {
+            "connections": [
+              {
+                "node": 500,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "switch": {
+            "connections": [
+              {
+                "node": 760,
+                "input": "enabled",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1052.6595175265716,
+          -1646.612958617581
+        ],
+        "name": "omnitool.file_switch"
+      },
+      "531": {
+        "id": 531,
+        "data": {
+          "background": "",
+          "button": "",
+          "details": "closeup shot",
+          "enabled": true,
+          "foreground": "",
+          "images": "",
+          "replace": null,
+          "source": "a TOK emoji of a ({input:Subject}), {input:Details}",
+          "subject": "Tiger",
+          "x-omni-dynamicInputs": {
+            "details": {
+              "customSocket": "text",
+              "name": "details",
+              "title": "Details",
+              "type": "string"
+            },
+            "subject": {
+              "customSocket": "text",
+              "name": "subject",
+              "title": "Subject",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "details": {
+            "connections": [
+              {
+                "node": 2362,
+                "output": "details",
+                "data": {}
+              }
+            ]
+          },
+          "subject": {
+            "connections": [
+              {
+                "node": 2362,
+                "output": "subject",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 769,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          721.402969668692,
+          -502.55912858010623
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "742": {
+        "id": 742,
+        "data": {
+          "enabled": true,
+          "number": 0,
+          "number_format": "timestamp",
+          "x-omni-comment": "Replicate uses blank to randomize the seed. Since omnitool currently does not support blank numbers, we instead feed a random number here.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 769,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          631.0942211090795,
+          -1058.6084776335233
+        ],
+        "name": "omnitool.number_input"
+      },
+      "760": {
+        "id": 760,
+        "data": {
+          "enabled": true,
+          "image": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 769,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": [
+              {
+                "node": 524,
+                "output": "switch",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 500,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1969.4646405855367,
+          -1544.7181302477275
+        ],
+        "name": "omni-core-replicate:run.cjwbw/rembg"
+      },
+      "769": {
+        "id": 769,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "low quality, low resolution, lowres, deformed, ugly, nsfw",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "A TOK emoji of a man",
+          "prompt_strength": 0.8,
+          "refine": "no_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 742,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 531,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 524,
+                "input": "files",
+                "data": {}
+              },
+              {
+                "node": 760,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1388.2245578688658,
+          -1248.6503375155614
+        ],
+        "name": "omni-core-replicate:run.fofr/sdxl-emoji"
+      },
+      "2362": {
+        "id": 2362,
+        "data": {
+          "button": "",
+          "details": "A sporty electric car",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Emoji Generator",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Generate High Definition Apple Style Emojis for any subject, with optional background removal.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "A sporty electric car",
+                        "input": true,
+                        "key": "subject",
+                        "label": "Emoji Subject",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "side profile",
+                        "input": true,
+                        "key": "details",
+                        "label": "Emoji Details",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "defaultValue": true,
+                        "description": "Switch (on/off)",
+                        "input": true,
+                        "key": "switch",
+                        "label": "Enable Background Removal",
+                        "tableView": false,
+                        "type": "checkbox"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "subject": "side profile",
+          "switch": true,
+          "x-omni-dynamicInputs": {
+            "details": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "details",
+              "title": "Details",
+              "type": "string"
+            },
+            "subject": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "subject",
+              "title": "Subject",
+              "type": "string"
+            },
+            "switch": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "boolean",
+              "description": "Switch (on/off)",
+              "name": "switch",
+              "socketOpts": {},
+              "title": "switch",
+              "type": "boolean"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "details": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "details",
+              "title": "Details",
+              "type": "string"
+            },
+            "subject": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "subject",
+              "title": "Subject",
+              "type": "string"
+            },
+            "switch": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "boolean",
+              "description": "Switch (on/off)",
+              "name": "switch",
+              "socketOpts": {},
+              "title": "switch",
+              "type": "boolean"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "details": {
+            "connections": []
+          },
+          "subject": {
+            "connections": []
+          },
+          "switch": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "details": {
+            "connections": [
+              {
+                "node": 531,
+                "input": "details",
+                "data": {}
+              }
+            ]
+          },
+          "subject": {
+            "connections": [
+              {
+                "node": 531,
+                "input": "subject",
+                "data": {}
+              }
+            ]
+          },
+          "switch": {
+            "connections": [
+              {
+                "node": 524,
+                "input": "switch",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -103.00588539948025,
+          -590.6138181003471
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": {},
+  "_flags": [
+    "owner"
+  ]
+}

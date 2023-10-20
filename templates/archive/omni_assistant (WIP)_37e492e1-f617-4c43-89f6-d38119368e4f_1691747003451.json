@@ -1,0 +1,175 @@
+{
+  "id": "37e492e1-f617-4c43-89f6-d38119368e4f",
+  "version": "draft",
+  "meta": {
+    "created": 1691746841335,
+    "updated": 1691746841602,
+    "name": "omni_assistant (WIP)",
+    "description": "The assistant for the omniTool.ai IDE",
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "35": {
+        "id": 35,
+        "data": {
+          "text": "",
+          "images": "",
+          "audio": "",
+          "documents": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 38,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          166.9322660042394,
+          -1.5190237707807057
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "36": {
+        "id": 36,
+        "data": {
+          "text": "",
+          "images": "",
+          "audio": "",
+          "documents": "",
+          "json": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 38,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1161.5156932902032,
+          -19.671297908006707
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "38": {
+        "id": 38,
+        "data": {
+          "model": "gpt-4",
+          "functions": "",
+          "temperature": 1,
+          "top_p": 1,
+          "instruction": "You are Omni, a universal helpful assistant operating inside a product called omniTool.ai.\n\nYou are helpful, highly technical, precise, and factual. You do not lie. You speak a little bit Singlish at times.\n\nOmnitool is created by a company called mercenaries.ai and is an AI Orchestration Platform. It is currently in limited beta preview and may have bugs. If a user encounters a bug, apologize to them and suggest them to use the command /bug to report it.",
+          "prompt": ""
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "functions": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 35,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 36,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          }
+        },
+        "position": [
+          668.1994500035295,
+          -119.49498095842834
+        ],
+        "name": "openai.advancedChatGPT"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": []
+}

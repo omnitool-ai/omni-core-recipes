@@ -1,0 +1,436 @@
+{
+  "id": "8c3cb62e-d00b-4093-a088-8f27004555e9",
+  "meta": {
+    "name": "Photograph Generator",
+    "author": "Omnitool.ai team",
+    "description": "Generate stunning photographs with AI. This small app utilizes Stable Diffusion XL model to create a photo based on your input description.",
+    "category": "",
+    "help": "## Photograph Generator 📸✒️\n\nWelcome to the Photographer recipe! With this recipe, you can generate a photo realistic image based on your input description using a diffusion model. Simply follow the instructions below to bring your vision to life.\n\n### Prerequisites:\n\n**API Keys**:\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n1. Find the custom UI window.\n2. Provide a description of the photo you want to generate\n3. Click **Run Recipe** to start the process.\n4. Enjoy the photo in the **Chat** box!",
+    "created": 1697684899407,
+    "updated": 1697685567471,
+    "pictureUrl": "photographer.png",
+    "tags": [
+      "#photography",
+      "#beginner",
+      "#diffusion",
+      "#art",
+      "#design"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "65": {
+        "id": 65,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2232,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          173.1711194425497,
+          -222.73430445066833
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2212": {
+        "id": 2212,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "prompt": "",
+          "replace": null,
+          "source": "Photograph of  {input:PROMPT}, (good composition), (in frame), 8k, 4k, detailed, attractive, beautiful, impressive, photorealistic, realistic, cinematic composition, volumetric lighting, high-resolution, vivid, detailed, stunning, professional, lifelike, crisp, flawless, DSLR, 4k, 8k, 16k, 2048, 4096, detailed, sharp, best quality, high quality, highres, absurdres",
+          "x-omni-dynamicInputs": {
+            "prompt": {
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "PROMPT",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 2234,
+                "output": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2232,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -867.1829015275845,
+          -757.8737702436648
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2213": {
+        "id": 2213,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Generate stunning photographs with AI. This small app utilizes Stable Diffusion XL model to create a photo based on your input description.",
+          "enabled": true,
+          "help": "## Photograph Generator 📸✒️\n\nWelcome to the Photographer recipe! With this recipe, you can generate a photo realistic image based on your input description using a diffusion model. Simply follow the instructions below to bring your vision to life.\n\n### Prerequisites:\n\n**API Keys**:\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n1. Find the custom UI window.\n2. Provide a description of the photo you want to generate\n3. Click **Run Recipe** to start the process.\n4. Enjoy the photo in the **Chat** box!",
+          "license": "CC0",
+          "tags": [
+            "#photography",
+            "#beginner",
+            "#diffusion",
+            "#art",
+            "#design"
+          ],
+          "title": "Photograph Generator",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1984.7521510728832,
+          -768.1145329892666
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2232": {
+        "id": 2232,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 5,
+          "height": 896,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "(bad composition), (out of frame), (nsfw), (nude), (sexual), off center, drawing, anime, art, cartoon, painting, drawing, sketch, Low quality, worst quality, bad anatomy, fake, blurry, censored, artifacts, jpeg artifact, oversaturation, text, watermark, EasyNegative, glitch, signature, dull, verybadimagenegative, bad hand, duplicates, distortion",
+          "num_inference_steps": 32,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DPMSolverMultistep",
+          "width": 1152,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2212,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 65,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -344.9366786086389,
+          -758.0227064112696
+        ],
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
+      },
+      "2234": {
+        "id": 2234,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "prompt": "An off-center portrait of an old bohemian barista preparing coffee in a boutique vintage cafe.",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "AI Photographer",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Take photos with AI! Craft stunning virtual photographs with just a few descriptive words.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "An off-center portrait of an old bohemian barista preparing coffee in a boutique vintage cafe.",
+                        "input": true,
+                        "key": "prompt",
+                        "label": "Describe the Photo:",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "PROMPT",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "PROMPT",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 2212,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1424.301536314692,
+          -758.704658957788
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": {},
+  "_flags": [
+    "owner"
+  ]
+}

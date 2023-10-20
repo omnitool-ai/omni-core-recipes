@@ -1,0 +1,1221 @@
+{
+  "id": "72d9e304-31df-4a4f-9dcc-668ff2cb2803",
+  "meta": {
+    "name": "Persona Builder",
+    "author": "Omnitool.ai team",
+    "description": "Creates various personas personas tailored to your product's context for your product strategy",
+    "help": "## Persona Builder 🤖📝\n\nWelcome to the Persona Builder recipe! Utilize the power of advanced AI to create a persona for your product or service. Input the Product Description, Feature, Value Proposition, and Target Audience, and let the AI do the rest.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input your Product Description, Feature, Value Proposition, and Target Audience.\n- Hit **Run Recipe**!\n- View the generated persona markdown file in the **Chat** box.",
+    "created": 1695922689801,
+    "updated": 1695922689801,
+    "pictureUrl": "personas.png",
+    "tags": [
+      "business",
+      "marketing",
+      "productivity"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "84": {
+        "id": 84,
+        "data": {
+          "customInputs": {
+            "helloWorld": {
+              "title": "Hello World",
+              "type": "string"
+            }
+          },
+          "enabled": true,
+          "frequency_penalty": 0,
+          "function_call": "",
+          "functions": "",
+          "instruction": "You are a product manager and UX research expert. I will provide you the context of the product. You create a user persona including user profile, user story, with specific user goals per their role. Take the role I specify in the context. Make the user story specific and tailored to the persona's role. Avoid using vague words. Lastly, ensure to add a one liner to summarize an intro of the persona in first person angle. For the Goal part, focus more on the value and purpose that the persona might want to achieve by leveraging the tool. Less focus on what features to use.\n\nConstruct the output to be a restricted one layer JSON with only six keys: name, profile, background, painpoints, goals, and oneLiner, as the following template: \n\n{\n    \"name\": \"NAME\"\n    \"profile\": \"Age: AGE, Gender: GENDER, Occupation: OCCUPATION, Nationality: NATIONALITY\",\n    \"background\": \"BACKGROUND\",\n    \"painpoints\": \"1. PAIN1  \\n 2. PAIN2   \\n 3. PAIN3\",\n    \"goals\": \"1. GOAL1  \\n 2. GOAL2   \\n 3. GOAL3\",\n    \"oneliner\": \"ONELINER\"\n}\n\nHere is an example:\n{\n   \"name\": \"Emily\",\n    \"profile\": \"**Name**: Emily, **Age**: 32, **Occupation**: AI Educator, **Nationality**: German 🇩🇪\"\n    \"background\": \"An experienced AI educator and curriculum developer with a passion for teaching AI concepts and applications. She specializes in teaching Generative AI and has extensive knowledge of the subject. She has worked with various educational institutions, training programs, and businesses to provide workshops and curriculum on Generative AI. She is proficient in programming languages such as Python and is always on the lookout for innovative tools and technologies to enhance her teaching methods.\",\n \"painpoints\": \" 1. Limited access to interactive and engaging teaching tools for Generative AI concepts.   \\n2. Lack of collaboration and inspiration from other educators and learners. \\n3. Need for a user-friendly and customizable tool for curriculum development.\",\n    \"goals\": \" 1. Use the Omnitool platform as a teaching tool to educate students and professionals on Generative AI concepts and applications in an interactive and engaging manner. Provide hands-on learning experiences.   \\n2. Develop a comprehensive curriculum and workshop materials using Omnitool and customization features.  \\n3. Create and share unique AI workflows on the platform to inspire and collaborate with other educators and learners.  \\n4. Monetize the workflows in curriculum and workshop materials by offering them as a paid resource to businesses and consumers in need of Generative AI training.  \\n 5. Tailor to enhance the tool's user interface and overall functionality for the curriculum.  \\n 6. Resources and tools within the community that can help her develop the curriculum.\",\n    \"oneliner\": \"  \\n*I am Emily, an AI Educator leveraging Omnitool to revolutionize the way students and professionals learn about AI particularly Generative AI. I'll teach AI through hands-on tasks, enriching the platform with custom components for student-led AI prototyping. Additionally, I monetize my business by incorporating the workflow I have developed into my teaching material.*\"\n}\n\n\n Please use proper (and if necessary escaped) markdown formatting for lists and headings inside the JSON values\n\n---------------\n\nI am providing the context of the product and target user in the following format.\n\n## the description of the product: \nPRODUCT DESCRIPTION\n\n## the features that the users will be using:\nFEATURE\n\n## the users' goal when using the product\nVALUE PROPOSITION\n\n## the personas i want to consider but not limited to\nTARGET AUDIENCE",
+          "logit_bias": null,
+          "max_tokens": "inf",
+          "messages": "",
+          "model": "gpt-3.5-turbo-16k",
+          "n": 1,
+          "presence_penalty": 0,
+          "prompt": "",
+          "stop": "",
+          "stream": false,
+          "temperature": 0.5,
+          "top_p": 1,
+          "user": "",
+          "x-omni-title": "Persona Generation via ChatGPT",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2088,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 522,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 534,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -505.1501127904549,
+          -1866.3070555243248
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "161": {
+        "id": 161,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.profile",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 522,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 2150,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          422.53708070556775,
+          -1923.680536340667
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "517": {
+        "id": 517,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "🚀 Persona generated, please click the file below to view it  🚀",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2150,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": [
+              {
+                "node": 529,
+                "output": "document",
+                "data": {}
+              }
+            ]
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3299.303233464968,
+          -1760.2781762611362
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "522": {
+        "id": 522,
+        "data": {
+          "enabled": true,
+          "text": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 84,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "json": {
+            "connections": [
+              {
+                "node": 161,
+                "input": "object",
+                "data": {}
+              },
+              {
+                "node": 524,
+                "input": "replace",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -34.495170371697455,
+          -1660.0483621870328
+        ],
+        "name": "omnitool.text_to_json"
+      },
+      "523": {
+        "id": 523,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Creates various personas personas tailored to your product's context for your product strategy",
+          "enabled": true,
+          "help": "## Persona Builder 🤖📝\n\nWelcome to the Persona Builder recipe! Utilize the power of advanced AI to create a persona for your product or service. Input the Product Description, Feature, Value Proposition, and Target Audience, and let the AI do the rest.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input your Product Description, Feature, Value Proposition, and Target Audience.\n- Hit **Run Recipe**!\n- View the generated persona markdown file in the **Chat** box.",
+          "license": "CC-BY-SA",
+          "title": "Persona Builder",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1015.4849638420778,
+          -2571.0784500060604
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "524": {
+        "id": 524,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "job": "",
+          "name": "",
+          "replace": null,
+          "source": "# {NAME}\n[![{NAME}]({IMAGE:thumbnail})]({IMAGE:full_size})\n\n{PROFILE}\n\n*{ONELINER}*\n\n### Background 📚 \n{BACKGROUND}\n\n### Painpoints 🤦\n{PAINPOINTS}\n\n### Goals 🎯 \n{GOALS}",
+          "x-omni-dynamicInputs": {},
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 522,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 531,
+                "output": "file",
+                "data": {}
+              },
+              {
+                "node": 532,
+                "output": "file",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2021,
+                "input": "persona",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1866.979762761177,
+          -2103.0555369491212
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "529": {
+        "id": 529,
+        "data": {
+          "enabled": true,
+          "fileName": "generated_persona",
+          "storageType": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2021,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "document": {
+            "connections": [
+              {
+                "node": 517,
+                "input": "documents",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2791.8149845772073,
+          -1555.1958912013886
+        ],
+        "name": "omnitool.write_document"
+      },
+      "530": {
+        "id": 530,
+        "data": {
+          "background": "#000000",
+          "enabled": true,
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 256,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 256,
+          "withoutEnlargement": false,
+          "x-omni-title": "Create Thumbnail",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2150,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 531,
+                "input": "file",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          767.7728194332258,
+          -1489.8990011182127
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "531": {
+        "id": 531,
+        "data": {
+          "enabled": true,
+          "file": "",
+          "fileName": "thumbnail",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 530,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 524,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1289.811239738907,
+          -1810.5293741163134
+        ],
+        "name": "omnitool.file_metadata_writer"
+      },
+      "532": {
+        "id": 532,
+        "data": {
+          "enabled": true,
+          "file": "",
+          "fileName": "full_size",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 2150,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 524,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1316.976440018122,
+          -1358.7469028342205
+        ],
+        "name": "omnitool.file_metadata_writer"
+      },
+      "534": {
+        "id": 534,
+        "data": {
+          "enabled": true,
+          "function": null,
+          "functions": "",
+          "instruction": "You are a top software sales and product marketer. Based on the given product persona, please provide at least 3 User Acquisition Ideas. Be practical, strategic, and specific.\n\nConstruct the output to be a restricted one layer JSON with only 1 keys: \"acquisition\"\n\n{\n    \"acquisition\": \"ACQUISITION\"\n}\n\nPlease use proper (and if necessary escaped) markdown formatting for lists and headings inside the JSON values",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.5,
+          "top_p": 1,
+          "x-omni-title": "User Acqusition Ideas Generation via ChatGPT",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 84,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 535,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          149.04785968218704,
+          -401.4925384640286
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "535": {
+        "id": 535,
+        "data": {
+          "enabled": true,
+          "text": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 534,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "json": {
+            "connections": [
+              {
+                "node": 536,
+                "input": "replace",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          734.4136436492136,
+          -395.9518708502597
+        ],
+        "name": "omnitool.text_to_json"
+      },
+      "536": {
+        "id": 536,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "replace": null,
+          "source": "# User Acquisition Ideas🤝\n{ACQUISITION}",
+          "x-omni-dynamicInputs": {},
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": [
+              {
+                "node": 535,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2021,
+                "input": "acqusition_idea",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1688.6925102427392,
+          -931.0123726318648
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2021": {
+        "id": 2021,
+        "data": {
+          "acqusition_idea": "",
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "persona": "",
+          "replace": null,
+          "source": "{input:persona} \n{input:acqusition_idea}",
+          "x-omni-dynamicInputs": {
+            "acqusition_idea": {
+              "customSocket": "text",
+              "name": "acqusition_idea",
+              "title": "acqusition_idea",
+              "type": "string"
+            },
+            "persona": {
+              "customSocket": "text",
+              "name": "persona",
+              "title": "persona",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "acqusition_idea": {
+            "connections": [
+              {
+                "node": 536,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "persona": {
+            "connections": [
+              {
+                "node": 524,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 529,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2282.2448789032537,
+          -1226.5315368708084
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2088": {
+        "id": 2088,
+        "data": {
+          "acqusition_idea": "",
+          "button": "",
+          "description": "",
+          "enabled": true,
+          "feature": "",
+          "images": "",
+          "persona": "",
+          "replace": null,
+          "source": "PRODUCT DESCRIPTION\n{input:description} \n----\nFEATURE\n{input:feature} \n----\nVALUE PROPOSITION\n{input:value_proposition} \n-----\nTARGET AUDIENCE\n{input:target_audience}",
+          "target_audience": "",
+          "value_proposition": "",
+          "x-omni-dynamicInputs": {
+            "description": {
+              "customSocket": "text",
+              "name": "description",
+              "title": "description",
+              "type": "string"
+            },
+            "feature": {
+              "customSocket": "text",
+              "name": "feature",
+              "title": "feature",
+              "type": "string"
+            },
+            "target_audience": {
+              "customSocket": "text",
+              "name": "target_audience",
+              "title": "target_audience",
+              "type": "string"
+            },
+            "value_proposition": {
+              "customSocket": "text",
+              "name": "value_proposition",
+              "title": "value_proposition",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "description": {
+            "connections": [
+              {
+                "node": 2089,
+                "output": "description",
+                "data": {}
+              }
+            ]
+          },
+          "feature": {
+            "connections": [
+              {
+                "node": 2089,
+                "output": "feature",
+                "data": {}
+              }
+            ]
+          },
+          "target_audience": {
+            "connections": [
+              {
+                "node": 2089,
+                "output": "target_audience",
+                "data": {}
+              }
+            ]
+          },
+          "value_proposition": {
+            "connections": [
+              {
+                "node": 2089,
+                "output": "value_proposition",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 84,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1017.518590306348,
+          -1492.475979350521
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2089": {
+        "id": 2089,
+        "data": {
+          "button": "",
+          "description": "AI Lab In A Box - An Open Source  Platform for [ Exploring   |  Prototyping with |  Creating with  | Learning  |  Evaluating | Hands on   ]  [Generative AI | Large Language Models |  Diffusion Models | Cloud AI APIs |  Local AI | Applied Artificial Intelligence] \nOmnitool is a versatile, open-sourced AI Lab that empowers both individuals and businesses to create and prototype AI-infused workflow rapidly. With its intuitive, flow-based visual editor, users can easily tailor their AI applications to meet their specific workflows. With a wide range of diverse APIs/Models, Omnitool facilitates efficient and cost-effective orchestration. Offer boundless customization capabilities via extension ecosystem, allowing you to augment functionality and expand the tool's boundaries. Omnitool democratizes access to AI, putting the power of cutting-edge technology in the hands of its users, regardless of their technical proficiency.",
+          "editMode": false,
+          "enableUI": true,
+          "feature": "1. Hybrid AI Freedom: Break free from vendor lock-ins and effortlessly blend cloud and local AI models. With Omnitool, you can seamlessly switch and optimize between a plethora of AI providers, ensuring data interoperability, efficiency, and cost-effectiveness.\n2. Boundless Customization and Extension: Personalize and enhance Omnitool using AI models, APIs, and custom components. Whether self-developed, community-sourced, or via straightforward configuration files. Or you can enhance Omnitool's prowess by installing extensions, crafted in-house or community-sourced.\n3. Collaborative Ecosystem: Dive into a shared innovation hub, a vibrant community where users collaborate, share, and learn. Exchange knowledge and continuously improve through shared AI recipes, components, and extensions.\n4. Open-Source & Standards: Committed to open-source and open standards like OpenAPI, Omnitool ensures seamless integration of AI systems with minimal friction.\n5. Intuitive AI Orchestrator: Experience the convergence of a flow-based editor with your coding environment, enabling rapid \n6. Seamless Integration: Publish workflows as REST APIs for effortless application integration. \n7. Enterprise-Ready: Tailored for business needs, Omnitool offers premium features such as API billing, comprehensive reporting, and a unified key system.",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Persona Builder",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Creates various personas personas tailored to your product's context for your product strategy",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Omnitool, your AI Lab/Desktop to explore Applied AI - An open-source platform with versatile AI APIs in a highly extensible framework, empowering rapid creation of tailored AI solutions to learn AI and solve any problem. It empowers [ Exploring   |  Prototyping with |  Creating with  | Learning  |  Evaluating | Hands on   ]  [Generative AI | Large Language Models |  Diffusion Models | Cloud AI APIs |  Local AI | Applied Artificial Intelligence] to stay ahead of AI Landscape.\nOmnitool is a versatile, open-sourced AI Lab that empowers both individuals and businesses to create and prototype AI-infused applications rapidly. With its intuitive, flow-based visual editor, users can easily tailor their AI applications to meet their specific workflows. With a wide range of diverse APIs/Models, Omnitool facilitates efficient and cost-effective orchestration. Offer boundless customization capabilities and an extension ecosystem, allowing you to augment functionality and expand the tool's boundaries. Omnitool democratizes access to AI, putting the power of cutting-edge technology in the hands of its users, regardless of their technical proficiency.",
+                        "input": true,
+                        "key": "description",
+                        "label": "Product Description",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "1. Hybrid AI Freedom: Break free from vendor lock-ins and effortlessly blend cloud and local AI models. With Omnitool, you can seamlessly switch and optimize between a plethora of AI providers, ensuring data interoperability, efficiency, and cost-effectiveness.\n2. Boundless Customization and Extension: Personalize and enhance Omnitool using AI models, APIs, and custom components. Whether self-developed, community-sourced, or via straightforward configuration files. Or you can enhance Omnitool's prowess by installing extensions, crafted in-house or community-sourced.\n3. Collaborative Ecosystem: Dive into a shared innovation hub, a vibrant community where users collaborate, share, and learn. Exchange knowledge and continuously improve through shared AI recipes, components, and extensions.\n4. Open-Source & Standards: Committed to open-source and open standards like OpenAPI, Omnitool ensures seamless integration of AI systems with minimal friction.\n5. Intuitive AI Orchestrator: Experience the convergence of a flow-based editor with your coding environment, enabling rapid \n6. Seamless Integration: Publish workflows as REST APIs for effortless application integration. \n7. Enterprise-Ready: Tailored for business needs, Omnitool offers premium features such as API billing, comprehensive reporting, and a unified key system.",
+                        "input": true,
+                        "key": "feature",
+                        "label": "Product Feature",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Omnitool is your compass to navigate the future of AI. This open-source platform has been designed to put you in the driver's seat of AI utilization, whether you are a business or an individual. It serves as your ally to stay updated with AI advancements, develop key AI skills, and maintain a competitive edge in the evolving digital landscape.\nBy providing a robust abstraction layer, we reduce the risks of obsolescence, costly upgrades, and business continuity disruptions associated with an uncertain legal environment.\nAs an AI Lab for prototyping, Omnitool provides a space where AI concepts and applications take shape in real-time. It is not just a platform, but a community. It serves as a collaborative innovation hub that fosters a sense of community and collective growth. Users can explore, share, and learn from each other's workflows, creating a vibrant ecosystem of shared AI knowledge and innovation.\nOmnitool puts you in control with its diverse range of APIs and models. Leverage the right options that suit your needs, enabling efficient and cost-effective AI orchestration.\nOmnitool goes beyond just being an AI platform - it serves as an educative tool for Applied AI. It aims to promote AI literacy, enabling users to learn and teach AI concepts with ease. This commitment towards education amplifies our goal of building an AI-literate society that can confidently harness artificial intelligence's transformative power.\nThe essence of Omnitool lies in its ability to democratize AI, making it accessible and understandable to all. It’s not just a product; it’s a driving force for an AI-powered future. With Omnitool, AI becomes more than just a tool - it becomes a companion for innovation and growth. Embrace this new age of technology with Omnitool, where AI is truly for everyone.",
+                        "input": true,
+                        "key": "value_proposition",
+                        "label": "Value Proposition",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "AI Educator, German",
+                        "input": true,
+                        "key": "target_audience",
+                        "label": "Target Audience",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "target_audience": "AI Educator, German",
+          "value_proposition": "Omnitool is your compass to navigate the future of AI. This open-source platform has been designed to put you in the driver's seat of AI utilization, whether you are a business or an individual. It serves as your ally to stay updated with AI advancements, develop key AI skills, and maintain a competitive edge in the evolving digital landscape.\nBy providing a robust abstraction layer, we reduce the risks of obsolescence, costly upgrades, and business continuity disruptions associated with an uncertain legal environment.\nAs an AI Lab for prototyping, Omnitool provides a space where AI concepts and applications take shape in real-time. It is not just a platform, but a community. It serves as a collaborative innovation hub that fosters a sense of community and collective growth. Users can explore, share, and learn from each other's workflows, creating a vibrant ecosystem of shared AI knowledge and innovation.\nOmnitool puts you in control with its diverse range of APIs and models. Leverage the right options that suit your needs, enabling efficient and cost-effective AI orchestration.\nOmnitool goes beyond just being an AI platform - it serves as an educative tool for Applied AI. It aims to promote AI literacy, enabling users to learn and teach AI concepts with ease. This commitment towards education amplifies our goal of building an AI-literate society that can confidently harness artificial intelligence's transformative power.\nThe essence of Omnitool lies in its ability to democratize AI, making it accessible and understandable to all. It’s not just a product; it’s a driving force for an AI-powered future. With Omnitool, AI becomes more than just a tool - it becomes a companion for innovation and growth. Embrace this new age of technology with Omnitool, where AI is truly for everyone.",
+          "x-omni-dynamicInputs": {
+            "description": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "description",
+              "title": "description",
+              "type": "string"
+            },
+            "feature": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "feature",
+              "title": "feature",
+              "type": "string"
+            },
+            "target_audience": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "target_audience",
+              "title": "target_audience",
+              "type": "string"
+            },
+            "value_proposition": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "value_proposition",
+              "title": "value_proposition",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "description": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "description",
+              "title": "description",
+              "type": "string"
+            },
+            "feature": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "feature",
+              "title": "feature",
+              "type": "string"
+            },
+            "target_audience": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "target_audience",
+              "title": "target_audience",
+              "type": "string"
+            },
+            "value_proposition": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "value_proposition",
+              "title": "value_proposition",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "description": {
+            "connections": []
+          },
+          "feature": {
+            "connections": []
+          },
+          "target_audience": {
+            "connections": []
+          },
+          "value_proposition": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "description": {
+            "connections": [
+              {
+                "node": 2088,
+                "input": "description",
+                "data": {}
+              }
+            ]
+          },
+          "feature": {
+            "connections": [
+              {
+                "node": 2088,
+                "input": "feature",
+                "data": {}
+              }
+            ]
+          },
+          "target_audience": {
+            "connections": [
+              {
+                "node": 2088,
+                "input": "target_audience",
+                "data": {}
+              }
+            ]
+          },
+          "value_proposition": {
+            "connections": [
+              {
+                "node": 2088,
+                "input": "value_proposition",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1603.7403600816951,
+          -2099.400550104192
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2150": {
+        "id": 2150,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "(worst quality:0.8), cartoon, halftone print, (cinematic:1.2), verybadimagenegative_v1.3, easynegative, (surreal:0.8), (modernism:0.8), (art deco:0.8), (art nouveau:0.8)",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DDIM",
+          "seed": 0,
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 161,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 530,
+                "input": "images",
+                "data": {}
+              },
+              {
+                "node": 532,
+                "input": "file",
+                "data": {}
+              },
+              {
+                "node": 517,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          154.86232008459297,
+          -1457.7749929353229
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

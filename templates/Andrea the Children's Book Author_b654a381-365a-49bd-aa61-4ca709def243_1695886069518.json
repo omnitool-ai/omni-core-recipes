@@ -1,0 +1,629 @@
+{
+  "id": "b654a381-365a-49bd-aa61-4ca709def243",
+  "meta": {
+    "name": "Children Storybook Creator",
+    "author": "Omnitool.ai team",
+    "description": "Utilise LLM in conjunction with stable diffusion and text-to-speech to convert basic ideas into visually appealing storybook illustrations and text, accompanied by a spoken narrative.",
+    "help": "# Children Storybook Creator 📖✨\n\nUnleash the power of storytelling by transforming simple ideas into enchanting storybook visuals and texts, accompanied by spoken narrative.\n\n## Prerequisites:\n\n### API Keys:\n- OpenAPI\n- ElevenLabs\n- Replicate\n\n### Extensions:\n- Replicate\n\n### Models:\n- Replicate: stability-ai/sdxl\n\n## How to Use:\n\n1. **Find** the custom UI window box.\n2. **Input** your *Scene Description*. Describe a single scene from your story.\n3. Hit **Run Recipe**.\n4. Find your crafted story in the **Chat** box.",
+    "created": 1695885643366,
+    "updated": 1695886058577,
+    "pictureUrl": "librarian.png",
+    "tags": [
+      "#education", 
+      "#books",
+      "#intermediate",
+      "#diffusion",
+      "#audio",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "314": {
+        "id": 314,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Utilise LLM in conjunction with stable diffusion and text-to-speech to convert basic ideas into visually appealing storybook illustrations and text, accompanied by a spoken narrative.",
+          "enabled": true,
+          "help": "# Children Storybook Creator 📖✨\n\nUnleash the power of storytelling by transforming simple ideas into enchanting storybook visuals and texts, accompanied by spoken narrative.\n\n## Prerequisites:\n\n### API Keys:\n- OpenAPI\n- ElevenLabs\n- Replicate\n\n### Extensions:\n- Replicate\n\n### Models:\n- Replicate: stability-ai/sdxl\n\n## How to Use:\n\n1. **Find** the custom UI window box.\n2. **Input** your *Scene Description*. Describe a single scene from your story.\n3. Hit **Run Recipe**.\n4. Find your crafted story in the **Chat** box.",
+          "license": "CC0",
+          "title": "Children Storybook Creator",
+          "tags": [
+            "education", 
+            "books"
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -839.7816427353436,
+          -0.7015593688590007
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "365": {
+        "id": 365,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 548,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2353,
+                "output": "Result",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 530,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1766.1147624643907,
+          451.76603971057267
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "530": {
+        "id": 530,
+        "data": {
+          "enabled": true,
+          "model_id": "eleven_monolingual_v1",
+          "output_format": "mp3_44100",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "pMsXgVXv3BLzUgSXRplE",
+          "x-omni-title": "Generate Story Audio via Elevenlabs",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "output_format": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 548,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 365,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          913.0501579633623,
+          502.39625640569824
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "548": {
+        "id": 548,
+        "data": {
+          "Criteria": "creative",
+          "Instruction": "You are a children's book writer. Given a description of a single page of a storybook, rewrite and expand the prompt into a short, 30-50 word passage suitable for children to be read by an audio book narrator. You only respond with the text, no explanation. You will strip any included instructions for artists (such as 'in the style of X') as they are not meant for the audio narration.",
+          "Prompt": "",
+          "enabled": true,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 2281,
+                "output": "scene_description",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 530,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 365,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          266.72892424858105,
+          376.4747670011616
+        ],
+        "name": "omnitool.large_language_model"
+      },
+      "1681": {
+        "id": 1681,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "prompt": "",
+          "replace": null,
+          "scene_description": "",
+          "source": "A gorgeous children's story book illustration of \"{input:Scene Description}\" in the style of an animated movie, colorful, inviting, cute, high quality, masterpiece, vivid",
+          "story_description": "",
+          "x-omni-dynamicInputs": {
+            "scene_description": {
+              "customSocket": "text",
+              "name": "scene_description",
+              "title": "Scene Description",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "scene_description": {
+            "connections": [
+              {
+                "node": 2281,
+                "output": "scene_description",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1683,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          188.20251457302012,
+          -316.3097711578228
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "1683": {
+        "id": 1683,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "(deformed, distorted, disfigured:1.3), photo, poorly drawn, nswf, sexually suggestive, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation, bad_prompt_version2, signature, ugly hands, too many limbs, asymmetric eyes, ugly skin",
+          "num_inference_steps": 30,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DDIM",
+          "seed": -1,
+          "width": 1024,
+          "x-omni-title": "Generate Strorybook Illustration via Stable DiffusionXL",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2296,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1681,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2353,
+                "input": "Source",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          736.6973575287403,
+          -630.397200235799
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2281": {
+        "id": 2281,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "scene_description": "Pebbles the cat waits patiently beside Lisa's birthday cake.",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Children Storybook Creator",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Combine a LLM with stable diffusion and text-to-speech.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Pebbles the cat waits patiently beside Lisa's birthday cake.",
+                        "input": true,
+                        "key": "scene_description",
+                        "label": "Scene Description",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "scene_description": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "scene_description",
+              "title": "Scene Description",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "scene_description": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "scene_description",
+              "title": "Scene Description",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "scene_description": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "scene_description": {
+            "connections": [
+              {
+                "node": 1681,
+                "input": "scene_description",
+                "data": {}
+              },
+              {
+                "node": 548,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -369.7795496644011,
+          -20.40432243374228
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2296": {
+        "id": 2296,
+        "data": {
+          "number": 0,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 1683,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          185.32430886531114,
+          -645.3104288557239
+        ],
+        "name": "omnitool.number_input"
+      },
+      "2353": {
+        "id": 2353,
+        "data": {
+          "Source": "",
+          "Target": "4k",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Source": {
+            "connections": [
+              {
+                "node": 1683,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Result": {
+            "connections": [
+              {
+                "node": 365,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "Mask": {
+            "connections": []
+          },
+          "Width": {
+            "connections": []
+          },
+          "Height": {
+            "connections": []
+          }
+        },
+        "position": [
+          1260.2890466088302,
+          83.37903241034945
+        ],
+        "name": "omnitool.prepare_image"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "7eec8d3b-eb57-4b95-9617-2c1b84961eef",
+  "version": "draft",
+  "meta": {
+    "created": 1691670114198,
+    "description": "A text to text translator using textsynth translate inference.",
+    "name": "Multilingual Translator (WIP)",
+    "pictureUrl": "translator2.png",
+    "tags": [],
+    "updated": 1691743517240
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "62": {
+        "id": 62,
+        "data": {
+          "num_beams": 1,
+          "prompt": "",
+          "source_lang": "auto",
+          "split_sentences": true,
+          "target_lang": "en"
+        },
+        "inputs": {
+          "source_lang": {
+            "connections": []
+          },
+          "target_lang": {
+            "connections": []
+          },
+          "num_beams": {
+            "connections": []
+          },
+          "split_sentences": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 93,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "translations": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 94,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -403.7685068771918,
+          -480.75547930312337
+        ],
+        "name": "textsynth.simpleTranslation"
+      },
+      "93": {
+        "id": 93,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "現代人的休息難題\n為什麼休息時也無法停下工作，或者就算不用工作反而更有罪惡感呢？一些現代的工具，確實可能加深了這種感覺的影響：\n\n即時通訊：工作與生活之間界線模糊，即時通訊的壓力使人無法完全放鬆。\n我自己也會在專案工作特別多的時候，休息時對即時通感到一種「看也不是」、「不看也不是」的焦慮，會擔心上面是不是隨時要傳來一些意外事情，所以就算上面其實沒有什麼干擾，但自己的心情卻靜不下來。\n社群比較：透過社交媒體看到他人的生活與成就，可能引發不必要的壓力與比較。\n明明自己可以好好休息了，但看到社群上某些人分享了很棒的工作成果，就會感覺到自己是不是落後了，於是就算沒什麼要工作的，但是心就是停不下來。\n資訊焦慮：在資訊爆炸的時代，常感到自己無法跟上時代的腳步。\n每天變來變去的情勢，各種好像很厲害的新資訊，看到大家都在分享，自己如果休息了，會不會就漏掉了什麼重要的訊息？\n\n我自己也會有類似的感覺與心情，老實說要修練成「波瀾不驚」的心境，真的很難做到。\n\n我有嘗試過斷絕這些干擾，例如回家後把即時通改成「零干擾」，這幾年來我其實都沒有安裝社群 App（讓自己回到電腦再統一處理，而不是一直處理），慢慢的也比較淡化了一定要追新資訊的心情。這些「斷捨離」的手段，確實有些幫助。（延伸閱讀：這樣設計離線、上線時間，不依賴專注工具，兼顧工作與生活平衡）\n\n不過，慢慢的也會發現，只有「斷絕」，不一定能解決根本的問題，還是需要一些正向的自我肯定方法，以及更高層次的放鬆心態，才能解決問題，讓「休息時間」，真正成為自己的時間，或是跟家人與最重要朋友有關的時間。\n\n下面，就整理幾個我和胤丞老師覺得有效的方式。"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 62,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -947.2810787048945,
+          -594.2948235200813
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "94": {
+        "id": 94,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 62,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          63.37428113047247,
+          -503.3916524542932
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

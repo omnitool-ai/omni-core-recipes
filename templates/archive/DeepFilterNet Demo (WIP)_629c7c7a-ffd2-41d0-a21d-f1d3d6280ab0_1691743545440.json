@@ -1,0 +1,202 @@
+{
+  "id": "629c7c7a-ffd2-41d0-a21d-f1d3d6280ab0",
+  "version": "draft",
+  "meta": {
+    "created": 1691670452996,
+    "description": "A demo for the audio noise filtering model DeepFilterNet.",
+    "name": "DeepFilterNet Demo (WIP)",
+    "pictureUrl": "filter.png",
+    "tags": [],
+    "updated": 1691743543468
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "3": {
+        "id": 3,
+        "data": {
+          "audio": ""
+        },
+        "inputs": {
+          "audio": {
+            "connections": [
+              {
+                "node": 57,
+                "output": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "audio": {
+            "connections": [
+              {
+                "node": 4,
+                "input": "file",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -80.89193593457253,
+          -235.98480236841746
+        ],
+        "name": "pop_com.DeepfilterEnhance"
+      },
+      "4": {
+        "id": 4,
+        "data": {
+          "file": "",
+          "language": "en",
+          "model": "whisper-1",
+          "prompt": "",
+          "response_format": "json",
+          "temperature": 0
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 3,
+                "output": "audio",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "language": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 58,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          379.7219228261567,
+          -292.9032697040146
+        ],
+        "name": "openai.simpleTranscription"
+      },
+      "57": {
+        "id": 57,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 3,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -645.2441464534188,
+          -247.4512362406436
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "58": {
+        "id": 58,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 4,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          843.5082713086003,
+          -117.47116989942462
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

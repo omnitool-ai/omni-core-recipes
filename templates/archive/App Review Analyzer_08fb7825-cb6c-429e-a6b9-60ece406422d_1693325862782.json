@@ -1,0 +1,299 @@
+{
+  "id": "08fb7825-cb6c-429e-a6b9-60ece406422d",
+  "version": "draft",
+  "meta": {
+    "author": "Nick Yang (nick@mercenaries.ai)",
+    "created": 1693196857409,
+    "description": "Effortlessly extract insights from user reviews to gain valuable feedback and actionable items at a glance.",
+    "help": "# Prerequisite: \n- Before you begin, ensure you have the \"omni-extension-appstore-parser\" extension installed in Extension Manager.\n- Restart your Omnitool if it's asked by the extension\n\n# How to Use:\n- Retrieve the app bundle name of your Google Play Store app and enter it in chat to kickstart the review summarization process.\n- Once the process is complete, navigate to the extension > Open \"App Review Parser\" and view the review analysis report.\n(Note: It only fetches the latest message in the chat to construct the report.)",
+    "name": "App Review Analyzer (Demo)",
+    "pictureUrl": "amy.png",
+    "tags": [],
+    "updated": 1693324453211
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "25": {
+        "id": 25,
+        "data": {
+          "functions": "",
+          "instruction": "Your role as a user researcher, you will navigate through the given reviews with precision and discernment. Your mission is to extract meaningful information, uncover patterns, sentiments, and crucial feedback shared by users, ultimately consolidate a english summary with tagging categories and user count that can empower decision-making processes. I'll provide you with a array of each review text.\n\nCategories to tag but not limited to:\n----\nUser Experience (UX)\nPerformance & Stability\nFeatures & Functionality\nBugs & Glitches\nCustomer Support\nIn-App Purchases & Pricing\nAd Experience\nApp Updates\nCompatibility & Devices\nPrivacy & Security\nLocalization & Language Support\nEase of Onboarding\nSocial Features & Community\nOffline Access & Connectivity\nResource Usage & Battery Life\nNotifications & Alerts\nPersonalization & Customization\nGamification & Rewards\nAccessibility & Inclusivity\nGeneral Feedback & Suggestions\n\n----\nExtra: \n- Provide suggested actions to each group. \n- Output as strict JSON format.\n- Consolidate similar user feedback into same category group and summarise in english in a readable way.\n\nOutput example:\n\"\n[\n  {\n    \"Category\": \"Privacy and Security\",\n    \"Count\": 4,\n    \"Summary\": [\n      \"Three users expressed concern over a setting that automatically changed their private birthday information to public, leading to unexpected birthday messages and potential privacy issues.\",\n      \"Another user mentioned their account being suspended without understanding why, raising concerns about account security and potential mishandling of personal information.\"\n    ],\n    \"Actions\": \"Communicate clearly with users whose accounts have been suspended, providing transparent explanations and a clear process for resolution.\"\n  },\n  {\n    \"Category\": \"User Interface\",\n    \"Count\": 1,\n    \"Summary\": [\n      \"A user expressed nostalgia for the old Yellow Kakao Story interface and dissatisfaction with the new purple color, feeling disconnected from the original Kakaotalk brand.\"\n    ],\n    \"Actions\": \"Acknowledge user nostalgia for the old Yellow Kakao Story interface and consider offering customization options to cater to user preferences.\"\n  },\n  {\n    \"Category\": \"Technical Issues\",\n    \"Count\": 4,\n    \"Summary\": [\n      \"Some users reported experiencing technical issues with the app, including the app not working at all or facing difficulties with registration and login.\"\n    ],\n    \"Actions\": \"Prioritize fixing technical issues that prevent app functionality, such as login and registration difficulties.\"\n  },\n  {\n    \"Category\": \"Positive Feedback\",\n    \"Count\": 5,\n    \"Summary\": [\n      \"Some users expressed love for the app and regarded it as the best messaging app they have used.\"\n    ],\n    \"Actions\": \"Continue to refine and enhance the app's features to maintain its reputation as a top messaging app.\"\n  }\n]\n\"",
+          "model": "gpt-3.5-turbo-16k",
+          "prompt": "",
+          "temperature": 1,
+          "top_p": 1
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "functions": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 278,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 30,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          }
+        },
+        "position": [
+          1239.2926800063694,
+          -2308.318767612315
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "29": {
+        "id": 29,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "com.openai.chatgpt",
+          "x-omni-title": "Enter the target app bundle name"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 560,
+                "input": "appId",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "position": [
+          -176.4940721641152,
+          -2144.0489387020607
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "30": {
+        "id": 30,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 25,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          791.7099063870403,
+          -2465.7198427247076
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "278": {
+        "id": 278,
+        "data": {
+          "object": "",
+          "transform": "$.data[].text"
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 560,
+                "output": "reviews",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 25,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          774.1242480173566,
+          -1995.7202556654865
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "559": {
+        "id": 559,
+        "data": {
+          "author": "Nick Yang (nick@mercenaries.ai)",
+          "button": "",
+          "credits": "",
+          "description": "Effortlessly extract insights from user reviews to gain valuable feedback and actionable items at a glance.",
+          "help": "# Prerequisite: \n- Before you begin, ensure you have the \"omni-extension-appstore-parser\" extension installed in Extension Manager.\n- Restart your Omnitool if it's asked by the extension\n\n# How to Use:\n- Retrieve the app bundle name of your Google Play Store app and enter it in chat to kickstart the review summarization process.\n- Once the process is complete, navigate to the extension > Open \"App Review Parser\" and view the review analysis report.\n(Note: It only fetches the latest message in the chat to construct the report.)",
+          "title": "App Review Analyzer"
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -360.51652873319114,
+          -2824.4447001741946
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "560": {
+        "id": 560,
+        "data": {
+          "appId": "",
+          "country": "us",
+          "lang": "en-US",
+          "nextPaginationToken": "",
+          "num": 50,
+          "paginate": false,
+          "sort": ""
+        },
+        "inputs": {
+          "appId": {
+            "connections": [
+              {
+                "node": 29,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "lang": {
+            "connections": []
+          },
+          "country": {
+            "connections": []
+          },
+          "sort": {
+            "connections": []
+          },
+          "num": {
+            "connections": []
+          },
+          "paginate": {
+            "connections": []
+          },
+          "nextPaginationToken": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "nextPaginationToken": {
+            "connections": []
+          },
+          "reviews": {
+            "connections": [
+              {
+                "node": 278,
+                "input": "object",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          310.2132142561578,
+          -2230.949400132089
+        ],
+        "name": "omni-extension-appstore-parser:appstore-parser.google-play-reviews"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "id": "151b14f1-29fb-4667-a5e1-fa771985f7a9",
+  "version": "draft",
+  "meta": {
+    "created": 1691647526243,
+    "description": "An AI driven cosplay studio imagining great shots and scenes from your input",
+    "name": "Cosplay Studio (WIP)",
+    "pictureUrl": "cosplay.png",
+    "tags": [],
+    "updated": 1691743147188
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "44": {
+        "id": 44,
+        "data": {
+          "instruction": "You are a professional photographer and movie assistant who takes the users input and imagines a fitting scene background for a super high quality engaging photoshoot that would complement the user's chosen setup.\n\nStart your input with a 4 word summary of the camera angle and shot favoring perspectives that focus on make the character the main attraction. If the user's description is longer than 40 words, skip the next part, otherwise add a 1-2 sentence description of no more than 45 words of the set background and scene fitting for user's input without any additional commentary or embellishments.\n\nFocus on the set and backdrop You must use visual language describing things like location, props, lighting, time of day, season, mood, weather, visual effects present (such as reflections, caustics, god rays, fog and similar, dark theme, bright lights, neon), that fit and complement the user's theme etc.  \n\nUse precise comma separated words over long exposition. Do not contradict the users input.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 1
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 334,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 336,
+                "input": "text2",
+                "data": {}
+              },
+              {
+                "node": 337,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -507.16018561601317,
+          -556.1561343473102
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "334": {
+        "id": 334,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "Link from Legend of Zelda looking from the great plateau vivid scene"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 44,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 336,
+                "input": "text1",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1001.3789884764858,
+          -333.0849502150037
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "335": {
+        "id": 335,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 340,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1579.4470326933965,
+          -427.38246363479743
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "336": {
+        "id": 336,
+        "data": {
+          "template": "SRAW cosplay shot of a {text1}, dynamic pose, (center frame), facing the camera, analog style, masterpiece, 8k, uhd, hdr, dslr, high quality, film grain, Fujifilm XT3, studio lighting, {text2} , bokeh trending on artstation, studio photo, soft rim lighting, intricate details, lora:LowRA:0.65\nlora:add_detail:0.6",
+          "text1": "",
+          "text2": "",
+          "text3": "",
+          "text4": "",
+          "text5": ""
+        },
+        "inputs": {
+          "template": {
+            "connections": []
+          },
+          "text1": {
+            "connections": [
+              {
+                "node": 334,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text2": {
+            "connections": [
+              {
+                "node": 44,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text3": {
+            "connections": []
+          },
+          "text4": {
+            "connections": []
+          },
+          "text5": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "mergedText": {
+            "connections": [
+              {
+                "node": 339,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          6.801774420655903,
+          -574.74415686565
+        ],
+        "name": "omnitool.text_merger"
+      },
+      "337": {
+        "id": 337,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 44,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          17.63089686989153,
+          29.209946552119504
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "339": {
+        "id": 339,
+        "data": {
+          "cfg_scale": 7,
+          "checkpoint": "v1-5-pruned-emaonly",
+          "filter_nsfw": true,
+          "height": 512,
+          "negative_prompt": "(deformed, distorted, disfigured:1.3), poorly drawn, nsfw, sexually suggestive, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation, bad_prompt_version2, signature, ugly hands, too many limbs, asymmetric eyes, ugly skin, low resolution, jpeg artifacts, frame, text",
+          "preview": "",
+          "prompt": "",
+          "restore_faces": false,
+          "sampler_name": "DPM++ 2M",
+          "seed": -1,
+          "steps": 30,
+          "tiling": false,
+          "width": 512,
+          "x_settings": ""
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 336,
+                "output": "mergedText",
+                "data": {}
+              }
+            ]
+          },
+          "seed": {
+            "connections": []
+          },
+          "sampler_name": {
+            "connections": []
+          },
+          "steps": {
+            "connections": []
+          },
+          "cfg_scale": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "restore_faces": {
+            "connections": []
+          },
+          "tiling": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "filter_nsfw": {
+            "connections": []
+          },
+          "x_settings": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 340,
+                "input": "imageList",
+                "data": {}
+              }
+            ]
+          },
+          "parameters": {
+            "connections": []
+          },
+          "info": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          }
+        },
+        "position": [
+          560.8250590509037,
+          -589.501006404855
+        ],
+        "name": "automatic1111.simpleStableDiffusion"
+      },
+      "340": {
+        "id": 340,
+        "data": {
+          "codeformer_visibility": 0,
+          "codeformer_weight": 0,
+          "extras_upscaler_2_visibility": 0,
+          "gfpgan_visibility": 0,
+          "imageList": "",
+          "resize_mode": "",
+          "upscale_first": false,
+          "upscaler_1": "None",
+          "upscaler_2": "None",
+          "upscaling_crop": true,
+          "upscaling_resize": 2,
+          "upscaling_resize_h": 512,
+          "upscaling_resize_w": 512
+        },
+        "inputs": {
+          "resize_mode": {
+            "connections": []
+          },
+          "gfpgan_visibility": {
+            "connections": []
+          },
+          "codeformer_visibility": {
+            "connections": []
+          },
+          "codeformer_weight": {
+            "connections": []
+          },
+          "upscaling_resize": {
+            "connections": []
+          },
+          "upscaling_resize_w": {
+            "connections": []
+          },
+          "upscaling_resize_h": {
+            "connections": []
+          },
+          "upscaling_crop": {
+            "connections": []
+          },
+          "upscaler_1": {
+            "connections": []
+          },
+          "upscaler_2": {
+            "connections": []
+          },
+          "extras_upscaler_2_visibility": {
+            "connections": []
+          },
+          "upscale_first": {
+            "connections": []
+          },
+          "imageList": {
+            "connections": [
+              {
+                "node": 339,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "html_info": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 335,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1014.312405391163,
+          -609.9769875358995
+        ],
+        "name": "automatic1111.advancedUpscale"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

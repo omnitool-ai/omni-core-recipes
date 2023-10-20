@@ -1,0 +1,205 @@
+{
+  "id": "aca91ed5-a710-4ef9-b47a-cc185bedd0e9",
+  "meta": {
+    "name": "Image Caption Generator",
+    "author": "Omnitool.ai team",
+    "description": "Generate textual descriptions for images using the CLIP (Contrastive Language-Image Pre-Training) model. This application allows you to upload an image and receive a description in return.",
+    "help": "## Image Caption Generator 🖼️✒️\n\nWelcome to this recipe! Harness the AI to interpret images. Upload an image and receive a description in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: rmokady/clip_prefix_caption\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the image you want to describe.\n- Press ▶️ Run button!\n- View the generated caption in the **Chat** box.",
+    "created": 1694515149216,
+    "updated": 1695873371965,
+    "pictureUrl": "eye.png",
+    "tags": [
+      "#art",
+      "#beginner",
+      "#imageToText"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "111": {
+        "id": 111,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Generate textual descriptions for images using the CLIP (Contrastive Language-Image Pre-Training) model. This application allows you to upload an image and receive a description in return.",
+          "enabled": true,
+          "help": "## Image Caption Generator 🖼️✒️\n\nWelcome to this recipe! Harness the AI to interpret images. Upload an image and receive a description in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: rmokady/clip_prefix_caption\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the image you want to describe.\n- Press ▶️ Run button!\n- View the generated caption in the **Chat** box.",
+          "license": "CC0",
+          "title": "Image Caption Generator",
+          "tags": [
+            "art"
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -621.4331047405819,
+          -106.6369020442659
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "378": {
+        "id": 378,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "images": "",
+          "text": "https://mgxm.replicate.delivery/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "x-omni-title": "Upload an Image in the Chat",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 1737,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -53.53855877494538,
+          4.5899345730954195
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "379": {
+        "id": 379,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1737,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          974.3673441044645,
+          192.71260589565884
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1737": {
+        "id": 1737,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "model": "coco",
+          "use_beam_search": false,
+          "x-omni-title": "Generate Caption via Replicate",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 378,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "use_beam_search": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 379,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          472.67812808060273,
+          -13.163798601557275
+        ],
+        "name": "omni-extension-replicate:run.rmokady/clip_prefix_caption"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

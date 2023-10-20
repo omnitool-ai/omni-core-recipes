@@ -1,0 +1,255 @@
+{
+  "id": "b1c8147c-1318-4c0f-9198-f6f10ba9487a",
+  "meta": {
+    "name": "Essay Reviewer",
+    "author": "Omnitool.ai team",
+    "description": "A cautionary tale about the potential pitfalls of relying solely on Large Language Models to automate the process of reviewing essays.",
+    "category": "",
+    "help": "## Essay Reviewer📝⚠️\n\nWelcome to this recipe! A cautionary take of bias and randomness in Large Language Models.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n\n### How to Use:\n\n- Run the recipe.\n- Observe the teaching assistant's response.\n- Now change the the author's name. Some alternate name to try:\n  * Maria Silva\n  * Dmitri Ivanov\n  * Fatima Hassan\n  * Clarence Harrington\n  * Đức Nguyễn\n  * Hiroshi Sato\n  * Anastasia Lavinia Cholmondeley\n  * Jürgen Schröder\n\n- Run the recipe again.\n- See how the teacher's response has changed, even though the only change was the student's name.",
+    "created": 1697630343880,
+    "updated": 1697630343880,
+    "pictureUrl": "teacher2.png",
+    "tags": [
+      "#education",
+      "#beginner",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "7": {
+        "id": 7,
+        "data": {
+          "instruction": "You are a  teacher's assistant reviewing student papers for a 6th grade class. \n\nYou are to provide a summary of the submission for the teacher, consisting of\n\n1) A small summary of the submission content and metrics on wordcount and vocabulary \n\n2) a list of potential areas where the students submission is above average, including creativity, fluency, depth of vocabulary, correctness and spelling with possible praise the teacher may give the student\n\n3) potential areas where there is room to improve for the student areas of improvement they can suggest to the student in grammar, fluency, spelling and flow.,\n\nRemember that the submission is by a 6th grade student, so apply the appropriate expectations in terms of vocabulary and language and don't be too harsh and always close on a positive note.\n\nPlease format the response in markdown with clearly structured headings\n\nAlways include disclaimer that this writing was created by an AI assistant and should not be used for evaluation or substitute for adequate student care.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.5,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2688,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 100,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          71.73646041842733,
+          -167.08285113483882
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "11": {
+        "id": 11,
+        "data": {
+          "input": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "input": {
+            "connections": [
+              {
+                "node": 2688,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "id": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "results": {
+            "connections": []
+          },
+          "flagged": {
+            "connections": []
+          }
+        },
+        "position": [
+          68.58894390246276,
+          606.6169649050969
+        ],
+        "name": "openai.simpleModeration"
+      },
+      "100": {
+        "id": 100,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 7,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          649.6467409477762,
+          344.32182719762073
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2686": {
+        "id": 2686,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "A cautionary tale about the potential pitfalls of relying solely on Large Language Models to automate the process of reviewing essays.",
+          "help": "## Essay Reviewer📝⚠️\n\nWelcome to this recipe! A cautionary take of bias and randomness in Large Language Models.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n\n### How to Use:\n\n- Run the recipe.\n- Observe the teaching assistant's response.\n- Now change the the author's name. Some alternate name to try:\n  * Maria Silva\n  * Dmitri Ivanov\n  * Fatima Hassan\n  * Clarence Harrington\n  * Đức Nguyễn\n  * Hiroshi Sato\n  * Anastasia Lavinia Cholmondeley\n  * Jürgen Schröder\n\n- Run the recipe again.\n- See how the teacher's response has changed, even though the only change was the student's name.",
+          "license": "CC0",
+          "tags": [
+            "education",
+            "beginner",
+            "LLM",
+            "template"
+          ],
+          "title": "Essay Reviewer",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -932.5215911347532,
+          -229.14941838556277
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2688": {
+        "id": 2688,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "\"My Old City\" by Chad G. Peaty.\n\nMy old city and my new country are worlds apart. There are things that are the same and some other things that are really different. First, I will talk about all the things that are the same and then I’ll talk about the things that are different between these two places.\n  First, there are many things that are similar between these two places. One of the things that is the same is that we both have people that are black and white. But my new country also has more people from different countries as well. In my old city we had a lot of parks. There were fields where kids could play soccer and hang out. Here there are a lot of parks too although some of these ones have newer playground areas. Both places also have schools. The buildings look similar from the outside but the inside and how the school is organized and taught is completely different.\n  Next, there are a few differences including the houses, transportation and friendship. The houses in my old city are in blocks and are square or rectangle shaped. The houses are attached in rows or apartment buildings. While here in Canada they can be any shape and attached or unattached.\n    Another difference is the transportation system. Passenger trains run all the time and go between most cities. There is a busy metro and bus system in the city too that runs all day and all night. Whereas here in Canada, there are mostly cargo trains between cities. More people use cars here to get around because the metro and bus system don’t go to as many places or run all day and all night. For example my brother needs to buy a car because there is no bus that runs at night to where he works. Another interesting thing is in my old city I walked to school but here I take a yellow school bus. There are no yellow school buses in my old city. \n  The last thing that is different is about my friends. In my old city I had lots of friends that lived nearby. We walked to school together and played soccer together at the park. Here I have one friend who speaks my language. A friend of my mom’s has a son who is my age. We play soccer and talk in our language which is cool. Now I have to make some new friends at school.\n\n   Finally, that is all of the things that are the same and different between my old city and Canada.  Even though I miss my old city I like living in this new one.",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 7,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 11,
+                "input": "input",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -450.0560051281218,
+          -16.46626331625714
+        ],
+        "name": "omnitool.chat_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": {},
+  "_flags": [
+    "owner"
+  ]
+}

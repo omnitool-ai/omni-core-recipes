@@ -1,0 +1,872 @@
+{
+  "id": "c861ecac-f94d-4cf8-87ac-f09a80c4c764",
+  "meta": {
+    "name": "OmniLab: SDXL Image Resolution",
+    "author": "Omnitool.ai team",
+    "description": "A side-by-side comparison to experiment the importance of using the right image size to achieve the best performance from the Stable Diffusion XL (SDXL) models.",
+    "category": "",
+    "help": "# Stable Diffusion XL (SDXL) Model Resolutions\n\nThe **Stable Diffusion XL (SDXL)** model was fundamentally trained at a base resolution of **1024 x 1024**. This implies that the generated image will have up to **1,048,576 pixels** - a threshold defining its maximum clarity and detail.\n\nBeyond its base, the model was further fine-tuned on multiple aspect ratios. However, a consistent theme was maintained: the total pixel count doesn't surpass the **1 megapixel** mark (**1,048,576 pixels**).\n\nFor users seeking the best image generation results on the **SDXL model**, consider utilizing the following resolutions and aspect ratios:\n\n- **1024 x 1024** (1:1 Square)\n- **1152 x 896** (9:7)\n- **896 x 1152** (7:9)\n- **1216 x 832** (19:13)\n- **832 x 1216** (13:19)\n- **1344 x 768** (7:4 Horizontal)\n- **768 x 1344** (4:7 Vertical)\n- **1536 x 640** (12:5 Horizontal)\n- **640 x 1536** (5:12 Vertical - closely resembling iPhone resolution)",
+    "created": 1697215885795,
+    "updated": 1697215987561,
+    "pictureUrl": "camera_002.png",
+    "tags": [
+      "#education",
+      "#art",
+      "#photography",
+      "#beginner",
+      "#diffusion"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2512": {
+        "id": 2512,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 1024,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Replicate: stability-ai/sdxl 1024x1024",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2515,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2519,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2576,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2517,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          276.41093978114924,
+          -102.71983468518506
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2513": {
+        "id": 2513,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 768,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 768,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Replicate: stability-ai/sdxl 768x768",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2515,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2519,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2576,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2517,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          273.10581547537646,
+          1711.639417126691
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2514": {
+        "id": 2514,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1600,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 1600,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Replicate: stability-ai/sdxl 1600x1600",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2515,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2519,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2576,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2517,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          274.97061028786254,
+          824.6740855427556
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2515": {
+        "id": 2515,
+        "data": {
+          "number": 1,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2512,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2513,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2514,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2516,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2547,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -651.250081271173,
+          904.7218713776373
+        ],
+        "name": "omnitool.number_input"
+      },
+      "2516": {
+        "id": 2516,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 896,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 1152,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Replicate: stability-ai/sdxl 1152x896",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2515,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2519,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2576,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2517,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          279.78823240016357,
+          2653.2544704654565
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2517": {
+        "id": 2517,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2512,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 2513,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 2514,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 2516,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 2547,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1195.4453793409903,
+          1117.2556072198645
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2519": {
+        "id": 2519,
+        "data": {
+          "text": "An off-center portrait of an old bohemian barista preparing coffee in a boutique vintage cafe.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2512,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2513,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2514,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2516,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2547,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1158.9491182084855,
+          519.4173685618254
+        ],
+        "name": "omnitool.input_text"
+      },
+      "2547": {
+        "id": 2547,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 512,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "seed": 0,
+          "width": 512,
+          "x-omni-comment": "A text-to-image generative AI model that creates beautiful images\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
+          "x-omni-title": "Replicate: stability-ai/sdxl 512x512",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2515,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2519,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2576,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2517,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          277.3241026406423,
+          -983.8218659912881
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2576": {
+        "id": 2576,
+        "data": {
+          "text": "(bad composition), (out of frame), (nsfw), (nude), (sexual), off center, drawing, anime, art, cartoon, painting, drawing, anime, Low quality, worst quality, bad anatomy, 144p, blurry, censored, artifacts, jpeg artifact, oversaturation, watermark, signature, bad hand, duplicates, distortion",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2512,
+                "input": "negative_prompt",
+                "data": {}
+              },
+              {
+                "node": 2547,
+                "input": "negative_prompt",
+                "data": {}
+              },
+              {
+                "node": 2514,
+                "input": "negative_prompt",
+                "data": {}
+              },
+              {
+                "node": 2513,
+                "input": "negative_prompt",
+                "data": {}
+              },
+              {
+                "node": 2516,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -642.3765813344176,
+          1332.6059330173593
+        ],
+        "name": "omnitool.input_text"
+      },
+      "2622": {
+        "id": 2622,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "A side-by-side comparison to experiment the importance of using the right image size to achieve the best performance from the Stable Diffusion XL (SDXL) models.",
+          "help": "# Stable Diffusion XL (SDXL) Model Resolutions\n\nThe **Stable Diffusion XL (SDXL)** model was fundamentally trained at a base resolution of **1024 x 1024**. This implies that the generated image will have up to **1,048,576 pixels** - a threshold defining its maximum clarity and detail.\n\nBeyond its base, the model was further fine-tuned on multiple aspect ratios. However, a consistent theme was maintained: the total pixel count doesn't surpass the **1 megapixel** mark (**1,048,576 pixels**).\n\nFor users seeking the best image generation results on the **SDXL model**, consider utilizing the following resolutions and aspect ratios:\n\n- **1024 x 1024** (1:1 Square)\n- **1152 x 896** (9:7)\n- **896 x 1152** (7:9)\n- **1216 x 832** (19:13)\n- **832 x 1216** (13:19)\n- **1344 x 768** (7:4 Horizontal)\n- **768 x 1344** (4:7 Vertical)\n- **1536 x 640** (12:5 Horizontal)\n- **640 x 1536** (5:12 Vertical - closely resembling iPhone resolution)",
+          "license": "CC0",
+          "tags": [
+            "education",
+            "art",
+            "photography"
+          ],
+          "title": "OmniLab: SDXL Image Resolution",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1602.2945608765658,
+          136.05297867876834
+        ],
+        "name": "omnitool.recipe_metadata"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

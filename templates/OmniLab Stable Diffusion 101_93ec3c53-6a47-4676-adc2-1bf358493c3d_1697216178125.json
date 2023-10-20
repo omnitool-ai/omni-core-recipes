@@ -1,0 +1,586 @@
+{
+  "id": "93ec3c53-6a47-4676-adc2-1bf358493c3d",
+  "meta": {
+    "name": "OmniLab: Stable Diffusion 101",
+    "author": "Omnitool.ai team",
+    "description": "A simple image generation demo to help you kick-start your journey with the Stable Diffusion model, combined with image manipulation tasks like upscaling. Feel free to experiment with the parameters to achieve different results.",
+    "category": "",
+    "help": "## Stable Diffusion 101 🎨🖼️\n\nWelcome to this recipe! Learn the basic prompt to generate images using Stable Diffusion and Upscaling.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models**:\n\n- Replicate: stability-ai/sdxl\n- Replicate: nightmareai/real-esrgan\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Play around with the Stable Diffusion prompt\n- Hit **Run Recipe**!\n- Enjoy the generated image in the **Chat** box.",
+    "created": 1697216099080,
+    "updated": 1697216169468,
+    "pictureUrl": "camera_001.png",
+    "tags": [
+      "#education",
+      "#art",
+      "#beginner",
+      "#diffusion"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1": {
+        "id": 1,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "A simple image generation demo to help you kick-start your journey with the Stable Diffusion model, combined with image manipulation tasks like upscaling. Feel free to experiment with the parameters to achieve different results.",
+          "enabled": true,
+          "help": "## Stable Diffusion 101 🎨🖼️\n\nWelcome to this recipe! Learn the basic prompt to generate images using Stable Diffusion and Upscaling.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models**:\n\n- Replicate: stability-ai/sdxl\n- Replicate: nightmareai/real-esrgan\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Play around with the Stable Diffusion prompt\n- Hit **Run Recipe**!\n- Enjoy the generated image in the **Chat** box.",
+          "license": "CC0",
+          "tags": [
+            "education",
+            "art"
+          ],
+          "title": "OmniLab: Stable Diffusion 101",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -2000.8007574496291,
+          -672.1235727892617
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "4": {
+        "id": 4,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2336,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          358.6708530143634,
+          231.1995812224955
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "91": {
+        "id": 91,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "image_type": "",
+          "images": "",
+          "prompt": "",
+          "replace": null,
+          "source": "({input:prompt}:1.2), {input:image_type}",
+          "x-omni-dynamicInputs": {
+            "image_type": {
+              "customSocket": "text",
+              "name": "image_type",
+              "title": "image_type",
+              "type": "string"
+            },
+            "prompt": {
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "prompt",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image_type": {
+            "connections": [
+              {
+                "node": 2274,
+                "output": "image_type",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2274,
+                "output": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2322,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1265.075157894207,
+          -106.29226105642923
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2274": {
+        "id": 2274,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "image_type": "",
+          "negative_prompt": "",
+          "prompt": "",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "OmniLab: Stable Diffusion 101",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "A simple Image Generation Demo using Stable Diffusion and Upscaling",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "time magazine cover photograph, SRAW, National Geographic Contest Winner, exceptional quality, 4k",
+                        "description": "💡Hint: Use this field to define general properties of the image here such as  'high definition photograph' or 'pencil illustration'",
+                        "input": true,
+                        "key": "image_type",
+                        "label": "Image Style",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Barbie Toy",
+                        "description": "💡Hint: The input text (aka Prompt) is used to shape the generation of the image. Brackets can be used to increase the weight of a particular subject, e.g. (sunny) - with more brackets further increasing the weight.",
+                        "input": true,
+                        "key": "prompt",
+                        "label": "Prompt",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "ugly, deformed, lowres, missing limbs, FastNegativeV2",
+                        "description": "💡Hint: The **negative prompt** allows you to define subjects you do not want in the image. For example, adding 'people, crowd' would bias the generation towards generating imaged devoid of people. ",
+                        "input": true,
+                        "key": "negative_prompt",
+                        "label": "Negative Prompt",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "image_type": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "image_type",
+              "title": "image_type",
+              "type": "string"
+            },
+            "negative_prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "description": "negative prompt",
+              "name": "negative_prompt",
+              "title": "Negative Prompt",
+              "type": "string"
+            },
+            "prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "prompt",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "image_type": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "image_type",
+              "title": "image_type",
+              "type": "string"
+            },
+            "negative_prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "description": "negative prompt",
+              "name": "negative_prompt",
+              "title": "Negative Prompt",
+              "type": "string"
+            },
+            "prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "prompt",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image_type": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "image_type": {
+            "connections": [
+              {
+                "node": 91,
+                "input": "image_type",
+                "data": {}
+              }
+            ]
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2322,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 91,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1846.413144212337,
+          307.62420677653097
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2322": {
+        "id": 2322,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "",
+          "num_inference_steps": 40,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "width": 1024,
+          "x-omni-title": "Replicate: stability-ai/sdxl",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 91,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2274,
+                "output": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2336,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -785.9917975321462,
+          -100.4646704371458
+        ],
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
+      },
+      "2336": {
+        "id": 2336,
+        "data": {
+          "enabled": true,
+          "face_enhance": true,
+          "image": "https://replicate.delivery/pbxt/Ing7Fa4YMk6YtcoG1YZnaK3UwbgDB5guRc5M2dEjV6ODNLMl/cat.jpg",
+          "scale": 2,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2322,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "scale": {
+            "connections": []
+          },
+          "face_enhance": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 4,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -288.74743736712537,
+          74.89335024898946
+        ],
+        "name": "omni-core-replicate:run.nightmareai/real-esrgan"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": {},
+  "_flags": [
+    "owner"
+  ]
+}

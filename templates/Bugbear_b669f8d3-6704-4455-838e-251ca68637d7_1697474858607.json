@@ -1,0 +1,405 @@
+{
+  "id": "b669f8d3-6704-4455-838e-251ca68637d7",
+  "meta": {
+    "name": "Bugbear",
+    "author": "Omnitool.ai team",
+    "description": "A tool to file GPT formatted bugs to the omni repository in chat.",
+    "category": "",
+    "help": "",
+    "created": 1697474829014,
+    "updated": 1697474845366,
+    "pictureUrl": "bugbear.png",
+    "tags": [
+      "#productivity",
+      "#devops",
+      "system"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "11": {
+        "id": 11,
+        "data": {
+          "instruction": "You are a quality assurance specialist. Take the user input and create a well format bug reports and feature requests by fitting them into a predefined format. Your output is purely that format with no explanations and embellishment. If the users includes reproductions steps or indication of frequency, you break them out in your report. You will always add --added by @bugbear at the end of each issue\n\nFor example\n\nExample User input: \n\nThere is a problem with the image control, in some screen sizes it produces a visual artifacts. Specifically when I view the app on a smaller screen like mobile, sometimes the image control may have a red stripe over it. \n\n--added by @bugbear\n\nYour output:\n\nIssue: User reports a a problem with the image control, in some screen sizes it produces a visual artifacts. Specifically when they view the app on a smaller screen like mobile, sometimes the image control may have a red stripe over it. \n\nFrequency: Sometimes\n\nReproduction: View app on mobile.\n\nExample:\n\nI'd love to add support for up to six bots in your chat context that could be addressed using @botname. This would enable the user to simultanously cowork with multiple bot experts. It's a useful feature for helping people visually grok the changes coming to work with AI. The way this could look is a row of little portraits\n\nYour ouput:\n\nFeature: Add up to six bots to the chat and addressing them by @botname to enable users to cowork with multiple bot experts. Maybe through a row of little portraits.\nReason: Help people to visually understand the change coming to work by AI\nPriority: Unspecified\n\n-- added by @bugbear",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2766,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 13,
+                "input": "body",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          488.72063975333924,
+          311.2922510849418
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "12": {
+        "id": 12,
+        "data": {
+          "instruction": "You are a quality assurance specialist. Take the user input and create a concise summary to be used in a bug report title field. Your output is purely that summary with no explanations and embellishment. Stick to 20 words maximum. Prefix your summary with BUG: for bugs and issues and FEATURE: for Feature requests\n\nFor example \n\nExample User input: There is a problem with the image control, in some screen sizes it produces a visual artifacts. Specifically when I view the app on a smaller screen like mobile, sometimes the image control may have a red stripe over it\n\nYour output: BUG: Image control sometimes has visual artifacts on some screen sizes\n\nExample User input: I would like there to be a way to specify a color for users in chat\n\nYour output: FEATURE: A way to specify user color in chat",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2766,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 13,
+                "input": "title",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          486.06798892873496,
+          -393.616800708148
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "13": {
+        "id": 13,
+        "data": {
+          "assignee": "",
+          "assignees": "",
+          "body": "",
+          "labels": "",
+          "milestone": "",
+          "owner": "mercenaries-ai",
+          "parameter:owner": "mercenaries-ai",
+          "parameter:repo": "omnitool-docs",
+          "repo": "omnitool-docs",
+          "title": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "owner": {
+            "connections": []
+          },
+          "repo": {
+            "connections": []
+          },
+          "title": {
+            "connections": [
+              {
+                "node": 12,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "body": {
+            "connections": [
+              {
+                "node": 11,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "assignee": {
+            "connections": []
+          },
+          "milestone": {
+            "connections": []
+          },
+          "labels": {
+            "connections": []
+          },
+          "assignees": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "id": {
+            "connections": []
+          },
+          "node_id": {
+            "connections": []
+          },
+          "url": {
+            "connections": []
+          },
+          "repository_url": {
+            "connections": []
+          },
+          "labels_url": {
+            "connections": []
+          },
+          "comments_url": {
+            "connections": []
+          },
+          "events_url": {
+            "connections": []
+          },
+          "html_url": {
+            "connections": [
+              {
+                "node": 290,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "number": {
+            "connections": []
+          },
+          "state": {
+            "connections": []
+          },
+          "state_reason": {
+            "connections": []
+          },
+          "title": {
+            "connections": []
+          },
+          "body": {
+            "connections": []
+          },
+          "user": {
+            "connections": []
+          },
+          "labels": {
+            "connections": []
+          },
+          "assignee": {
+            "connections": []
+          },
+          "assignees": {
+            "connections": []
+          },
+          "milestone": {
+            "connections": []
+          },
+          "locked": {
+            "connections": []
+          },
+          "active_lock_reason": {
+            "connections": []
+          },
+          "comments": {
+            "connections": []
+          },
+          "pull_request": {
+            "connections": []
+          },
+          "closed_at": {
+            "connections": []
+          },
+          "created_at": {
+            "connections": []
+          },
+          "updated_at": {
+            "connections": []
+          },
+          "draft": {
+            "connections": []
+          },
+          "closed_by": {
+            "connections": []
+          },
+          "body_html": {
+            "connections": []
+          },
+          "body_text": {
+            "connections": []
+          },
+          "timeline_url": {
+            "connections": []
+          },
+          "repository": {
+            "connections": []
+          },
+          "performed_via_github_app": {
+            "connections": []
+          },
+          "author_association": {
+            "connections": []
+          },
+          "reactions": {
+            "connections": []
+          }
+        },
+        "position": [
+          1115.8230722795292,
+          -190.71459904465172
+        ],
+        "name": "github.mercs_issues_create"
+      },
+      "290": {
+        "id": 290,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 13,
+                "output": "html_url",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1735.060496929524,
+          93.68216759082759
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2766": {
+        "id": 2766,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 12,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 11,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -175.05168821423968,
+          35.846081528438404
+        ],
+        "name": "omnitool.chat_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "id": "936659d2-6c11-4579-b640-40df022f05f1",
+  "meta": {
+    "name": "My Recipe",
+    "author": "Omnitool.ai team",
+    "description": "",
+    "help": "",
+    "created": 1696667066896,
+    "updated": 1696671188076,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2369": {
+        "id": 2369,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2379,
+                "input": "Source",
+                "data": {}
+              },
+              {
+                "node": 2382,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -382.7313287566454,
+          -227.8124372955358
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "2370": {
+        "id": 2370,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2382,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2376,
+                "output": "Result",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2315.853858344008,
+          -124.05640112547886
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2375": {
+        "id": 2375,
+        "data": {
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": "576",
+          "image": "https://replicate.delivery/pbxt/HtGQBfA5TrqFYZBf0UL18NTqHrzt8UiSIsAkUuMHtjvFDO6p/overture-creations-5sI6fQgYIuo.png",
+          "mask": "https://replicate.delivery/pbxt/HtGQBqO9MtVbPm0G0K43nsvvjBB0E0PaWOhuNRrRBBT4ttbf/mask.png",
+          "negative_prompt": "",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "",
+          "scheduler": "DPMSolverMultistep",
+          "seed": 0,
+          "width": "1024",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": [
+              {
+                "node": 2379,
+                "output": "Mask",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 2379,
+                "output": "Result",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2382,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2378,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          722.2826170452547,
+          -198.67492674281232
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/stable-diffusion-inpainting"
+      },
+      "2376": {
+        "id": 2376,
+        "data": {
+          "Source": "",
+          "Target": "4k",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Source": {
+            "connections": [
+              {
+                "node": 2378,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Result": {
+            "connections": [
+              {
+                "node": 2370,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "Mask": {
+            "connections": []
+          },
+          "Width": {
+            "connections": []
+          },
+          "Height": {
+            "connections": []
+          }
+        },
+        "position": [
+          1797.2214391612242,
+          80.66559677462173
+        ],
+        "name": "omnitool.prepare_image"
+      },
+      "2378": {
+        "id": 2378,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/IMaOTdBMcd6knNIdJ8zRCoaXme6ca7NtcWHop1dkLjWDuAsB/frog.png",
+          "task": "real_sr",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "task": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 2375,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2376,
+                "input": "Source",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1246.994563976289,
+          81.10133012932296
+        ],
+        "name": "omni-extension-replicate:run.mv-lab/swin2sr"
+      },
+      "2379": {
+        "id": 2379,
+        "data": {
+          "Source": "",
+          "Target": "1080p",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Source": {
+            "connections": [
+              {
+                "node": 2369,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Result": {
+            "connections": [
+              {
+                "node": 2375,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "Mask": {
+            "connections": [
+              {
+                "node": 2375,
+                "input": "mask",
+                "data": {}
+              }
+            ]
+          },
+          "Width": {
+            "connections": []
+          },
+          "Height": {
+            "connections": []
+          }
+        },
+        "position": [
+          169.7188301022285,
+          -45.31786038015952
+        ],
+        "name": "omnitool.prepare_image"
+      },
+      "2382": {
+        "id": 2382,
+        "data": {
+          "xOmniEnabled": true,
+          "image": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "enabled": true,
+          "model": "coco",
+          "use_beam_search": false
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2369,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "use_beam_search": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2375,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2370,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          208.1340729708904,
+          -447.2908704644037
+        ],
+        "name": "omni-extension-replicate:run.rmokady/clip_prefix_caption"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

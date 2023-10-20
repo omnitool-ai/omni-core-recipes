@@ -1,0 +1,137 @@
+{
+  "id": "a5ad74ea-1dfc-464a-bdc8-c3a413347267",
+  "version": "draft",
+  "meta": {
+    "created": 1687145379716,
+    "description": "No description.",
+    "name": "Speaker Note",
+    "pictureUrl": "omni.png",
+    "tags": [],
+    "updated": 1691747282901
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "5": {
+        "id": 5,
+        "data": {
+          "audio": "",
+          "chat_history": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_input\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -676.3062290697794,
+          -336.39645961137154
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "6": {
+        "id": 6,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          901.1189218378371,
+          -339.21865836090086
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "7": {
+        "id": 7,
+        "data": {
+          "audio": ""
+        },
+        "inputs": {
+          "audio": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "audio": {
+            "connections": [
+              {
+                "node": 8,
+                "input": "file",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -184.32982601282845,
+          -272.4528047178724
+        ],
+        "name": "pop_com.DeepfilterEnhance"
+      },
+      "8": {
+        "id": 8,
+        "data": {
+          "file": "",
+          "language": "en",
+          "model": "whisper-1",
+          "prompt": "",
+          "response_format": "json",
+          "temperature": 0
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 7,
+                "output": "audio",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "language": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          372.0670835703164,
+          -370.5168441606763
+        ],
+        "name": "openai.simpleTranscription"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "langchain": null,
+  "_flags": [
+    "owner"
+  ]
+}

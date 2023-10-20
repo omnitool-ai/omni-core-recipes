@@ -1,0 +1,357 @@
+{
+  "id": "bb3c68c0-c742-4aba-9c2d-4628d3404967",
+  "version": "draft",
+  "meta": {
+    "created": 1691670219404,
+    "description": "Revoices spoken audio with a different voice and language",
+    "name": "Voice-to-Voice Demo (WIP)",
+    "pictureUrl": "translator2.png",
+    "tags": [],
+    "updated": 1691743534689
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "31": {
+        "id": 31,
+        "data": {
+          "model_id": "eleven_monolingual_v1",
+          "parameter:voice_id": "VR6AewLTigWG4xSOukaG",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "EXAVITQu4vr4xnSDxMaL"
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 32,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 75,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -121.71920315073936,
+          -146.2546892326066
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "32": {
+        "id": 32,
+        "data": {
+          "file": "",
+          "language": "en",
+          "model": "whisper-1",
+          "prompt": "",
+          "response_format": "json",
+          "temperature": 0
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 74,
+                "output": "audio",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "language": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 31,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 33,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -630.7237128427718,
+          -120.68133815725551
+        ],
+        "name": "openai.simpleTranscription"
+      },
+      "33": {
+        "id": 33,
+        "data": {
+          "num_beams": 1,
+          "prompt": "",
+          "source_lang": "auto",
+          "split_sentences": true,
+          "target_lang": "es"
+        },
+        "inputs": {
+          "source_lang": {
+            "connections": []
+          },
+          "target_lang": {
+            "connections": []
+          },
+          "num_beams": {
+            "connections": []
+          },
+          "split_sentences": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 32,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "translations": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 34,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -128.44727748458382,
+          179.96944217930516
+        ],
+        "name": "textsynth.simpleTranslation"
+      },
+      "34": {
+        "id": 34,
+        "data": {
+          "model_id": "eleven_multilingual_v1",
+          "parameter:voice_id": "EXAVITQu4vr4xnSDxMaL",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "EXAVITQu4vr4xnSDxMaL"
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 33,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 76,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          304.2335794273402,
+          349.5814582277352
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "74": {
+        "id": 74,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 32,
+                "input": "file",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1137.2906590092146,
+          -297.8805603210918
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "75": {
+        "id": 75,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 31,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          312.29060209711827,
+          -204.2142889947018
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "76": {
+        "id": 76,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 34,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          738.2355233767756,
+          139.70459176756285
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

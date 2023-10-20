@@ -1,0 +1,287 @@
+{
+  "id": "76999b99-dbad-427f-9d2d-a6eee8970813",
+  "version": "draft",
+  "meta": {
+    "created": 1691747259278,
+    "updated": 1691747259534,
+    "name": "Tabletop Map Generator (WIP)",
+    "description": "No description.",
+    "pictureUrl": "omni.png",
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1": {
+        "id": 1,
+        "data": {
+          "audio": "",
+          "chat_history": "",
+          "documents": "",
+          "images": "",
+          "text": "a city with a few buildings, america, broken streets, rusty cars wreck, barricades, fire, broken buildings, graffiti,(dirt), ((destruction)),  zombie apocalypse",
+          "x-omni-summary": "The block named \"omnitool.api_input\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -555.9054394645109,
+          242.56696121617162
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "2": {
+        "id": 2,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          759.2301714569847,
+          -123.67721189460659
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "3": {
+        "id": 3,
+        "data": {
+          "cfg_scale": 8.75,
+          "checkpoint": "revAnimated_v122",
+          "filter_nsfw": true,
+          "height": 512,
+          "negative_prompt": "",
+          "preview": "",
+          "prompt": "",
+          "restore_faces": false,
+          "sampler_name": "DPM++ 2M Karras",
+          "seed": -1,
+          "steps": 39,
+          "tiling": false,
+          "width": 768,
+          "x_settings": ""
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 6,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "seed": {
+            "connections": []
+          },
+          "sampler_name": {
+            "connections": []
+          },
+          "steps": {
+            "connections": []
+          },
+          "cfg_scale": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "restore_faces": {
+            "connections": []
+          },
+          "tiling": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 5,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "checkpoint": {
+            "connections": []
+          },
+          "filter_nsfw": {
+            "connections": []
+          },
+          "x_settings": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 7,
+                "input": "imageList",
+                "data": {}
+              }
+            ]
+          },
+          "parameters": {
+            "connections": []
+          },
+          "info": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          }
+        },
+        "position": [
+          250.48913704867277,
+          29.514333270407498
+        ],
+        "name": "automatic1111.simpleStableDiffusion"
+      },
+      "4": {
+        "id": 4,
+        "data": {
+          "text": "<lora:Streetoto-10:0.70>,(map), PROMPT, (Details), ((sharp details)),well defined paths,(many pixels) megascan 4k <lora:LowRA:0.5> hdr, dynamic lighting, topdown, battlemap"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 6,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -590.3224165500137,
+          -27.957076871313653
+        ],
+        "name": "omnitool.input_text"
+      },
+      "5": {
+        "id": 5,
+        "data": {
+          "text": "EasyNegativeV2,photo, low quality, blurry, jpg, (isometric)"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -192.66286184741358,
+          538.4405392233525
+        ],
+        "name": "omnitool.input_text"
+      },
+      "6": {
+        "id": 6,
+        "data": {
+          "match": "PROMPT",
+          "replace": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 4,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "match": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -128.87521935983986,
+          -16.628002916290455
+        ],
+        "name": "omnitool.text_replace"
+      },
+      "7": {
+        "id": 7,
+        "data": {
+          "imageList": "",
+          "upscaler_1": "R-ESRGAN 2x+",
+          "upscaling_resize": 2
+        },
+        "inputs": {
+          "upscaling_resize": {
+            "connections": []
+          },
+          "upscaler_1": {
+            "connections": []
+          },
+          "imageList": {
+            "connections": [
+              {
+                "node": 3,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "html_info": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "position": [
+          660.0545011719543,
+          217.09508599410782
+        ],
+        "name": "automatic1111.simpleUpscale"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": []
+}

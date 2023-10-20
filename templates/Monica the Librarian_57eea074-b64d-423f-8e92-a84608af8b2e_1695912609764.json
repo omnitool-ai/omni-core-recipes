@@ -1,0 +1,364 @@
+{
+  "id": "57eea074-b64d-423f-8e92-a84608af8b2e",
+  "meta": {
+    "name": "Book Recommendation",
+    "author": "Omnitool.ai team",
+    "description": "An app that offers book recommendations based on the images provided by the user. It leverages the CLIP (Contrastive Language-Image Pre-Training) model alongside LLM to interpret the images and generate pertinent book suggestions.",
+    "help": "## Book Recommendation 📚🔍\n\nWelcome to the Monica the Librarian recipe! With this AI assistant, you can get book recommendations based an image. Monica is vivacious, sarcastic, and superfluously eloquent, but above all, she is helpful! She will always recommend a good book, even if she personally dislikes aspects of her recommendation.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: rmokady/clip_prefix_caption\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Upload the image you want to get a book recommendation for.\n- Hit **Run Recipe** button!\n- View the generated book recommendation in the **Chat** box. Enjoy your new book recommendation!",
+    "created": 1695910443462,
+    "updated": 1695912607933,
+    "pictureUrl": "monica.png",
+    "tags": [
+      "#lifestyle",
+      "#books",
+      "#beginner",
+      "#imageToText",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "65": {
+        "id": 65,
+        "data": {
+          "instruction": "You are a literary connoisseur named \"Monica the Librarian\".\n\nYou are vivacious, sarcastic and superfluously eloquent. But above all, you are helpful! You will always recommend a good book, even if you personally dislike aspects of your recommendation.\n\nYou will receive a programmatically created description of an image.\n(There will be additional words and numbers in brackets, just ignore those.)\nYou will use the content of that description to recommend a novel, book or short story that fits the overall theme of the image.\n\nAlways start your answer with an introduction like: \"Cordial greetings from Monica, your digital bookworm companion\" or \"You are now graced by the communicative presence of Monica\" or \"Salutations from Monica, your humble Librarian, about to guide you like a lighthouse through the fogs of fiction.\", \"I, Monica, a veritable bastion of bookish knowledge and wisdom...\"\n\nHowever, keep your responses brief and succinct.\n\nIf you are absolutely certain the book is definitely available on Project Gutenberg, provide a direct link like so:\n* [Flatland: A Romance of Many Dimensions](https://www.gutenberg.org/ebooks/97)\nIf you are in any doubt if the book is on Project Gutenberg, instead, invent an amusing hard to locate place in your library where the book may be found instead.\n\nMonica, Stay in character.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1064,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 146,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -22.99189414559953,
+          -323.7044927708341
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "146": {
+        "id": 146,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 65,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          497.93610167135427,
+          74.84460768510385
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1064": {
+        "id": 1064,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "model": "coco",
+          "use_beam_search": false,
+          "x-omni-title": "Describe Image",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2263,
+                "output": "image",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "use_beam_search": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 65,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -513.604999619555,
+          64.38992750715707
+        ],
+        "name": "omni-extension-replicate:run.rmokady/clip_prefix_caption"
+      },
+      "2263": {
+        "id": 2263,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "image": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Book Recommendation",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Show her a picture and she will recommend you a novel to read.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "capture": false,
+                        "fileTypes": [
+                          {
+                            "label": "",
+                            "value": ""
+                          }
+                        ],
+                        "image": true,
+                        "input": true,
+                        "key": "file",
+                        "label": "Upload",
+                        "storage": "b64-fixed-storage-provider",
+                        "tableView": false,
+                        "type": "imagedraw",
+                        "webcam": false
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "image": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "image",
+              "default": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+              "defaultValue": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+              "description": "Input image",
+              "name": "image",
+              "socketOpts": {
+                "format": "base64-withHeader"
+              },
+              "title": "Image",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "image": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "image",
+              "default": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+              "defaultValue": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+              "description": "Input image",
+              "name": "image",
+              "socketOpts": {
+                "format": "base64-withHeader"
+              },
+              "title": "Image",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 1064,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1161.6542054072372,
+          -136.20345264826977
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2264": {
+        "id": 2264,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "An app that offers book recommendations based on the images provided by the user. It leverages the CLIP (Contrastive Language-Image Pre-Training) model alongside LLM to interpret the images and generate pertinent book suggestions.",
+          "help": "## Book Recommendation 📚🔍\n\nWelcome to the Monica the Librarian recipe! With this AI assistant, you can get book recommendations based an image. Monica is vivacious, sarcastic, and superfluously eloquent, but above all, she is helpful! She will always recommend a good book, even if she personally dislikes aspects of her recommendation.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: rmokady/clip_prefix_caption\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Upload the image you want to get a book recommendation for.\n- Hit **Run Recipe** button!\n- View the generated book recommendation in the **Chat** box. Enjoy your new book recommendation!",
+          "license": "CC0",
+          "tags": [
+            "lifestyle",
+            "books"
+          ],
+          "title": "Book Recommendation",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1735.5137594558907,
+          -765.3989718152062
+        ],
+        "name": "omnitool.recipe_metadata"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

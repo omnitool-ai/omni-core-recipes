@@ -1,0 +1,405 @@
+{
+  "id": "e8b6c471-dd7b-4ecf-b3e1-f38a70a139ae",
+  "meta": {
+    "name": "Verbal Image Editing",
+    "author": "Omnitool.ai team",
+    "description": "Send a picture and a name and this mercenary will do their best to replace the subject in the picture with your desired subject.",
+    "help": "",
+    "created": 1691659904335,
+    "updated": 1695981469970,
+    "pictureUrl": "switch.png",
+    "tags": [
+      "photography",
+      "art & design"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "295": {
+        "id": 295,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "Joan Baez",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 375,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 625,
+                "input": "image",
+                "data": {}
+              },
+              {
+                "node": 632,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1356.8078225879551,
+          146.25713947676886
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "296": {
+        "id": 296,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 375,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 625,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          936.0103572485094,
+          152.61869424277364
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "375": {
+        "id": 375,
+        "data": {
+          "function": null,
+          "functions": "",
+          "instruction": "You are a helpful bot.  You can help people by answering their questions.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": [
+              {
+                "node": 615,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 295,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 296,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 625,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          241.86499849740164,
+          307.2568478431303
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "615": {
+        "id": 615,
+        "data": {
+          "button": "",
+          "description": "",
+          "images": "",
+          "replace": null,
+          "source": "You are a helpful assistant turning image descriptions for the vision impaired into prompts for a generative diffusion model.\n\nIn addition you personalize the description by replacing any mention of the main subject (a person, a pet, name, etc) in the description with the user's provided subject. \n\nYou will encase the name of the user's subject in parenthesis, for example ((Joe Blow))\n\nThis is the image description:\n{input:description}",
+          "x-omni-dynamicInputs": {
+            "description": {
+              "customSocket": "text",
+              "name": "description",
+              "title": "description",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "description": {
+            "connections": [
+              {
+                "node": 632,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 375,
+                "input": "instruction",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -310.5076978398736,
+          440.1434829880441
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "625": {
+        "id": 625,
+        "data": {
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "image": "https://replicate.delivery/pbxt/IBnrzJD8Vvz3rD7yF5W8ODnpeA5wcoNpP1RRiDutqW1nG8eF/example.jpeg",
+          "image_guidance_scale": 1.5,
+          "negative_prompt": "",
+          "num_inference_steps": 100,
+          "num_outputs": "",
+          "prompt": "turn him into cyborg",
+          "scheduler": "K_EULER_ANCESTRAL",
+          "seed": 0,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "seed": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 295,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 375,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          },
+          "image_guidance_scale": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 296,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          260.33366502365135,
+          -391.12677287909446
+        ],
+        "name": "omni-extension-replicate:run.timothybrooks/instruct-pix2pix"
+      },
+      "632": {
+        "id": 632,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/mgxm/4dc7763a-f234-4a7c-a85f-cb9e05e37cf8/COCO_val2014_000000579664.jpg",
+          "model": "coco",
+          "use_beam_search": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 295,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "use_beam_search": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 615,
+                "input": "description",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -855.6631396180749,
+          529.8559016743677
+        ],
+        "name": "omni-extension-replicate:run.rmokady/clip_prefix_caption"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

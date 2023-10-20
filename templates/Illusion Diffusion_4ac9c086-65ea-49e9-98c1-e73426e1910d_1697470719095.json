@@ -1,0 +1,423 @@
+{
+  "id": "4ac9c086-65ea-49e9-98c1-e73426e1910d",
+  "meta": {
+    "name": "Illusion Diffusion",
+    "author": "Omnitool.ai team",
+    "description": "Experience the power of the fine-tuned Stable Diffusion model with ControlNet to blend a logo into text-to-image processes. Just upload a logo and provide the generation prompt.",
+    "category": "",
+    "help": "## Illusion Diffusion 🎨🖼️\n\nControlNet acts as an advanced instrument to maneuver the generative process of Stable Diffusion models for image creation. Let's explore the influence of ControlNet by infusing a logo image into an image generated based on your prompt!\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models**:\n\n- Replicate: lucataco/illusion-diffusion-hq\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the logo you want to infuse.\n- Enter the image generation prompt.\n- Press ▶️ Run button!\n- View the generated image in the **Chat** box!\n- Adjust the **Controlnet Conditioning Scale** slider to observe the differences in results.",
+    "created": 1695716461389,
+    "updated": 1697470707609,
+    "pictureUrl": "dal-lusion.png",
+    "tags": [
+      "#art",
+      "#marketing",
+      "#beginner",
+      "#diffusion"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "168": {
+        "id": 168,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2681,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1214.3585717835108,
+          2293.8414690193213
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2431": {
+        "id": 2431,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "Experience the power of the fine-tuned Stable Diffusion model with ControlNet to blend a logo into text-to-image processes. Just upload a logo and provide the generation prompt.",
+          "help": "## Illusion Diffusion 🎨🖼️\n\nControlNet acts as an advanced instrument to maneuver the generative process of Stable Diffusion models for image creation. Let's explore the influence of ControlNet by infusing a logo image into an image generated based on your prompt!\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models**:\n\n- Replicate: lucataco/illusion-diffusion-hq\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the logo you want to infuse.\n- Enter the image generation prompt.\n- Press ▶️ Run button!\n- View the generated image in the **Chat** box!\n- Adjust the **Controlnet Conditioning Scale** slider to observe the differences in results.",
+          "license": "CC0",
+          "tags": [
+            "art",
+            "marketing"
+          ],
+          "title": "Illusion Diffusion",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1948.3239405235609,
+          1959.7859201981457
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2639": {
+        "id": 2639,
+        "data": {
+          "image": "",
+          "x-omni-title": "Get Image Dimension",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2646,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2681,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": [
+              {
+                "node": 2681,
+                "input": "width",
+                "data": {}
+              }
+            ]
+          },
+          "height": {
+            "connections": [
+              {
+                "node": 2681,
+                "input": "height",
+                "data": {}
+              }
+            ]
+          },
+          "size": {
+            "connections": []
+          },
+          "mimeType": {
+            "connections": []
+          },
+          "ext": {
+            "connections": []
+          },
+          "fid": {
+            "connections": []
+          },
+          "url": {
+            "connections": []
+          }
+        },
+        "position": [
+          -132.15811234713212,
+          2443.229398161799
+        ],
+        "name": "omnitool.image_info"
+      },
+      "2646": {
+        "id": 2646,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "(masterpiece:1.4), (best quality), (detailed), Medieval village scene with busy streets and castle in the distance, rolling hills, an ancient shimmering tree, twilight sky, glowing winged creatures",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3057,
+                "output": "img",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2681,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2639,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -819.152497107454,
+          2390.3640294759807
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "2681": {
+        "id": 2681,
+        "data": {
+          "border": 1,
+          "controlnet_conditioning_scale": 1,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 768,
+          "image": "",
+          "negative_prompt": "ugly, disfigured, low quality, blurry, nsfw",
+          "num_inference_steps": 40,
+          "num_outputs": 1,
+          "prompt": "(masterpiece:1.4), (best quality), (detailed), Medieval village scene with busy streets and castle in the distance",
+          "qr_code_content": "https://omnitool.ai",
+          "qrcode_background": "gray",
+          "seed": 0,
+          "width": 768,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "seed": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 2639,
+                "output": "image",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": [
+              {
+                "node": 2639,
+                "output": "width",
+                "data": {}
+              }
+            ]
+          },
+          "border": {
+            "connections": []
+          },
+          "height": {
+            "connections": [
+              {
+                "node": 2639,
+                "output": "height",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2646,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "qr_code_content": {
+            "connections": []
+          },
+          "qrcode_background": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          },
+          "controlnet_conditioning_scale": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 168,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          462.3381185581421,
+          2271.490019546736
+        ],
+        "name": "omni-extension-replicate:run.lucataco/illusion-diffusion-hq"
+      },
+      "3057": {
+        "id": 3057,
+        "data": {
+          "img": "fid://11,r8mamh1az6",
+          "imgUrl": "",
+          "preview": [
+            {
+              "fid": "11,r8mamh1az6",
+              "fileName": "sample_company_logo.jpg",
+              "fileType": "image",
+              "furl": "fid://11,r8mamh1az6.jpg",
+              "meta": {
+                "created": 1697469415492,
+                "height": 768,
+                "nsfw": {
+                  "Drawing": 0.01231287233531475,
+                  "Hentai": 0.0009408093756064773,
+                  "Neutral": 0.9867283701896667,
+                  "Porn": 0.000016764788597356528,
+                  "Sexy": 0.000001227805228154466,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 768
+              },
+              "mimeType": "image/jpeg",
+              "seq": 589,
+              "size": 26616,
+              "tags": [
+                "sample"
+              ],
+              "ticket": {
+                "count": 1,
+                "fid": "11,r8mamh1az6",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/11,r8mamh1az6"
+            }
+          ],
+          "x-omni-title": "Sample Logo Image",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": [
+              {
+                "node": 2646,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1430.3100709497562,
+          2220.8447292242563
+        ],
+        "name": "omnitool.input_static_image"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

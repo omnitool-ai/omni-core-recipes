@@ -1,0 +1,868 @@
+{
+  "id": "552525a1-6b33-4ed9-a8a6-b0a2befb747a",
+  "meta": {
+    "name": "Teaching with AI: Lesson Planner",
+    "author": "Omnitool.ai team",
+    "description": "Utilise LLMs to assist educators in streamlining their lesson planning process by specifying the topic to be taught, the grade level of the students, and the learning goal for the lesson.",
+    "category": "",
+    "help": "## Welcome to Our Lesson Planning App!\n\nThis app helps educators to efficiently plan their lessons by specifying the topic to be taught, the grade level of the students, and the learning goal for the lesson.\n\n### Getting Started\n\n1. **Access the User Interface**:\n   - Locate the UI window box on the main screen.\n   - Alternatively, click on the **Generate Interface** button found within the 'Form.io Auto UI' block in the recipe.\n\n2. **Input Your Lesson Details**:\n   - Enter the topic you intend to cover during the lesson.\n   - Specify the grade level of the students who will be attending the lesson.\n   - Set clear learning goals for the lesson to help focus your teaching approach.\n\n3. **Generate Your Lesson Plan**:\n   - After inputting your lesson details, click 'Run Recipe' to generate your lesson plan.\n   - View the generated lesson plan in the **Chat box** to verify the details and make any necessary adjustments.\n\nFeel free to explore the app and streamline your lesson planning process. Happy teaching!",
+    "created": 1697605146572,
+    "updated": 1697605693239,
+    "pictureUrl": "teacher_002.png",
+    "tags": [
+      "#education",
+      "#productivity",
+      "#intermediate",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1": {
+        "id": 1,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "OpenAI",
+          "description": "Utilise LLMs to assist educators in streamlining their lesson planning process by specifying the topic to be taught, the grade level of the students, and the learning goal for the lesson.",
+          "enabled": true,
+          "help": "## Welcome to Our Lesson Planning App!\n\nThis app helps educators to efficiently plan their lessons by specifying the topic to be taught, the grade level of the students, and the learning goal for the lesson.\n\n### Getting Started\n\n1. **Access the User Interface**:\n   - Locate the UI window box on the main screen.\n   - Alternatively, click on the **Generate Interface** button found within the 'Form.io Auto UI' block in the recipe.\n\n2. **Input Your Lesson Details**:\n   - Enter the topic you intend to cover during the lesson.\n   - Specify the grade level of the students who will be attending the lesson.\n   - Set clear learning goals for the lesson to help focus your teaching approach.\n\n3. **Generate Your Lesson Plan**:\n   - After inputting your lesson details, click 'Run Recipe' to generate your lesson plan.\n   - View the generated lesson plan in the **Chat box** to verify the details and make any necessary adjustments.\n\nFeel free to explore the app and streamline your lesson planning process. Happy teaching!",
+          "license": "CC0",
+          "tags": [
+            "education",
+            "productivity",
+            "intermediate",
+            "LLM"
+          ],
+          "title": "Teaching with AI: Lesson Planner",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          3.0818174598211954,
+          -552.556870472982
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2": {
+        "id": 2,
+        "data": {
+          "enabled": true,
+          "function": null,
+          "functions": "",
+          "instruction": "You are an experienced instructional coach helping teachers plan a lesson. \n\nIn your role, you will be assisting teachers by developing a detailed lesson plan based on the input provided, aiming to enable students to effectively grasp the concepts or skills.\n\nI'll share the topic the teacher wish to teach, the grade level of the students, the learning goal, and the duration of the lesson and sessions, as well as current curriculum content. Given all of this information, create a customised lesson plan that applies a variety of teaching techniques and modalities including 1. direct instruction considering the session talking points from curriculum content, 2. checking for understanding, 3. discussion, 4. an engaging in-class activity, and 5. assignment. Provide rationale why you are specifically choosing each techniques and modalities. Make the overall plan as concrete as possible.\n\nReturn in a pretty markdown format.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "x-omni-title": "Create Lesson Plan via GPT",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2362,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 2433,
+                "input": "plan",
+                "data": {}
+              },
+              {
+                "node": 10,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          1272.4813627802257,
+          -25.839557180826745
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "10": {
+        "id": 10,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2,
+                "output": "answer_text",
+                "data": {}
+              },
+              {
+                "node": 2358,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": [
+              {
+                "node": 1992,
+                "output": "document",
+                "data": {}
+              }
+            ]
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2415.0631334482036,
+          632.1634515375428
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1870": {
+        "id": 1870,
+        "data": {
+          "_duration": "",
+          "_goal": "",
+          "_hours": "",
+          "_student_level": "",
+          "_topic": "",
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "replace": null,
+          "source": "**Lesson Topic:**\n{input: Topic}\n\n**Student Grade Level:**\n{input: Student_level} \n\n**Lesson goal:**\n{input: Goal}\n\n**Lesson Hours:**\n{input: Duration}",
+          "x-omni-dynamicInputs": {
+            "_duration": {
+              "customSocket": "text",
+              "name": "_duration",
+              "title": " Duration",
+              "type": "string"
+            },
+            "_goal": {
+              "customSocket": "text",
+              "name": "_goal",
+              "title": " Goal",
+              "type": "string"
+            },
+            "_student_level": {
+              "customSocket": "text",
+              "name": "_student_level",
+              "title": " Student_level",
+              "type": "string"
+            },
+            "_topic": {
+              "customSocket": "text",
+              "name": "_topic",
+              "title": " Topic",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "_duration": {
+            "connections": [
+              {
+                "node": 2753,
+                "output": "_duration",
+                "data": {}
+              }
+            ]
+          },
+          "_goal": {
+            "connections": [
+              {
+                "node": 2753,
+                "output": "_goal",
+                "data": {}
+              }
+            ]
+          },
+          "_student_level": {
+            "connections": [
+              {
+                "node": 2753,
+                "output": "_student_level",
+                "data": {}
+              }
+            ]
+          },
+          "_topic": {
+            "connections": [
+              {
+                "node": 2753,
+                "output": "_topic",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2358,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2362,
+                "input": "context",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -8.403600395954605,
+          598.1588430819322
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "1992": {
+        "id": 1992,
+        "data": {
+          "enabled": true,
+          "fileName": "lesson_plan",
+          "storageType": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2433,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "document": {
+            "connections": [
+              {
+                "node": 10,
+                "input": "documents",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1922.2879461986852,
+          326.6394267339272
+        ],
+        "name": "omnitool.write_document"
+      },
+      "2358": {
+        "id": 2358,
+        "data": {
+          "enabled": true,
+          "function": null,
+          "functions": "",
+          "instruction": "you are a very talented educator and curriculum designer.  I'll share the topic the teacher wish to teach, the grade level of the students, the learning goal, and the duration of the lesson. Based on the given information, your task is to design engaging detailed curriculum sessions for teaching this topic. Each session should have a fairly detailed explanation in list about the talking points. As concrete as possible.\n\nReturn in a pretty markdown format.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.7,
+          "top_p": 1,
+          "x-omni-title": "Create Curriculum via GPT",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1870,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 10,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 2362,
+                "input": "curriculum",
+                "data": {}
+              },
+              {
+                "node": 2433,
+                "input": "curriculum",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          628.3614312414311,
+          -35.91837653269388
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "2362": {
+        "id": 2362,
+        "data": {
+          "button": "",
+          "context": "",
+          "curriculum": "Session 1: Introduction to Generative AI (1 hour)\n\nIntroduction to Artificial Intelligence (AI) and Machine Learning (ML)\n\nDefinition and explanation of AI and ML\nBrief history and evolution of AI and ML\nDifferent types of ML: Supervised, Unsupervised, and Reinforcement Learning\nIntroduction to Generative AI\n\nDefinition and explanation of Generative AI\nDifference between Generative and Discriminative models\nApplications and examples of Generative AI\nPopular Generative AI Models\n\nIntroduction to Language Model (GPT, Llama)\nIntroduction to Image Generative Model (GANs)\nIntroduction to Music Generative Model (MuseNet)\nSession 2: Understanding Generative AI Models (1 hour)\n\nDeep Dive into Language Models\n\nHow does GPT work?\nHow does Llama work?\nApplications and examples\nDeep Dive into Image Generative Models\n\nHow does GAN work?\nApplications and examples\nDeep Dive into Music Generative Models\n\nHow does MuseNet work?\nApplications and examples\nSession 3: Prompt Engineering and the Generative AI Stack (1 hour)\n\nIntroduction to Prompt Engineering\n\nWhat is Prompt Engineering?\nImportance and applications of Prompt Engineering\nThe Generative AI Stack\n\nIntroduction to Vector Store\nIntroduction to Model\nIntroduction to Tools\nHow these components work together in the Generative AI Stack\nSession 4: Applying Generative AI (1 hour)\n\nPractical Applications of Generative AI\n\nHow Generative AI can solve day-to-day problems\nCase studies of Generative AI applications\nHands-on Activity: Building a Simple Generative AI Model\n\nStep-by-step guide to building a simple Generative AI model\nTesting and evaluating the model\nConclusion and Q&A\n\nRecap of the key points from the lesson\nOpen the floor for questions and discussion\nProvide resources for further learning.",
+          "enabled": true,
+          "images": "",
+          "lesson_context": "",
+          "plan": "Lesson Plan:\n\nSession 1: Introduction to Generative AI (1 hour)\n\nDirect Instruction (15 minutes): Begin with a brief lecture explaining what generative AI is, its history, and its applications in everyday life. This will provide students with a basic understanding and context for the lesson.\n\nRationale: Direct instruction is a good way to introduce new concepts and provide a foundation of knowledge for students.\n\nDiscussion (15 minutes): Initiate a class discussion about the implications of generative AI in various sectors such as healthcare, entertainment, and technology.\n\nRationale: Discussion encourages active learning and helps students to understand the real-world applications of the topic.\n\nChecking for Understanding (15 minutes): Ask students to summarize their understanding of generative AI and its applications in their own words. This can be done verbally or in writing.\n\nRationale: This technique allows the teacher to assess students' initial understanding of the topic and identify any misconceptions early on.\n\nIn-class Activity (15 minutes): Show students examples of generative AI outputs (images, text, etc.) and have them guess which ones were created by AI and which ones were not.\n\nRationale: This activity will engage students and help them understand the capabilities of generative AI.\n\nSession 2: Popular Generative AI and How They Work (1 hour)\n\nDirect Instruction (30 minutes): Provide a detailed explanation of popular generative AI models such as GPT-3, Llama, and Stable Diffusion. This should include how they work, their strengths and weaknesses, and their most common uses.\n\nRationale: Direct instruction is effective for delivering detailed and complex information.\n\nDiscussion (15 minutes): Facilitate a discussion about the ethical implications of these AI models.\n\nRationale: Discussion helps students to think critically about the material and consider its broader implications.\n\nChecking for Understanding (15 minutes): Have students explain how one of these AI models works in their own words.\n\nRationale: This technique will allow the teacher to assess students' understanding of the material and clarify any misconceptions.\n\nSession 3: The Generative AI Stack (1 hour)\n\nDirect Instruction (30 minutes): Explain the components of the generative AI stack (vector store, model, tools, etc.) and how they interact with each other.\n\nRationale: Direct instruction is the most effective method for teaching complex technical concepts.\n\nIn-class Activity (30 minutes): Provide students with a diagram of a generative AI stack and have them label and explain each component.\n\nRationale: This activity will allow students to apply their knowledge in a practical way and reinforce their understanding of the topic.\n\nSession 4: Applying Generative AI (1 hour)\n\nDirect Instruction (15 minutes): Discuss how generative AI can be used to solve real-world problems, using specific examples from various industries.\n\nRationale: Direct instruction provides students with a clear understanding of how the concepts they have learned can be applied in practice.\n\nDiscussion (15 minutes): Ask students to brainstorm other potential applications for generative AI.\n\nRationale: This activity encourages creative thinking and helps students to understand the versatility of generative AI.\n\nAssignment (30 minutes): Assign students to write a short proposal for a novel application of generative AI. This should include a description of the problem, how generative AI could be used to solve it, and any potential challenges or ethical considerations.\n\nRationale: This assignment will allow students to apply their knowledge in a meaningful way and demonstrate their understanding of the topic. It will also encourage them to think critically about the implications of generative AI.",
+          "replace": null,
+          "source": "# Lesson context \n{input:context}\n\n# Curriculum draft:\n{input:Curriculum}",
+          "x-omni-dynamicInputs": {
+            "context": {
+              "customSocket": "text",
+              "name": "context",
+              "title": "context",
+              "type": "string"
+            },
+            "curriculum": {
+              "customSocket": "text",
+              "name": "curriculum",
+              "title": "Curriculum",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "context": {
+            "connections": [
+              {
+                "node": 1870,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "curriculum": {
+            "connections": [
+              {
+                "node": 2358,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          609.7929012683433,
+          682.0886708174252
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2433": {
+        "id": 2433,
+        "data": {
+          "button": "",
+          "context": "",
+          "curriculum": "",
+          "enabled": true,
+          "images": "",
+          "lesson_context": "",
+          "plan": "",
+          "replace": null,
+          "source": "{input:Plan}\n{input:Curriculum}",
+          "x-omni-dynamicInputs": {
+            "curriculum": {
+              "customSocket": "text",
+              "name": "curriculum",
+              "title": "Curriculum",
+              "type": "string"
+            },
+            "plan": {
+              "customSocket": "text",
+              "name": "plan",
+              "title": "Plan",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "curriculum": {
+            "connections": [
+              {
+                "node": 2358,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "plan": {
+            "connections": [
+              {
+                "node": 2,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1992,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1677.1649595096258,
+          821.780326748791
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2753": {
+        "id": 2753,
+        "data": {
+          "_duration": "4",
+          "_goal": "- Understand the basic concepts of the popular Generative AI tools and how they work e.g. LLM(GPT, Llama), Diffusion (Stable Diffusion), GAN etc.\n- Prompt Engineering\n- The Generative AI stack (e.g. vector databases, models, tools etc.)\n- Learn how to apply Generative AI tools to solve real world problems.",
+          "_student_level": "20-30 years old industry professionals.",
+          "_topic": "Applied Generative AI 101",
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Teaching with AI: Lesson Planner",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "A instructional coach helping teachers plan a lesson.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Applied Generative AI 101",
+                        "description": "💡Hint: Which lesson topic would you like to teach about?",
+                        "input": true,
+                        "key": "_topic",
+                        "label": " Topic",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "- Understand the basic concepts of the popular Generative AI tools and how they work e.g. LLM(GPT, Llama), Diffusion (Stable Diffusion), GAN etc.\n- Prompt Engineering\n- The Generative AI stack (e.g. vector databases, models, tools etc.)\n- Learn how to apply Generative AI tools to solve real world problems",
+                        "description": "💡Hint: What is the intended goal of this lesson? What knowledge or skill do you want the student to acquire by the end of it? Please provide detailed and explicit information.",
+                        "input": true,
+                        "key": "_goal",
+                        "label": " Goal",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "20-30 years old industry professionals.",
+                        "description": "💡Hint: What is your student's current level of education or expertise? e.g. are they a high school student, a college attendee, or a working professional?",
+                        "input": true,
+                        "key": "_student_level",
+                        "label": " Student Level",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "4",
+                        "description": "💡Hint: How many hours will the lesson take?",
+                        "input": true,
+                        "key": "_duration",
+                        "label": " Duration",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "_duration": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_duration",
+              "title": " Duration",
+              "type": "string"
+            },
+            "_goal": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_goal",
+              "title": " Goal",
+              "type": "string"
+            },
+            "_student_level": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_student_level",
+              "title": " Student_level",
+              "type": "string"
+            },
+            "_topic": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_topic",
+              "title": " Topic",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "_duration": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_duration",
+              "title": " Duration",
+              "type": "string"
+            },
+            "_goal": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_goal",
+              "title": " Goal",
+              "type": "string"
+            },
+            "_student_level": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_student_level",
+              "title": " Student_level",
+              "type": "string"
+            },
+            "_topic": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "_topic",
+              "title": " Topic",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "_duration": {
+            "connections": []
+          },
+          "_goal": {
+            "connections": []
+          },
+          "_student_level": {
+            "connections": []
+          },
+          "_topic": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "_duration": {
+            "connections": [
+              {
+                "node": 1870,
+                "input": "_duration",
+                "data": {}
+              }
+            ]
+          },
+          "_goal": {
+            "connections": [
+              {
+                "node": 1870,
+                "input": "_goal",
+                "data": {}
+              }
+            ]
+          },
+          "_student_level": {
+            "connections": [
+              {
+                "node": 1870,
+                "input": "_student_level",
+                "data": {}
+              }
+            ]
+          },
+          "_topic": {
+            "connections": [
+              {
+                "node": 1870,
+                "input": "_topic",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -609.7949336060223,
+          269.8740452399854
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

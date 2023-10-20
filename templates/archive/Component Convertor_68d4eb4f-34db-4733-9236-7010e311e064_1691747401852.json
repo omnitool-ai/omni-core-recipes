@@ -1,0 +1,445 @@
+{
+  "id": "68d4eb4f-34db-4733-9236-7010e311e064",
+  "version": "draft",
+  "meta": {
+    "created": 1690984825923,
+    "description": "No description.",
+    "name": "Component Convertor",
+    "pictureUrl": "omni.png",
+    "tags": [],
+    "updated": 1691747395334
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "244": {
+        "id": 244,
+        "data": {
+          "audio": "",
+          "chat_history": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_input\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1516.4644346856205,
+          -1800.18815997885
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "245": {
+        "id": 245,
+        "data": {
+          "functions": "",
+          "instruction": "You are a helpful bot.  You can help people by answering their questions.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "functions": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": [
+              {
+                "node": 247,
+                "output": "mergedText",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 251,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          }
+        },
+        "position": [
+          14.7951332759759,
+          -1641.2158687095296
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "247": {
+        "id": 247,
+        "data": {
+          "template": "Act as a TypeScript engineer, and I'm seeking your expertise in converting my existing code to a new implementation that leverages the composer approach. You'll write professional, concise, secure, and readable code. The composer implementation guideline, an example, and composer code are provided below for your reference. I'll be sharing the current code with you within the prompt, and I'd like you to output the new implementation code without any explanation.\n-------Few things to pay attention-------\n{text1}\n--------Example-----------\n{text3}\n-------Composer implementation guideline-------\n{text2}\n-------Composer class code-------\n{text4}",
+          "text1": "",
+          "text2": "",
+          "text3": "",
+          "text4": "",
+          "text5": ""
+        },
+        "inputs": {
+          "template": {
+            "connections": []
+          },
+          "text1": {
+            "connections": [
+              {
+                "node": 409,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text2": {
+            "connections": [
+              {
+                "node": 248,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text3": {
+            "connections": [
+              {
+                "node": 250,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text4": {
+            "connections": [
+              {
+                "node": 296,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text5": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "mergedText": {
+            "connections": [
+              {
+                "node": 245,
+                "input": "instruction",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -616.3852768666693,
+          -1182.4025625374607
+        ],
+        "name": "omnitool.text_merger"
+      },
+      "248": {
+        "id": 248,
+        "data": {
+          "text": "Step 1: Import Necessary Components\nImport the necessary components\nimport { OAIBaseComponent, type OmniComponentFormat, WorkerContext, OmniComponentMacroTypes } from \"./path_to_file\"\nStep 2: Create a New Component Instance\nInstantiate the ComponentComposer and initialize your component by defining its namespace and operationId using the .create(displayNamespace, displayOperationId) method.\nSet the namespace to const NS_OMNI\nconst NS_OMNI = 'your_namespace'\nlet component = OAIBaseComponent.create(NS_OMNI, 'your_operationId')\nStep 3: Define Component Characteristics\nFurther define the characteristics of your component using provided methods. You can set the title, description, method, and category.\ncomponent\n    .fromScratch()\n    .set('description', 'Your description')\n    .set('title', 'Your title')\n    .set('category', 'Your category')\n    .setMethod('Your Method')\n    .setMeta({\n        source: {\n            summary: 'A standard text input component with built-in URL fetching, enabling it to be connected to File (Image/Audio/Document) sockets',\n            authors: ['Mercenaries.ai Team'],\n            links: {\n                'Mercenaries.ai': 'https://mercenaries.ai'\n            }\n        }\n    })\nInstead of using the fromScratch() method, you can also utilize the fromJSON() method with a valid Partial<OmniComponentFormat> JSON. This must include both the displayNamespace/operationID and apiNamespace/operationId.\nconst partialComponentFormat: Partial < OmniComponentFormat > = {\n    displayNamespace: 'your_display_namespace',\n    displayOperationId: 'your_display_operationId',\n    apiNamespace: 'your_api_namespace',\n    apiOperationId: 'your_api_operationId',\n    // other properties can be added as needed\n};\ncomponent.fromJSON(partialComponentFormat)\nStep 4: Create and Add Inputs and Outputs\nFor inputs and outputs, you'll first create an IOComposer using the .createInput(name, type, customSocket) or .createOutput(name, type, customSocket) methods. You can further define their properties, including setting up controls which can be automatically selected or overridden.\nInputs always have controls associated with them, and they can be defined directly within the input creation process. Here's an example of defining an input with a control:\nconst input = component.addInput(\n  component.createInput('input_name', 'input_type', 'input_x-type')\n    .set('title', 'Input title')\n    .set('description', 'Input description')\n    .setDefault('default value')\n    .setConstraints('min value', 'max value')\n    .setChoice([], 'default value')\n    .setRequired(true)\n    .setControl({\n        controlType: 'alpine control type' \n      }) // Override the automatically selected control\n    .toOmniIO()\n);\nAlternatively, you can also define inputs and outputs in an array:\nconst inputs = [\n  { name: 'text', type: 'string', description: 'A string', customSocket: 'text' },\n  // More input definitions...\n  { name: 'usSocialSecurityNumber', type: 'boolean', default: true }\n];\n\ninputs.forEach(({ name, type, customSocket, description, default: defaultValue }) => {\n  component.addInput(\n    component.createInput(name, type, customSocket)\n      .set('description', description)\n      .setDefault(defaultValue)\n      .toOmniIO()\n  );\n});\nYou also have the option to directly write the JSON if that's your preference.\nStep 5: Create and Add Controls (Optional)\nControls are created using the ControlComposer and are added similarly to inputs/outputs.\nlet controlComposer = component.createControl('controlName')\n\ncomponent\n  .addControl(\n    controlComposer\n      .setRequired(true)\n      .setControlType('alpineControlType')\n      .toOmniControl()\n  );\nOr\ncomponent.addControl(\n  component\n    .createControl(\"controlName\")\n    .setRequired(true)\n    .setControlType(\"alpineControlType\")\n    .toOmniControl()\n);\nStep 6: Define Execution Macro\nYou can define the behavior of your component using a macro. In this case, the OmniComponentMacroTypes.EXEC macro type is used.\ncomponent.setMacro(OmniComponentMacroTypes.EXEC, (payload: any, ctx: WorkerContext) => {\n  // define your function here\n})\nStep 8: Export the Component"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 247,
+                "input": "text2",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1532.554121586316,
+          -266.3467871980199
+        ],
+        "name": "omnitool.input_text"
+      },
+      "249": {
+        "id": 249,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          1255.1564836302418,
+          -1391.2673390911393
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "250": {
+        "id": 250,
+        "data": {
+          "text": "import { OAIBaseComponent, WorkerContext, OmniComponentMacroTypes } from 'mercs_rete'\nconst NS_OMNI = 'omnitool';\nimport sharp from 'sharp'\nimport writeToCdn from '../util/writeToCdn'\n\n// SharpTrimComponent\nlet component = OAIBaseComponent\n  .create(NS_OMNI, \"trim\")\n  .fromScratch()\n  .set('description', 'Trim pixels from all edges that contain values similar to the given background colour.')\n  .set('title', 'Trim Image (Sharp)')\n  .set('category', 'Image Manipulation')\n  .setMethod('X-CUSTOM')\ncomponent\n  .addInput(\n    component.createInput('images', 'object', 'imageArray')\n      .set('description', 'The image(s) to operate on')\n      .setRequired(true)\n      .setControl({\n        controlType: 'AlpineLabelComponent' \n      })\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('trimMode', 'string')\n      .set('description', 'Specify the mode for trimming: Top left pixel or Background color.')\n      .setChoices(['Top left Pixel', 'Background color'], 'Top left Pixel')\n      .setControl({\n        controlType: 'AlpineSelectComponent' \n      })\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('background', 'string')\n      .set('description', 'Background colour to trim, used when trim mode is Background color.')\n      .setDefault('#000000')\n      .setControl({\n        controlType: 'AlpineColorComponent' \n      })\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('threshold', 'number')\n      .set('description', 'The allowed difference from the above colour, a positive number.')\n      .setDefault(10)\n      .setControl({\n        controlType: 'AlpineNumWithSliderComponent',\n        step: 1\n      })\n      .toOmniIO()\n  )\n  .addOutput(\n    component.createOutput('images', 'object', 'imageArray')\n      .set('description', 'The processed images')\n      .toOmniIO()\n  )\n  .setMacro(OmniComponentMacroTypes.EXEC, async (payload: any, ctx: WorkerContext) => {\n    if (payload.images) {\n      let images = await Promise.all(payload.images.map((image: any) =>{\n        return ctx.app.cdn.get(image.ticket)\n      }))\n      let results = await Promise.all(images.map(async (image: any) => {\n        if (payload.trimMode === \"Background color\") {\n          image.data = await sharp(image.data).trim({ background: payload.background, threshold: payload.threshold }).toBuffer()\n        } else {\n          image.data = await sharp(image.data).trim(payload.threshold).toBuffer()\n        }\n        return image\n      }))\n      payload.images = await writeToCdn(ctx, results)\n    }\n    return {images: payload.images}\n  })\nconst SharpTrimComponent = component.toJSON()\nexport default SharpTrimComponent"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 247,
+                "input": "text3",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1526.8355099631603,
+          312.6441106879173
+        ],
+        "name": "omnitool.input_text"
+      },
+      "251": {
+        "id": 251,
+        "data": {
+          "functions": "",
+          "instruction": "You are a helpful bot.  You can help people by answering their questions.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "functions": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": [
+              {
+                "node": 255,
+                "output": "mergedText",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 245,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": []
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          }
+        },
+        "position": [
+          737.0141346670753,
+          -1283.276151869564
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "254": {
+        "id": 254,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          831.6352532158254,
+          -1879.2428135764198
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "255": {
+        "id": 255,
+        "data": {
+          "template": "Act as a TypeScript engineer, and I'm seeking your expertise in review my new code which use new implementation to add a component. You'll write professional, concise, secure, and readable code. I'll provide you my new code in the prompt. Please compare with my old code in below to check if I have covered everything in the new code. If not, please rewrite and output the new code without any explanation. If yes, just output \"LGTM!\".\n-------Few things to pay attention------\n{text2}\n-------old code-------\n{text1}",
+          "text1": "",
+          "text2": "",
+          "text3": "",
+          "text4": "",
+          "text5": ""
+        },
+        "inputs": {
+          "template": {
+            "connections": []
+          },
+          "text1": {
+            "connections": []
+          },
+          "text2": {
+            "connections": [
+              {
+                "node": 409,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "text3": {
+            "connections": []
+          },
+          "text4": {
+            "connections": []
+          },
+          "text5": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "mergedText": {
+            "connections": [
+              {
+                "node": 251,
+                "input": "instruction",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          266.32408696274126,
+          -1049.599110532561
+        ],
+        "name": "omnitool.text_merger"
+      },
+      "296": {
+        "id": 296,
+        "data": {
+          "text": "import { Control } from \"rete\";\nimport { OmniComponentFormat, OmniComponentPatch, OmniComponentMeta, OmniComponentMacroTypes, OmniControl, OmniIO, OmniIOType, OmniComponentFlags } from \"./types\";\n\nclass IOComposer\n{\n  data: Partial<OmniIO>\n  constructor()\n  {\n    this.data = {}\n  }\n\n  create(name: string, ioType: OmniIOType, type: string, customSocket?: string ): IOComposer\n  {\n    this.data.name = name\n    this.data.type = type\n    this.data.customSocket = customSocket\n    this.data.dataTypes = [type as any]\n    this.data.title = name\n    this.data.source = {sourceType: ioType === 'input'  ?  'requestBody' : 'responseBody' }\n    return this\n  }\n\n  setRequired(required: boolean): IOComposer\n  {\n    this.data.required = required\n    return this\n  }\n\n  setHidden(hidden: boolean): IOComposer\n  {\n    this.data.hidden = hidden\n    return this\n  }\n\n  set(key: 'title' | 'description' , value: string): IOComposer\n  {\n    this.data[key] = value\n    return this\n  }\n\n  setDefault(defaultValue: any): IOComposer\n  {\n    this.data.default = defaultValue\n    return this\n  }\n\n  setControl(ctl: Partial<OmniControl>): IOComposer\n  {\n    ctl.dataType = this.data.type\n\n\n    this.data.control = ctl\n    return this\n  }\n\n  setConstraints(minimum?: number, maximum?: number, step?: number): IOComposer\n  {\n    this.data.minimum = minimum\n    this.data.maximum = maximum\n    this.data.step = step\n    return this\n  }\n\n  setChoices(choices: string[] | { title: string, value: string|number, description?:string }[], defaultValue?: string|number ): IOComposer\n  {\n    this.data.choices = choices\n    this.data.default = defaultValue\n    return this\n  }\n\n  toOmniIO(): OmniIO\n  {\n    this.data.title ??= this.data.name\n    return this.data as OmniIO\n  }\n\n}\n\n\nclass ControlComposer\n{\n  data: Partial<OmniControl>\n  constructor(name: string)\n  {\n    this.data = { name }\n  }\n\n\n  create(name: string,): ControlComposer\n  {\n    this.data.name = name\n    return this\n  }\n\n  setRequired(required: boolean): ControlComposer\n  {\n    this.data.required = required\n    return this\n  }\n\n  setHidden(hidden: boolean): ControlComposer\n  {\n    this.data.hidden = hidden\n    return this\n  }\n\n  setControlType(controlType: string): ControlComposer\n  {\n    this.data.controlType = controlType\n    return this\n  }\n\n  set (key: 'title' | 'description' | 'placeholder' | 'displays', value: string): ControlComposer\n  {\n    this.data[key] = value\n    return this\n  }\n\n  setChoices( choices: string[] | {block:any} | { title: string, value: string|number, description?:string }[], defaultValue?: string|number ): ControlComposer\n  {\n    if (Array.isArray(choices))\n    {\n      if (choices.length > 0 )\n      {\n        if (typeof(choices[0]) === 'string')\n        {\n          choices = (choices as string[]).map((v) => ({title: v, value: v}))\n        }\n        this.data.choices = choices\n      }\n      else\n      {\n        this.data.choices = [{title: '(default)', value: defaultValue ?? ''}]\n      }\n    }\n    else if (typeof(choices) === 'object')\n    {\n      if (choices.hasOwnProperty('block'))\n      {\n        this.data.choices = choices as {block:any, map: any, cache?:'global' | 'user'}\n      } \n    }\n    this.data.default = defaultValue\n    return this\n  }\n\n  setReadonly(readonly: boolean): ControlComposer\n  {\n    this.data.readonly = readonly\n    return this\n  }\n\n\n  setConstraints(minimum?: number, maximum?: number, step?: number): ControlComposer\n  {\n    this.data.minimum = minimum\n    this.data.maximum = maximum\n    this.data.step = step\n    return this\n  }\n\n\n\n  toOmniControl(): OmniControl\n  {\n    this.data.title ??= this.data.name\n    return this.data as OmniControl\n  }\n\n}\n\n\n\nclass BaseComposer<T>\n{\n\n  data: Partial<T>\n\n  constructor()\n  {\n    this.data = {}\n  }\n\n\n\n  fromJSON(config: T): BaseComposer<T>\n  {\n    this.data = JSON.parse(JSON.stringify(config))\n    return this\n  }\n\n\n\n}\n\n\n\nclass ComponentComposer extends BaseComposer<OmniComponentFormat>\n{\n\n  constructor()\n  {\n    super()\n\n    this.data.type = 'OAIComponent31'\n    this.data.flags = 0\n    this.data.macros = {}\n    this.data.origin = 'omnitool:Composer'\n  }\n\n\n\n  fromScratch(): ComponentComposer\n  {\n    this.data.apiNamespace = this.data.displayNamespace\n    this.data.apiOperationId = this.data.displayOperationId\n    this.data.responseContentType = 'application/json'\n    this.data.category = 'Utilities'\n    this.data.tags = ['default']\n    return this\n  }\n\n  createInput(name: string, type: string,  customSocket?: string): IOComposer\n  {\n    let ret =  new IOComposer().create(name, 'input', type, customSocket)\n    return ret\n  }\n\n  addInput(input: OmniIO): ComponentComposer\n  {\n    this.data.inputs = this.data.inputs ?? {}\n    this.data.inputs[input.name] = input\n    return this\n  }\n\n  createOutput(name: string, type: string, customSocket?: string): IOComposer\n  {\n    let ret = new IOComposer().create(name, 'output',type, customSocket)\n    return ret\n  }\n\n  addOutput(output: OmniIO): ComponentComposer\n  {\n    this.data.outputs = this.data.outputs ?? {}\n    this.data.outputs[output.name] = output\n    return this\n  }\n\n  setTags(tags: string[]): ComponentComposer\n  {\n    this.data.tags = tags\n    return this\n  }\n\n  create(displayNamespace: string, displayOperationId: string): ComponentComposer\n  {\n    this.data.displayNamespace = displayNamespace\n    this.data.displayOperationId = displayOperationId\n    return this\n  }\n\n  set(key: 'title' | 'description' | 'category', value: string): ComponentComposer\n  {\n    this.data[key] = value\n    return this\n  }\n\n  setMethod(method: string): ComponentComposer\n  {\n    this.data.method = method\n    return this\n  }\n\n  useAPI(apiNamespace:string, apiOperationId:string)\n  {\n    this.data.apiNamespace = apiNamespace\n    this.data.apiOperationId = apiOperationId\n    return this\n  }\n\n  setMeta(meta: OmniComponentMeta): ComponentComposer\n  {\n    this.data.meta = meta\n    return this\n  }\n\n  setFlags(flags: number): ComponentComposer\n  {\n    this.data.flags = flags\n    return this\n  }\n\n  setFlag(flag: OmniComponentFlags, value: boolean = true): number {\n    const mask = 1 << flag;\n\n    if (value) {\n      // Set the bit using bitwise OR\n      return this.data.flags! | mask;\n    } else {\n      // Unset the bit using bitwise AND with the inverted mask\n      return this.data.flags! & ~mask;\n    }\n  }\n\n  setMacro(macro: OmniComponentMacroTypes, fn: Function): ComponentComposer\n  {\n    this.data.macros![macro] = fn\n    if (fn instanceof Function)\n    {\n      this.setFlag(OmniComponentFlags.HAS_NATIVE_CODE)\n    }\n\n    return this\n  }\n\n  createControl(name: string): ControlComposer\n  {\n    let ret =  new ControlComposer(name).create(name)\n    return ret\n  }\n\n\n  addControl(control: OmniControl): ComponentComposer\n  {\n    this.data.controls = this.data.controls ?? {}\n    this.data.controls[control.name] = control\n    return this\n  }\n\n\n\n  toJSON(): OmniComponentFormat\n  {\n\n    return this.data as OmniComponentFormat\n  }\n\n\n}\n\n\nclass PatchComposer extends BaseComposer<OmniComponentPatch>\n{\n\n\n  constructor()\n  {\n    super()\n\n    this.data.macros = {}\n    this.data.origin = 'omnitool:Composer'\n  }\n\n  fromComponent(apiNamespace:string, apiOperationId:string): PatchComposer\n  {\n    this.data.apiNamespace = apiNamespace\n    this.data.apiOperationId = apiOperationId\n\n    return this\n  }\n\n\n  createInput(name: string, type: string,  customSocket?: string): IOComposer\n  {\n    let ret =  new IOComposer().create(name, 'input', type, customSocket)\n    return ret\n  }\n\n  addInput(input: OmniIO): PatchComposer\n  {\n    this.data.inputs = this.data.inputs ?? {}\n    this.data.inputs[input.name] = input\n    return this\n  }\n\n  createOutput(name: string, type: string, customSocket?: string): IOComposer\n  {\n    let ret = new IOComposer().create(name, 'output',type, customSocket)\n    return ret\n  }\n\n  addOutput(output: OmniIO): PatchComposer\n  {\n    this.data.outputs = this.data.outputs ?? {}\n    this.data.outputs[output.name] = output\n    return this\n  }\n\n\n  create(displayNamespace: string, displayOperationId: string): PatchComposer\n  {\n    this.data.displayNamespace = displayNamespace\n    this.data.displayOperationId = displayOperationId\n    return this\n  }\n\n  set(key: 'title' | 'description' | 'category', value: string): PatchComposer\n  {\n    this.data[key] = value\n    return this\n  }\n\n\n  useAPI(apiNamespace:string, apiOperationId:string)\n  {\n    this.data.apiNamespace = apiNamespace\n    this.data.apiOperationId = apiOperationId\n    return this\n  }\n\n  setMeta(meta: OmniComponentMeta): PatchComposer\n  {\n    this.data.meta = meta\n    return this\n  }\n\n  createControl(name: string): ControlComposer\n  {\n    let ret =  new ControlComposer(name).create(name)\n    return ret\n  }\n\n\n  addControl(control: OmniControl): PatchComposer\n  {\n    this.data.controls = this.data.controls ?? {}\n    this.data.controls[control.name] = control\n    return this\n  }\n\n\n  hideExcept(input: string[], output: string[])\n  {\n    if (input?.length > 0)\n    {\n      this.data.scripts = this.data.scripts ?? {}\n      this.data.scripts['hideExcept:inputs'] = input\n    }\n    if (output?.length > 0)\n    {\n      this.data.scripts = this.data.scripts ?? {}\n      this.data.scripts['hideExcept:outputs'] = output\n    }\n  }\n  toJSON(): OmniComponentPatch\n  {\n    return this.data as OmniComponentPatch\n  }\n\n}\n\nexport { ComponentComposer, IOComposer, PatchComposer}"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 247,
+                "input": "text4",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1526.5644339467442,
+          -843.1613448979767
+        ],
+        "name": "omnitool.input_text"
+      },
+      "409": {
+        "id": 409,
+        "data": {
+          "text": "- Ensure to add the control by using controlComposer if the old code has control defined in input/output. For example, when there was \n```\n\"control\":\n        {\n          \"type\": \"AlpineLabelComponent\"\n        }\n```\nyou can add control like such:\n```\ncomponent\n  .addInput(\n    component.createInput('images', 'object', 'imageArray')\n      .setControl({\n        controlType: 'AlpineLabelComponent' \n      })\n      .toOmniIO()\n  );\n```\n- Ensure all the input and output in the old code are covered in the new code including those defined in schema and responseTypes. e.g. if there was responseTypes like such \n```\n\"properties\": {\n                \"images\": {\n                  \"title\": \"Images\",\n                  \"type\": \"object\",\n                  \"x-type\": \"imageArray\",\n                  \"description\": \"The processed images\"\n                },\n              }\n```\nyou can add an output images.\n- if the input or output had 'title', ensure to .set('title', 'title name')\n- if the input or output had x-type, ensure to set x-type in the third argument e.g. .createInput('name', 'type', 'x-type value')\n- Ensure to setMarco when there was _exec\n- Ensure using setConstraints for min/max\n- Ensure using setChoices for enum choice\n- Use setDefault for default value\n- remove extra semicolon for typescript\n- Use single quote for string\n- Lint the code"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 247,
+                "input": "text1",
+                "data": {}
+              },
+              {
+                "node": 255,
+                "input": "text2",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -1519.9862584388459,
+          -1310.7261726010445
+        ],
+        "name": "omnitool.input_text"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "langchain": null,
+  "_flags": [
+    "owner"
+  ]
+}

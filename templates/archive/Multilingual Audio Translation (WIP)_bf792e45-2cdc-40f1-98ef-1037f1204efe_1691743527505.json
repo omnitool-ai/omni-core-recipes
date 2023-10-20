@@ -1,0 +1,447 @@
+{
+  "id": "bf792e45-2cdc-40f1-98ef-1037f1204efe",
+  "version": "draft",
+  "meta": {
+    "created": 1691670203157,
+    "description": "Translates text into 2 languages and creates audio",
+    "name": "Multilingual Audio Translation (WIP)",
+    "pictureUrl": "teacher.png",
+    "tags": [],
+    "updated": 1691743525470
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "33": {
+        "id": 33,
+        "data": {
+          "model_id": "eleven_multilingual_v1",
+          "parameter:voice_id": "EXAVITQu4vr4xnSDxMaL",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "EXAVITQu4vr4xnSDxMaL"
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 36,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 87,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          35.45452880859375,
+          -204.5454559326172
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "35": {
+        "id": 35,
+        "data": {
+          "model_id": "eleven_multilingual_v1",
+          "parameter:voice_id": "VR6AewLTigWG4xSOukaG",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "EXAVITQu4vr4xnSDxMaL"
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 357,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 89,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          25.236894039355512,
+          149.91135158405368
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "36": {
+        "id": 36,
+        "data": {
+          "instruction": "You are a helpful bot and an expert translator. You translate faithfully to spanish language",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 86,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 33,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 87,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -441.8899785068434,
+          -175.89336070878633
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "41": {
+        "id": 41,
+        "data": {
+          "model_id": "eleven_monolingual_v1",
+          "parameter:voice_id": "21m00Tcm4TlvDq8ikWAM",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "EXAVITQu4vr4xnSDxMaL"
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 86,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 88,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          37.508356280305875,
+          506.807510519622
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "86": {
+        "id": 86,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "Omnitool provides the tools to help you prototype Applied AI ideas rapidly, ensuring you stay agile and progress at the speed in the evolving landscape.\n\nOpen source, fully customizable, and interoperable, Omnitool is ensuring that cutting-edge AI capabilities are within reach for every business. Break free from vendor-lockin and embrace a cost-effective advantage by exploring diverse AI options.\n\nOmnitool puts you back in control with our versatile, user-friendly AI lab. Create and manage AI recipes effortlessly using an intuitive visual interface, allowing you to efficiently design and execute your AI workflows while ensuring seamless alignment with your unique use cases."
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 36,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 41,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 357,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -917.8610677700933,
+          -144.84706052296744
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "87": {
+        "id": 87,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 36,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 33,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          509.66745874979426,
+          -257.62699120175324
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "88": {
+        "id": 88,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 41,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          543.3768242557327,
+          457.97240702098736
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "89": {
+        "id": 89,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "json": "",
+          "text": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 35,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          534.1226832059972,
+          121.09453458147732
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "357": {
+        "id": 357,
+        "data": {
+          "num_beams": 1,
+          "prompt": "",
+          "source_lang": "auto",
+          "split_sentences": true,
+          "target_lang": "en"
+        },
+        "inputs": {
+          "source_lang": {
+            "connections": []
+          },
+          "target_lang": {
+            "connections": []
+          },
+          "num_beams": {
+            "connections": []
+          },
+          "split_sentences": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 86,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "translations": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 35,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -443.24616732165117,
+          203.30284474755723
+        ],
+        "name": "textsynth.simpleTranslation"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": [
+    "owner"
+  ]
+}

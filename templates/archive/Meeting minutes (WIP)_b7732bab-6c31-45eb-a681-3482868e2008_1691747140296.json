@@ -1,0 +1,165 @@
+{
+  "id": "b7732bab-6c31-45eb-a681-3482868e2008",
+  "version": "draft",
+  "meta": {
+    "created": 1691747136706,
+    "updated": 1691747136926,
+    "name": "Meeting minutes (WIP)",
+    "description": "Extract meeting minutes to text and translate",
+    "pictureUrl": "amy.png",
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "50": {
+        "id": 50,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          1474.5028104338967,
+          -354.4213703595073
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "51": {
+        "id": 51,
+        "data": {
+          "file": "",
+          "language": "ko",
+          "model": "whisper-1",
+          "prompt": "Write meeting minutes",
+          "response_format": "text",
+          "temperature": 0
+        },
+        "inputs": {
+          "file": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "language": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 53,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          483.7902537825141,
+          -78.65906941197068
+        ],
+        "name": "openai.simpleTranscription"
+      },
+      "52": {
+        "id": 52,
+        "data": {
+          "audio": "",
+          "chat_history": "",
+          "documents": "",
+          "images": "",
+          "number": 0,
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_input\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          0,
+          0
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "53": {
+        "id": 53,
+        "data": {
+          "instruction": "You are a helpful bot, and this is a meeting minutes. The meeting minutes will be given as a prompt. Summarise the meeting and key discussions in Korean",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.5
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 51,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "position": [
+          1008.1376978093268,
+          -310.5865165023507
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "72": {
+        "id": 72,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "x-omni-summary": "The block named \"omnitool.api_output\" is not installed on your system. Please install it with the <b><u>Block Manager</u></b>."
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          1165.4849802165695,
+          135.41466709242152
+        ],
+        "name": "omnitool._block_missing"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "_flags": []
+}

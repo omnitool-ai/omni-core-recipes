@@ -1,0 +1,653 @@
+{
+  "id": "1e487e20-f25d-4374-ace6-a4d6981e4645",
+  "meta": {
+    "name": "Public Speaking Coach",
+    "author": "Omnitool.ai team",
+    "description": "Combining LLM and text-to-speech, this app serves as a personal public speech coach. It provides feedback on your transcripts and offers audio demonstrations to help improve your speaking skills.",
+    "help": "## Public Speaking Coach 🎙️👑\n\nWelcome to the public speaking coach! This app is your personal public speech assistant, designed to refine your transcripts and offer engaging audio demonstrations. Dive into the world of eloquent speeches with the help of elevenlabs and LLM.\n\n### Prerequisites:\n**API Keys**:\n- OpenAI\n- Elevenlabs\n\n**Models**:\n\n- Elevenlabs English v1(Monolingual v1)\n- LLM: OpenAI GPT 4\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Input your current speech transcript.\n- Hit Run Recipe!\n- Receive feedback on your transcript and listen to the engaging audio demo in the chat!",
+    "created": 1691747053051,
+    "updated": 1696994037628,
+    "pictureUrl": "toastmaster.png",
+    "tags": [
+      "#education", 
+      "#business",
+      "#intermediate",
+      "#LLM",
+      "#audio"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "272": {
+        "id": 272,
+        "data": {
+          "function": null,
+          "functions": "",
+          "instruction": "As a top-tier Toastmaster and TED talk coach, your ultimate goal is to enhance my public speaking and storytelling abilities. I'll provide you with a unstructured transcript draft for an English speech, and your task is to write a transcript that embodies persuasive power, engagement, and impact. Please ensure strict grammar checks, and refine sentence phrasing to boost articulation. Aim for communication that is succinct yet effective. Where suitable, incorporate storytelling strategies and frameworks to enhance the narrative.\n\nPlease respond with two pieces of information:\n\n1. \"revise\" - provide the enhanced, presentation-ready transcription. Ensure they sound natural and spoken includes realistic elements of spoken language like pauses (represented by dots, with longer pauses for longer dot series) and fillers. When powerful, consider asking questions to engage the audiences, and always pause right after that. I suggest following this flow for the transcription:\n- Grabber: Begin in a way that piques the audience's interest.\n- Problem: Define the problem or opportunity clearly.\n- Relevance: Explain why this problem or the opportunity matters to the audience.\n- Solution: Discuss the recommended solutions.\n- Sticker: End with a memorable statement or a call to action.\n\n\n2. \"feedback\" - Provide a constructive feedback, presented in bullet points, of the strategy or structure you've made and the reasoning behind them. When applicable, make sure to reference any strategies or frameworks you've implemented. Engage as though you are in direct conversation with me as a coach. \n\nRemember, your ultimate goal is to enhance my effective presentation and storytelling skills.\n\nYou have to output pure valid and syntactically correct one layer JSON format without any other embellishments or comments, following the structure: {\"revise\": \"YOUR REVISED STRING\", \"feedback\": \"YOUR FEEDBACK STRING\"}. Double check the output to ensure it's valid json. \n\nFor example:\n{\"revise\":\"AI Lab In A Box is an open-source platform that allows you to explore, prototype, create, learn, and evaluate with generative AI, large language models, diffusion models, Cloud AI APIs, local AI, and applied artificial intelligence. It offers Omnitool, a versatile and open-sourced AI Lab that enables individuals and businesses to quickly create and prototype AI-infused applications. Its intuitive, flow-based visual editor allows users to customize their AI applications according to their specific workflows. With a diverse range of APIs/Models, Omnitool supports efficient and cost-effective orchestration. It also provides boundless customization capabilities, along with an extension ecosystem to expand its functionality. Omnitool democratizes access to AI, making cutting-edge technology accessible to users of all technical proficiency levels.\",\"feedback\":\"Here are the feedback points and explanations:\\n\\n- Added the name 'AI Lab In A Box' at the beginning to clarify the subject of the sentence.\\n- Replaced the bracketed options with a list using 'and'.\\n- Replaced 'users' with 'you' to create a more personal and engaging tone.\\n- Replaced 'facilitates' with 'supports' to vary the language.\\n- Rearranged the sentence structure for smoother flow.\\n- Removed the repetition of 'power' in the last sentence.\"}",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.5,
+          "top_p": 1,
+          "xOmniEnabled": false
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 701,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": []
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          1011.2367705937314,
+          -784.4304498065488
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "273": {
+        "id": 273,
+        "data": {
+          "model_id": "eleven_monolingual_v1",
+          "output_format": "mp3_44100_128",
+          "parameter:voice_id": "EXAVITQu4vr4xnSDxMaL",
+          "style": 0.1,
+          "text": "Good evening... Can you imagine having the future of Artificial Intelligence right at your fingertips?... Welcome to Omnitool... your AI Lab In A Box.\n\nSuppose you are exploring generative AI ideas, prototyping language models, or traversing the terrain of Diffusion Models. In that case, there is a platform designed for you... With Cloud APIs and boundless customization capabilities, this open-source platform propels both individuals and businesses into the future of Applied AI.\n\nNow, think about it... The power to sculpt AI applications according to your distinctive needs... That's what Omnitool offers through its intuitive visual editor. Not only that... it facilitates efficient orchestration through a diverse range of APIs or models. The versatility of Omnitool is beyond words... So, why does this matter to you?\n\nSimply put... In an ever-evolving technological landscape, Omnitool is your torchbearer. By serving as a robust abstraction layer, it shields you from costly upgrades, obsolescence, and disruptions that could halt your progress...\n\nBut... there's more... Not only is Omnitool a platform, it's a community... A hub of AI concepts and applications where you can share, explore, and learn from others.\n\nEnvision having complete control... You would have the liberty to leverage what best serves your needs, promoting efficient and cost-effective AI orchestration...\n\nMore so, Omnitool isn't just an AI platform... It's an educational tool. It works towards building an AI-literate society, simplifying the learning and teaching of AI concepts.\n\nLook at it this way... Omnitool isn't just a product. It’s the cornerstone of our AI-powered future. Against the backdrop of technology's new age, it becomes much more than a tool... it becomes your companion for innovation and growth...\n\nSo... Are you ready to embark on this journey with us?",
+          "voice_id": "EXAVITQu4vr4xnSDxMaL",
+          "x-omni-title": "Convert Revised Transcript To Speech",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "output_format": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 344,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 604,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2560.0358371897582,
+          -2056.0901751745346
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "344": {
+        "id": 344,
+        "data": {
+          "object": "",
+          "transform": "$.\"revise\"",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 345,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 273,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 604,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2060.938805002936,
+          -1755.4298525134539
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "345": {
+        "id": 345,
+        "data": {
+          "text": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 702,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "json": {
+            "connections": [
+              {
+                "node": 344,
+                "input": "object",
+                "data": {}
+              },
+              {
+                "node": 347,
+                "input": "object",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1628.202496148783,
+          -1430.6912684746521
+        ],
+        "name": "omnitool.text_to_json"
+      },
+      "347": {
+        "id": 347,
+        "data": {
+          "object": "",
+          "transform": "$.\"feedback\"",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 345,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 605,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2106.314698278453,
+          -1275.9641165959476
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "604": {
+        "id": 604,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-title": "Speech Transcript & Audio",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 344,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 273,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3065.151913625049,
+          -1768.5173936420422
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "605": {
+        "id": 605,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-title": "Feedback",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 347,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3066.248230111237,
+          -1238.6040102405489
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "607": {
+        "id": 607,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Public Speaking Coach",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Your personal public speech coach! Here to refine your transcripts and provide engaging audio demos.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Welcome to Omnitool, your AI Desktop. It's An Open Source Platform for discover, learn, build, and learn Generative AI like Large Language Models and Diffusion Models, along with tons of Cloud APIs to achieve your Applied AI use case. With its intuitive, flow-based visual editor, users can easily tailor their AI applications to meet their specific use case. With a wide range of diverse APIs/Models, Omnitool facilitates efficient and cost-effective orchestration. Offer boundless customization capabilities and an extension ecosystem, allowing you to augment functionality and expand the tool's boundaries. \n\nIt's your compass to navigate the future of AI. Whether you're a business or an individual, this open-source platform puts you in the driver's seat of AI utilization. It's designed to keep you updated with the latest AI advancements, develop essential AI skills, and maintain a competitive edge in the digital landscape.\n\nOmnitool isn't just a tool — it's a collaborative AI community. It serves as an learning and innovation hub that fosters collective growth. Here, AI concepts and applications take shape in real-time, and users can discover, build, share, and learn from each other's AI recipes.",
+                        "description": "A string",
+                        "input": true,
+                        "key": "text",
+                        "label": "Your draft of the public speaking transcript",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "text": "",
+          "x-omni-dynamicInputs": {
+            "text": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A string",
+              "name": "text",
+              "socketOpts": {
+                "array": true
+              },
+              "title": "text",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "text": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A string",
+              "name": "text",
+              "socketOpts": {
+                "array": true
+              },
+              "title": "text",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 701,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -70.4297766536738,
+          -1323.4973917960278
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "644": {
+        "id": 644,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Combining LLM and text-to-speech, this app serves as a personal public speech coach. It provides feedback on your transcripts and offers audio demonstrations to help improve your speaking skills.",
+          "help": "## Public Speaking Coach 🎙️👑\n\nWelcome to the public speaking coach! This app is your personal public speech assistant, designed to refine your transcripts and offer engaging audio demonstrations. Dive into the world of eloquent speeches with the help of elevenlabs and LLM.\n\n### Prerequisites:\n**API Keys**:\n- OpenAI\n- Elevenlabs\n\n**Models**:\n\n- Elevenlabs English v1(Monolingual v1)\n- LLM: OpenAI GPT 4\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Input your current speech transcript.\n- Hit Run Recipe!\n- Receive feedback on your transcript and listen to the engaging audio demo in the chat!",
+          "license": "CC0",
+          "tags": [
+            "education", 
+            "business"
+          ],
+          "title": "Public Speaking Coach",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -504.38342969391624,
+          -2093.4297137687586
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "701": {
+        "id": 701,
+        "data": {
+          "text": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 607,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 272,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 702,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          475.147534586765,
+          -1221.7056347891448
+        ],
+        "name": "omnitool.input_text"
+      },
+      "702": {
+        "id": 702,
+        "data": {
+          "Criteria": "accurate",
+          "Instruction": "As a top-tier Toastmaster and TED talk coach, your ultimate goal is to enhance my public speaking and storytelling abilities. I'll provide you with a unstructured transcript draft for an English speech, and your task is to write a transcript that embodies persuasive power, engagement, and impact. Please ensure strict grammar checks, and refine sentence phrasing to boost articulation. Aim for communication that is succinct yet effective. Where suitable, incorporate storytelling strategies and frameworks to enhance the narrative.\n\nPlease respond with two pieces of information:\n\n1. \"revise\" - provide the enhanced, presentation-ready transcription. Ensure they sound natural and spoken includes realistic elements of spoken language like pauses (represented by dots, with longer pauses for longer dot series) and fillers. When powerful, consider asking questions to engage the audiences, and always pause right after that. I suggest following this flow for the transcription:\n- Grabber: Begin in a way that piques the audience's interest.\n- Problem: Define the problem or opportunity clearly.\n- Relevance: Explain why this problem or the opportunity matters to the audience.\n- Solution: Discuss the recommended solutions.\n- Sticker: End with a memorable statement or a call to action.\n\n\n2. \"feedback\" - Provide a constructive feedback, presented in bullet points, of the strategy or structure you've made and the reasoning behind them. When applicable, make sure to reference any strategies or frameworks you've implemented. Engage as though you are in direct conversation with me as a coach. \n\nRemember, your ultimate goal is to enhance my effective presentation and storytelling skills.\n\nYou have to output pure valid and syntactically correct one layer JSON format without any other embellishments or comments, following the structure: {\"revise\": \"YOUR REVISED STRING\", \"feedback\": \"YOUR FEEDBACK STRING\"}. Double check the output to ensure it's valid json. \n\nFor example:\n{\"revise\":\"AI Lab In A Box is an open-source platform that allows you to explore, prototype, create, learn, and evaluate with generative AI, large language models, diffusion models, Cloud AI APIs, local AI, and applied artificial intelligence. It offers Omnitool, a versatile and open-sourced AI Lab that enables individuals and businesses to quickly create and prototype AI-infused applications. Its intuitive, flow-based visual editor allows users to customize their AI applications according to their specific workflows. With a diverse range of APIs/Models, Omnitool supports efficient and cost-effective orchestration. It also provides boundless customization capabilities, along with an extension ecosystem to expand its functionality. Omnitool democratizes access to AI, making cutting-edge technology accessible to users of all technical proficiency levels.\",\"feedback\":\"Here are the feedback points and explanations:\\n\\n- Added the name 'AI Lab In A Box' at the beginning to clarify the subject of the sentence.\\n- Replaced the bracketed options with a list using 'and'.\\n- Replaced 'users' with 'you' to create a more personal and engaging tone.\\n- Replaced 'facilitates' with 'supports' to vary the language.\\n- Rearranged the sentence structure for smoother flow.\\n- Removed the repetition of 'power' in the last sentence.\"}",
+          "Prompt": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 701,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 345,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1034.496211643414,
+          -1692.1623314083029
+        ],
+        "name": "omnitool.large_language_model"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

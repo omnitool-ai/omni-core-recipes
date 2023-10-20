@@ -1,0 +1,512 @@
+{
+  "id": "5f79796b-8356-4afc-828b-7d7026fcdbf6",
+  "meta": {
+    "name": "Teaching with AI: AI Tutor",
+    "author": "Omnitool.ai team",
+    "description": "Leverage LLM to craft an upbeat, encouraging AI tutor, aiding students in grasping concepts by providing explanations tailored to each student's learning level and prior knowledge.",
+    "help": "## AI Tutor 🤖🎓\n\nWelcome to this recipe! Experience the future of education with our AI Tutor. This AI-powered tutor will help you understand complex concepts by providing explanations tailored to your learning level and prior knowledge.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Type in the concept or topic you want to understand better.\n- Hit **Run Recipe** to initiate the AI Tutor.\n- Enjoy the personalized explanation provided by the AI Tutor in the **Chat** box.",
+    "created": 1695985379145,
+    "updated": 1695985945468,
+    "pictureUrl": "teacher_004.png",
+    "tags": [
+      "#education",
+      "#productivity",
+      "#intermediate",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2": {
+        "id": 2,
+        "data": {
+          "enabled": true,
+          "function": null,
+          "functions": "",
+          "instruction": "You are an upbeat, encouraging tutor who helps students understand concepts by explaining ideas. \n\nI'll provide you with what they would like to learn about, their learning level, and what they know already about the topic.\n\nGiven this information, help students understand the topic by providing explanations, examples, analogies. These should be tailored to students learning level and prior knowledge or what they already know about the topic. \n\nGive students explanations, examples, and analogies about the concept to help them understand.",
+          "model": "gpt-4-0613",
+          "prompt": "",
+          "temperature": 0.5,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 774,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 10,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          483.66909743044897,
+          413.8135877633228
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "10": {
+        "id": 10,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1162.4752410808205,
+          729.1006995681132
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "774": {
+        "id": 774,
+        "data": {
+          "button": "",
+          "current_knowledge": "",
+          "enabled": true,
+          "images": "",
+          "knowledge": "",
+          "replace": null,
+          "source": "**Topic:**\n{input:topic}\n\n**Student level:**\n{input:student_level}\n\n**Existing Knowledge:**\n{input:current_knowledge}",
+          "student_level": "",
+          "topic": "",
+          "x-omni-dynamicInputs": {
+            "current_knowledge": {
+              "customSocket": "text",
+              "name": "current_knowledge",
+              "title": "current_knowledge",
+              "type": "string"
+            },
+            "student_level": {
+              "customSocket": "text",
+              "name": "student_level",
+              "title": "student_level",
+              "type": "string"
+            },
+            "topic": {
+              "customSocket": "text",
+              "name": "topic",
+              "title": "topic",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "current_knowledge": {
+            "connections": [
+              {
+                "node": 2812,
+                "output": "current_knowledge",
+                "data": {}
+              }
+            ]
+          },
+          "student_level": {
+            "connections": [
+              {
+                "node": 2812,
+                "output": "student_level",
+                "data": {}
+              }
+            ]
+          },
+          "topic": {
+            "connections": [
+              {
+                "node": 2812,
+                "output": "topic",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -125.5828870337428,
+          447.4778364572573
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2812": {
+        "id": 2812,
+        "data": {
+          "button": "",
+          "current_knowledge": "- vector store is used in large text query\n- text is saved as embedding",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Teaching with AI: AI Tutor",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "An upbeat, encouraging tutor who helps students understand concepts by explaining ideas tailored to students learning level and prior knowledge!",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "What is Vectorstore and Why we need it in AI application",
+                        "description": "💡Hint: What topic you would like to learn about?",
+                        "input": true,
+                        "key": "topic",
+                        "label": "Topic",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "University B.S. Computer Science freshman",
+                        "description": "💡Hint: Tell me more about your learning level. E.g. Are you a high school student, a college student or a professional?",
+                        "input": true,
+                        "key": "student_level",
+                        "label": "Learning Level",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "- vector store is used in large text query\n- text is saved as embedding",
+                        "description": "💡Hint: What do you already know about the topic?",
+                        "input": true,
+                        "key": "current_knowledge",
+                        "label": "Your Current Knowledge About this Topic",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "student_level": "University B.S. Computer Science freshman",
+          "topic": "What is Vectorstore and Why we need it in AI application",
+          "x-omni-dynamicInputs": {
+            "current_knowledge": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "current_knowledge",
+              "title": "current_knowledge",
+              "type": "string"
+            },
+            "student_level": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "student_level",
+              "title": "student_level",
+              "type": "string"
+            },
+            "topic": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "topic",
+              "title": "topic",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "current_knowledge": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "current_knowledge",
+              "title": "current_knowledge",
+              "type": "string"
+            },
+            "student_level": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "student_level",
+              "title": "student_level",
+              "type": "string"
+            },
+            "topic": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "topic",
+              "title": "topic",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "current_knowledge": {
+            "connections": []
+          },
+          "student_level": {
+            "connections": []
+          },
+          "topic": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "current_knowledge": {
+            "connections": [
+              {
+                "node": 774,
+                "input": "current_knowledge",
+                "data": {}
+              }
+            ]
+          },
+          "student_level": {
+            "connections": [
+              {
+                "node": 774,
+                "input": "student_level",
+                "data": {}
+              }
+            ]
+          },
+          "topic": {
+            "connections": [
+              {
+                "node": 774,
+                "input": "topic",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -716.6587697182676,
+          285.12460990932635
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2825": {
+        "id": 2825,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Leverage LLM to craft an upbeat, encouraging AI tutor, aiding students in grasping concepts by providing explanations tailored to each student's learning level and prior knowledge.",
+          "help": "## AI Tutor 🤖🎓\n\nWelcome to this recipe! Experience the future of education with our AI Tutor. This AI-powered tutor will help you understand complex concepts by providing explanations tailored to your learning level and prior knowledge.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Type in the concept or topic you want to understand better.\n- Hit **Run Recipe** to initiate the AI Tutor.\n- Enjoy the personalized explanation provided by the AI Tutor in the **Chat** box.",
+          "tags": [
+            "education",
+            "productivity"
+          ],
+          "license": "CC0",
+          "title": "Teaching with AI: AI Tutor",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1299.2221251157068,
+          -300.5385798455699
+        ],
+        "name": "omnitool.recipe_metadata"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

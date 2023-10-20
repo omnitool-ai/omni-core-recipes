@@ -1,0 +1,582 @@
+{
+  "id": "7618b857-e2c8-4cac-814d-143ade714951",
+  "meta": {
+    "name": "Food PhotoMaker",
+    "author": "Omnitool.ai team",
+    "description": "Utilise the Large Language Model (LLM) and the Stable Diffusion XL to generate a description and visually appealing food photography based on your culinary idea.",
+    "help": "## Food PhotoMaker 📸🍲\n\nWelcome to this recipe! Describe your culinary idea and get a captivating description and image in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Describe the food\n- Hit **Run Recipe** button!\n- Enjoy the generated description and image in the **Chat** box.",
+    "created": 1696222081907,
+    "updated": 1696222240319,
+    "pictureUrl": "chef.png",
+    "tags": [
+      "#photography",
+      "#lifestyle",
+      "#beginner",
+      "#LLM",
+      "#diffusion"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "27": {
+        "id": 27,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "images": "",
+          "text": "Macarons and espresso",
+          "x-omni-title": "Take Culinary Idea from the Chat",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2495,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1459,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2503,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -665.2533592794523,
+          123.00243308279042
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "28": {
+        "id": 28,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2503,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 1722,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1408.2622712811674,
+          561.7858902993416
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "711": {
+        "id": 711,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Utilise the Large Language Model (LLM) and the Stable Diffusion XL to generate a description and visually appealing food photography based on your culinary idea.",
+          "enabled": true,
+          "help": "## Food PhotoMaker 📸🍲\n\nWelcome to this recipe! Describe your culinary idea and get a captivating description and image in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Describe the food\n- Hit **Run Recipe** button!\n- Enjoy the generated description and image in the **Chat** box.",
+          "license": "CC0",
+          "title": "Food PhotoMaker",
+          "tags": [
+            "photography",
+            "lifestyle"
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -851.092445853631,
+          -567.2482211250341
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "1459": {
+        "id": 1459,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "prompt": "",
+          "replace": null,
+          "source": "{input:Prompt}, unreal engine 5 render, food art, food photography, realistic render, dramatic lighting, cinematic lighting, rule of thirds, depth of field, cinematic bloom. Canon, macro photography, leica lens. 35mm. Hasselblad",
+          "x-omni-dynamicInputs": {
+            "prompt": {
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "Prompt",
+              "type": "string"
+            }
+          },
+          "x-omni-title": "Write the Stable Diffusion Prompt",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 27,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1722,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -135.27959728364505,
+          284.5132797235544
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "1722": {
+        "id": 1722,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.75,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "smoke, mist, plastic, grainy",
+          "num_inference_steps": 28,
+          "num_outputs": 1,
+          "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
+          "prompt_strength": 0.8,
+          "refine": "expert_ensemble_refiner",
+          "refine_steps": 0,
+          "replicate_weights": "",
+          "scheduler": "DPMSolverMultistep",
+          "seed": -1,
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2504,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1459,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 28,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          409.6816307385719,
+          68.0810627783601
+        ],
+        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+      },
+      "2495": {
+        "id": 2495,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Food PhotoMaker",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Food photography with flourishing presentation and delivery.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "description": "A simple input string",
+                        "input": true,
+                        "key": "text",
+                        "label": "Enter your culinary idea! e.g. Macarons and espresso.",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "text": "",
+          "x-omni-dynamicInputs": {
+            "text": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A simple input string",
+              "name": "text",
+              "socketOpts": {},
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "text": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A simple input string",
+              "name": "text",
+              "socketOpts": {},
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 27,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1205.1756806754322,
+          83.68687954122241
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      },
+      "2503": {
+        "id": 2503,
+        "data": {
+          "Criteria": "creative",
+          "Instruction": "You are an eloquent copywriter, you write concise flourish text for a restaurant menu based on the user's input text.\n\nFor example, if the input text is \"peking duck\", you may write a one sentence summary about the origin and tradition of peking duck, followed by a one sentence summary about the dish in the restaurant. \n\nYou write flourishing, exquisite text, perfect for a high class five star gourmet restaurant.",
+          "Prompt": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 27,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 28,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          879.6777513766461,
+          185.9649979235611
+        ],
+        "name": "omnitool.large_language_model"
+      },
+      "2504": {
+        "id": 2504,
+        "data": {
+          "number": 0,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 1722,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -120.96480362181693,
+          -44.48410856333164
+        ],
+        "name": "omnitool.number_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

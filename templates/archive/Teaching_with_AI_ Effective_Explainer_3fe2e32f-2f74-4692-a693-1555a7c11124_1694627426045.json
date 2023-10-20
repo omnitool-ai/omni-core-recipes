@@ -1,0 +1,309 @@
+{
+  "id": "3fe2e32f-2f74-4692-a693-1555a7c11124",
+  "meta": {
+    "name": "Teaching with AI: Effective Explainer",
+    "author": "Omnitool.ai team",
+    "description": "Assist teachers in developing effective explanations using analogies and examples for a specific topic.",
+    "help": "",
+    "created": 1694626851216,
+    "updated": 1694627423449,
+    "tags": [
+      "education"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1": {
+        "id": 1,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "OpenAI",
+          "description": "Assist teachers in developing effective explanations using analogies and examples for a specific topic.",
+          "enabled": true,
+          "help": "",
+          "title": "Teaching with AI: Effective Explainer"
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -230.39427247376017,
+          100.2439921124796
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2": {
+        "id": 2,
+        "data": {
+          "enabled": true,
+          "functions": "",
+          "instruction": "You are a friendly and helpful instructional designer who helps teachers develop effective explanations, analogies and examples in a straightforward way. Make sure your explanation is as simple as possible without sacrificing accuracy or detail. \n\nI'll provide you with the following information:\n- learning level of the students (grade level, college, or professional). \n- topic or concept that I want to explain\n\n﻿Using this information give the teacher a clear and simple 2-paragraph explanation of the topic, 2 examples, and an analogy. \n\nDo not assume student knowledge of any related concepts, domain knowledge, or jargon.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.5,
+          "top_p": 1
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "functions": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1799,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 10,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          }
+        },
+        "position": [
+          861.7210776754175,
+          402.57220087760714
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "10": {
+        "id": 10,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "images": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1476.084343376177,
+          736.3806187398103
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1799": {
+        "id": 1799,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "images": "",
+          "replace": null,
+          "source": "**Topic:**\n{input:Topic}\n\n**Student level:**\n{input:Student_level}",
+          "student_level": "",
+          "topic": "",
+          "x-omni-dynamicInputs": {
+            "student_level": {
+              "customSocket": "text",
+              "name": "student_level",
+              "title": "Student_level",
+              "type": "string"
+            },
+            "topic": {
+              "customSocket": "text",
+              "name": "topic",
+              "title": "Topic",
+              "type": "string"
+            }
+          }
+        },
+        "inputs": {
+          "student_level": {
+            "connections": [
+              {
+                "node": 1814,
+                "output": "student_level",
+                "data": {}
+              }
+            ]
+          },
+          "topic": {
+            "connections": [
+              {
+                "node": 1814,
+                "output": "topic",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          385.10140785407225,
+          580.7714011381347
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "1814": {
+        "id": 1814,
+        "data": {
+          "button": "",
+          "enabled": true,
+          "source": "### {{ RECIPE recipe.meta.name }} \n*{{ RECIPE recipe.meta.description }}*\n\n{{ INPUT inputs.topic }}  \n💡Hint: As a teacher, what topic would you like to explain to your students?\n{{ INPUT inputs.student_level }}  \n💡Hint: What's your student's learning level. E.g. Are they a high school student, a college student or a professional?\n\n{{ RUN_BUTTON \"Make it so!\" }}",
+          "student_level": "University B.S. Computer Science freshman",
+          "topic": "What is VectorStore, and why is it essential in AI applications?",
+          "x-omni-dynamicInputs": {
+            "student_level": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "student_level",
+              "title": "Student_level",
+              "type": "string"
+            },
+            "topic": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "topic",
+              "title": "Topic",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "student_level": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "student_level",
+              "title": "Student_level",
+              "type": "string"
+            },
+            "topic": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "topic",
+              "title": "Topic",
+              "type": "string"
+            }
+          }
+        },
+        "inputs": {
+          "student_level": {
+            "connections": []
+          },
+          "topic": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "student_level": {
+            "connections": [
+              {
+                "node": 1799,
+                "input": "student_level",
+                "data": {}
+              }
+            ]
+          },
+          "topic": {
+            "connections": [
+              {
+                "node": 1799,
+                "input": "topic",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -109.40216158997123,
+          611.6315537376115
+        ],
+        "name": "omnitool.custom_ui_1"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}

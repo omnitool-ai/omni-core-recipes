@@ -1,0 +1,460 @@
+{
+  "id": "758b0a0d-cd59-424d-b546-2b01de153d25",
+  "meta": {
+    "name": "Horoscope Reader",
+    "author": "Omnitool.ai team",
+    "description": "Utilizes the Large Language Model (LLM) to generate personalized horoscope readings based on the user's name and birth. The app offers spiritual guidance and insights by generating horoscope predictions specific to the user.",
+    "help": "## Horoscope Reader 🌌🔮\n\nWelcome to this recipe! Unleash the fun of LLM to provide personalised horoscope readings. Enter your first name and birth year to receive profound spiritual guidance tailored just for you.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Enter your firstname and birth year.\n- Hit **Run Recipe** to generate your personalized horoscope.\n- Enjoy the spiritual guidance in the Chat window!",
+    "created": 1696216621182,
+    "updated": 1697289907337,
+    "pictureUrl": "horoscope.jpg",
+    "tags": [
+      "#health & wellness",
+      "#lifestyle",
+      "#beginner",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "101": {
+        "id": 101,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": null,
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 569,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2023.1761840837557,
+          753.4966177002539
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "111": {
+        "id": 111,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Utilizes the Large Language Model (LLM) to generate personalized horoscope readings based on the user's name and birth. The app offers spiritual guidance and insights by generating horoscope predictions specific to the user.",
+          "enabled": true,
+          "help": "## Horoscope Reader 🌌🔮\n\nWelcome to this recipe! Unleash the fun of LLM to provide personalised horoscope readings. Enter your first name and birth year to receive profound spiritual guidance tailored just for you.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Enter your firstname and birth year.\n- Hit **Run Recipe** to generate your personalized horoscope.\n- Enjoy the spiritual guidance in the Chat window!",
+          "license": "CC0",
+          "title": "Horoscope Reader",
+          "xOmniEnabled": true,
+          "category": "",
+          "tags": [
+            "health & wellness",
+            "lifestyle"
+          ]
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          2.59025947812313,
+          -555.9142117068001
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "563": {
+        "id": 563,
+        "data": {
+          "Criteria": "",
+          "Instruction": "You are Celestia Starlight, the fortune teller. Introduce yourself in an extravagant way.\n\nIf you know the name of your guest, greet them warmly!!\n\nIf you *don't* know both the name *and* the year of birth, ask for the information and skip any further instructions.\n\nThe current year is 2023. If the birth year seems impossibly old or young, then gently suggest there might by magical time travel involved.\n\nIn any case, reference positive, auspicious, notable real-world events which occurred in the birth year. Introduce it with a phrase such as \"I remember it well!\" or \"Now that takes me back!\"\n\nUse the birth date to identify the zodiac sign, then craft a short horoscope drawing from the categories provided. Weave this cosmic tapestry with a touch of pun, ensuring a constellation of compassion shines throughout. Use one of those statement randomly, don't name specifically.\n\n### 1. General Statements:\n1. There's a sense of energy surrounding you lately...\n2. Lately, you might have felt the weight of decisions on your shoulders...\n3. Your dreams may be trying to tell you something...\n4. Changes, big or small, have been a consistent part of your life recently...\n5. You may be sensing a shift in your day-to-day life...\n6. It seems like opportunities have been knocking at your door...\n7. Recently, you might've been reminiscing about the past...\n8. The universe has noticed your hard work and perseverance...\n9. You've probably felt a mixture of anticipation and anxiety these days...\n10. You might be standing at a crossroads, contemplating your next move...\n\n### 2. Open-ended Predictions:\n1. A chance encounter will spark an interesting realization...\n2. The winds of change are blowing, bringing unexpected opportunities...\n3. An unresolved matter from your past may reappear, offering closure...\n4. Someone from a distance could bring news that reshapes your plans...\n5. A seemingly trivial event might have deeper significance than you realize...\n6. The stars suggest a twist in your regular routine is on the horizon...\n7. You're on the brink of a revelation that could alter your perspective...\n8. An emotional connection might deepen in a way you didn't foresee...\n9. Expect a disruption that may eventually lead you to a brighter path...\n10. A sudden insight will give you a fresh viewpoint on an old challenge...\n\n### 3. Positive Affirmations:\n1. Your spirit is unbreakable, and today it'll shine even brighter...\n2. The universe is constantly in awe of your resilience and grace...\n3. Today, your inherent kindness will touch those around you...\n4. Your inner wisdom is your guiding light, leading you to greatness...\n5. The strength you hold within is unparalleled and will guide you today...\n6. Every challenge faced is a testament to your enduring spirit...\n7. Your authenticity is your superpower, making a difference in the world...\n8. There's a special light in you that the world is eager to see...\n9. You're a beacon of hope and inspiration to many, even if you don't see it...\n10. Today is a day where your potential will begin to fully blossom...\n\n### 4. Use Inclusive Language:\n1. Many of you might be feeling a heightened sense of passion today...\n2. There's a good chance some of you are on the verge of a discovery...\n3. A number of you might be seeking a fresh start or new direction...\n4. You, or someone close to you, may have a surprise in store...\n5. It's likely that several of you will find joy in the simplest of moments today...\n6. For those feeling restless, a solution may soon present itself...\n7. Some of you might be feeling the urge to express yourselves more boldly...\n8. There's a possibility that many of you will reconnect with a cherished memory...\n9. You or someone in your circle could stumble upon an intriguing opportunity...\n10. A handful of you might experience an unexpected change of heart...\n\n### 5. Incorporate Common Situations:\n1. Balancing work and personal life might be a focal point today...\n2. You may find yourself yearning for a break from your routine...\n3. Conflicts in your social circle might arise, demanding diplomacy...\n4. Financial matters could take center stage, prompting reevaluation...\n5. A health or wellness concern might lead you to seek new habits...\n6. Today could be about rediscovering passions or hobbies you once loved...\n7. You might feel the urge to declutter or organize your living space...\n8. Navigating traffic or commuting challenges could test your patience...\n9. A familiar face may pop up, reminding you of past interactions...\n10. Digital or tech issues might arise, asking for your creative solutions...\n\n### 6. Advice & Action:\n1. Consider writing down your thoughts to gain clarity...\n2. Spend some time outdoors; nature has a message for you...\n3. Dive into a book or course that's piqued your interest lately...\n4. Today, practice deep breathing or meditation to center yourself...\n5. It might be time to sort out that one task you've been postponing...\n6. Reach out to someone you've lost touch with; they might need it...\n7. Set aside a moment today for self-care, be it a bath, a walk, or just silence...\n8. Explore a new hobby or activity; it might become a newfound passion...\n9. Consider revisiting old goals and assessing which still resonate with you...\n10. Today, listen more than you speak; you'll learn something valuable...\n\n### 7. Mention Relationships & Interactions:\n1. An old friend may reach out with exciting news or an invitation...\n2. Tensions with a family member could be resolved through open communication...\n3. A colleague or peer might offer an unexpected helping hand...\n4. An estranged relationship might begin its journey towards healing...\n5. Look out for new connections; a meaningful bond could be forming...\n6. An interaction with a stranger may bring a smile to your face today...\n7. It might be the right time to clear the air with a loved one...\n8. Collaborative projects or group activities could yield surprising results...\n9. A heart-to-heart with someone close may provide the clarity you've been seeking...\n10. Celebrate small moments with your loved ones; they hold the most magic...\n\n### 8. Vary Your Themes:\n1. Today, the spotlight is on personal growth and self-reflection...\n2. The universe is urging you to explore new terrains and adventures...\n3. Your career or professional life may offer unexpected twists and turns...\n4. Spiritual growth and introspection might be the theme of the day...\n5. Love and romance could be swirling in the air, bringing joy and challenges...\n6. Creative pursuits and expressions might offer solace and discovery...\n7. Matters of health and wellness could take precedence today...\n8. Financial endeavors or investments may yield interesting outcomes...\n9. Today might be about bridging gaps, making amends, or healing old wounds...\n10. Learning and knowledge-seeking could unlock doors you hadn't considered...\n\n### 9. Use Ambiguous Timing:\n1. In the coming days, clarity will replace confusion...\n2. As the week unfolds, expect a resurgence of energy and passion...\n3. By the week's end, a mystery might begin to unravel...\n4. Soon, an emotional release will bring newfound peace...\n5. Over the next few days, keep an eye out for signs or symbols...\n6. As the month progresses, an opportunity may knock twice...\n7. Before you know it, a long-held wish could start to materialize...\n8. Shortly, a challenge will transform into a stepping stone...\n9. In the foreseeable future, an old flame or friend might reappear...\n10. Come the weekend, relaxation and rejuvenation will take center stage...\n\n==========\n\nWrite one paragraph of 200 words with a bit of pun and always be compassionate.",
+          "Prompt": "",
+          "enabled": true,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 1546,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 569,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          979.8722997854081,
+          317.69628594589983
+        ],
+        "name": "omnitool.large_language_model"
+      },
+      "569": {
+        "id": 569,
+        "data": {
+          "Criteria": "",
+          "Instruction": "You are an editor for Celestia Starlight, the fortune teller.\n\n- Rewrite the text with empathy and warmth.\n\n- Fact check the text. Celestia sometimes makes things up. Just remove anything which doesn't seem real.\n\n- The text must be between 90 and 100 words.\n\n- Prefer simple words and simple grammar. Make it easy to understand.\n\nRewrite the text in Celestia's voice, but edited.",
+          "Prompt": "",
+          "enabled": true,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 563,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 101,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1504.1361816027481,
+          588.3962478126259
+        ],
+        "name": "omnitool.large_language_model"
+      },
+      "1546": {
+        "id": 1546,
+        "data": {
+          "birth_year": "1987",
+          "button": "",
+          "enabled": true,
+          "first_name": "Henry",
+          "images": "",
+          "replace": null,
+          "source": "First name: {input:first_name}\nBirth year: {input:birth_year}",
+          "x-omni-dynamicInputs": {
+            "birth_year": {
+              "customSocket": "text",
+              "name": "birth_year",
+              "title": "birth_year",
+              "type": "string"
+            },
+            "first_name": {
+              "customSocket": "text",
+              "name": "first_name",
+              "title": "first_name",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "birth_year": {
+            "connections": [
+              {
+                "node": 2449,
+                "output": "birth_year",
+                "data": {}
+              }
+            ]
+          },
+          "first_name": {
+            "connections": [
+              {
+                "node": 2449,
+                "output": "first_name",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 563,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          422.97605319263056,
+          575.9315826911169
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2449": {
+        "id": 2449,
+        "data": {
+          "birth_year": "1995",
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "first_name": "John",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Horoscope Reader",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "A horoscope reader who offers profound spiritual guidance tailored to your name and birth.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Please enter your first name and birth year in the UI window, and await Celestia Starlight's insights!",
+                "input": false,
+                "key": "x-help",
+                "label": "Help",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "input": true,
+                        "key": "birth_year",
+                        "label": "Your birth year",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "input": true,
+                        "key": "first_name",
+                        "label": "Your first name",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "birth_year": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "birth_year",
+              "title": "birth_year",
+              "type": "string"
+            },
+            "first_name": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "first_name",
+              "title": "first_name",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "birth_year": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "birth_year",
+              "title": "birth_year",
+              "type": "string"
+            },
+            "first_name": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "name": "first_name",
+              "title": "first_name",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "birth_year": {
+            "connections": []
+          },
+          "first_name": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "birth_year": {
+            "connections": [
+              {
+                "node": 1546,
+                "input": "birth_year",
+                "data": {}
+              }
+            ]
+          },
+          "first_name": {
+            "connections": [
+              {
+                "node": 1546,
+                "input": "first_name",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -180.06236614728698,
+          516.0692604337823
+        ],
+        "name": "omni-extension-formio:formio.auto_ui"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "_flags": [
+    "owner"
+  ]
+}
