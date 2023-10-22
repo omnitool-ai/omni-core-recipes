@@ -4,12 +4,13 @@
     "name": "Children Storybook Creator",
     "author": "Omnitool.ai team",
     "description": "Utilise LLM in conjunction with stable diffusion and text-to-speech to convert basic ideas into visually appealing storybook illustrations and text, accompanied by a spoken narrative.",
+    "category": "",
     "help": "# Children Storybook Creator 📖✨\n\nUnleash the power of storytelling by transforming simple ideas into enchanting storybook visuals and texts, accompanied by spoken narrative.\n\n## Prerequisites:\n\n### API Keys:\n- OpenAPI\n- ElevenLabs\n- Replicate\n\n### Extensions:\n- Replicate\n\n### Models:\n- Replicate: stability-ai/sdxl\n\n## How to Use:\n\n1. **Find** the custom UI window box.\n2. **Input** your *Scene Description*. Describe a single scene from your story.\n3. Hit **Run Recipe**.\n4. Find your crafted story in the **Chat** box.",
-    "created": 1695885643366,
-    "updated": 1695886058577,
+    "created": 1697963842063,
+    "updated": 1697964154977,
     "pictureUrl": "librarian.png",
     "tags": [
-      "#education", 
+      "#education",
       "#books",
       "#intermediate",
       "#diffusion",
@@ -30,18 +31,22 @@
           "enabled": true,
           "help": "# Children Storybook Creator 📖✨\n\nUnleash the power of storytelling by transforming simple ideas into enchanting storybook visuals and texts, accompanied by spoken narrative.\n\n## Prerequisites:\n\n### API Keys:\n- OpenAPI\n- ElevenLabs\n- Replicate\n\n### Extensions:\n- Replicate\n\n### Models:\n- Replicate: stability-ai/sdxl\n\n## How to Use:\n\n1. **Find** the custom UI window box.\n2. **Input** your *Scene Description*. Describe a single scene from your story.\n3. Hit **Run Recipe**.\n4. Find your crafted story in the **Chat** box.",
           "license": "CC0",
-          "title": "Children Storybook Creator",
           "tags": [
-            "education", 
-            "books"
+            "#education",
+            "#books",
+            "#intermediate",
+            "#diffusion",
+            "#audio",
+            "#LLM"
           ],
+          "title": "Children Storybook Creator",
           "xOmniEnabled": true
         },
         "inputs": {},
         "outputs": {},
         "position": [
-          -839.7816427353436,
-          -0.7015593688590007
+          -830.364398445696,
+          2.4438879347647804
         ],
         "name": "omnitool.recipe_metadata"
       },
@@ -54,7 +59,8 @@
           "files": "",
           "images": "",
           "json": "",
-          "object": null,
+          "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -99,12 +105,15 @@
           },
           "object": {
             "connections": []
+          },
+          "persistData": {
+            "connections": []
           }
         },
         "outputs": {},
         "position": [
-          1766.1147624643907,
-          451.76603971057267
+          1785.1803877485152,
+          426.8402368317424
         ],
         "name": "omnitool.chat_output"
       },
@@ -155,8 +164,8 @@
           }
         },
         "position": [
-          913.0501579633623,
-          502.39625640569824
+          984.9858573611369,
+          514.625886549719
         ],
         "name": "elevenlabs.simpletts"
       },
@@ -200,8 +209,8 @@
           }
         },
         "position": [
-          266.72892424858105,
-          376.4747670011616
+          251.3555624169911,
+          346.84287224783594
         ],
         "name": "omnitool.large_language_model"
       },
@@ -258,8 +267,8 @@
           }
         },
         "position": [
-          188.20251457302012,
-          -316.3097711578228
+          180.7507660833124,
+          -321.95109765217984
         ],
         "name": "omnitool.multi_text_replace"
       },
@@ -282,9 +291,8 @@
           "refine": "expert_ensemble_refiner",
           "refine_steps": 0,
           "replicate_weights": "",
-          "scheduler": "DDIM",
-          "seed": -1,
-          "width": 1024,
+          "scheduler": "K_EULER",
+          "width": 1792,
           "x-omni-title": "Generate Strorybook Illustration via Stable DiffusionXL",
           "xOmniEnabled": true
         },
@@ -296,13 +304,7 @@
             "connections": []
           },
           "seed": {
-            "connections": [
-              {
-                "node": 2296,
-                "output": "number",
-                "data": {}
-              }
-            ]
+            "connections": []
           },
           "image": {
             "connections": []
@@ -371,10 +373,10 @@
           }
         },
         "position": [
-          736.6973575287403,
-          -630.397200235799
+          721.3355758612978,
+          -618.228540440273
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "2281": {
         "id": 2281,
@@ -539,39 +541,10 @@
           }
         },
         "position": [
-          -369.7795496644011,
-          -20.40432243374228
+          -360.48871081909476,
+          33.08981419538911
         ],
         "name": "omni-extension-formio:formio.auto_ui"
-      },
-      "2296": {
-        "id": 2296,
-        "data": {
-          "number": 0,
-          "number_format": "timestamp",
-          "xOmniEnabled": true
-        },
-        "inputs": {
-          "number": {
-            "connections": []
-          }
-        },
-        "outputs": {
-          "number": {
-            "connections": [
-              {
-                "node": 1683,
-                "input": "seed",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          185.32430886531114,
-          -645.3104288557239
-        ],
-        "name": "omnitool.number_input"
       },
       "2353": {
         "id": 2353,
@@ -612,8 +585,8 @@
           }
         },
         "position": [
-          1260.2890466088302,
-          83.37903241034945
+          1262.4837803097746,
+          30.840800915252416
         ],
         "name": "omnitool.prepare_image"
       }
@@ -623,6 +596,7 @@
     "fields": {}
   },
   "ui": {},
+  "blockIds": {},
   "_flags": [
     "owner"
   ]
