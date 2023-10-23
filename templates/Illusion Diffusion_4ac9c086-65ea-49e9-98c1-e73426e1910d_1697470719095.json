@@ -1,5 +1,5 @@
 {
-  "id": "4ac9c086-65ea-49e9-98c1-e73426e1910d",
+  "id": "3734d159-b042-4a95-acbe-99b9d24b82ca",
   "meta": {
     "name": "Illusion Diffusion",
     "author": "Omnitool.ai team",
@@ -7,7 +7,7 @@
     "category": "",
     "help": "## Illusion Diffusion 🎨🖼️\n\nControlNet acts as an advanced instrument to maneuver the generative process of Stable Diffusion models for image creation. Let's explore the influence of ControlNet by infusing a logo image into an image generated based on your prompt!\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models**:\n\n- Replicate: lucataco/illusion-diffusion-hq\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the logo you want to infuse.\n- Enter the image generation prompt.\n- Press ▶️ Run button!\n- View the generated image in the **Chat** box!\n- Adjust the **Controlnet Conditioning Scale** slider to observe the differences in results.",
     "created": 1695716461389,
-    "updated": 1697470707609,
+    "updated": 1698071216640,
     "pictureUrl": "dal-lusion.png",
     "tags": [
       "#art",
@@ -26,11 +26,12 @@
           "documents": "",
           "files": "",
           "images": "",
-          "object": null,
+          "object": "",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
-          "xOmniEnabled": true
+          "xOmniEnabled": true,
+          "persistData": "Permanent"
         },
         "inputs": {
           "text": {
@@ -59,6 +60,9 @@
           },
           "object": {
             "connections": []
+          },
+          "persistData": {
+            "connections": []
           }
         },
         "outputs": {},
@@ -79,8 +83,10 @@
           "help": "## Illusion Diffusion 🎨🖼️\n\nControlNet acts as an advanced instrument to maneuver the generative process of Stable Diffusion models for image creation. Let's explore the influence of ControlNet by infusing a logo image into an image generated based on your prompt!\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models**:\n\n- Replicate: lucataco/illusion-diffusion-hq\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the logo you want to infuse.\n- Enter the image generation prompt.\n- Press ▶️ Run button!\n- View the generated image in the **Chat** box!\n- Adjust the **Controlnet Conditioning Scale** slider to observe the differences in results.",
           "license": "CC0",
           "tags": [
-            "art",
-            "marketing"
+            "#art",
+            "#marketing",
+            "#beginner",
+            "#diffusion"
           ],
           "title": "Illusion Diffusion",
           "xOmniEnabled": true
@@ -178,7 +184,7 @@
           "images": {
             "connections": [
               {
-                "node": 3057,
+                "node": 3319,
                 "output": "img",
                 "data": {}
               }
@@ -334,51 +340,50 @@
           462.3381185581421,
           2271.490019546736
         ],
-        "name": "omni-extension-replicate:run.lucataco/illusion-diffusion-hq"
+        "name": "omni-core-replicate:run.lucataco/illusion-diffusion-hq"
       },
-      "3057": {
-        "id": 3057,
+      "3319": {
+        "id": 3319,
         "data": {
-          "img": "fid://11,r8mamh1az6",
-          "imgUrl": "",
+          "img": "fid://87,7zczowo4q1",
           "preview": [
             {
-              "fid": "11,r8mamh1az6",
-              "fileName": "sample_company_logo.jpg",
-              "fileType": "image",
-              "furl": "fid://11,r8mamh1az6.jpg",
+              "fid": "87,7zczowo4q1",
+              "ticket": {
+                "fid": "87,7zczowo4q1",
+                "count": 1,
+                "url": "127.0.0.1:1688",
+                "publicUrl": "127.0.0.1:1688"
+              },
+              "fileName": "sample_logo.jpg",
+              "size": 26616,
+              "url": "/fid/87,7zczowo4q1",
+              "mimeType": "image/jpeg",
               "meta": {
-                "created": 1697469415492,
-                "height": 768,
                 "nsfw": {
+                  "Neutral": 0.9867283701896667,
                   "Drawing": 0.01231287233531475,
                   "Hentai": 0.0009408093756064773,
-                  "Neutral": 0.9867283701896667,
                   "Porn": 0.000016764788597356528,
                   "Sexy": 0.000001227805228154466,
                   "isNsfw": false,
                   "status": "success"
                 },
-                "type": "jpg",
-                "width": 768
+                "created": 1698067784118,
+                "height": 768,
+                "width": 768,
+                "type": "jpg"
               },
-              "mimeType": "image/jpeg",
-              "seq": 589,
-              "size": 26616,
+              "furl": "fid://87,7zczowo4q1.jpg",
+              "fileType": "image",
+              "seq": 41,
               "tags": [
                 "sample"
-              ],
-              "ticket": {
-                "count": 1,
-                "fid": "11,r8mamh1az6",
-                "publicUrl": "127.0.0.1:1688",
-                "url": "127.0.0.1:1688"
-              },
-              "url": "/fid/11,r8mamh1az6"
+              ]
             }
           ],
-          "x-omni-title": "Sample Logo Image",
-          "xOmniEnabled": true
+          "xOmniEnabled": true,
+          "imgUrl": ""
         },
         "inputs": {
           "img": {
@@ -406,8 +411,8 @@
           }
         },
         "position": [
-          -1430.3100709497562,
-          2220.8447292242563
+          -1434.8310980193457,
+          2235.0882946435245
         ],
         "name": "omnitool.input_static_image"
       }
@@ -417,7 +422,15 @@
     "fields": {}
   },
   "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.lucataco/illusion-diffusion-hq",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.image_info",
+    "omnitool.input_static_image",
+    "omnitool.recipe_metadata"
+  ],
   "_flags": [
-    "owner"
+    "public"
   ]
 }
