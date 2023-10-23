@@ -1,7 +1,7 @@
 title: Recipe Hub
 version: 0.0.1
 description: A centralized repository for managing a curated collection of featured recipe templates.
-author: Mercenaries.ai team
+author: Omnitool.ai team
 origin: https://github.com/omnitool-ai/omni-core-recipes.git
 client:
   addToWorkbench: false
