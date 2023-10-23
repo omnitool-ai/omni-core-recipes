@@ -79,6 +79,7 @@
           "files": "",
           "images": "",
           "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -111,6 +112,9 @@
             "connections": []
           },
           "object": {
+            "connections": []
+          },
+          "persistData": {
             "connections": []
           }
         },
@@ -329,6 +333,7 @@
           "files": "",
           "images": "",
           "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -361,6 +366,9 @@
             "connections": []
           },
           "object": {
+            "connections": []
+          },
+          "persistData": {
             "connections": []
           }
         },
@@ -476,7 +484,15 @@
     "fields": {}
   },
   "ui": {},
-  "blockIds": {},
+  "blockIds": [
+    "omni-core-replicate:run.lucataco/faceswap",
+    "omni-core-replicate:run.rmokady/clip_prefix_caption",
+    "omni-core-replicate:run.stability-ai/sdxl",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.recipe_metadata",
+    "openai.simpleChatGPT"
+  ],
   "_flags": [
     "owner"
   ]
