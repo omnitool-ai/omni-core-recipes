@@ -6,8 +6,8 @@
     "description": "Preview your new hairstyle! It combines text-to-image Stable Diffusion XL model with face-swap technique to give you a glimpse of your desired hairstyle. Simply upload your photo and describe the hairstyle you want, including gender and style.",
     "category": "",
     "help": "## Virtual Hair Salon 💇‍♀️📸\n\nWelcome to this recipe! With Aurora's Hair Salon, you can preview your new hairstyle designed by Aurora. Simply upload your photo and tell us your desired hairstyle.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Click on the camera icon to take a photo, upload your own photo, or choose one of the samples in the File Manager.\n- Describe your desired hairstyle, including gender and style, in the chat box, and hit Enter!\n- Enjoy the preview of your new hairstyle in the **Chat** box.",
-    "created": 1697474340167,
-    "updated": 1697531249507,
+    "created": 1698067487745,
+    "updated": 1698067487745,
     "pictureUrl": "hairsalon.png",
     "tags": [
       "#Lifestyle",
@@ -66,7 +66,7 @@
           1593.334516836481,
           -695.5431572111141
         ],
-        "name": "omni-extension-replicate:run.lucataco/faceswap"
+        "name": "omni-core-replicate:run.lucataco/faceswap"
       },
       "702": {
         "id": 702,
@@ -76,7 +76,8 @@
           "enabled": true,
           "files": "",
           "images": "",
-          "object": null,
+          "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -109,6 +110,9 @@
           },
           "object": {
             "connections": []
+          },
+          "persistData": {
+            "connections": []
           }
         },
         "outputs": {},
@@ -138,7 +142,6 @@
           "refine_steps": 0,
           "replicate_weights": "",
           "scheduler": "DDIM",
-          "seed": 0,
           "width": 1024,
           "xOmniEnabled": true
         },
@@ -228,7 +231,7 @@
           1039.140036339335,
           -472.0271469484241
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "1327": {
         "id": 1327,
@@ -371,6 +374,14 @@
     "fields": {}
   },
   "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.lucataco/faceswap",
+    "omni-core-replicate:run.stability-ai/sdxl",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.large_language_model",
+    "omnitool.recipe_metadata"
+  ],
   "_flags": [
     "owner"
   ]
