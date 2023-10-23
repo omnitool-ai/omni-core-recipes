@@ -1,13 +1,13 @@
 {
   "id": "9c085236-05ae-4d60-a36e-e2fc89655a97",
-  "version": "draft",
   "meta": {
     "name": "LLM Agent",
     "author": "Omnitool.ai team",
-    "description": "A simple LLM recipe for use with the /setname command, enabling quick access to text generation in the chat",
+    "description": "A simple LLM recipe for use with the /setname command for quick text generation.",
+    "category": "",
     "help": "## Recipe Instructions\n\n1. **Ask a LLM:** Simply type any question to initiate a conversation with an LLM.\n\n2. **Customization:** You can customize any instruction and adjust the parameters to tailor your LLM experience.\n\n3. **Nickname Assignment:** To give the recipe a nickname, type the command e.g. `/setname Alfred` in the chat.\n\n4. **Chatting with the Nickname:** After setting up the nickname, you can chat with Alfred using `@Alfred` anytime!",
-    "created": 1692849693921,
-    "updated": 1694331306648,
+    "created": 1698049774329,
+    "updated": 1698050051367,
     "pictureUrl": "butler.png",
     "tags": [
       "#productivity",
@@ -26,7 +26,9 @@
           "enabled": true,
           "images": "",
           "text": "Hi! What's a fun fact about AI?",
-          "x-omni-title": "Ask me Anything in Chat"
+          "video": "",
+          "x-omni-title": "Ask me Anything in Chat",
+          "xOmniEnabled": true
         },
         "inputs": {
           "text": {
@@ -36,6 +38,9 @@
             "connections": []
           },
           "audio": {
+            "connections": []
+          },
+          "video": {
             "connections": []
           },
           "documents": {
@@ -58,7 +63,13 @@
           "audio": {
             "connections": []
           },
+          "video": {
+            "connections": []
+          },
           "documents": {
+            "connections": []
+          },
+          "json": {
             "connections": []
           }
         },
@@ -74,12 +85,16 @@
           "audio": "",
           "documents": "",
           "enabled": true,
+          "files": "",
           "images": "",
           "json": "",
-          "object": null,
+          "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
-          "x-omni-title": "Answer in Chat"
+          "videos": "",
+          "x-omni-title": "Answer in Chat",
+          "xOmniEnabled": true
         },
         "inputs": {
           "text": {
@@ -100,7 +115,16 @@
           "documents": {
             "connections": []
           },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
           "object": {
+            "connections": []
+          },
+          "persistData": {
             "connections": []
           }
         },
@@ -120,17 +144,20 @@
           "description": "A simple LLM recipe for use with the /setname command for quick text generation.",
           "enabled": true,
           "help": "## Recipe Instructions\n\n1. **Ask a LLM:** Simply type any question to initiate a conversation with an LLM.\n\n2. **Customization:** You can customize any instruction and adjust the parameters to tailor your LLM experience.\n\n3. **Nickname Assignment:** To give the recipe a nickname, type the command e.g. `/setname Alfred` in the chat.\n\n4. **Chatting with the Nickname:** After setting up the nickname, you can chat with Alfred using `@Alfred` anytime!",
-          "title": "LLM Agent",
+          "license": "CC0",
           "tags": [
-            "productivity",
-            "beginner"
-          ]
+            "#productivity",
+            "#beginner",
+            "#LLM"
+          ],
+          "title": "LLM Agent",
+          "xOmniEnabled": true
         },
         "inputs": {},
         "outputs": {},
         "position": [
-          379.5640984030038,
-          114.5812504510098
+          378.40295191434956,
+          321.2285542021032
         ],
         "name": "omnitool.recipe_metadata"
       },
@@ -140,7 +167,8 @@
           "Criteria": "",
           "Instruction": "You are a helpful bot.  You can help people by answering their questions.",
           "Prompt": "",
-          "enabled": true
+          "enabled": true,
+          "xOmniEnabled": true
         },
         "inputs": {
           "Instruction": {
@@ -179,6 +207,12 @@
     "fields": {}
   },
   "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.large_language_model",
+    "omnitool.recipe_metadata"
+  ],
   "_flags": [
     "owner"
   ]
