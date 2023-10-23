@@ -1,12 +1,12 @@
 {
-  "id": "70e6da5c-4731-4933-9941-dac0573c73f5",
+  "id": "dc62b5b0-6b3d-464e-a45b-6ca0d1c254b8",
   "meta": {
     "name": "Persona Builder 2.0",
     "author": "Omnitool.ai team",
     "description": "Create tailored personas for your product strategy. This app utilizes LLM in multiple shots to generate personas based on your product's context. It also saves the results in formatted markdown file.",
     "help": "## Persona Builder 2.0 🤖📝\n\nWelcome to the Persona Builder recipe! Utilize the power of advanced AI to create a persona for your product or service. Input the Product Description, Feature, Value Proposition, and Target Audience, and let the AI do the rest.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input your Product Description, Feature, Value Proposition, and Target Audience.\n- Hit **Run Recipe**!\n- View the generated persona markdown file in the **Chat** box.",
     "created": 1697686150895,
-    "updated": 1697686150895,
+    "updated": 1698076895263,
     "pictureUrl": "personas.png",
     "tags": [
       "#business",
@@ -29,6 +29,7 @@
           "images": "",
           "json": "",
           "object": "",
+          "persistData": "Permanent",
           "text": "🚀 Persona generated, please click the file below to view it  🚀",
           "textType": "text/markdown",
           "videos": "",
@@ -38,7 +39,7 @@
           "text": {
             "connections": [
               {
-                "node": 2198,
+                "node": 2429,
                 "output": "text",
                 "data": {}
               }
@@ -73,12 +74,15 @@
           },
           "object": {
             "connections": []
+          },
+          "persistData": {
+            "connections": []
           }
         },
         "outputs": {},
         "position": [
-          2573.666957954749,
-          -1648.7764803469934
+          2566.4769678634852,
+          -1984.9861002786984
         ],
         "name": "omnitool.chat_output"
       },
@@ -93,9 +97,11 @@
           "help": "## Persona Builder 2.0 🤖📝\n\nWelcome to the Persona Builder recipe! Utilize the power of advanced AI to create a persona for your product or service. Input the Product Description, Feature, Value Proposition, and Target Audience, and let the AI do the rest.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input your Product Description, Feature, Value Proposition, and Target Audience.\n- Hit **Run Recipe**!\n- View the generated persona markdown file in the **Chat** box.",
           "license": "CC0",
           "tags": [
-            "business",
-            "marketing",
-            "productivity"
+            "#business",
+            "#marketing",
+            "#productivity",
+            "#advanced",
+            "#LLM"
           ],
           "title": "Persona Builder 2.0",
           "xOmniEnabled": true
@@ -122,7 +128,7 @@
           "text": {
             "connections": [
               {
-                "node": 2198,
+                "node": 2429,
                 "output": "text",
                 "data": {}
               }
@@ -669,7 +675,7 @@
           -1603.7403600816951,
           -2099.400550104192
         ],
-        "name": "omni-extension-formio:formio.auto_ui"
+        "name": "omni-core-formio:formio.auto_ui"
       },
       "2150": {
         "id": 2150,
@@ -1333,21 +1339,16 @@
           "text": {
             "connections": [
               {
-                "node": 529,
-                "input": "text",
-                "data": {}
-              },
-              {
-                "node": 517,
-                "input": "text",
+                "node": 2429,
+                "input": "prompt",
                 "data": {}
               }
             ]
           }
         },
         "position": [
-          1898.5476811326096,
-          -1940.0465143716037
+          1378.4185289618565,
+          -2061.462579249777
         ],
         "name": "omnitool.multi_text_replace"
       },
@@ -1397,11 +1398,6 @@
               {
                 "node": 2198,
                 "input": "goals",
-                "data": {}
-              },
-              {
-                "node": 2428,
-                "input": "text",
                 "data": {}
               }
             ]
@@ -1759,59 +1755,61 @@
           }
         },
         "position": [
-          575.7433827337279,
-          -3609.523470368922
+          584.6561665122626,
+          -3695.0518556436073
         ],
         "name": "omni-core-llms:text_generation.llm_query_universal"
       },
-      "2428": {
-        "id": 2428,
+      "2429": {
+        "id": 2429,
         "data": {
-          "audio": "",
-          "documents": "",
-          "files": "",
-          "images": "",
-          "object": "",
-          "text": "",
-          "textType": "text/markdown",
-          "videos": "",
+          "instruction": "You are a great markdown writer. Help me format the given markdown text to increase the readability. You will output a new formated markdown.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3,
           "xOmniEnabled": true
         },
         "inputs": {
-          "text": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
             "connections": [
               {
-                "node": 2395,
-                "output": "answer_text",
+                "node": 2198,
+                "output": "text",
                 "data": {}
               }
             ]
-          },
-          "images": {
-            "connections": []
-          },
-          "audio": {
-            "connections": []
-          },
-          "documents": {
-            "connections": []
-          },
-          "videos": {
-            "connections": []
-          },
-          "files": {
-            "connections": []
-          },
-          "object": {
-            "connections": []
           }
         },
-        "outputs": {},
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 517,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 529,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
         "position": [
-          1570.2592878732212,
-          -3680.615786922094
+          1962.2416887886784,
+          -1721.2813307197514
         ],
-        "name": "omnitool.chat_output"
+        "name": "openai.simpleChatGPT"
       }
     }
   },
@@ -1819,7 +1817,20 @@
     "fields": {}
   },
   "ui": {},
-  "blockIds": {},
+  "blockIds": [
+    "omni-core-formio:formio.auto_ui",
+    "omni-core-llms:text_generation.llm_query_universal",
+    "omni-core-replicate:run.stability-ai/sdxl",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_output",
+    "omnitool.file_metadata_writer",
+    "omnitool.input_text",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "omnitool.text_replace",
+    "omnitool.write_document",
+    "openai.simpleChatGPT"
+  ],
   "_flags": [
     "owner"
   ]
