@@ -5,14 +5,15 @@
     "author": "Omnitool.ai team",
     "description": "Use fine-tuned diffusion models to transform your brief description into custom app icons.",
     "category": "",
-    "help": "## App Icon Studio 🎨📱\n\nWelcome to this recipe! With the power of fine-tuned diffusion model, transform your text prompts into captivating app icons. Just provide a brief description of your desired icon and let the AI do the magic.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n- Sharp\n\n**Models:**\n- Replicate: nandycc/sdxl-app-icons\n- Replicate: galleri5/icons\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input the prompt of the app icon you want to create.\n- Hit **Run Recipe**\n- View the generated app icon in the **Chat** box",
-    "created": 1697218141954,
-    "updated": 1697221660652,
+    "help": "## App Icon Studio 🎨📱\n\nWelcome to this recipe! With the power of a fine-tuned diffusion model, transform your text prompts into captivating app icons. Just provide a brief description of your desired icon and let the AI do the magic.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n- Sharp\n\n**Models:**\n- Replicate: nandycc/sdxl-app-icons\n- Replicate: galleri5/icons\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input the prompt of the app icon you want to create.\n- Hit **Run Recipe**\n- View the generated app icon in the **Chat** box",
+    "created": 1698050796581,
+    "updated": 1698051155178,
     "pictureUrl": "artist2.png",
     "tags": [
       "#art",
       "#intermediate",
-      "#diffusion"
+      "#diffusion",
+      "#icon"
     ]
   },
   "rete": {
@@ -27,7 +28,8 @@
           "files": "",
           "images": "",
           "json": "",
-          "object": null,
+          "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -60,6 +62,9 @@
           },
           "object": {
             "connections": []
+          },
+          "persistData": {
+            "connections": []
           }
         },
         "outputs": {},
@@ -78,10 +83,13 @@
           "credits": "",
           "description": "Use fine-tuned diffusion models to transform your brief description into custom app icons.",
           "enabled": true,
-          "help": "## App Icon Studio 🎨📱\n\nWelcome to this recipe! With the power of fine-tuned diffusion model, transform your text prompts into captivating app icons. Just provide a brief description of your desired icon and let the AI do the magic.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n- Sharp\n\n**Models:**\n- Replicate: nandycc/sdxl-app-icons\n- Replicate: galleri5/icons\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input the prompt of the app icon you want to create.\n- Hit **Run Recipe**\n- View the generated app icon in the **Chat** box",
+          "help": "## App Icon Studio 🎨📱\n\nWelcome to this recipe! With the power of a fine-tuned diffusion model, transform your text prompts into captivating app icons. Just provide a brief description of your desired icon and let the AI do the magic.\n\n### Prerequisites:\n\n**API Keys**:\n\n- Replicate\n\n**Extensions**:\n\n- Replicate\n- Sharp\n\n**Models:**\n- Replicate: nandycc/sdxl-app-icons\n- Replicate: galleri5/icons\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n- Navigate to the custom **UI** window.\n- Input the prompt of the app icon you want to create.\n- Hit **Run Recipe**\n- View the generated app icon in the **Chat** box",
           "license": "CC0",
           "tags": [
-            "art"
+            "#art",
+            "#intermediate",
+            "#diffusion",
+            "#icon"
           ],
           "title": "App Icon Studio",
           "xOmniEnabled": true
@@ -90,7 +98,7 @@
         "outputs": {},
         "position": [
           -1082.3016303094605,
-          -582.7395568428134
+          -582.9560623558958
         ],
         "name": "omnitool.recipe_metadata"
       },
@@ -153,7 +161,7 @@
       "2192": {
         "id": 2192,
         "data": {
-          "_prompt": "Music",
+          "_prompt": "Lightning in a Cauldron",
           "button": "",
           "editMode": false,
           "enableUI": true,
@@ -198,7 +206,7 @@
                       {
                         "applyMaskOn": "change",
                         "autoExpand": false,
-                        "defaultValue": "Music",
+                        "defaultValue": "Lightning in a Cauldron",
                         "input": true,
                         "key": "_prompt",
                         "label": " Prompt",
@@ -451,14 +459,13 @@
           "lora_scale": 0.6,
           "mask": "",
           "negative_prompt": "",
-          "num_inference_steps": 50,
+          "num_inference_steps": 30,
           "num_outputs": 1,
           "prompt": "",
           "prompt_strength": 0.8,
           "refine": "no_refiner",
           "refine_steps": 0,
           "scheduler": "K_EULER",
-          "seed": 0,
           "width": 1024,
           "x-omni-comment": "Fine tuned to generate awesome app icons, by aistartupkit.com\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
           "xOmniEnabled": true
@@ -529,18 +536,18 @@
           "output": {
             "connections": [
               {
-                "node": 2543,
-                "input": "image",
+                "node": 2688,
+                "input": "file",
                 "data": {}
               }
             ]
           }
         },
         "position": [
-          521.9446581320109,
-          -604.0730885964995
+          521.7281526189284,
+          -603.8629508926253
         ],
-        "name": "omni-extension-replicate:run.nandycc/sdxl-app-icons"
+        "name": "omni-core-replicate:run.nandycc/sdxl-app-icons"
       },
       "2236": {
         "id": 2236,
@@ -610,14 +617,13 @@
           "lora_scale": 0.6,
           "mask": "",
           "negative_prompt": "SOFT, BLURRY, colorful",
-          "num_inference_steps": 50,
+          "num_inference_steps": 30,
           "num_outputs": 1,
           "prompt": "Minimalist colorful cricket cover drive ICON in the style of CONMINMISM",
           "prompt_strength": 0.8,
           "refine": "expert_ensemble_refiner",
           "refine_steps": 20,
           "scheduler": "K_EULER_ANCESTRAL",
-          "seed": 0,
           "width": 1024,
           "x-omni-comment": "SDXL finetune to generate slick Icons and Flat Pop Constructivist Graphics with thick edges. Trained on Bing Generations\n\n***Tips:***\n\n*For optimal performance on the SDXL model, ensure to use **1024x1024** or others with the same pixel count but varying aspect ratios:*\n\n- **1024 x 1024** (1:1)\n- **1152 x 896** (9:7), **896 x 1152** (7:9)\n- **1216 x 832** (19:13), **832 x 1216** (13:19)\n- **1344 x 768** (7:4), **768 x 1344** (4:7)\n- **1536 x 640** (12:5), **640 x 1536** (5:12)",
           "x-omni-title": "Replicate: galleri5/icons",
@@ -697,10 +703,10 @@
           }
         },
         "position": [
-          528.2758487107443,
-          259.9972483165858
+          522.4223650268164,
+          584.360308223846
         ],
-        "name": "omni-extension-replicate:run.galleri5/icons"
+        "name": "omni-core-replicate:run.galleri5/icons"
       },
       "2519": {
         "id": 2519,
@@ -798,7 +804,7 @@
           "images": {
             "connections": [
               {
-                "node": 2543,
+                "node": 2688,
                 "output": "output",
                 "data": {}
               }
@@ -830,44 +836,6 @@
           35.48706016695183
         ],
         "name": "omni-extension-sharp:omnitool.trim"
-      },
-      "2543": {
-        "id": 2543,
-        "data": {
-          "enabled": true,
-          "image": "https://replicate.delivery/pbxt/Ho28olmw8dnOffOz7yjuPK6UGsOPqFUfpCnq1ur8zaAKxiPH/animal-1.jpeg",
-          "xOmniEnabled": true
-        },
-        "inputs": {
-          "image": {
-            "connections": [
-              {
-                "node": 2213,
-                "output": "output",
-                "data": {}
-              }
-            ]
-          },
-          "enabled": {
-            "connections": []
-          }
-        },
-        "outputs": {
-          "output": {
-            "connections": [
-              {
-                "node": 2520,
-                "input": "images",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          1080.7300440684169,
-          -254.39099473665863
-        ],
-        "name": "omni-extension-replicate:run.cjwbw/rembg"
       },
       "2564": {
         "id": 2564,
@@ -1018,6 +986,44 @@
           625.6111447502734
         ],
         "name": "omnitool.multi_text_replace"
+      },
+      "2688": {
+        "id": 2688,
+        "data": {
+          "enabled": true,
+          "file": "https://replicate.delivery/pbxt/JTqcmEtVYh05vSVxApUKWuRtCuUZsTkzvrlTgvUVg7jEy1Jr/peta135.jpg",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 2213,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2520,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1063.2968638852121,
+          16.754208067441027
+        ],
+        "name": "omni-core-replicate:run.stphtan94117/easy-remove-background"
       }
     }
   },
@@ -1025,6 +1031,17 @@
     "fields": {}
   },
   "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.galleri5/icons",
+    "omni-core-replicate:run.nandycc/sdxl-app-icons",
+    "omni-core-replicate:run.stphtan94117/easy-remove-background",
+    "omni-extension-formio:formio.auto_ui",
+    "omni-extension-sharp:omnitool.trim",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_output",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata"
+  ],
   "_flags": [
     "owner"
   ]
