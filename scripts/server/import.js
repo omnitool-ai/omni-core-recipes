@@ -5,6 +5,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import crypto from 'crypto';
 import { v4 } from 'uuid';
 import { fileURLToPath } from 'url';
 
@@ -19,6 +20,12 @@ function addMetaTag(doc, tag) {
     }
 }
 
+function generateHashId(name) {
+    const hash = crypto.createHash('sha1');
+    hash.update(name);
+    return hash.digest('hex').substring(0, 36); // Creating a substring to match UUID format
+}
+
 async function importRecipes() {
     try {
         const templateDir = path.join(__dirname, '../../templates');
@@ -30,7 +37,7 @@ async function importRecipes() {
         const files = await fs.readdir(templateDir);
         const jsonFiles = files.filter(file => path.extname(file).toLowerCase() === '.json');
         const systemRecipes = [
-            ['Bugbear', 'c0deba5e-417d-49df-96d3-8aeb8fc15402', false],
+            ['Bugbear', 'c0deba5e-417d-49df-96d3-8aeb8fc15402', false], //false means not visible
             ['Socket', 'c0deba5e-786a-4d4b-88d9-1694ebc85527', false]
         ];
 
@@ -55,11 +62,11 @@ async function importRecipes() {
                     doc.ui.chat.enabled = true;
                 }
                 // add formio enabled flag when formio node is present
-                else if (node.name === "omni-extension-formio:formio.auto_ui") {
-                    doc.ui = doc.ui ?? {};
-                    doc.ui.formIO = doc.ui.formIO ?? {};
-                    doc.ui.formIO.enabled = true;
-                }
+                // else if (node.name === "omni-core-formio:formio.auto_ui" || node.name === "omni-extension-formio:formio.auto_ui") {
+                //     doc.ui = doc.ui ?? {};
+                //     doc.ui.formIO = doc.ui.formIO ?? {};
+                //     doc.ui.formIO.enabled = true;
+                // }
             }
 
             for (let [fileNamePrefix, overrideId, visible] of systemRecipes) {
@@ -114,6 +121,10 @@ async function reconcilePublishedRecipes(publishedRecipes) {
                 element.id = v4();
                 element._id = `wf:${element.id}`;
             }
+            // Use hash function to generate consistent ID based on recipe name
+            element.id = generateHashId(element.meta.name);
+            element._id = `wf:${element.id}`;
+
             let omni_id = element._id;
             return pb.collection(MONO_COLLECTION_ID).create({ omni_id: omni_id, blob: element });
         });
