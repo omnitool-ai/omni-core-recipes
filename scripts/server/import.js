@@ -118,13 +118,10 @@ async function reconcilePublishedRecipes(publishedRecipes) {
 
         let createCmd = publishedRecipes.map(element => {
             if (!element.meta.tags.includes("system")) {
-                element.id = v4();
+                // Use hash function to generate consistent ID based on recipe name
+                element.id = generateHashId(element.meta.name);
                 element._id = `wf:${element.id}`;
             }
-            // Use hash function to generate consistent ID based on recipe name
-            element.id = generateHashId(element.meta.name);
-            element._id = `wf:${element.id}`;
-
             let omni_id = element._id;
             return pb.collection(MONO_COLLECTION_ID).create({ omni_id: omni_id, blob: element });
         });
