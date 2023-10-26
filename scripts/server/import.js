@@ -61,11 +61,11 @@ async function importRecipes() {
                     doc.ui.chat.enabled = true;
                 }
                 // add formio enabled flag when formio node is present
-                // else if (node.name === "omni-core-formio:formio.auto_ui" || node.name === "omni-extension-formio:formio.auto_ui") {
-                //     doc.ui = doc.ui ?? {};
-                //     doc.ui.formIO = doc.ui.formIO ?? {};
-                //     doc.ui.formIO.enabled = true;
-                // }
+                else if (node.name === "omni-core-formio:formio.auto_ui" || node.name === "omni-extension-formio:formio.auto_ui") {
+                    doc.ui = doc.ui ?? {};
+                    doc.ui.formIO = doc.ui.formIO ?? {};
+                    doc.ui.formIO.enabled = true;
+                }
             }
 
             for (let [fileNamePrefix, overrideId, visible] of systemRecipes) {
