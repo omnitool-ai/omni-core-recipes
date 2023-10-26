@@ -6,7 +6,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'crypto';
-import { v4 } from 'uuid';
 import { fileURLToPath } from 'url';
 
 const MONO_COLLECTION_ID = "legacyMonoCollection";
@@ -43,7 +42,7 @@ async function importRecipes() {
 
         let jsonArray = [];
         for (let file of jsonFiles) {
-            console.log('Processing recipe json:', file);
+            console.info('Processing recipe json:', file);
             let content = await fs.readFile(path.join(templateDir, file));
             let doc = JSON.parse(content);
             doc.owner = '-----public-----';
@@ -114,7 +113,7 @@ async function reconcilePublishedRecipes(publishedRecipes) {
         );
         let deleteCmd = oldrecords.map(record => pb.collection(MONO_COLLECTION_ID).delete(record.id));
         await Promise.all(deleteCmd);
-        console.log(`Deleted ${oldrecords.length} demo recipes.`);
+        console.info(`Deleted ${oldrecords.length} demo recipes.`);
 
         let createCmd = publishedRecipes.map(element => {
             if (!element.meta.tags.includes("system")) {
@@ -127,7 +126,7 @@ async function reconcilePublishedRecipes(publishedRecipes) {
         });
 
         await Promise.all(createCmd);
-        console.info(`Updated ${createCmd.length} demo recipes.`);
+        omnilog.status_success(`Updated ${createCmd.length} demo recipes.`);
     } catch (error) {
         console.error(error);
     }
@@ -136,9 +135,9 @@ async function reconcilePublishedRecipes(publishedRecipes) {
 const script = {
     name: 'import',
     exec: async function (ctx, payload) {
-        console.log('Starting recipe import...');
+        console.info('Starting recipe import...');
         await importRecipes();
-        console.log('Recipe import completed.');
+        console.info('Recipe import completed.');
         return { status: 'success', message: 'Recipe import completed.' };
     }
 };

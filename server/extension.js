@@ -6,7 +6,6 @@
 import { importRecipes } from '../scripts/server/import.js';
 
 async function init(ctx) {
-  console.log('Importing demo recipes...');
   await importRecipes();
 }
 // TODO: Need to figure out how to get right event to trigger this
