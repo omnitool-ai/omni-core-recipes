@@ -1,13 +1,13 @@
 {
-  "id": "c861ecac-f94d-4cf8-87ac-f09a80c4c764",
+  "id": "838988f3-7d6e-4369-bba5-ccbb8a984dfe",
   "meta": {
     "name": "OmniLab: SDXL Image Resolution",
     "author": "Omnitool.ai team",
     "description": "A side-by-side comparison to experiment the importance of using the right image size to achieve the best performance from the Stable Diffusion XL (SDXL) models.",
     "category": "",
-    "help": "# Stable Diffusion XL (SDXL) Model Resolutions\n\nThe **Stable Diffusion XL (SDXL)** model was fundamentally trained at a base resolution of **1024 x 1024**. This implies that the generated image will have up to **1,048,576 pixels** - a threshold defining its maximum clarity and detail.\n\nBeyond its base, the model was further fine-tuned on multiple aspect ratios. However, a consistent theme was maintained: the total pixel count doesn't surpass the **1 megapixel** mark (**1,048,576 pixels**).\n\nFor users seeking the best image generation results on the **SDXL model**, consider utilizing the following resolutions and aspect ratios:\n\n- **1024 x 1024** (1:1 Square)\n- **1152 x 896** (9:7)\n- **896 x 1152** (7:9)\n- **1216 x 832** (19:13)\n- **832 x 1216** (13:19)\n- **1344 x 768** (7:4 Horizontal)\n- **768 x 1344** (4:7 Vertical)\n- **1536 x 640** (12:5 Horizontal)\n- **640 x 1536** (5:12 Vertical - closely resembling iPhone resolution)",
-    "created": 1697215885795,
-    "updated": 1697215987561,
+    "help": "# Stable Diffusion XL (SDXL) Model Resolutions\n\nThe **Stable Diffusion XL (SDXL)** model was fundamentally trained at a base resolution of **1024 x 1024**. This implies that the generated image will have up to **1,048,576 pixels** - a threshold defining its maximum clarity and detail.\n\nBeyond its base, the model was further fine-tuned on multiple aspect ratios. However, a consistent theme was maintained: the total pixel count doesn't surpass the **1 megapixel** mark (**1,048,576 pixels**).\n\nFor users seeking the best image generation results on the **SDXL model**, consider utilizing the following resolutions and aspect ratios:\n\n- **1024 x 1024** (1:1 Square)\n- **1152 x 896** (9:7)\n- **896 x 1152** (7:9)\n- **1216 x 832** (19:13)\n- **832 x 1216** (13:19)\n- **1344 x 768** (7:4 Horizontal)\n- **768 x 1344** (4:7 Vertical)\n- **1536 x 640** (12:5 Horizontal)\n- **640 x 1536** (5:12 Vertical - closely resembling iPhone resolution)\n\n## Experiment\nCompare various dimensions to assess their impact on the quality of your SDXL images.",
+    "created": 1698370241960,
+    "updated": 1698372994152,
     "pictureUrl": "camera_002.png",
     "tags": [
       "#education",
@@ -56,7 +56,7 @@
           "seed": {
             "connections": [
               {
-                "node": 2515,
+                "node": 3702,
                 "output": "number",
                 "data": {}
               }
@@ -138,7 +138,7 @@
           276.41093978114924,
           -102.71983468518506
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "2513": {
         "id": 2513,
@@ -176,7 +176,7 @@
           "seed": {
             "connections": [
               {
-                "node": 2515,
+                "node": 3702,
                 "output": "number",
                 "data": {}
               }
@@ -255,10 +255,10 @@
           }
         },
         "position": [
-          273.10581547537646,
+          272.7515959975773,
           1711.639417126691
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "2514": {
         "id": 2514,
@@ -296,7 +296,7 @@
           "seed": {
             "connections": [
               {
-                "node": 2515,
+                "node": 3702,
                 "output": "number",
                 "data": {}
               }
@@ -375,59 +375,10 @@
           }
         },
         "position": [
-          274.97061028786254,
-          824.6740855427556
+          275.2658749427633,
+          824.9693501976564
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
-      },
-      "2515": {
-        "id": 2515,
-        "data": {
-          "number": 1,
-          "number_format": "timestamp",
-          "xOmniEnabled": true
-        },
-        "inputs": {
-          "number": {
-            "connections": []
-          }
-        },
-        "outputs": {
-          "number": {
-            "connections": [
-              {
-                "node": 2512,
-                "input": "seed",
-                "data": {}
-              },
-              {
-                "node": 2513,
-                "input": "seed",
-                "data": {}
-              },
-              {
-                "node": 2514,
-                "input": "seed",
-                "data": {}
-              },
-              {
-                "node": 2516,
-                "input": "seed",
-                "data": {}
-              },
-              {
-                "node": 2547,
-                "input": "seed",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          -651.250081271173,
-          904.7218713776373
-        ],
-        "name": "omnitool.number_input"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "2516": {
         "id": 2516,
@@ -465,7 +416,7 @@
           "seed": {
             "connections": [
               {
-                "node": 2515,
+                "node": 3702,
                 "output": "number",
                 "data": {}
               }
@@ -547,7 +498,7 @@
           279.78823240016357,
           2653.2544704654565
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "2517": {
         "id": 2517,
@@ -556,7 +507,8 @@
           "documents": "",
           "files": "",
           "images": "",
-          "object": null,
+          "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -609,6 +561,9 @@
           },
           "object": {
             "connections": []
+          },
+          "persistData": {
+            "connections": []
           }
         },
         "outputs": {},
@@ -621,7 +576,7 @@
       "2519": {
         "id": 2519,
         "data": {
-          "text": "An off-center portrait of an old bohemian barista preparing coffee in a boutique vintage cafe.",
+          "text": "Capture a photograph showcasing a 40-year-old Japanese ramen master at work, adorned in traditional chef's attire, meticulously preparing ramen. The setting is a vintage, dimly lit ramen bar, brimming with cultural richness, warmth, and authenticity. Feature aged wooden furnishings and classic Japanese décor to highlight the storied culinary tradition and expert craftsmanship inherent in the art of ramen making.",
           "xOmniEnabled": true
         },
         "inputs": {
@@ -661,8 +616,8 @@
           }
         },
         "position": [
-          -1158.9491182084855,
-          519.4173685618254
+          -1031.4989114360894,
+          442.75023600334634
         ],
         "name": "omnitool.input_text"
       },
@@ -702,7 +657,7 @@
           "seed": {
             "connections": [
               {
-                "node": 2515,
+                "node": 3702,
                 "output": "number",
                 "data": {}
               }
@@ -784,7 +739,7 @@
           277.3241026406423,
           -983.8218659912881
         ],
-        "name": "omni-extension-replicate:run.stability-ai/sdxl"
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
       },
       "2576": {
         "id": 2576,
@@ -829,8 +784,8 @@
           }
         },
         "position": [
-          -642.3765813344176,
-          1332.6059330173593
+          -720.7396807254117,
+          1214.5405164982064
         ],
         "name": "omnitool.input_text"
       },
@@ -842,12 +797,14 @@
           "category": "",
           "credits": "",
           "description": "A side-by-side comparison to experiment the importance of using the right image size to achieve the best performance from the Stable Diffusion XL (SDXL) models.",
-          "help": "# Stable Diffusion XL (SDXL) Model Resolutions\n\nThe **Stable Diffusion XL (SDXL)** model was fundamentally trained at a base resolution of **1024 x 1024**. This implies that the generated image will have up to **1,048,576 pixels** - a threshold defining its maximum clarity and detail.\n\nBeyond its base, the model was further fine-tuned on multiple aspect ratios. However, a consistent theme was maintained: the total pixel count doesn't surpass the **1 megapixel** mark (**1,048,576 pixels**).\n\nFor users seeking the best image generation results on the **SDXL model**, consider utilizing the following resolutions and aspect ratios:\n\n- **1024 x 1024** (1:1 Square)\n- **1152 x 896** (9:7)\n- **896 x 1152** (7:9)\n- **1216 x 832** (19:13)\n- **832 x 1216** (13:19)\n- **1344 x 768** (7:4 Horizontal)\n- **768 x 1344** (4:7 Vertical)\n- **1536 x 640** (12:5 Horizontal)\n- **640 x 1536** (5:12 Vertical - closely resembling iPhone resolution)",
+          "help": "# Stable Diffusion XL (SDXL) Model Resolutions\n\nThe **Stable Diffusion XL (SDXL)** model was fundamentally trained at a base resolution of **1024 x 1024**. This implies that the generated image will have up to **1,048,576 pixels** - a threshold defining its maximum clarity and detail.\n\nBeyond its base, the model was further fine-tuned on multiple aspect ratios. However, a consistent theme was maintained: the total pixel count doesn't surpass the **1 megapixel** mark (**1,048,576 pixels**).\n\nFor users seeking the best image generation results on the **SDXL model**, consider utilizing the following resolutions and aspect ratios:\n\n- **1024 x 1024** (1:1 Square)\n- **1152 x 896** (9:7)\n- **896 x 1152** (7:9)\n- **1216 x 832** (19:13)\n- **832 x 1216** (13:19)\n- **1344 x 768** (7:4 Horizontal)\n- **768 x 1344** (4:7 Vertical)\n- **1536 x 640** (12:5 Horizontal)\n- **640 x 1536** (5:12 Vertical - closely resembling iPhone resolution)\n\n## Experiment\nCompare various dimensions to assess their impact on the quality of your SDXL images.",
           "license": "CC0",
           "tags": [
-            "education",
-            "art",
-            "photography"
+            "#education",
+            "#art",
+            "#photography",
+            "#beginner",
+            "#diffusion"
           ],
           "title": "OmniLab: SDXL Image Resolution",
           "xOmniEnabled": true
@@ -859,6 +816,55 @@
           136.05297867876834
         ],
         "name": "omnitool.recipe_metadata"
+      },
+      "3702": {
+        "id": 3702,
+        "data": {
+          "number": 1,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2547,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2512,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2514,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2513,
+                "input": "seed",
+                "data": {}
+              },
+              {
+                "node": 2516,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -497.250597174459,
+          495.3802632026012
+        ],
+        "name": "omnitool.number_input"
       }
     }
   },
@@ -866,6 +872,13 @@
     "fields": {}
   },
   "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.stability-ai/sdxl",
+    "omnitool.chat_output",
+    "omnitool.input_text",
+    "omnitool.number_input",
+    "omnitool.recipe_metadata"
+  ],
   "_flags": [
     "owner"
   ]

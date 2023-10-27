@@ -1,5 +1,5 @@
 {
-  "id": "d13d25c0-5824-4464-9cee-1fa92ff11722",
+  "id": "af6aa9e4-2bc1-4e9f-b1a0-9ce7d1900399",
   "meta": {
     "name": "Emoji Generator",
     "author": "Omnitool.ai team",
@@ -7,7 +7,7 @@
     "category": "",
     "help": "## Generate Apple Style Emojis 🍎🎨\n\nWelcome to this recipe! Create high-definition Apple style emojis for any subject, with the option to remove the background. This recipe utilizes the replicate model: fofr/sdxl-emoji.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: fofr/sdxl-emoji\n- Replicate: cjwbw/rembg\n\n### How to Use:\n\n1. Navigate to the custom UI window.\n2. Provide input details on how you want the emoji to look like and its subject.\n3. Hit **Run Recipe** or press ▶️ Run button!\n4. View the generated emoji in the **Chat** box.\n5. Enjoy the high-definition Apple style emoji!",
     "created": 1697704580235,
-    "updated": 1697704890814,
+    "updated": 1698368359481,
     "pictureUrl": "emoji_001.png",
     "tags": [
       "#art",
@@ -58,6 +58,7 @@
           "files": "",
           "images": "",
           "object": "",
+          "persistData": "Permanent",
           "text": "",
           "textType": "text/markdown",
           "videos": "",
@@ -94,6 +95,9 @@
             "connections": []
           },
           "object": {
+            "connections": []
+          },
+          "persistData": {
             "connections": []
           }
         },
@@ -134,7 +138,13 @@
         },
         "outputs": {
           "on": {
-            "connections": []
+            "connections": [
+              {
+                "node": 760,
+                "input": "image",
+                "data": {}
+              }
+            ]
           },
           "off": {
             "connections": [
@@ -277,8 +287,8 @@
           "image": {
             "connections": [
               {
-                "node": 769,
-                "output": "output",
+                "node": 524,
+                "output": "on",
                 "data": {}
               }
             ]
@@ -412,18 +422,13 @@
                 "node": 524,
                 "input": "files",
                 "data": {}
-              },
-              {
-                "node": 760,
-                "input": "image",
-                "data": {}
               }
             ]
           }
         },
         "position": [
-          1388.2245578688658,
-          -1248.6503375155614
+          1253.144708297389,
+          -1196.5032156288823
         ],
         "name": "omni-core-replicate:run.fofr/sdxl-emoji"
       },
@@ -673,7 +678,7 @@
           -103.00588539948025,
           -590.6138181003471
         ],
-        "name": "omni-extension-formio:formio.auto_ui"
+        "name": "omni-core-formio:formio.auto_ui"
       }
     }
   },
@@ -681,7 +686,16 @@
     "fields": {}
   },
   "ui": {},
-  "blockIds": {},
+  "blockIds": [
+    "omni-core-formio:formio.auto_ui",
+    "omni-core-replicate:run.cjwbw/rembg",
+    "omni-core-replicate:run.fofr/sdxl-emoji",
+    "omnitool.chat_output",
+    "omnitool.file_switch",
+    "omnitool.multi_text_replace",
+    "omnitool.number_input",
+    "omnitool.recipe_metadata"
+  ],
   "_flags": [
     "owner"
   ]

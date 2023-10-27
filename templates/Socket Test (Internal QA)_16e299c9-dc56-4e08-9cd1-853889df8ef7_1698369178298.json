@@ -1,12 +1,13 @@
 {
-  "id": "e62c3516-f380-46ad-a1da-b259c5d9b7b6",
+  "id": "16e299c9-dc56-4e08-9cd1-853889df8ef7",
   "meta": {
     "name": "Socket Test (Internal QA)",
     "author": "Nick Yang",
     "description": "A Omnitool smoke test recipe",
+    "category": "",
     "help": "# Prerequisites\n\nBefore proceeding, ensure you have the following in place:\n\n1. **Stability DreamStudio Key**\n   - Alternatively, you can replace the Text To Image block with a static image or another image generation block.\n\n2. **Google TTS Oauth**\n   - To leverage the Google Text-to-Speech service, ensure you've passed google-tts OAuth in the Settings page. Alternatively, you can replace this with a static audio file or another audio generation block.\n\n3. **OpenAI Key**\n   - Ensure you have a valid API key for integrating with OpenAI services.",
-    "created": 1693814821993,
-    "updated": 1697728736762,
+    "created": 1698348336674,
+    "updated": 1698369166110,
     "pictureUrl": "omni.png",
     "tags": []
   },
@@ -219,8 +220,8 @@
           "image": {
             "connections": [
               {
-                "node": 588,
-                "output": "img",
+                "node": 3563,
+                "output": "images",
                 "data": {}
               }
             ]
@@ -246,8 +247,8 @@
           "imageB64": {
             "connections": [
               {
-                "node": 588,
-                "output": "img",
+                "node": 3443,
+                "output": "data",
                 "data": {}
               }
             ]
@@ -264,8 +265,8 @@
           "imageArray": {
             "connections": [
               {
-                "node": 588,
-                "output": "img",
+                "node": 3443,
+                "output": "data",
                 "data": {}
               }
             ]
@@ -291,8 +292,8 @@
           "imageB64Array": {
             "connections": [
               {
-                "node": 588,
-                "output": "img",
+                "node": 3443,
+                "output": "data",
                 "data": {}
               }
             ]
@@ -414,6 +415,16 @@
               {
                 "node": 574,
                 "input": "images",
+                "data": {}
+              },
+              {
+                "node": 3468,
+                "input": "image",
+                "data": {}
+              },
+              {
+                "node": 3557,
+                "input": "files",
                 "data": {}
               },
               {
@@ -606,8 +617,8 @@
         },
         "outputs": {},
         "position": [
-          3524.296947045527,
-          -680.2223955385924
+          3530.3092175100255,
+          -473.56705526615895
         ],
         "name": "omnitool.chat_output"
       },
@@ -1048,99 +1059,10 @@
         },
         "outputs": {},
         "position": [
-          3502.4197816914902,
-          -1097.6038350809936
+          3485.734256197674,
+          -1124.742013720299
         ],
         "name": "omnitool.chat_output"
-      },
-      "588": {
-        "id": 588,
-        "data": {
-          "img": "fid://03,86yo6kyp9t",
-          "imgUrl": "",
-          "preview": [
-            {
-              "fid": "03,86yo6kyp9t",
-              "fileName": "sample_motorbike_helmet.jpg",
-              "fileType": "image",
-              "furl": "fid://03,86yo6kyp9t.jpg",
-              "meta": {
-                "created": 1697420957911,
-                "height": 1024,
-                "nsfw": {
-                  "Drawing": 0.0021282604429870844,
-                  "Hentai": 0.0003452356031630188,
-                  "Neutral": 0.9762160778045654,
-                  "Porn": 0.0020818402990698814,
-                  "Sexy": 0.019228560850024223,
-                  "isNsfw": false,
-                  "status": "success"
-                },
-                "type": "jpg",
-                "width": 1024
-              },
-              "mimeType": "image/jpeg",
-              "seq": 25,
-              "size": 74087,
-              "tags": [
-                "sample"
-              ],
-              "ticket": {
-                "count": 1,
-                "fid": "03,86yo6kyp9t",
-                "publicUrl": "127.0.0.1:1688",
-                "url": "127.0.0.1:1688"
-              },
-              "url": "/fid/03,86yo6kyp9t"
-            }
-          ],
-          "xOmniEnabled": true
-        },
-        "inputs": {
-          "img": {
-            "connections": []
-          },
-          "imgUrl": {
-            "connections": []
-          }
-        },
-        "outputs": {
-          "img": {
-            "connections": [
-              {
-                "node": 567,
-                "input": "image",
-                "data": {}
-              },
-              {
-                "node": 567,
-                "input": "imageArray",
-                "data": {}
-              },
-              {
-                "node": 567,
-                "input": "imageB64Array",
-                "data": {}
-              },
-              {
-                "node": 567,
-                "input": "imageB64",
-                "data": {}
-              }
-            ]
-          },
-          "width": {
-            "connections": []
-          },
-          "height": {
-            "connections": []
-          }
-        },
-        "position": [
-          1266.5696035115905,
-          -1889.7648540692662
-        ],
-        "name": "omnitool.input_static_image"
       },
       "593": {
         "id": 593,
@@ -1190,6 +1112,398 @@
           -664.4189835964726
         ],
         "name": "elevenlabs.simpletts"
+      },
+      "3443": {
+        "id": 3443,
+        "data": {
+          "prompt": "a banner that shows text",
+          "size": "256x256",
+          "user": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 3563,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "size": {
+            "connections": []
+          },
+          "user": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "data": {
+            "connections": [
+              {
+                "node": 567,
+                "input": "imageB64",
+                "data": {}
+              },
+              {
+                "node": 567,
+                "input": "imageArray",
+                "data": {}
+              },
+              {
+                "node": 567,
+                "input": "imageB64Array",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1221.253887306786,
+          -1855.1584362967335
+        ],
+        "name": "openai.simpleDallE2"
+      },
+      "3468": {
+        "id": 3468,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/Ho28olmw8dnOffOz7yjuPK6UGsOPqFUfpCnq1ur8zaAKxiPH/animal-1.jpeg",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 567,
+                "output": "image",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 3561,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2902.475588858039,
+          -1123.0565592641935
+        ],
+        "name": "omni-core-replicate:run.cjwbw/rembg"
+      },
+      "3557": {
+        "id": 3557,
+        "data": {
+          "files": "",
+          "switch": true,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "files": {
+            "connections": [
+              {
+                "node": 567,
+                "output": "image",
+                "data": {}
+              }
+            ]
+          },
+          "switch": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "on": {
+            "connections": [
+              {
+                "node": 3560,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "off": {
+            "connections": []
+          },
+          "switch": {
+            "connections": []
+          }
+        },
+        "position": [
+          2509.8606943361906,
+          -929.8094307056748
+        ],
+        "name": "omnitool.file_switch"
+      },
+      "3560": {
+        "id": 3560,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/JfvBi04QfleIeJ3ASiBEMbJvhTQKWKLjKaajEbuhO1Y0wPHd/view.jpg",
+          "max_tokens": 1024,
+          "prompt": "what's the picture about?",
+          "temperature": 0.2,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 3557,
+                "output": "on",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 3561,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          3000.025304937075,
+          -841.6403161723221
+        ],
+        "name": "omni-core-replicate:run.yorickvp/llava-13b"
+      },
+      "3561": {
+        "id": 3561,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-title": "Chat Output (test filesocket)",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3468,
+                "output": "output",
+                "data": {}
+              },
+              {
+                "node": 3560,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          4028.612696659906,
+          -879.6864454731142
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "3563": {
+        "id": 3563,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "a banner shows \"DALLE\" text",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3564,
+                "output": "img",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3443,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 567,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          530.5505577467732,
+          -1564.2267454090847
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "3564": {
+        "id": 3564,
+        "data": {
+          "img": "fid://61,7vg87rpj8f",
+          "imgUrl": "",
+          "preview": [
+            {
+              "fid": "61,7vg87rpj8f",
+              "fileName": "sample_selfie_veil.jpg",
+              "fileType": "image",
+              "furl": "fid://61,7vg87rpj8f.jpg",
+              "meta": {
+                "created": 1698067784114,
+                "height": 1024,
+                "nsfw": {
+                  "Drawing": 0.0010598369408398867,
+                  "Hentai": 0.00007131562597351149,
+                  "Neutral": 0.2717253267765045,
+                  "Porn": 0.0057746912352740765,
+                  "Sexy": 0.7213688492774963,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 1024
+              },
+              "mimeType": "image/jpeg",
+              "seq": 35,
+              "size": 70409,
+              "tags": [
+                "sample"
+              ],
+              "ticket": {
+                "count": 1,
+                "fid": "61,7vg87rpj8f",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/61,7vg87rpj8f"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": [
+              {
+                "node": 3563,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -68.05599738760691,
+          -1697.7438873961307
+        ],
+        "name": "omnitool.input_static_image"
       }
     }
   },
@@ -1197,7 +1511,21 @@
     "fields": {}
   },
   "ui": {},
-  "blockIds": {},
+  "blockIds": [
+    "elevenlabs.simpletts",
+    "omni-core-replicate:run.cjwbw/rembg",
+    "omni-core-replicate:run.yorickvp/llava-13b",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.file_switch",
+    "omnitool.input_static_image",
+    "omnitool.input_text",
+    "omnitool.jsonata",
+    "omnitool.recipe_metadata",
+    "omnitool.socket_test",
+    "omnitool.write_document",
+    "openai.simpleDallE2"
+  ],
   "_flags": [
     "owner"
   ]
