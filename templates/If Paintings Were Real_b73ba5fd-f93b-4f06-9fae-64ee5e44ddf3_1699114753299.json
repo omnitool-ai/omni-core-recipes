@@ -1,0 +1,516 @@
+{
+  "id": "b73ba5fd-f93b-4f06-9fae-64ee5e44ddf3",
+  "meta": {
+    "name": "If Paintings Were Real",
+    "author": "Omnitool.ai team",
+    "description": "Leveraging the Large Language-and-Vision Assistant (LLaVA), a multimodal that connects a vision encoder and LLM, to interpret the rich details of paintings and reimagine them as captivating real-world photographs.",
+    "category": "",
+    "help": "## If Paintings Were Real 🎨📸\nWelcome to this recipe! With the help of the Large Language-and-Vision Assistant (LLaVA), a multimodal AI that connects a vision encoder and LLM, you can interpret the rich details of paintings and reimagine them as captivating real-world photographs.\n\n### Prerequisites:\n**API Keys**:\n- Replicate\n\n**Extensions**:\n- Replicate\n- Sharp\n\n**Models**:\n- Replicate: yorickvp/llava-13b\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n- Navigate to the **Chat** window.\n- Upload a painting you want to convert\n- Try to tweak the SDXL parameters such as changing the guidance scale and prompt strength to balance the input prompt's impact on the resulting image\n- Hit **Run Recipe** or Press ▶️ Run button!\n- View the generated photo and enjoy the transformation!",
+    "created": 1699114557867,
+    "updated": 1699114751659,
+    "pictureUrl": "painting_001.png",
+    "tags": [
+      "#art",
+      "#diffusion",
+      "#photography",
+      "#intermediate"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2787": {
+        "id": 2787,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Leveraging the Large Language-and-Vision Assistant (LLaVA), a multimodal that connects a vision encoder and LLM, to interpret the rich details of paintings and reimagine them as captivating real-world photographs.",
+          "help": "## If Paintings Were Real 🎨📸\nWelcome to this recipe! With the help of the Large Language-and-Vision Assistant (LLaVA), a multimodal AI that connects a vision encoder and LLM, you can interpret the rich details of paintings and reimagine them as captivating real-world photographs.\n\n### Prerequisites:\n**API Keys**:\n- Replicate\n\n**Extensions**:\n- Replicate\n- Sharp\n\n**Models**:\n- Replicate: yorickvp/llava-13b\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n- Navigate to the **Chat** window.\n- Upload a painting you want to convert\n- Try to tweak the SDXL parameters such as changing the guidance scale and prompt strength to balance the input prompt's impact on the resulting image\n- Hit **Run Recipe** or Press ▶️ Run button!\n- View the generated photo and enjoy the transformation!",
+          "license": "CC0",
+          "tags": [
+            "#art",
+            "#diffusion",
+            "#photography",
+            "#intermediate"
+          ],
+          "title": "If Paintings Were Real",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          107.7851191127902,
+          -914.7905770269666
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2790": {
+        "id": 2790,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/JfvBi04QfleIeJ3ASiBEMbJvhTQKWKLjKaajEbuhO1Y0wPHd/view.jpg",
+          "max_tokens": 1024,
+          "prompt": "Please provide a detailed description of this image as if you are observing a scene captured in a real photograph. including the arrangement (foreground, middle ground, background), the precise placement and relationship of objects, the color palette, lighting direction, perspective technique including the angle and vanishing points, emotional tone. Ensure that you exclude any terms associated with 'image', 'painting', or 'drawing'. Instead, use 'photo' where necessary. Present the information as a series of descriptive sentences, each separated by commas, without any supplementary commentary. Remember, do not refer to any art-related terms like 'painting' or 'drawing', focusing solely on descriptive language suitable for a photo.\n\nFormat for example,\n\"Night sky with a few stars visible. The foreground features a tree, while the middle ground is filled with a mountainous landscape. The background is a town with a church steeple. The color palette is predominantly blue, with some yellow and orange accents. The lighting direction is from the top left, creating a sense of depth in the photo. The perspective is a wide-angle view, capturing the expansive landscape and the town in the background. The emotional tone is serene and peaceful, with the night sky and the quiet town creating a sense of tranquility.\"\n\n\"a lively city street at night. The foreground features a group of people sitting at tables in a restaurant, enjoying their meals. The tables are accompanied by chairs, and some of the people are engaged in conversation. The middle ground of the image showcases a bustling street with more people walking around, and a few of them are carrying handbags. The background is a tall building, adding to the urban atmosphere of the scene. The color palette is predominantly yellow, with some orange and blue accents, creating a warm and inviting ambiance. The lighting direction is from the top left, casting a soft glow on the people and the surroundings. The perspective is a wide-angle view, capturing the entire scene and emphasizing the busy nature of the city street at night. The emotional tone is lively and energetic, with the people and the environment coming together to create a vibrant and engaging atmosphere\"",
+          "temperature": 0.2,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2851,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2813,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2791,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1242.6001113771704,
+          -1767.8105381910132
+        ],
+        "name": "omni-core-replicate:run.yorickvp/llava-13b"
+      },
+      "2791": {
+        "id": 2791,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2790,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2795,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3114.5837670937663,
+          -1079.6911903675489
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2795": {
+        "id": 2795,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.8,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "painting, (bad composition), (out of frame), (nsfw), (nude), (sexual), drawing, anime, art, cartoon, sketch, Low quality",
+          "num_inference_steps": 50,
+          "num_outputs": 1,
+          "prompt": "A beautiful and professional DSLR photograph of A lively city street at night. The foreground features a group of people sitting at tables in a restaurant, enjoying their meals. The tables are accompanied by chairs, and some of the people are engaged in conversation. The middle ground of the image showcases a bustling street with more people walking around, and a few of them are carrying handbags. The background is a tall building, adding to the urban atmosphere of the scene. The color palette is predominantly yellow, with some orange and blue accents, creating a warm and inviting ambiance. The lighting direction is from the top left, casting a soft glow on the people and the surroundings. The perspective is a wide-angle view, capturing the entire scene and emphasizing the busy nature of the city street at night. The emotional tone is lively and energetic, with the people and the environment coming together to create a vibrant and engaging atmosphere., (good composition), (in frame), 8k, 4k, detailed, attractive, impressive, photorealistic, realistic, cinematic composition, high-resolution, vivid, detailed, stunning, lifelike, crisp, flawless, sharp, best quality, highres, absurdres",
+          "prompt_strength": 0.88,
+          "refine": "expert_ensemble_refiner",
+          "replicate_weights": "",
+          "scheduler": "KarrasDPM",
+          "seed": "1",
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": [
+              {
+                "node": 2908,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 2909,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2813,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2791,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2512.5392373630493,
+          -1588.057965690339
+        ],
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
+      },
+      "2813": {
+        "id": 2813,
+        "data": {
+          "button": "",
+          "images": "",
+          "prompt": "",
+          "replace": null,
+          "source": "A beautiful and professional DSLR photograph of  {input:PROMPT}, (good composition), (in frame), 8k, 4k, detailed, attractive, impressive, photorealistic, realistic, cinematic composition, high-resolution, vivid, detailed, stunning, lifelike, crisp, flawless, sharp, best quality, highres, absurdres",
+          "x-omni-dynamicInputs": {
+            "prompt": {
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "PROMPT",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 2790,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2795,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1817.3714376527053,
+          -1428.192758524459
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2851": {
+        "id": 2851,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2909,
+                "input": "images",
+                "data": {}
+              },
+              {
+                "node": 2790,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          115.6830919227376,
+          -1718.651450902916
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "2908": {
+        "id": 2908,
+        "data": {
+          "number": 1,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2795,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1516.14837648294,
+          -2108.007357410836
+        ],
+        "name": "omnitool.number_input"
+      },
+      "2909": {
+        "id": 2909,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 1024,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 1024,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2851,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2795,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          684.4798155057357,
+          -1414.0728615603316
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.stability-ai/sdxl",
+    "omni-core-replicate:run.yorickvp/llava-13b",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.multi_text_replace",
+    "omnitool.number_input",
+    "omnitool.recipe_metadata"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

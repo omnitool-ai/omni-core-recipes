@@ -1,0 +1,685 @@
+{
+  "id": "83a7de3e-c890-4f32-a177-7812c0aa89bf",
+  "meta": {
+    "name": "Advert Creator - OpenPose Demo",
+    "author": "Omnitool Workshop",
+    "description": "Experiment with the OpenPose extension for creating human posture input. By blending multiple models and extensions, it facilitates the generation of an advert complete with a tagline and voice-over.",
+    "category": "",
+    "help": "## Advert Creator - OpenPose Demo 📸🎨 \nWelcome to this recipe, showcased in our Nov workshop! This recipe allows you to try out the OpenPose extension to create a human posture input, combining multiple models: image-to-image from HuggingFace and Replicate, GPT3.5 for prompt optimisation, use Sharp extension for image resizing, and ultimately utilizes the Llava model from replicate to generate a tagline for the image, with voicing provided via Elevenlabs.\n\n### Prerequisite\nAPI Keys: Replicate, HuggingFace, Elevenlabs, OpenAI\nExtensions: OpenPose, Replicate, Sharp\n\n### How to Use:\n1. Install the OpenPose, Sharp extension\n2. Launch the OpenPose extension, then make the desired edits to generate an OpenPose bone image\n3. Open the File Manager and add the image to your canvas \n4. Replacing the sample image with the one you just add.\n5. Press the ▶️ Run button.\n6. Once processed, view the generated advertisement photo, tagline, and voice-over in the **Chat** box.\n7. Tweak it!!",
+    "created": 1698905474519,
+    "updated": 1699002620670,
+    "tags": [
+      "#art",
+      "#marketing",
+      "#diffusion",
+      "#openpose",
+      "#intermediate"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2590": {
+        "id": 2590,
+        "data": {
+          "author": "Omnitool Workshop",
+          "button": "",
+          "credits": "Omnitool Workshop Nov 1st",
+          "description": "Experiment with the OpenPose extension for creating human posture input. By blending multiple models and extensions, it facilitates the generation of an advert complete with a tagline and voice-over.",
+          "help": "## Advert Creator - OpenPose Demo 📸🎨 \nWelcome to this recipe, showcased in our Nov workshop! This recipe allows you to try out the OpenPose extension to create a human posture input, combining multiple models: image-to-image from HuggingFace and Replicate, GPT3.5 for prompt optimisation, use Sharp extension for image resizing, and ultimately utilizes the Llava model from replicate to generate a tagline for the image, with voicing provided via Elevenlabs.\n\n### Prerequisite\nAPI Keys: Replicate, HuggingFace, Elevenlabs, OpenAI\nExtensions: OpenPose, Replicate, Sharp\n\n### How to Use:\n1. Install the OpenPose, Sharp extension\n2. Launch the OpenPose extension, then make the desired edits to generate an OpenPose bone image\n3. Open the File Manager and add the image to your canvas \n4. Replacing the sample image with the one you just add.\n5. Press the ▶️ Run button.\n6. Once processed, view the generated advertisement photo, tagline, and voice-over in the **Chat** box.\n7. Tweak it!!",
+          "license": "CC0",
+          "tags": [
+            "#art",
+            "#marketing",
+            "#diffusion",
+            "#openpose",
+            "#intermediate"
+          ],
+          "title": "Advert Creator - OpenPose Demo",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -234.56236208009958,
+          -194.64962721943397
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2594": {
+        "id": 2594,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2602,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2599,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 2603,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          4500.162474805566,
+          1122.9002726802805
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2596": {
+        "id": 2596,
+        "data": {
+          "guess_mode": false,
+          "guidance_scale": 3,
+          "height": 512,
+          "inputs": null,
+          "model": "lllyasviel/sd-controlnet-openpose",
+          "negative_prompt": "bad quality, deformed body, mutated, out of frame, watermark, disfigured, lowres,",
+          "num_inference_steps": 20,
+          "prompt": "A mesmerizing digital artwork capturing a dancing man suspended in mid-air, showcasing clear and distinct lines. The image is of high-resolution with a white background, 4k, 8k, HD, max quality, vibrant, gradient, dynamic lighting, meticulously crafted, stunning artistry, pixar-style, award-winning, captivating, elegant, breathtaking",
+          "strength": 1,
+          "width": 512,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "inputs": {
+            "connections": [
+              {
+                "node": 2776,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": []
+          },
+          "strength": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "guess_mode": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2600,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1723.0149487504902,
+          -459.600309869622
+        ],
+        "name": "huggingface.public_image_to_image"
+      },
+      "2599": {
+        "id": 2599,
+        "data": {
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "high_noise_frac": 0.8,
+          "image": "https://replicate.delivery/pbxt/JMf0SV6w1yp8ZcrtrYungReCNQzUUhXJHciDFi5nylAdqmCo/demo.jpg",
+          "negative_prompt": "low quality, bad quality, deformed body features, poor rendered face, poor rendered body",
+          "num_inference_steps": 50,
+          "prompt": "a professional advertisement photograph in 4K resolution, a confident young hip-hop dancer, smile, in front of a vibrant, colorful wall.",
+          "seed": 0,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "seed": {
+            "connections": [
+              {
+                "node": 2984,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 2600,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2983,
+                "output": "positive",
+                "data": {}
+              }
+            ]
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": [
+              {
+                "node": 2983,
+                "output": "negative",
+                "data": {}
+              }
+            ]
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2594,
+                "input": "images",
+                "data": {}
+              },
+              {
+                "node": 2602,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2960.0772089992824,
+          563.1590681726752
+        ],
+        "name": "omni-core-replicate:run.lucataco/sdxl-controlnet-openpose"
+      },
+      "2600": {
+        "id": 2600,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 1024,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 1024,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2596,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2599,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2331.8228494950795,
+          81.8167555258312
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "2602": {
+        "id": 2602,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/JfvBi04QfleIeJ3ASiBEMbJvhTQKWKLjKaajEbuhO1Y0wPHd/view.jpg",
+          "max_tokens": 1024,
+          "prompt": "Write an inspiring advertisement tagline that encourages young individuals to embrace their true selves, resonating with the the image",
+          "temperature": 0.5,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2599,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2594,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 2603,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          3420.7197078287577,
+          1153.6845414985423
+        ],
+        "name": "omni-core-replicate:run.yorickvp/llava-13b"
+      },
+      "2603": {
+        "id": 2603,
+        "data": {
+          "model_id": "eleven_monolingual_v1",
+          "output_format": "mp3_44100_128",
+          "style": 0.5,
+          "text": "",
+          "voice_id": "piTKgcLEGmPE4e6mEKli",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "voice_id": {
+            "connections": []
+          },
+          "output_format": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 2602,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "model_id": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 2594,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          3962.503515177743,
+          1254.8054961092175
+        ],
+        "name": "elevenlabs.simpletts"
+      },
+      "2776": {
+        "id": 2776,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 512,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 512,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2981,
+                "output": "img",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2596,
+                "input": "inputs",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1184.0281443443207,
+          -304.46067886082074
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "2981": {
+        "id": 2981,
+        "data": {
+          "img": "fid://75,hxljq52mfu",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1699510352645,
+              "fid": "75,hxljq52mfu",
+              "fileName": "pose_2023_11_02_14_12_30.png",
+              "fileType": "image",
+              "furl": "fid://75,hxljq52mfu.png",
+              "meta": {
+                "created": 1698905552645,
+                "height": 1042,
+                "nsfw": {
+                  "Drawing": 0.8702892065048218,
+                  "Hentai": 0.013766784220933914,
+                  "Neutral": 0.11363452672958374,
+                  "Porn": 0.0019075707532465458,
+                  "Sexy": 0.00040190579602494836,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "png",
+                "width": 600
+              },
+              "mimeType": "image/png",
+              "seq": 1025,
+              "size": 24815,
+              "tags": [
+                "upload"
+              ],
+              "ticket": {
+                "count": 1,
+                "fid": "75,hxljq52mfu",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/75,hxljq52mfu"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": [
+              {
+                "node": 2776,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          575.7668138621461,
+          -379.7207383923478
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2983": {
+        "id": 2983,
+        "data": {
+          "instruction": "You are an assistant generating JSON outputs for a generative image program. Adhere to the following guidelines:\n* Output Structure:\n { \"positive\": \"the positive terms\", \"negative\": \"the negative terms\", \"width\": 1024, \"height\": 1024 }\n\n* Positive Terms\n Include any elements the user wants in their image.\n Always integrate baseline descriptors such as: 4k, 8k, high quality, HD, max quality.\n For imagery focusing on precision or artistry: meticulous, arresting, sublime, crafted, exquisite, masterpiece.\n Dynamic or vivid visuals: breathtaking, mesmerizing, vibrant, gradient, lens flare, dynamic lighting, and dreamy.\n Digital or rendered artwork: octane render, unreal engine, rtx, artstation quality, cgsociety standard, and pixar-style.\n Scene-setting or larger vistas: establishing shot, cityscape, fantasy art, and cinematic.\n Time-specific or trendy visuals: 2019, 2020, 2021, 2022, 2020s, 2030s, vintage, futuristic\n Recognition and achievement-based: contest winner, award-winning, and best quality.\n Close-ups or detailed sections: intricately detailed, macrolens, and meticulous.\n Atmosphere or mood: ominous vibe, gothic, and soft light.\n Format or medium: vector illustration, product render, sculpture, animation, and motion graphics.\n Unique visual elements: asymmetric, symmetric, vibrant, lens flare, with flames, and bokeh.\n\n* Missing Input\n When context is ambiguous or not specified, diversify and curate descriptors for a harmonious and dynamic result.\n\n* Crafting Effective Image Prompts: A Guideline\n 1. Introduce the Medium:\n   Specifying the desired medium or art form of the image.\n   Examples: \"oil painting\", \"vector illustration\", \"3D render\", \"watercolor sketch\", \"digital art\", \"photograph\", \"ceramic sculpture\".\n 2. Present the Subject:\n  Clearly define the primary subject or focal point of the image.\n   The subject can be a person, animal, object, scene, or abstract concept.\n   Examples: \"a serene woman\", \"a majestic lion\", \"a vintage pocket watch\", \"a bustling city square\", \"the emotion of joy\".\n 3. Provide Context or Background:\n   Detail the environment, setting, or background to give context to the subject.\n   Examples: \"surrounded by a misty forest\", \"overlooking a calm ocean at sunset\", \"amidst a crowd of bustling people\", \"floating in an abstract space filled with geometric shapes\".\n 4. Qualifiers\n   Include as many qualifiers to improve overall image quality. These are the terms outlined earlier.\n   Note: Diversity Over Coherence: Contradictory elements can lead to some of the most creative outputs. Coherence isn't a necessity; embrace the contrasts.\n\n* Negative Terms\n Incorporate any elements the user wishes to exclude.\n Consistently add: lowres, bad quality, deformed, mutated, blurry, out of frame, watermark, poorly drawn, text.\n For images with people, further include: ugly, zombie, bad anatomy.\n\n* Dimensions:\n Default: width: 1024, height: 1024.\n If \"landscape\" is mentioned: height: 768.\n If \"portrait\" is mentioned: width: 768.\n If the user specifies dimensions, they MUST align with one of the following values: 512, 640, 768, 896, 1024. Choose the closest value. Any dimension not on this list is unacceptable and will result in errors.\n Dimensions should never appear in the positive or negative terms.\n\n* Formatting Terms:\n Separate terms within the fields with commas.\n\n* Examples: User input: A dog on a field under a blue sky Your output: { \"positive\": \"A captivating photograph of a Golden Retriever gleefully running across a vast green meadow, clear blue sky overhead, fluffy white clouds, sunlight streaming down, 4k, 8k, high quality, dynamic lighting, meticulously captured, nature's beauty, magnificent, medium shot, details, nature, god rays\",\n  \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\",\n\"width\": 1024, \"height\": 768 }\nUser input: Anime house. Your output:\n { \"positive\": \"An vivid intricate vector artwork of a classic anime house, nestled between trees with tiled roof. koi pond, cherry blossoms. traditional design, paper lanterns glowing softly, garden with stone path, 4k, 8k, high quality, sharp lines, dynamic lighting, reminiscent of Studio Ghibli aesthetics, featured on ArtStation, stunning beautiful, sharp focus, strong lines\",\n \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\",\n \"width\": 1024, \"height\": 1024 }\n\nUser input: Kitten in a teacup. Your output:\n { \"positive\": \"A delightful digital artwork of a super cute fluffy kitten, snugly fit inside an ornate teacup. intricate brush strokes, soft pastel palette, cinematic, 8k, cel shaded, unreal engine, featured on artstation, handcrafted masterpiece, soft ambient light, pixiv, insane detail\",\n \"negative\": \"lowres, bad quality, deformed, mutated, out of frame, watermark\",\n \"width\": 1024, \"height\": 1024 }\n\nUser input: Snowy mountain at dawn. Landscape. Your output:\n { \"positive\": \"A breathtaking panorama of a snow-capped mountain peak, first rays of dawn casting a golden hue, shimmering snowflakes, untouched snow, pristine wilderness, alpenglow, high-altitude, serene atmosphere, cinematic composition, 4k, 8k, high quality. majestic. Octane rendered beauty. ArtStation\"\n \"negative\": \"low quality artifacts, lowres, bad quality, deformed, mutated, out of frame, watermark\",\n \"width\": 1024, \"height\": 768 }",
+          "prompt": "a professional advertisement photograph in 4K resolution, a confident young hip-hop dancer, smile, in front of a vibrant, colorful wall.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "positive": {
+            "connections": [
+              {
+                "node": 2599,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "negative": {
+            "connections": [
+              {
+                "node": 2599,
+                "input": "negative_prompt",
+                "data": {}
+              }
+            ]
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          2291.6619001326208,
+          710.5914240169287
+        ],
+        "name": "openai.SDpromptParser"
+      },
+      "2984": {
+        "id": 2984,
+        "data": {
+          "number": 1,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2599,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2801.820025134207,
+          195.37477208714694
+        ],
+        "name": "omnitool.number_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "elevenlabs.simpletts",
+    "huggingface.public_image_to_image",
+    "omni-core-replicate:run.lucataco/sdxl-controlnet-openpose",
+    "omni-core-replicate:run.yorickvp/llava-13b",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_output",
+    "omnitool.input_static_image",
+    "omnitool.number_input",
+    "omnitool.recipe_metadata",
+    "openai.SDpromptParser"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

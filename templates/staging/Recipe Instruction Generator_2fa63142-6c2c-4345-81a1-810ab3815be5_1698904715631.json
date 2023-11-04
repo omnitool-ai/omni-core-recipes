@@ -1,0 +1,342 @@
+{
+  "id": "2fa63142-6c2c-4345-81a1-810ab3815be5",
+  "meta": {
+    "name": "Recipe Instruction Generator",
+    "author": "Anonymous",
+    "description": "",
+    "category": "General",
+    "help": "",
+    "created": 1697469585914,
+    "updated": 1697469694669,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1020": {
+        "id": 1020,
+        "data": {
+          "author": "Anonymous",
+          "button": "",
+          "category": "General",
+          "credits": "",
+          "description": "",
+          "enabled": true,
+          "help": "",
+          "license": "CC0",
+          "tags": [],
+          "title": "Recipe Instruction Generator",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1532.4247428050112,
+          -1396.5087427483766
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "1022": {
+        "id": 1022,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "images": "",
+          "text": "Monica the Librarian is an intelligent assistant designed to help you find a book recommendation based on a given image description. Monica is vivacious, sarcastic, and superfluously eloquent, but above all, she is helpful! She will always recommend a good book, even if she personally dislikes aspects of her recommendation.\n\nmodel: replicate: rmokady/clip_prefix_caption",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1026,
+                "input": "context",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -993.8960230613668,
+          -1101.4325941030713
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "1023": {
+        "id": 1023,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/plain",
+          "videos": "",
+          "xOmniEnabled": true,
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1024,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          650.6957782387087,
+          -740.0502952020901
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "1024": {
+        "id": 1024,
+        "data": {
+          "enabled": true,
+          "function": null,
+          "functions": "",
+          "instruction": "You are a great document writer. Help me write a instruction for my ai app (called recipe in my program) in markdown format. I'll provide you the context of the instruction that I want to generate. You can reference to the template for the format. Usually the How to Use section seare pretty much the same for all the recipe.\n\nExtras:\nThe last 2 steps of how to use is always like: \n- Hit **Run Recipe** ..... or Press ▶️ Run button!\n- View the generated ..... or Enjoy the ....",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 1026,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 1023,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          93.00316905194039,
+          -805.7808142238989
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "1025": {
+        "id": 1025,
+        "data": {
+          "enabled": true,
+          "text": "## Describe Image 🖼️✒️\n\nWelcome to this recipe! Harness the power of advanced AI to interpret images. Upload an image and receive a description in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: rmokady/clip_prefix_caption\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Upload the image you want to describe.\n- Press ▶️ Run button!\n- View the generated caption in the **Chat** box.",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1026,
+                "input": "example",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -988.8753332638368,
+          -437.98247800885656
+        ],
+        "name": "omnitool.input_text"
+      },
+      "1026": {
+        "id": 1026,
+        "data": {
+          "button": "",
+          "context": "",
+          "enabled": true,
+          "example": "",
+          "images": "",
+          "replace": "",
+          "source": "Target Context:\n----\n{input:Context}}\n-----\nTemplate:\n{input:Example}\n-----",
+          "x-omni-dynamicInputs": {
+            "context": {
+              "customSocket": "text",
+              "name": "context",
+              "title": "Context",
+              "type": "string"
+            },
+            "example": {
+              "customSocket": "text",
+              "name": "example",
+              "title": "Example",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "context": {
+            "connections": [
+              {
+                "node": 1022,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "example": {
+            "connections": [
+              {
+                "node": 1025,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 1024,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -379.2903626693205,
+          -730.458930876637
+        ],
+        "name": "omnitool.multi_text_replace"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.input_text",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "openai.advancedChatGPT"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "id": "fbd70e31-2be9-4eb1-8ee6-b694e4490ce0",
+  "meta": {
+    "name": "Descrtipion Writer",
+    "author": "Anonymous",
+    "description": "",
+    "category": "General",
+    "help": "",
+    "created": 1697423477934,
+    "updated": 1697431214669,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2380": {
+        "id": 2380,
+        "data": {
+          "author": "Anonymous",
+          "button": "",
+          "category": "General",
+          "credits": "",
+          "description": "",
+          "help": "",
+          "license": "CC0",
+          "tags": [],
+          "title": "Descrtipion Writer",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          76.21779700797009,
+          -562.7929855361639
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2382": {
+        "id": 2382,
+        "data": {
+          "function": null,
+          "instruction": "You are a professional content writer for software and have good at UX. I'll provide you the context of the api and you will help me write a short description to explain user what the api is used for, max 200 characters in plain text. Be concise and explain effectively. Can use bold in markdown to increase the readability. Remember, the goal is to enable user quickly understand the purpose of the api. you can follow this format to make it a clear and concise paragraph:\n----\nVerb: Start with an action verb that describes what the API does. For example, \"Convert,\" \"Retrieve,\" \"Generate,\" \"Analyze,\" etc.\nObject: Mention the main data or element the API operates on. This could be \"Text,\" \"Images,\" \"Audio,\" \"Video,\" \"Documents,\" or any other relevant data type.\nOperation: Explain what the API does with the mentioned data. Does it process, analyze, transform, retrieve, or manipulate the data in a specific way?\nResult: Describe the expected outcome or effect of using the API. What does the user achieve by using this API?\nContext: If necessary, provide a brief context or scenario in which the API is typically used.\n-----\n\nif there are multiple component apis in the context, please return me the description of them separately. \n\nExamples:\n\n\"Translate RGB value to color name.\"\n\"Construct a json from a string array, using a specified separator to split the string array.\"\n\"Enables dynamic text formatting using templates with placeholder variables sourced from a JSON object or inserted images. Use **{INPUT: Variable Name}** or **{IMAGE: Source Image}** for dynamic variable insertion. After saving, the block will automatically generate the input sockets.\"\n\"Saves recipe results to the File Manager Storage for future retrieval.\"\n\"\"",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2388,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 2389,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          1108.1285677555643,
+          -576.6610675147182
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "2388": {
+        "id": 2388,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "category: Text Manipulation\ndescription: >-\n  Parse a user input and outputs a JSON object with the correct\n  format for Stable Diffusion prompt.\ntitle: Stable Diffusion Prompt Parser\napiNamespace: openai\napiOperationId: createChatCompletion\ndisplayNamespace: openai\ndisplayOperationId: SDpromptParser\nscripts:\n  hideExcept:inputs:\n    - prompt\n    - instruction\ninputs:\n  temperature:\n    default: 0.2\n    minimum: 0\n    maximum: 2\n    step: 0.1\n  prompt:\n    default: Butterfly in a field\n    type: string\n  messages:\n    scripts:\n      jsonata: >-\n        [{\"role\":\"system\", \"content\": $string(instruction) }, {\"role\":\"user\",\n        \"content\": $string(prompt) }]\n      delete:\n        - prompt\n        - instruction\n  model:\n    default: gpt-3.5-turbo\n    choices:\n      - gpt-3.5-turbo\n      - gpt-4\n  instruction:\n    required: true\n    default: >-\n      You are a helpful assistant interpreting user inputs for a generative\n      image program. You output pure valid and syntactically correct JSON\n      without any other embellishments or comments, following the exact\n      structure: { \"checkpoint\" : \"model checkpoint\", \"positive\": \"the prompt\",\n      \"negative\": \"the negative prompt\", \"width\": 640, \"height\": 640 }\n\n      The prompt field will contain anything the user wants to include in their\n      image, the negative field will have any element the user does not want\n      included in their image. You will compress tokens in the fields by\n      separating the terms within the fields with commas. By default the\n      checkpoint field has the value \"deliberate_v2\". If the user specifies a\n      style on the following list, you will change the checkpoint accordingly: -\n      for photos use \"analog-diffusion-1.0\" - for cosplay, people or realistic\n      images use \"protogenX53Photorealism_10\" - for anime or cartoons use\n      \"protogenV22Anime_22\" - for landscapes use \"deliberate_v11\" - for coloring\n      pages, use \"coloringPage_v10\" and add \"coloring page of a\" to the prompt.\n\n      If the user mentions they would like a landscape picture, change the width\n      to 768. If the user mentions they would like a portrait picture, change\n      the height to 768. If the user specifies the dimensions, choose the\n      closest value from 512, 640, 768, 896, 1024. (Never include width or\n      height information in the prompt or negative prompt fields.)\n\n      You will always append the following list to the negative prompt: \"lowres,\n      bad quality, deformed, mutated, blurry, out of frame, watermark\" If the\n      image includes a person, also add \"ugly, zombie, bad anatomy\" to the\n      negative prompt. Other things to include in the negative prompt are\n      \"lowres, poorly drawn, text\"\n\n      You will always append the following list to the positive prompt: \"4k, 8k,\n      high quality\"\n\n      If there is only one word, (or even no input at all), be creative and add\n      elements to make a fun interesting prompt yourself.\n\n      examples: User input: a dog on a field under a blue sky Your output:\n      {checkpoint: \"deliberate_v2\", \"positive\": \"A beautiful painting of a dog\n      on a field, landscape, blue sky, 4k, 8k, high quality, magnificent, medium\n      shot, details, nature, god rays\", \"negative\": \"low quality artifacts,\n      lowres, bad quality, deformed, mutated, out of frame, watermark\", \"width\":\n      768, \"height\": 640}\n\n      User input: anime house Your output: {checkpoint: \"protogenV22Anime_22\",\n      \"positive\": \"A detailed digital illustration of a house, 4k, 8k, high\n      quality, stunning beautiful, sharp focus, strong lines\", \"negative\":\n      \"lowres, bad quality, deformed, mutated, out of frame, watermark\",\n      \"width\": 640, \"height\": 640}\n\n      User input: kitten in a teacup Your output: {checkpoint:\n      \"analog-diffusion-1.0\", \"positive\": \"A photograph of a super cute teacup\n      kitten, showing his head, smiling happily, the kitten is fluffy, intricate\n      detail, cinematic, 8 k, cel shaded, unreal engine, featured on artstation,\n      pixiv, insane detail\", \"negative\": \"lowres, bad quality, deformed,\n      mutated, out of frame, watermark\", \"width\": 640, \"height\": 640}\n    type: string\noutputs:\n  positive:\n    scripts:\n      jsonata: >-\n        $exists($eval(choices[0].message.content).positive)?\n        $eval(choices[0].message.content).positive :  choices[0].message.content\n    type: string\n  width:\n    scripts:\n      jsonata: >-\n        $eval(choices[0].message.content).width ?\n        $eval(choices[0].message.content).width : 640\n    type: number\n  height:\n    scripts:\n      jsonata: >-\n        $eval(choices[0].message.content).height ?\n        $eval(choices[0].message.content).height: 640\n    type: number\n  negative:\n    scripts:\n      jsonata: $eval(choices[0].message.content).negative\n    type: string\n  checkpoint:\n    scripts:\n      jsonata: $eval(choices[0].message.content).checkpoint\n    type: string\n  model:\n    hidden: true\n  object:\n    hidden: true\n  id:\n    hidden: true\n  usage:\n    hidden: true\n  choices:\n    hidden: true\n  created:\n    hidden: true\n  json:\n    scripts:\n      jsonata: $eval(choices[0].message.content)\n    type: object",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2382,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          594.3245634615846,
+          -358.3138941850105
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "2389": {
+        "id": 2389,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true,
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2382,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1621.9672254878078,
+          -302.9811259176831
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.recipe_metadata",
+    "openai.advancedChatGPT"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

@@ -1,0 +1,437 @@
+{
+  "id": "4854008c-3106-4eb4-b654-fa59cf674bdc",
+  "meta": {
+    "name": "Extension Builder",
+    "author": "Anonymous",
+    "description": "No description.",
+    "help": "",
+    "created": 1694888441640,
+    "updated": 1694889347523,
+    "pictureUrl": "omni.png",
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "245": {
+        "id": 245,
+        "data": {
+          "enabled": true,
+          "functions": "",
+          "instruction": "You are a helpful bot.  You can help people by answering their questions.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true,
+          "function": null
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 549,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 251,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 552,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          14.7951332759759,
+          -1641.2158687095296
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "247": {
+        "id": 247,
+        "data": {
+          "enabled": true,
+          "template": "Act as a TypeScript engineer, and I'm seeking your expertise in building a new extension based on the given requirement. You'll write professional, concise, secure, and readable code. I'll provide you dev doc, an example below for your reference. I'll be sharing my requirement of the new extension in the prompt, and I'd like you to output the the code without any explanation.\n-------Few things to pay attention-------\n{text1}\n--------Example-----------\n{text3}\n-------Dev Doc-------\n{text2}",
+          "text1": "",
+          "text2": "",
+          "text3": "",
+          "text4": "",
+          "text5": "",
+          "x-omni-summary": "The block named <b>\"omnitool.text_merger\"</b> is currently not installed on your system. Please find and install this extension via <b><u>Extensions Manager</u></b>. After installation, restart the server if required, and reload the recipe.",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -616.3852768666693,
+          -1182.4025625374607
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "248": {
+        "id": 248,
+        "data": {
+          "enabled": true,
+          "text": "# Server Extensions Programming\n## Extension.js\nWhen the server starts, it will execute the server/extension.js file for each extension, if present.\nThis file can:\n(1) Attach hooks to server events to allow running code when these events happen (2) Export a list of blocks to be registered with the server.\nA minimally viable extension.js looks like this\n```\nconst blocks = []\n\nconst extensionHooks = {}\n\nconst blockFactory = (FactoryFn) =>\n{\n  blocks.map((c) => FactoryFn(c.schema, c.functions))\n}\nexport default {hooks: extensionHooks, createComponents: blockFactory}\n```\n\n## Block Factory\nExtensions can add blocks to the omnitool. Unlike API based blocks imported from the registry, extension components have the ability to execute javascript code, allowing them to encapsulate useful nodejs libraries or custom code to provide more sophisticated experiences\nTo export blocks from an extensions, a createComponents factory function must be exported by the extension.js file. This function is invoked by the server on startup with the servers block factory function (currently APIOperationsComponent.fromJSON).\n\n```\nconst MyCustomBlock =\n {\n    schema:                                                   // <-- OpenAPI 3 Schema\n    {\n      // Namespace is automatically set to the extension id\n      \"tags\": ['default'],\n      \"componentKey\": \"my-first-block\",                       // <-- unique id within the namespace\n      //\"apiKey\": \"my-first-block\",                           // <-- optional, set to the 'parent' API if this is a normal rest component (not supported yet)\n      \"operation\": {\n        // operationId is automatically set to componentKey\n        \"schema\": {\n          \"title\": \"My First Block\",                          // <-- componentn title\n          \"type\": \"object\",\n          required:[],\n          \"properties\": {\n            \"text\": {\n              \"title\": \"Some Text Input\",\n              \"type\": \"string\",                                // <-- openAPI type\n              \"x-type\": \"text\",                                // <-- custom omnitool socket type if wanted\n              \"default\": \"my default value\",\n              \"description\": `My block description`\n            }\n          },\n        },\n        \"responseTypes\": {\n          \"200\": {\n            \"schema\": {\n              \"required\": [\n                \"text\"\n              ],\n              \"type\": \"string\",\n              \"properties\": {\n                \"text\": {\n                  \"title\": \"My Output Text\",\n                  \"type\": \"string\",\n                },\n              },\n            },\n            \"contentType\": \"application/json\"\n          },\n        },\n        \"method\": \"X-CUSTOM\"                          // <-- This is important\n      },\n      patch:                                          // <-- optional omnitool patch block\n      {\n        \"title\": \"My Custom Component\",              /// <-- component\n        \"category\": \"Test\",\n        \"summary\": \"Replaces Cars with Horses\",\n        \"meta\":\n        {\n          \"source\":\n          {\n            \"summary\": \"Replaces cars with horses\",\n            links:\n            {\n              // list of string: string fields that are rendered as urls.\n              \"research papaer\": \"https://arxiv.org...\"\n            }\n          }\n        },\n        inputs: {...},\n        controls: {...}\n        outputs: {...}\n      }\n    },\n    functions: {\n      _exec: async (payload, ctx) =>                           // <--  The _exec function is invoked when the component is run\n      {\n        if (payload.text)\n        {\n          payload.text = payload.text.replace(\"car\", \"horse\" )\n        }\n        return payload                                       // <-- Do not forget to return the altered payload\n      }\n    }\n  }\n\nlet blocks = [MyCustomBlock]\n\nexport default (FactoryFn: any) =>\n{\n  return components.map((c) => FactoryFn(c.schema, c.functions))\n}\n```\n\n##  Composition API \nFollow , you can use the composition API from the mercs_rete library to create components. First, make sure to import the necessary modules:\nimport { OAIBaseComponent, WorkerContext, OmniComponentMacroTypes, Composer } from 'mercs_rete';\nThen, you can create components and patches using methods provided by OAIBaseComponent.\nExample:\nlet component = OAIBaseComponent\n  .create(NS_ONMI, \"redactPll\")\n  .fromScratch()\n  .set('title', 'PII Redaction')\n  .set('category', 'Compliance')\n  .set('description', 'Redact Personal Information from text')\n  .setMethod('X-CUSTOM')\n  .setMeta({\n    source: 'summary',\n    summary: 'A PII redactor built using the solvvy/redact-pii library, implementing regex based PII reduction along with support for Google Cloud',\n    links: {\n      'What is PII?': 'https://www.cloudflare.com/learning/privacy/what-is-pii/',\n      'redact-pii github': 'https://github.com/solvvy/redact-pii',\n      'google cloud DLP': 'https://cloud.google.com/d1pr',\n      'Solvy': 'https://www.solvvy.com/'\n    }\n  });\nAdding Inputs/Outputs \nFollow , you can also define and add inputs/outpus to the component:\nconst inputs = [\n  { name: 'text', type: 'string', description: 'A string', customSocket: 'text' },\n  // More input definitions...\n  { name: 'usSocialSecurityNumber', type: 'boolean', default: true }\n];\n\ninputs.forEach(({ name, type, customSocket, description, default: defaultValue }) => {\n  component.addInput(\n    component.createInput(name, type, customSocket)\n      .set('description', description)\n      .setDefault(defaultValue)\n      .toOmniIO()\n  );\n});\n\n## Export Components \nexport default {\n  hooks: extensionHooks,\n  createComponents: () => {\n    blocks: [ /*array of OmniComponentFormat*/ ],\n    patches: [ /*array of OmniComponentPatch*/ ]\n  }\n}",
+          "x-omni-title": "Extensin Dev Doc",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1532.7650774231206,
+          -234.9471020405134
+        ],
+        "name": "omnitool.input_text"
+      },
+      "251": {
+        "id": 251,
+        "data": {
+          "enabled": false,
+          "functions": "",
+          "instruction": "You are a helpful bot.  You can help people by answering their questions.",
+          "model": "gpt-4",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true,
+          "function": null
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 245,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 551,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          737.0141346670753,
+          -1283.276151869564
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "255": {
+        "id": 255,
+        "data": {
+          "enabled": false,
+          "template": "Act as a TypeScript engineer, and I'm seeking your expertise in review my new code which aims to achieve my requirement. You'll write professional, concise, secure, and readable code. I'll provide you my current code in the prompt. Please ensure the code is correctly written to achieve my requirement. If not, please rewrite and output the new code without any explanation. If yes, just output \"LGTM!\".\n-------Few things to pay attention------\n{text2}\n-------Current code-------\n{text1}",
+          "text1": "",
+          "text2": "",
+          "text3": "",
+          "text4": "",
+          "text5": "",
+          "x-omni-summary": "The block named <b>\"omnitool.text_merger\"</b> is currently not installed on your system. Please find and install this extension via <b><u>Extensions Manager</u></b>. After installation, restart the server if required, and reload the recipe.",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          238.5576898863673,
+          -1055.5284361927668
+        ],
+        "name": "omnitool._block_missing"
+      },
+      "296": {
+        "id": 296,
+        "data": {
+          "enabled": true,
+          "text": "import { OAIBaseComponent, WorkerContext, OmniComponentMacroTypes } from 'mercs_rete';\nimport gplay from 'google-play-scraper';\nimport store from 'app-store-scraper';\n\nconst NS_OMNI = 'appstore-parser';\n\n// GooglePlayReviewsComponent\nlet component = OAIBaseComponent.create(NS_OMNI, 'google-play-reviews')\n  .fromScratch()\n  .set('description', 'Extracts reviews from Google Play Store for a specific application.')\n  .set('title', 'Google Play Reviews')\n  .set('category', 'Data Extraction')\n  .setMethod('X-CUSTOM')\n  .setMeta({\n    source: {\n        summary: 'Extracts reviews from Google Play Store for a specific application.',\n        authors: ['Mercenaries.ai Team'],\n        links: {\n            \"Google Play Scraper Github\": \"https://github.com/facundoolano/google-play-scraper\",\n            \"Google Play Store\": \"https://play.google.com/store\"\n        }\n    }\n})\ncomponent\n  .addInput(\n    component.createInput('appId', 'string')\n      .set('description', 'Unique application id for Google Play.')\n      .setRequired(true)\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('lang', 'string')\n      .set('description', 'The two letter language code in which to fetch the reviews.')\n      .setChoices([\n        {\"title\": \"Afrikaans\", \"value\": \"af\"},\n        {\"title\": \"Amharic\", \"value\": \"am\"},\n        {\"title\": \"Bulgarian\", \"value\": \"bg\"},\n        {\"title\": \"Catalan\", \"value\": \"ca\"},\n        {\"title\": \"Chinese (Hong Kong)\", \"value\": \"zh-HK\"},\n        {\"title\": \"Chinese (PRC)\", \"value\": \"zh-CN\"},\n        {\"title\": \"Chinese (Taiwan)\", \"value\": \"zh-TW\"},\n        {\"title\": \"Croatian\", \"value\": \"hr\"},\n        {\"title\": \"Czech\", \"value\": \"cs\"},\n        {\"title\": \"Danish\", \"value\": \"da\"},\n        {\"title\": \"Dutch\", \"value\": \"nl\"},\n        {\"title\": \"English (UK)\", \"value\": \"en-GB\"},\n        {\"title\": \"English (US)\", \"value\": \"en-US\"},\n        {\"title\": \"Estonian\", \"value\": \"et\"},\n        {\"title\": \"Filipino\", \"value\": \"fil\"},\n        {\"title\": \"Finnish\", \"value\": \"fi\"},\n        {\"title\": \"French (Canada)\", \"value\": \"fr-CA\"},\n        {\"title\": \"French (France)\", \"value\": \"fr-FR\"},\n        {\"title\": \"German\", \"value\": \"de\"},\n        {\"title\": \"Greek\", \"value\": \"el\"},\n        {\"title\": \"Hebrew\", \"value\": \"he\"},\n        {\"title\": \"Hindi\", \"value\": \"hi\"},\n        {\"title\": \"Hungarian\", \"value\": \"hu\"},\n        {\"title\": \"Icelandic\", \"value\": \"is\"},\n        {\"title\": \"Indonesian\", \"value\": \"id\"},\n        {\"title\": \"Italian\", \"value\": \"it\"},\n        {\"title\": \"Japanese\", \"value\": \"ja\"},\n        {\"title\": \"Korean\", \"value\": \"ko\"},\n        {\"title\": \"Latvian\", \"value\": \"lv\"},\n        {\"title\": \"Lithuanian\", \"value\": \"lt\"},\n        {\"title\": \"Malay\", \"value\": \"ms\"},\n        {\"title\": \"Norwegian\", \"value\": \"no\"},\n        {\"title\": \"Polish\", \"value\": \"pl\"},\n        {\"title\": \"Portuguese (Brazil)\", \"value\": \"pt-BR\"},\n        {\"title\": \"Portuguese (Portugal)\", \"value\": \"pt-PT\"},\n        {\"title\": \"Romanian\", \"value\": \"ro\"},\n        {\"title\": \"Russian\", \"value\": \"ru\"},\n        {\"title\": \"Serbian\", \"value\": \"sr\"},\n        {\"title\": \"Slovak\", \"value\": \"sk\"},\n        {\"title\": \"Slovenian\", \"value\": \"sl\"},\n        {\"title\": \"Spanish (Latin America)\", \"value\": \"es-419\"},\n        {\"title\": \"Spanish (Spain)\", \"value\": \"es-ES\"},\n        {\"title\": \"Swahili\", \"value\": \"sw\"},\n        {\"title\": \"Swedish\", \"value\": \"sv\"},\n        {\"title\": \"Thai\", \"value\": \"th\"},\n        {\"title\": \"Turkish\", \"value\": \"tr\"},\n        {\"title\": \"Ukrainian\", \"value\": \"uk\"},\n        {\"title\": \"Vietnamese\", \"value\": \"vi\"},\n        {\"title\": \"Zulu\", \"value\": \"zu\"}\n      ], 'en-US')\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('country', 'string')\n      .set('description', 'The two letter country code in which to fetch the reviews.')\n      .setChoices(\n        [\n            {\"title\": \"Albania\", \"value\": \"al\"},\n            {\"title\": \"Algeria\", \"value\": \"dz\"},\n            {\"title\": \"Angola\", \"value\": \"ao\"},\n            {\"title\": \"Antigua and Barbuda\", \"value\": \"ag\"},\n            {\"title\": \"Argentina\", \"value\": \"ar\"},\n            {\"title\": \"Armenia\", \"value\": \"am\"},\n            {\"title\": \"Aruba\", \"value\": \"aw\"},\n            {\"title\": \"Australia\", \"value\": \"au\"},\n            {\"title\": \"Austria\", \"value\": \"at\"},\n            {\"title\": \"Azerbaijan\", \"value\": \"az\"},\n            {\"title\": \"Bahamas\", \"value\": \"bs\"},\n            {\"title\": \"Bahrain\", \"value\": \"bh\"},\n            {\"title\": \"Bangladesh\", \"value\": \"bd\"},\n            {\"title\": \"Belarus\", \"value\": \"by\"},\n            {\"title\": \"Belgium\", \"value\": \"be\"},\n            {\"title\": \"Belize\", \"value\": \"bz\"},\n            {\"title\": \"Benin\", \"value\": \"bj\"},\n            {\"title\": \"Bolivia\", \"value\": \"bo\"},\n            {\"title\": \"Bosnia and Herzegovina\", \"value\": \"ba\"},\n            {\"title\": \"Botswana\", \"value\": \"bw\"},\n            {\"title\": \"Brazil\", \"value\": \"br\"},\n            {\"title\": \"Bulgaria\", \"value\": \"bg\"},\n            {\"title\": \"Burkina\", \"value\": \"bf\"},\n            {\"title\": \"Cambodia\", \"value\": \"kh\"},\n            {\"title\": \"Cameroon\", \"value\": \"cm\"},\n            {\"title\": \"Canada\", \"value\": \"ca\"},\n            {\"title\": \"Cape Verde\", \"value\": \"cv\"},\n            {\"title\": \"Chile\", \"value\": \"cl\"},\n            {\"title\": \"Colombia\", \"value\": \"co\"},\n            {\"title\": \"Costa Rica\", \"value\": \"cr\"},\n            {\"title\": \"Cote d' Ivore\", \"value\": \"ci\"},\n            {\"title\": \"Croatia\", \"value\": \"hr\"},\n            {\"title\": \"Cyprus\", \"value\": \"cy\"},\n            {\"title\": \"Czech Republic\", \"value\": \"cz\"},\n            {\"title\": \"Denmark\", \"value\": \"dk\"},\n            {\"title\": \"Dominican Republic\", \"value\": \"do\"},\n            {\"title\": \"Ecuador\", \"value\": \"ec\"},\n            {\"title\": \"Egypt\", \"value\": \"eg\"},\n            {\"title\": \"El Salvador\", \"value\": \"sv\"},\n            {\"title\": \"Estonia\", \"value\": \"ee\"},\n            {\"title\": \"Fiji\", \"value\": \"fj\"},\n            {\"title\": \"Finland\", \"value\": \"fi\"},\n            {\"title\": \"France\", \"value\": \"fr\"},\n            {\"title\": \"Gabon\", \"value\": \"ga\"},\n            {\"title\": \"Georgia\", \"value\": \"ge\"},\n            {\"title\": \"Germany\", \"value\": \"de\"},\n            {\"title\": \"Ghana\", \"value\": \"gh\"},\n            {\"title\": \"Gibraltar\", \"value\": \"gi\"},\n            {\"title\": \"Greece\", \"value\": \"gr\"},\n            {\"title\": \"Guatemala\", \"value\": \"gt\"},\n            {\"title\": \"Guinea-Bissau\", \"value\": \"gw\"},\n            {\"title\": \"Haiti\", \"value\": \"ht\"},\n            {\"title\": \"Honduras\", \"value\": \"hn\"},\n            {\"title\": \"Hong Kong\", \"value\": \"hk\"},\n            {\"title\": \"Hungary\", \"value\": \"hu\"},\n            {\"title\": \"Iceland\", \"value\": \"is\"},\n            {\"title\": \"India\", \"value\": \"in\"},\n            {\"title\": \"Indonesia\", \"value\": \"id\"},\n            {\"title\": \"Iraq\", \"value\": \"iq\"},\n            {\"title\": \"Ireland\", \"value\": \"ie\"},\n            {\"title\": \"Israel\", \"value\": \"il\"},\n            {\"title\": \"Italy\", \"value\": \"it\"},\n            {\"title\": \"Jamaica\", \"value\": \"jm\"},\n            {\"title\": \"Japan\", \"value\": \"jp\"},\n            {\"title\": \"Jordan\", \"value\": \"jo\"},\n            {\"title\": \"Kazakhstan\", \"value\": \"kz\"},\n            {\"title\": \"Kenya\", \"value\": \"ke\"},\n            {\"title\": \"Kuwait\", \"value\": \"kw\"},\n            {\"title\": \"Kyrgyzstan\", \"value\": \"kg\"},\n            {\"title\": \"Laos\", \"value\": \"la\"},\n            {\"title\": \"Latvia\", \"value\": \"lv\"},\n            {\"title\": \"Lebanon\", \"value\": \"lb\"},\n            {\"title\": \"Liechtenstein\", \"value\": \"li\"},\n            {\"title\": \"Lithuania\", \"value\": \"lt\"},\n            {\"title\": \"Luxembourg\", \"value\": \"lu\"},\n            {\"title\": \"Macau\", \"value\": \"mo\"},\n            {\"title\": \"Macedonia\", \"value\": \"mk\"},\n            {\"title\": \"Malaysia\", \"value\": \"my\"},\n            {\"title\": \"Mali\", \"value\": \"ml\"},\n            {\"title\": \"Malta\", \"value\": \"mt\"},\n            {\"title\": \"Mauritius\", \"value\": \"mu\"},\n            {\"title\": \"Mexico\", \"value\": \"mx\"},\n            {\"title\": \"Moldova\", \"value\": \"md\"},\n            {\"title\": \"Monaco\", \"value\": \"mc\"},\n            {\"title\": \"Morocco\", \"value\": \"ma\"},\n            {\"title\": \"Mozambique\", \"value\": \"mz\"},\n            {\"title\": \"Myanmar\", \"value\": \"mm\"},\n            {\"title\": \"Namibia\", \"value\": \"na\"},\n            {\"title\": \"Nepal\", \"value\": \"np\"},\n            {\"title\": \"Netherlands\", \"value\": \"nl\"},\n            {\"title\": \"Netherlands Antilles\", \"value\": \"an\"},\n            {\"title\": \"New Zealand\", \"value\": \"nz\"},\n            {\"title\": \"Nicaragua\", \"value\": \"ni\"},\n            {\"title\": \"Niger\", \"value\": \"ne\"},\n            {\"title\": \"Nigeria\", \"value\": \"ng\"},\n            {\"title\": \"Norway\", \"value\": \"no\"},\n            {\"title\": \"Oman\", \"value\": \"om\"},\n            {\"title\": \"Pakistan\", \"value\": \"pk\"},\n            {\"title\": \"Panama\", \"value\": \"pa\"},\n            {\"title\": \"Papua New Guinea\", \"value\": \"pg\"},\n            {\"title\": \"Paraguay\", \"value\": \"py\"},\n            {\"title\": \"Peru\", \"value\": \"pe\"},\n            {\"title\": \"Philippines\", \"value\": \"ph\"},\n            {\"title\": \"Poland\", \"value\": \"pl\"},\n            {\"title\": \"Portugal\", \"value\": \"pt\"},\n            {\"title\": \"Qatar\", \"value\": \"qa\"},\n            {\"title\": \"Romania\", \"value\": \"ro\"},\n            {\"title\": \"Russia\", \"value\": \"ru\"},\n            {\"title\": \"Rwanda\", \"value\": \"rw\"},\n            {\"title\": \"San Marino\", \"value\": \"sm\"},\n            {\"title\": \"Saudi Arabia\", \"value\": \"sa\"},\n            {\"title\": \"Senegal\", \"value\": \"sn\"},\n            {\"title\": \"Serbia\", \"value\": \"rs\"},\n            {\"title\": \"Singapore\", \"value\": \"sg\"},\n            {\"title\": \"Slovakia\", \"value\": \"sk\"},\n            {\"title\": \"Slovenia\", \"value\": \"si\"},\n            {\"title\": \"South Africa\", \"value\": \"za\"},\n            {\"title\": \"South Korea\", \"value\": \"kr\"},\n            {\"title\": \"Spain\", \"value\": \"es\"},\n            {\"title\": \"Sri Lanka\", \"value\": \"lk\"},\n            {\"title\": \"Sweden\", \"value\": \"se\"},\n            {\"title\": \"Switzerland\", \"value\": \"ch\"},\n            {\"title\": \"Taiwan\", \"value\": \"tw\"},\n            {\"title\": \"Tajikistan\", \"value\": \"tj\"},\n            {\"title\": \"Tanzania\", \"value\": \"tz\"},\n            {\"title\": \"Thailand\", \"value\": \"th\"},\n            {\"title\": \"Togo\", \"value\": \"tg\"},\n            {\"title\": \"Trinidad and Tobago\", \"value\": \"tt\"},\n            {\"title\": \"Tunisia\", \"value\": \"tn\"},\n            {\"title\": \"Turkey\", \"value\": \"tr\"},\n            {\"title\": \"Turkmenistan\", \"value\": \"tm\"},\n            {\"title\": \"Uganda\", \"value\": \"ug\"},\n            {\"title\": \"Ukraine\", \"value\": \"ua\"},\n            {\"title\": \"United Arab Emirates\", \"value\": \"ae\"},\n            {\"title\": \"United Kingdom\", \"value\": \"gb\"},\n            {\"title\": \"United States\", \"value\": \"us\"},\n            {\"title\": \"Uruguay\", \"value\": \"uy\"},\n            {\"title\": \"Uzbekistan\", \"value\": \"uz\"},\n            {\"title\": \"Venezuela\", \"value\": \"ve\"},\n            {\"title\": \"Vietnam\", \"value\": \"vn\"},\n            {\"title\": \"Yemen\", \"value\": \"ye\"},\n            {\"title\": \"Zambia\", \"value\": \"zm\"},\n            {\"title\": \"Zimbabwe\", \"value\": \"zw\"}\n        ], 'us'\n      )\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('sort', 'string')\n      .set('description', 'The way the reviews are going to be sorted.')\n      .setChoices([\n        { title: 'Newest', value: gplay.sort.NEWEST },\n        { title: 'Rating', value: gplay.sort.RATING },\n        { title: 'Helpfulness', value: gplay.sort.HELPFULNESS }\n      ], gplay.sort.NEWEST)\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('num', 'integer')\n      .set('description', 'Quantity of reviews to be captured.')\n      .setDefault(50)\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('paginate', 'boolean')\n      .set('description', 'Defines if the result will be paginated')\n      .setDefault(false)\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('nextPaginationToken', 'string')\n      .set('description', 'The next token to paginate')\n      .setDefault(null)\n      .toOmniIO()\n  )\n  .addOutput(\n    component.createOutput('nextPaginationToken', 'string')\n      .set('description', 'The next token to paginate')\n      .toOmniIO()\n  )\n  .addOutput(\n    component.createOutput('reviews', 'array', 'objectArray')\n      .set('description', 'The reviews data')\n      .toOmniIO()\n  )\n  .setMacro(OmniComponentMacroTypes.EXEC, async (payload: any, ctx: WorkerContext) => {\n    const reviews = await gplay.reviews(payload);\n    return reviews;\n  });\nconst GooglePlayReviewsComponent = component.toJSON();\n// AppleStoreReviewsComponent\ncomponent = OAIBaseComponent.create(NS_OMNI, 'apple-store-reviews')\n  .fromScratch()\n  .set('description', 'Extracts reviews from Apple Store for a specific application.')\n  .set('title', 'Apple Store Reviews')\n  .set('category', 'Data Extraction')\n  .setMethod('X-CUSTOM')\n  .setMeta({ \n        \"source\": {\n          \"summary\": \"Extracts reviews from Apple Store for a specific application.\",\n          links: {\n            \"App Store Scraper Github\": \"https://github.com/facundoolano/app-store-scraper\",\n            \"Apple Store\": \"https://www.apple.com/app-store/\"\n          }\n        }\n    })         \ncomponent\n  .addInput(\n    component.createInput('appId', 'string')\n      .set('description', 'Unique application id for Apple Store. Either iTune trackId or appId.')\n      .setRequired(true)\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('country', 'string')\n      .set('description', 'The two-letter country code to get the reviews from.')\n      .setChoices([\n        {\"title\": \"Albania\", \"value\": \"al\"},\n        {\"title\": \"Algeria\", \"value\": \"dz\"},\n        {\"title\": \"Angola\", \"value\": \"ao\"},\n        {\"title\": \"Antigua and Barbuda\", \"value\": \"ag\"},\n        {\"title\": \"Argentina\", \"value\": \"ar\"},\n        {\"title\": \"Armenia\", \"value\": \"am\"},\n        {\"title\": \"Aruba\", \"value\": \"aw\"},\n        {\"title\": \"Australia\", \"value\": \"au\"},\n        {\"title\": \"Austria\", \"value\": \"at\"},\n        {\"title\": \"Azerbaijan\", \"value\": \"az\"},\n        {\"title\": \"Bahamas\", \"value\": \"bs\"},\n        {\"title\": \"Bahrain\", \"value\": \"bh\"},\n        {\"title\": \"Bangladesh\", \"value\": \"bd\"},\n        {\"title\": \"Belarus\", \"value\": \"by\"},\n        {\"title\": \"Belgium\", \"value\": \"be\"},\n        {\"title\": \"Belize\", \"value\": \"bz\"},\n        {\"title\": \"Benin\", \"value\": \"bj\"},\n        {\"title\": \"Bolivia\", \"value\": \"bo\"},\n        {\"title\": \"Bosnia and Herzegovina\", \"value\": \"ba\"},\n        {\"title\": \"Botswana\", \"value\": \"bw\"},\n        {\"title\": \"Brazil\", \"value\": \"br\"},\n        {\"title\": \"Bulgaria\", \"value\": \"bg\"},\n        {\"title\": \"Burkina\", \"value\": \"bf\"},\n        {\"title\": \"Cambodia\", \"value\": \"kh\"},\n        {\"title\": \"Cameroon\", \"value\": \"cm\"},\n        {\"title\": \"Canada\", \"value\": \"ca\"},\n        {\"title\": \"Cape Verde\", \"value\": \"cv\"},\n        {\"title\": \"Chile\", \"value\": \"cl\"},\n        {\"title\": \"Colombia\", \"value\": \"co\"},\n        {\"title\": \"Costa Rica\", \"value\": \"cr\"},\n        {\"title\": \"Cote d' Ivore\", \"value\": \"ci\"},\n        {\"title\": \"Croatia\", \"value\": \"hr\"},\n        {\"title\": \"Cyprus\", \"value\": \"cy\"},\n        {\"title\": \"Czech Republic\", \"value\": \"cz\"},\n        {\"title\": \"Denmark\", \"value\": \"dk\"},\n        {\"title\": \"Dominican Republic\", \"value\": \"do\"},\n        {\"title\": \"Ecuador\", \"value\": \"ec\"},\n        {\"title\": \"Egypt\", \"value\": \"eg\"},\n        {\"title\": \"El Salvador\", \"value\": \"sv\"},\n        {\"title\": \"Estonia\", \"value\": \"ee\"},\n        {\"title\": \"Fiji\", \"value\": \"fj\"},\n        {\"title\": \"Finland\", \"value\": \"fi\"},\n        {\"title\": \"France\", \"value\": \"fr\"},\n        {\"title\": \"Gabon\", \"value\": \"ga\"},\n        {\"title\": \"Georgia\", \"value\": \"ge\"},\n        {\"title\": \"Germany\", \"value\": \"de\"},\n        {\"title\": \"Ghana\", \"value\": \"gh\"},\n        {\"title\": \"Gibraltar\", \"value\": \"gi\"},\n        {\"title\": \"Greece\", \"value\": \"gr\"},\n        {\"title\": \"Guatemala\", \"value\": \"gt\"},\n        {\"title\": \"Guinea-Bissau\", \"value\": \"gw\"},\n        {\"title\": \"Haiti\", \"value\": \"ht\"},\n        {\"title\": \"Honduras\", \"value\": \"hn\"},\n        {\"title\": \"Hong Kong\", \"value\": \"hk\"},\n        {\"title\": \"Hungary\", \"value\": \"hu\"},\n        {\"title\": \"Iceland\", \"value\": \"is\"},\n        {\"title\": \"India\", \"value\": \"in\"},\n        {\"title\": \"Indonesia\", \"value\": \"id\"},\n        {\"title\": \"Iraq\", \"value\": \"iq\"},\n        {\"title\": \"Ireland\", \"value\": \"ie\"},\n        {\"title\": \"Israel\", \"value\": \"il\"},\n        {\"title\": \"Italy\", \"value\": \"it\"},\n        {\"title\": \"Jamaica\", \"value\": \"jm\"},\n        {\"title\": \"Japan\", \"value\": \"jp\"},\n        {\"title\": \"Jordan\", \"value\": \"jo\"},\n        {\"title\": \"Kazakhstan\", \"value\": \"kz\"},\n        {\"title\": \"Kenya\", \"value\": \"ke\"},\n        {\"title\": \"Kuwait\", \"value\": \"kw\"},\n        {\"title\": \"Kyrgyzstan\", \"value\": \"kg\"},\n        {\"title\": \"Laos\", \"value\": \"la\"},\n        {\"title\": \"Latvia\", \"value\": \"lv\"},\n        {\"title\": \"Lebanon\", \"value\": \"lb\"},\n        {\"title\": \"Liechtenstein\", \"value\": \"li\"},\n        {\"title\": \"Lithuania\", \"value\": \"lt\"},\n        {\"title\": \"Luxembourg\", \"value\": \"lu\"},\n        {\"title\": \"Macau\", \"value\": \"mo\"},\n        {\"title\": \"Macedonia\", \"value\": \"mk\"},\n        {\"title\": \"Malaysia\", \"value\": \"my\"},\n        {\"title\": \"Mali\", \"value\": \"ml\"},\n        {\"title\": \"Malta\", \"value\": \"mt\"},\n        {\"title\": \"Mauritius\", \"value\": \"mu\"},\n        {\"title\": \"Mexico\", \"value\": \"mx\"},\n        {\"title\": \"Moldova\", \"value\": \"md\"},\n        {\"title\": \"Monaco\", \"value\": \"mc\"},\n        {\"title\": \"Morocco\", \"value\": \"ma\"},\n        {\"title\": \"Mozambique\", \"value\": \"mz\"},\n        {\"title\": \"Myanmar\", \"value\": \"mm\"},\n        {\"title\": \"Namibia\", \"value\": \"na\"},\n        {\"title\": \"Nepal\", \"value\": \"np\"},\n        {\"title\": \"Netherlands\", \"value\": \"nl\"},\n        {\"title\": \"Netherlands Antilles\", \"value\": \"an\"},\n        {\"title\": \"New Zealand\", \"value\": \"nz\"},\n        {\"title\": \"Nicaragua\", \"value\": \"ni\"},\n        {\"title\": \"Niger\", \"value\": \"ne\"},\n        {\"title\": \"Nigeria\", \"value\": \"ng\"},\n        {\"title\": \"Norway\", \"value\": \"no\"},\n        {\"title\": \"Oman\", \"value\": \"om\"},\n        {\"title\": \"Pakistan\", \"value\": \"pk\"},\n        {\"title\": \"Panama\", \"value\": \"pa\"},\n        {\"title\": \"Papua New Guinea\", \"value\": \"pg\"},\n        {\"title\": \"Paraguay\", \"value\": \"py\"},\n        {\"title\": \"Peru\", \"value\": \"pe\"},\n        {\"title\": \"Philippines\", \"value\": \"ph\"},\n        {\"title\": \"Poland\", \"value\": \"pl\"},\n        {\"title\": \"Portugal\", \"value\": \"pt\"},\n        {\"title\": \"Qatar\", \"value\": \"qa\"},\n        {\"title\": \"Romania\", \"value\": \"ro\"},\n        {\"title\": \"Russia\", \"value\": \"ru\"},\n        {\"title\": \"Rwanda\", \"value\": \"rw\"},\n        {\"title\": \"San Marino\", \"value\": \"sm\"},\n        {\"title\": \"Saudi Arabia\", \"value\": \"sa\"},\n        {\"title\": \"Senegal\", \"value\": \"sn\"},\n        {\"title\": \"Serbia\", \"value\": \"rs\"},\n        {\"title\": \"Singapore\", \"value\": \"sg\"},\n        {\"title\": \"Slovakia\", \"value\": \"sk\"},\n        {\"title\": \"Slovenia\", \"value\": \"si\"},\n        {\"title\": \"South Africa\", \"value\": \"za\"},\n        {\"title\": \"South Korea\", \"value\": \"kr\"},\n        {\"title\": \"Spain\", \"value\": \"es\"},\n        {\"title\": \"Sri Lanka\", \"value\": \"lk\"},\n        {\"title\": \"Sweden\", \"value\": \"se\"},\n        {\"title\": \"Switzerland\", \"value\": \"ch\"},\n        {\"title\": \"Taiwan\", \"value\": \"tw\"},\n        {\"title\": \"Tajikistan\", \"value\": \"tj\"},\n        {\"title\": \"Tanzania\", \"value\": \"tz\"},\n        {\"title\": \"Thailand\", \"value\": \"th\"},\n        {\"title\": \"Togo\", \"value\": \"tg\"},\n        {\"title\": \"Trinidad and Tobago\", \"value\": \"tt\"},\n        {\"title\": \"Tunisia\", \"value\": \"tn\"},\n        {\"title\": \"Turkey\", \"value\": \"tr\"},\n        {\"title\": \"Turkmenistan\", \"value\": \"tm\"},\n        {\"title\": \"Uganda\", \"value\": \"ug\"},\n        {\"title\": \"Ukraine\", \"value\": \"ua\"},\n        {\"title\": \"United Arab Emirates\", \"value\": \"ae\"},\n        {\"title\": \"United Kingdom\", \"value\": \"gb\"},\n        {\"title\": \"United States\", \"value\": \"us\"},\n        {\"title\": \"Uruguay\", \"value\": \"uy\"},\n        {\"title\": \"Uzbekistan\", \"value\": \"uz\"},\n        {\"title\": \"Venezuela\", \"value\": \"ve\"},\n        {\"title\": \"Vietnam\", \"value\": \"vn\"},\n        {\"title\": \"Yemen\", \"value\": \"ye\"},\n        {\"title\": \"Zambia\", \"value\": \"zm\"},\n        {\"title\": \"Zimbabwe\", \"value\": \"zw\"}\n        ], 'us')\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('page', 'integer')\n      .set('description', 'The review page number to retrieve. Defaults to 1, maximum allowed is 10.')\n      .setDefault(1)\n      .setConstraints(1, 10)\n      .toOmniIO()\n  )\n  .addInput(\n    component.createInput('sort', 'string')\n      .set('description', 'The review sort order.')\n      .setChoices([store.sort.RECENT, store.sort.HELPFUL], store.sort.RECENT)\n      .toOmniIO()\n  )\n  .addOutput(\n    component.createOutput('data', 'array', 'objectArray')\n      .set('description', 'The reviews data')\n      .toOmniIO()\n  ).setMacro(OmniComponentMacroTypes.EXEC, async (payload: any, ctx: WorkerContext) => {\n    if (!isNaN(payload.appId)) {\n        payload.id = parseInt(payload.appId, 10);\n        delete payload.appId; // Remove the appId field if it's numeric10742001\n    } else {\n    // If it's not numeric, it's assumed to be a bundle string and will remain in payload.appId\n    }\n    const reviews = await store.reviews(payload);\n    return reviews;\n  });\nconst AppleStoreReviewsComponent = component.toJSON();\n\nexport default {\n    createComponents: () => ({\n      blocks: [GooglePlayReviewsComponent, AppleStoreReviewsComponent],\n      patches: []\n    })\n}",
+          "x-omni-title": "Extension Example",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1525.6369554477265,
+          -764.4711593048527
+        ],
+        "name": "omnitool.input_text"
+      },
+      "549": {
+        "id": 549,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "images": "",
+          "text": "## Requirement \n- An extension that is web crawler use nodejs module crawler\n- The extension will generate block that take a list of web urls as text input, and return the crawled web content in a text output",
+          "xOmniEnabled": true,
+          "video": ""
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 245,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1525.5745288454084,
+          -1495.7117958272347
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "551": {
+        "id": 551,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": false,
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown-code",
+          "xOmniEnabled": true,
+          "videos": "",
+          "files": "",
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 251,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1291.9946781280682,
+          -1424.1970614077945
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "552": {
+        "id": 552,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown-code",
+          "xOmniEnabled": true,
+          "videos": "",
+          "files": "",
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 245,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          749.9093309513609,
+          -1644.0418509242131
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool._block_missing",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.input_text",
+    "openai.advancedChatGPT"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

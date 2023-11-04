@@ -1,0 +1,168 @@
+{
+  "id": "7ef7afff-7366-4d1b-8378-32698f357c37",
+  "meta": {
+    "name": "Tell Me the Color",
+    "author": "Anonymous",
+    "description": "",
+    "category": "General",
+    "help": "",
+    "created": 1697468418133,
+    "updated": 1697468686263,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2596": {
+        "id": 2596,
+        "data": {
+          "author": "Anonymous",
+          "button": "",
+          "category": "General",
+          "credits": "",
+          "description": "",
+          "help": "",
+          "license": "CC0",
+          "tags": [],
+          "title": "Tell Me the Color",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          3840.838453875351,
+          25.24865668411769
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "3039": {
+        "id": 3039,
+        "data": {
+          "RGB Color": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "RGB Color": {
+            "connections": [
+              {
+                "node": 3041,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Color Name": {
+            "connections": [
+              {
+                "node": 3042,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          3768.403958891405,
+          -367.8292920939163
+        ],
+        "name": "omnitool.color_name"
+      },
+      "3041": {
+        "id": 3041,
+        "data": {
+          "text": "rgb(37, 150, 190)",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3039,
+                "input": "RGB Color",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          3318.367984980593,
+          -354.5843702645641
+        ],
+        "name": "omnitool.input_text"
+      },
+      "3042": {
+        "id": 3042,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true,
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3039,
+                "output": "Color Name",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          4225.1924712677555,
+          -394.8124563692757
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_output",
+    "omnitool.color_name",
+    "omnitool.input_text",
+    "omnitool.recipe_metadata"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

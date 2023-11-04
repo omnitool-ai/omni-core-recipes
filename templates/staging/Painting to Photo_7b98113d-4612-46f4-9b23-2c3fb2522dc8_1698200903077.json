@@ -1,0 +1,1034 @@
+{
+  "id": "7b98113d-4612-46f4-9b23-2c3fb2522dc8",
+  "meta": {
+    "name": "Painting to Photo",
+    "author": "Anonymous",
+    "description": "",
+    "category": "",
+    "help": "",
+    "created": 1698164363301,
+    "updated": 1698200791067,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2787": {
+        "id": 2787,
+        "data": {
+          "author": "Anonymous",
+          "button": "",
+          "credits": "",
+          "description": "",
+          "help": "",
+          "license": "CC0",
+          "tags": [],
+          "title": "Painting to Photo",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          629.0610823119682,
+          -459.0136322119585
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2790": {
+        "id": 2790,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/JfvBi04QfleIeJ3ASiBEMbJvhTQKWKLjKaajEbuhO1Y0wPHd/view.jpg",
+          "max_tokens": 1024,
+          "prompt": "Describe the details in this painting",
+          "temperature": 0.2,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2857,
+                "output": "img",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2821,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          780.742316761182,
+          -1513.4522533414365
+        ],
+        "name": "omni-core-replicate:run.yorickvp/llava-13b"
+      },
+      "2791": {
+        "id": 2791,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2813,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2795,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3114.5837670937663,
+          -1079.6911903675489
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2794": {
+        "id": 2794,
+        "data": {
+          "img": "fid://37,2je6kzcfat",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698770094113,
+              "fid": "37,2je6kzcfat",
+              "fileName": "van_gogh_-_starry_night_-_google_art_project.jpg",
+              "fileType": "image",
+              "furl": "fid://37,2je6kzcfat.jpg",
+              "meta": {
+                "created": 1698165294113,
+                "height": 1520,
+                "nsfw": {
+                  "Drawing": 0.014490130357444286,
+                  "Hentai": 0.00026675238041207194,
+                  "Neutral": 0.984253466129303,
+                  "Porn": 0.0006069360533729196,
+                  "Sexy": 0.0003827430191449821,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 1920
+              },
+              "mimeType": "image/jpeg",
+              "size": 1391462,
+              "ticket": {
+                "count": 1,
+                "fid": "37,2je6kzcfat",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/37,2je6kzcfat"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -985.0585151180273,
+          505.17338777877586
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2795": {
+        "id": 2795,
+        "data": {
+          "apply_watermark": true,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 1024,
+          "high_noise_frac": 0.8,
+          "image": "",
+          "lora_scale": 0.6,
+          "mask": "",
+          "negative_prompt": "painting, (bad composition), (out of frame), (nsfw), (nude), (sexual), drawing, anime, art, cartoon, sketch, Low quality",
+          "num_inference_steps": 25,
+          "num_outputs": 1,
+          "prompt": "",
+          "prompt_strength": 0.9,
+          "refine": "expert_ensemble_refiner",
+          "replicate_weights": "",
+          "scheduler": "K_EULER",
+          "width": 1024,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "mask": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "image": {
+            "connections": [
+              {
+                "node": 2857,
+                "output": "img",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2813,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "refine": {
+            "connections": []
+          },
+          "scheduler": {
+            "connections": []
+          },
+          "lora_scale": {
+            "connections": []
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "refine_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "apply_watermark": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "prompt_strength": {
+            "connections": []
+          },
+          "replicate_weights": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2791,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2465.367320589868,
+          -1385.529977681107
+        ],
+        "name": "omni-core-replicate:run.stability-ai/sdxl"
+      },
+      "2813": {
+        "id": 2813,
+        "data": {
+          "button": "",
+          "images": "",
+          "prompt": "",
+          "replace": null,
+          "source": "Photograph of  {input:PROMPT}, (good composition), (in frame), 8k, 4k, detailed, attractive, beautiful, impressive, photorealistic, realistic, cinematic composition, high-resolution, vivid, detailed, stunning, professional, lifelike, crisp, flawless, DSLR, sharp, best quality, highres, absurdres",
+          "x-omni-dynamicInputs": {
+            "prompt": {
+              "customSocket": "text",
+              "name": "prompt",
+              "title": "PROMPT",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 2821,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2791,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 2795,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1832.9910718298584,
+          -971.3462548365352
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2821": {
+        "id": 2821,
+        "data": {
+          "instruction": "You are a helpful bot, helping me extract the key features from this description and output as a series of strings, each separated by commas. However, remove the subject 'painting' or 'drawing' if it appears. \n\nFor example:\n\"Night sky filled with stars, Blue sky with scattered clouds, Mountain range in the foreground, Church steeple visible in the mountain range, Town below the night sky, Several houses of various sizes, Tree situated in the middle of the town\"",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2790,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2813,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1342.8286621289544,
+          -1268.2652749176236
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "2849": {
+        "id": 2849,
+        "data": {
+          "img": "fid://28,mrz22kw9hu",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698773623623,
+              "fid": "28,mrz22kw9hu",
+              "fileName": "the_scream_by_edvard_munch.jpg",
+              "fileType": "image",
+              "furl": "fid://28,mrz22kw9hu.jpg",
+              "meta": {
+                "created": 1698168823623,
+                "height": 800,
+                "nsfw": {
+                  "Drawing": 0.11101654171943665,
+                  "Hentai": 0.0010397769510746002,
+                  "Neutral": 0.8876023292541504,
+                  "Porn": 0.0001839061442296952,
+                  "Sexy": 0.00015741206880193204,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 603
+              },
+              "mimeType": "image/jpeg",
+              "size": 169036,
+              "ticket": {
+                "count": 1,
+                "fid": "28,mrz22kw9hu",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/28,mrz22kw9hu"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -877.6312541261052,
+          -2020.3535211495832
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2850": {
+        "id": 2850,
+        "data": {
+          "img": "fid://13,xdledjsg9f",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698774374030,
+              "fid": "13,xdledjsg9f",
+              "fileName": "the_swing_(p430).jpg",
+              "fileType": "image",
+              "furl": "fid://13,xdledjsg9f.jpg",
+              "meta": {
+                "created": 1698169574030,
+                "height": 1653,
+                "nsfw": {
+                  "Drawing": 0.03714758902788162,
+                  "Hentai": 0.000030025423257029615,
+                  "Neutral": 0.9625928997993469,
+                  "Porn": 0.000024298566131619737,
+                  "Sexy": 0.00020525149011518806,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 1280
+              },
+              "mimeType": "image/jpeg",
+              "size": 560555,
+              "ticket": {
+                "count": 1,
+                "fid": "13,xdledjsg9f",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/13,xdledjsg9f"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -101.2714841862377,
+          521.9548995045359
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2851": {
+        "id": 2851,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -342.8842800260962,
+          -1895.163666754761
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "2852": {
+        "id": 2852,
+        "data": {
+          "img": "fid://23,asxb7zzgvz",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698774804077,
+              "fid": "23,asxb7zzgvz",
+              "fileName": "endormie.jpg",
+              "fileType": "image",
+              "furl": "fid://23,asxb7zzgvz.jpg",
+              "meta": {
+                "created": 1698170004077,
+                "height": 1636,
+                "nsfw": {
+                  "Drawing": 0.004939110483974218,
+                  "Hentai": 0.00005664470518240705,
+                  "Neutral": 0.9833378195762634,
+                  "Porn": 0.00015942951722536236,
+                  "Sexy": 0.011507045477628708,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 2560
+              },
+              "mimeType": "image/jpeg",
+              "size": 940316,
+              "ticket": {
+                "count": 1,
+                "fid": "23,asxb7zzgvz",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/23,asxb7zzgvz"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          242.43632215019204,
+          -2010.5492457235703
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2853": {
+        "id": 2853,
+        "data": {
+          "img": "fid://53,xd2c774ul3",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698775123944,
+              "fid": "53,xd2c774ul3",
+              "fileName": "a_friend_in_need_1903_c.m.coolidge.jpg",
+              "fileType": "image",
+              "furl": "fid://53,xd2c774ul3.jpg",
+              "meta": {
+                "created": 1698170323944,
+                "height": 1146,
+                "nsfw": {
+                  "Drawing": 0.9767997860908508,
+                  "Hentai": 0.004100324120372534,
+                  "Neutral": 0.01893918402493,
+                  "Porn": 0.00005022588447900489,
+                  "Sexy": 0.00011053969501517713,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 1599
+              },
+              "mimeType": "image/jpeg",
+              "size": 416087,
+              "ticket": {
+                "count": 1,
+                "fid": "53,xd2c774ul3",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/53,xd2c774ul3"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -544.4405356475336,
+          518.5104749857942
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2854": {
+        "id": 2854,
+        "data": {
+          "img": "fid://44,407e9jpt61",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698775356080,
+              "fid": "44,407e9jpt61",
+              "fileName": "1066d79a9276c4ebe8e425062b933f7d191d2fe3-4096x3072.webp",
+              "fileType": "image",
+              "furl": "fid://44,407e9jpt61.webp",
+              "meta": {
+                "created": 1698170556080,
+                "height": 1440,
+                "nsfw": {
+                  "Drawing": 0.0723973959684372,
+                  "Hentai": 0.00008482768316753209,
+                  "Neutral": 0.9272029399871826,
+                  "Porn": 0.000027364629204384983,
+                  "Sexy": 0.0002874939818866551,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "webp",
+                "width": 1920
+              },
+              "mimeType": "image/webp",
+              "size": 613836,
+              "ticket": {
+                "count": 1,
+                "fid": "44,407e9jpt61",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/44,407e9jpt61"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -348.40460924337685,
+          -1219.5114693890778
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2855": {
+        "id": 2855,
+        "data": {
+          "img": "fid://11,51b51jirel",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698775473198,
+              "fid": "11,51b51jirel",
+              "fileName": "gleaner.jpg",
+              "fileType": "image",
+              "furl": "fid://11,51b51jirel.jpg",
+              "meta": {
+                "created": 1698170673198,
+                "height": 1915,
+                "nsfw": {
+                  "Drawing": 0.0015609903493896127,
+                  "Hentai": 0.00007327540515689179,
+                  "Neutral": 0.9981178045272827,
+                  "Porn": 0.00016658275853842497,
+                  "Sexy": 0.00008134778181556612,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 2560
+              },
+              "mimeType": "image/jpeg",
+              "size": 1769822,
+              "ticket": {
+                "count": 1,
+                "fid": "11,51b51jirel",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/11,51b51jirel"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1229.2685057383237,
+          -711.4439256221918
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2856": {
+        "id": 2856,
+        "data": {
+          "img": "fid://23,sgwaudwbbp",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698775601585,
+              "fid": "23,sgwaudwbbp",
+              "fileName": "the_ninth_wave.jpg",
+              "fileType": "image",
+              "furl": "fid://23,sgwaudwbbp.jpg",
+              "meta": {
+                "created": 1698170801585,
+                "height": 1720,
+                "nsfw": {
+                  "Drawing": 0.01703644171357155,
+                  "Hentai": 0.0006160477641969919,
+                  "Neutral": 0.9686511158943176,
+                  "Porn": 0.007149731740355492,
+                  "Sexy": 0.0065467520616948605,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "jpg",
+                "width": 2560
+              },
+              "mimeType": "image/jpeg",
+              "size": 605430,
+              "ticket": {
+                "count": 1,
+                "fid": "23,sgwaudwbbp",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/23,sgwaudwbbp"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          -748.9258753055392,
+          -976.1675604645302
+        ],
+        "name": "omnitool.input_static_image"
+      },
+      "2857": {
+        "id": 2857,
+        "data": {
+          "img": "fid://88,r2vq1l8nwx",
+          "imgUrl": "",
+          "preview": [
+            {
+              "expires": 1698776035264,
+              "fid": "88,r2vq1l8nwx",
+              "fileName": "1466ffef6d00ab1df2a26b186bff39c5f0b4ac98-1920x2396.webp",
+              "fileType": "image",
+              "furl": "fid://88,r2vq1l8nwx.webp",
+              "meta": {
+                "created": 1698171235264,
+                "height": 2396,
+                "nsfw": {
+                  "Drawing": 0.8016243577003479,
+                  "Hentai": 0.05612492933869362,
+                  "Neutral": 0.13837121427059174,
+                  "Porn": 0.0008278663735836744,
+                  "Sexy": 0.0030516646802425385,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "webp",
+                "width": 1920
+              },
+              "mimeType": "image/webp",
+              "size": 744914,
+              "ticket": {
+                "count": 1,
+                "fid": "88,r2vq1l8nwx",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/88,r2vq1l8nwx"
+            }
+          ],
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": [
+              {
+                "node": 2790,
+                "input": "image",
+                "data": {}
+              },
+              {
+                "node": 2795,
+                "input": "image",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          102.38477085029037,
+          -1359.9799772988447
+        ],
+        "name": "omnitool.input_static_image"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.stability-ai/sdxl",
+    "omni-core-replicate:run.yorickvp/llava-13b",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.input_static_image",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "openai.simpleChatGPT"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

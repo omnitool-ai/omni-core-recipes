@@ -1,0 +1,412 @@
+{
+  "id": "3c224cb3-0701-4ad2-91a6-ef94067dfafb",
+  "meta": {
+    "name": "QR Code Generator",
+    "author": "omnitool.ai team",
+    "description": "",
+    "category": "General",
+    "help": "",
+    "created": 1697447576561,
+    "updated": 1697515915104,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2682": {
+        "id": 2682,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "category": "General",
+          "credits": "",
+          "description": "",
+          "help": "",
+          "license": "CC0",
+          "tags": [],
+          "title": "QR Code Generator",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -919.3194493562014,
+          1840.873402288241
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "3089": {
+        "id": 3089,
+        "data": {
+          "border": 2,
+          "controlnet_conditioning_scale": 1.5,
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "height": 768,
+          "image": "",
+          "negative_prompt": "ugly, disfigured, low quality, blurry, nsfw",
+          "num_inference_steps": 40,
+          "num_outputs": 1,
+          "prompt": "An oil painting of medieval city streets with buildings and trees and people",
+          "qr_code_content": "https://omnitool.ai",
+          "qrcode_background": "white",
+          "seed": -1,
+          "width": 768,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "seed": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "border": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3093,
+                "output": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "num_outputs": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "qr_code_content": {
+            "connections": [
+              {
+                "node": 3093,
+                "output": "qr_code_content",
+                "data": {}
+              }
+            ]
+          },
+          "qrcode_background": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          },
+          "controlnet_conditioning_scale": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 3115,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          332.6098915329636,
+          1657.1147665206433
+        ],
+        "name": "omni-core-replicate:run.andreasjansson/illusion"
+      },
+      "3093": {
+        "id": 3093,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "prompt": "Darthouven Fish Men",
+          "qr_code_content": "https://omnitool.ai",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "QR Code Generator",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "(masterpiece:1.4), (best quality), (detailed), Medieval village scene with busy streets and castle in the distance",
+                        "description": "The prompt to guide QR Code generation.",
+                        "input": true,
+                        "key": "prompt",
+                        "label": "Prompt",
+                        "placeholder": "An oil painting of medieval city streets with buildings and trees and people",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "https://omnitool.ai",
+                        "description": "The website/content your QR Code will point to.",
+                        "input": true,
+                        "key": "qr_code_content",
+                        "label": "Qr Code Content",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "default": "An oil painting of medieval city streets with buildings and trees and people",
+              "defaultValue": "An oil painting of medieval city streets with buildings and trees and people",
+              "description": "The prompt to guide QR Code generation.",
+              "name": "prompt",
+              "socketOpts": {},
+              "title": "Prompt",
+              "type": "string"
+            },
+            "qr_code_content": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "description": "The website/content your QR Code will point to.",
+              "name": "qr_code_content",
+              "socketOpts": {},
+              "title": "Qr Code Content",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "default": "An oil painting of medieval city streets with buildings and trees and people",
+              "defaultValue": "An oil painting of medieval city streets with buildings and trees and people",
+              "description": "The prompt to guide QR Code generation.",
+              "name": "prompt",
+              "socketOpts": {},
+              "title": "Prompt",
+              "type": "string"
+            },
+            "qr_code_content": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "description": "The website/content your QR Code will point to.",
+              "name": "qr_code_content",
+              "socketOpts": {},
+              "title": "Qr Code Content",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": []
+          },
+          "qr_code_content": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 3089,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "qr_code_content": {
+            "connections": [
+              {
+                "node": 3089,
+                "input": "qr_code_content",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -395.7846472360953,
+          1605.890240465577
+        ],
+        "name": "omni-core-formio:formio.auto_ui"
+      },
+      "3115": {
+        "id": 3115,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true,
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3089,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          830.9365061979937,
+          1680.4284775418748
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-formio:formio.auto_ui",
+    "omni-core-replicate:run.andreasjansson/illusion",
+    "omnitool.chat_output",
+    "omnitool.recipe_metadata"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

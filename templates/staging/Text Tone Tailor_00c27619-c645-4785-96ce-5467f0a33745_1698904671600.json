@@ -1,0 +1,234 @@
+{
+  "id": "00c27619-c645-4785-96ce-5467f0a33745",
+  "meta": {
+    "name": "Text Tone Tailor",
+    "author": "Anonymous",
+    "description": "",
+    "category": "General",
+    "help": "",
+    "created": 1697516207727,
+    "updated": 1697534264011,
+    "tags": []
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "3141": {
+        "id": 3141,
+        "data": {
+          "author": "Anonymous",
+          "button": "",
+          "category": "General",
+          "credits": "",
+          "description": "",
+          "help": "",
+          "license": "CC0",
+          "tags": [],
+          "title": "Text Tone Tailor",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          405.75071559460304,
+          492.30223392998823
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "3142": {
+        "id": 3142,
+        "data": {
+          "function": null,
+          "instruction": "I'd like to edit this for style and tone and rewrite within 200 words. Do not use the overly marketing style (i.e. it reads like a fancy restaurant menu). I'd like to rewrite this as a matter-of-fact, plain this-is-what-it-does description and give it a new name that is descriptive rather than a persona. Ensure to:\n\n- focus on Matter of fact\n- No embellishments, flowery descriptions\n- Clear description of the technology involved\n- Clear description of the product/recipe (\"chatbot', small app, 'etc')\n- remove markdown\n- extract information from the prompt and rewrite\n- output in one paragraph. remember, it's a short description for an app.\n- focus on what it does and educational information. exclude the info of how to use\n- do not mention about api key\n- start with verb instead of repeating \"This application..\". referencing to my examples below.\n- Be concise\n\nFor example:\n-----\n\"Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration\"\n-----\n\"Using a fine-tuned Stable Diffusion XL Model, this recipe implements a small app that creates custom, high resolution images in the style of Apple emojis based on the users input\"\n------\n\"Utilise a combination of LLM, the text-to-image Stable Diffusion XL Model, and face-swap techniques to transform a user's current photo into a retro yearbook image\"\n-----\nUtilise LLM in conjunction with stable diffusion and text-to-speech to convert basic ideas into visually appealing storybook illustrations and text, accompanied by a spoken narrative.\n------\nUse fine-tuned diffusion models to transform your brief description into custom app icons.\n-----\nPreview your new hairstyle! It combines text-to-image Stable Diffusion XL model with face-swap technique to give you a glimpse of your desired hairstyle. Simply upload your photo and describe the hairstyle you want, including gender and style.",
+          "model": "gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.2,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3143,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 3144,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          -20.79139342303534,
+          -32.453600247690254
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "3143": {
+        "id": 3143,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "\"description\": \"An upbeat, encouraging tutor who helps students understand concepts by explaining ideas tailored to students learning level and prior knowledge!\",\n    \"help\": \"## AI Tutor 🤖🎓\\n\\nWelcome to this recipe! Experience the future of education with our AI Tutor. This AI-powered tutor will help you understand complex concepts by providing explanations tailored to your learning level and prior knowledge.\\n\\n### Prerequisites:\\n\\n**API Keys**:\\n\\n- OpenAI\\n\\n### How to Use:\\n\\n- Navigate to the custom **UI** window.\\n- Type in the concept or topic you want to understand better.\\n- Hit **Run Recipe** to initiate the AI Tutor.\\n- Enjoy the personalized explanation provided by the AI Tutor in the **Chat** box.\",",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3142,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -544.4349810159795,
+          68.83921549758169
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "3144": {
+        "id": 3144,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true,
+          "persistData": "Permanent"
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3142,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          572.0767219616862,
+          178.20937648071242
+        ],
+        "name": "omnitool.chat_output"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.recipe_metadata",
+    "openai.advancedChatGPT"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}

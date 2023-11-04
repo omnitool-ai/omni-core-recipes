@@ -1,0 +1,491 @@
+{
+  "id": "1c8953ca-7b32-44f5-b661-7d7f0c00f6ad",
+  "meta": {
+    "name": "OpenPose to Photo",
+    "author": "Omnitool Workshop",
+    "description": "Experiment with the OpenPose extension for creating human posture input. By blending multiple models and extensions, it facilitates the generation of an advert complete with a tagline and voice-over.",
+    "category": "",
+    "help": "## OpenPose Demo 📸🎨 \nWelcome to this recipe, it's part of the recipe that was showcased in our Nov workshop! This recipe allows you to try out the OpenPose extension to create a human posture input, combining image-to-image from HuggingFace and Replicate, and use Sharp extension for image resizing.\n\n### Prerequisite\nAPI Keys: Replicate, HuggingFace, OpenAI\nExtensions: OpenPose, Replicate, Sharp\n\n### How to Use:\n1. Install the OpenPose, Sharp extension\n2. Launch the OpenPose extension, then make the desired edits to generate an OpenPose bone image\n3. Open the File Manager and add the image to your canvas \n4. Replacing the sample image with the one you just add.\n5. Press the ▶️ Run button.\n6. Once processed, view the generated photo in the **Chat** box.\n7. Tweak it!!",
+    "created": 1699084777672,
+    "updated": 1699102556029,
+    "pictureUrl": "pose_002.png",
+    "tags": [
+      "#art",
+      "#marketing",
+      "#diffusion",
+      "#intermediate"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2590": {
+        "id": 2590,
+        "data": {
+          "author": "Omnitool Workshop",
+          "button": "",
+          "credits": "Omnitool Workshop Nov 1st",
+          "description": "Experiment with the OpenPose extension for creating human posture input. By blending multiple models and extensions, it facilitates the generation of an advert complete with a tagline and voice-over.",
+          "help": "## OpenPose Demo 📸🎨 \nWelcome to this recipe, it's part of the recipe that was showcased in our Nov workshop! This recipe allows you to try out the OpenPose extension to create a human posture input, combining image-to-image from HuggingFace and Replicate, and use Sharp extension for image resizing.\n\n### Prerequisite\nAPI Keys: Replicate, HuggingFace, OpenAI\nExtensions: OpenPose, Replicate, Sharp\n\n### How to Use:\n1. Install the OpenPose, Sharp extension\n2. Launch the OpenPose extension, then make the desired edits to generate an OpenPose bone image\n3. Open the File Manager and add the image to your canvas \n4. Replacing the sample image with the one you just add.\n5. Press the ▶️ Run button.\n6. Once processed, view the generated photo in the **Chat** box.\n7. Tweak it!!",
+          "license": "CC0",
+          "tags": [
+            "#art",
+            "#marketing",
+            "#diffusion",
+            "#intermediate"
+          ],
+          "title": "OpenPose to Photo",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -167.45628909304173,
+          -279.7664673497829
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2594": {
+        "id": 2594,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2596,
+                "output": "images",
+                "data": {}
+              },
+              {
+                "node": 2599,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3620.2364502037854,
+          367.71405874683
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2596": {
+        "id": 2596,
+        "data": {
+          "guess_mode": false,
+          "guidance_scale": 7.5,
+          "height": 512,
+          "inputs": null,
+          "model": "lllyasviel/sd-controlnet-openpose",
+          "negative_prompt": "body out of frame, bad quality, deformed body, mutated, , watermark, disfigured, lowres, beyond the borders, bad anatomy, Cut off, cropped, Extra hands, Extra legs, extra arms, cramped, creepy",
+          "num_inference_steps": 20,
+          "prompt": "a dancing man suspended in mid-air, 4k, Nikon D850, full-body shot clear and distinct lines, high-resolution, white background, , max quality, award-winning, captivating, elegant, centered, extremely detailed, , award winning photography",
+          "strength": 1,
+          "width": 512,
+          "xOmniEnabled": false
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "inputs": {
+            "connections": [
+              {
+                "node": 2776,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "prompt": {
+            "connections": []
+          },
+          "strength": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "width": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "guess_mode": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2600,
+                "input": "images",
+                "data": {}
+              },
+              {
+                "node": 2594,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1722.8747530172843,
+          -459.6129699029405
+        ],
+        "name": "huggingface.public_image_to_image"
+      },
+      "2599": {
+        "id": 2599,
+        "data": {
+          "enabled": true,
+          "guidance_scale": 7.5,
+          "high_noise_frac": 0.8,
+          "image": "https://replicate.delivery/pbxt/JMf0SV6w1yp8ZcrtrYungReCNQzUUhXJHciDFi5nylAdqmCo/demo.jpg",
+          "negative_prompt": "low quality, bad quality, cropped, mutated hands, broken fingers, extra fingers, missing fingers, bad anatomy, Cut off, Extra hands, Extra legs, extra arms, cramped, deformed body features, poor rendered face, poor rendered body, lowres, out of frame, watermark",
+          "num_inference_steps": 50,
+          "prompt": "a professional advertisement photograph in 4K resolution, a confident young hip-hop dancer, smile, in front of a vibrant, colorful wall. award-winning photography. Centered. full-body in frame",
+          "seed": 0,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "seed": {
+            "connections": [
+              {
+                "node": 2984,
+                "output": "number",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "image": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "guidance_scale": {
+            "connections": []
+          },
+          "high_noise_frac": {
+            "connections": []
+          },
+          "negative_prompt": {
+            "connections": []
+          },
+          "num_inference_steps": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2594,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          3013.8459140784266,
+          480.2442781242996
+        ],
+        "name": "omni-core-replicate:run.lucataco/sdxl-controlnet-openpose"
+      },
+      "2600": {
+        "id": 2600,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 1024,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 1024,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2596,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": []
+          }
+        },
+        "position": [
+          2324.4534430662634,
+          97.86044932642714
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "2776": {
+        "id": 2776,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 512,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 512,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 3037,
+                "output": "img",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2596,
+                "input": "inputs",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1183.7623129180377,
+          -304.46067886082074
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "2984": {
+        "id": 2984,
+        "data": {
+          "number": 1,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 2599,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2868.5961511701835,
+          82.05495071954005
+        ],
+        "name": "omnitool.number_input"
+      },
+      "3037": {
+        "id": 3037,
+        "data": {
+          "img": "fid://16,yon53b98ij",
+          "imgUrl": "",
+          "preview": [
+            {
+              "fid": "16,yon53b98ij",
+              "fileName": "sample_openposebone.png",
+              "fileType": "image",
+              "furl": "fid://16,yon53b98ij.png",
+              "meta": {
+                "created": 1698908973014,
+                "height": 1042,
+                "nsfw": {
+                  "Drawing": 0.8702892065048218,
+                  "Hentai": 0.013766784220933914,
+                  "Neutral": 0.11363452672958374,
+                  "Porn": 0.0019075707532465458,
+                  "Sexy": 0.00040190579602494836,
+                  "isNsfw": false,
+                  "status": "success"
+                },
+                "type": "png",
+                "width": 600
+              },
+              "mimeType": "image/png",
+              "seq": 1049,
+              "size": 24815,
+              "tags": [
+                "sample"
+              ],
+              "ticket": {
+                "count": 1,
+                "fid": "16,yon53b98ij",
+                "publicUrl": "127.0.0.1:1688",
+                "url": "127.0.0.1:1688"
+              },
+              "url": "/fid/16,yon53b98ij"
+            }
+          ],
+          "x-omni-title": "OpenPose bone image created by OpenPose extension",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": []
+          },
+          "imgUrl": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "img": {
+            "connections": [
+              {
+                "node": 2776,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          }
+        },
+        "position": [
+          514.0182123078914,
+          -361.6956260847914
+        ],
+        "name": "omnitool.input_static_image"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "huggingface.public_image_to_image",
+    "omni-core-replicate:run.lucataco/sdxl-controlnet-openpose",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_output",
+    "omnitool.input_static_image",
+    "omnitool.number_input",
+    "omnitool.recipe_metadata"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
