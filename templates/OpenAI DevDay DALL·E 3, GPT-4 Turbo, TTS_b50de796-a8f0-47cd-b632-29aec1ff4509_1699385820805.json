@@ -1,0 +1,456 @@
+{
+  "id": "b50de796-a8f0-47cd-b632-29aec1ff4509",
+  "meta": {
+    "name": "OpenAI DevDay: DALL·E 3, GPT-4 Turbo, TTS",
+    "author": "Omnitool.ai team",
+    "description": "An experimental playground recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, and TTS models.",
+    "category": "",
+    "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
+    "created": 1699376830678,
+    "updated": 1699385814996,
+    "pictureUrl": "openai-devday.png",
+    "tags": [
+      "#education",
+      "#OpenAI DevDay",
+      "#news"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "314": {
+        "id": 314,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "An experimental playground recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, and TTS models.",
+          "enabled": true,
+          "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
+          "license": "CC0",
+          "tags": [
+            "#education",
+            "#OpenAI DevDay",
+            "#news"
+          ],
+          "title": "OpenAI DevDay: DALL·E 3, GPT-4 Turbo, TTS",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1259.897758037036,
+          -474.62123749638107
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "365": {
+        "id": 365,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2355,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2356,
+                "output": "data",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": [
+              {
+                "node": 2354,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2361.5307041779092,
+          -199.59165070224554
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2354": {
+        "id": 2354,
+        "data": {
+          "input": "",
+          "model": "tts-1-hd",
+          "response_format": "mp3",
+          "speed": 1,
+          "voice": "shimmer",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "input": {
+            "connections": [
+              {
+                "node": 2355,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "voice": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "speed": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 365,
+                "input": "audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1117.086245369539,
+          103.99553465842294
+        ],
+        "name": "openai.createSpeech"
+      },
+      "2355": {
+        "id": 2355,
+        "data": {
+          "instruction": "Embark on a captivating journey into the event or trend and their profound impact on [Industry/Field]. Craft an exceptional news post that captures the essence of these advancements/trend/event, diving deep into their implications for society, economy, and daily life. Reference [event/company/person] name explicitly. Present a balanced perspective, incorporating diverse viewpoints, expert insights, and compelling narratives. Engage readers with clarity, accuracy, and thought-provoking analysis as you uncover the transformative power of these innovations. Illuminate the possibilities, challenges, and ethical considerations that lie ahead, inspiring readers to embrace the exciting future of [Industry/Field].\n\nLimit the output no more than 1024 characters.",
+          "model": "gpt-4-1106-preview",
+          "prompt": "",
+          "temperature": 0.3,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2364,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2354,
+                "input": "input",
+                "data": {}
+              },
+              {
+                "node": 2464,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 365,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -56.72542385392315,
+          -463.4488686740301
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "2356": {
+        "id": 2356,
+        "data": {
+          "model": "dall-e-3",
+          "n": 1,
+          "prompt": "",
+          "quality": "hd",
+          "size": "1024x1024",
+          "style": "vivid",
+          "user": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 2505,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "n": {
+            "connections": []
+          },
+          "quality": {
+            "connections": []
+          },
+          "size": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          },
+          "user": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "data": {
+            "connections": [
+              {
+                "node": 365,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1750.8420490923368,
+          -756.841183583269
+        ],
+        "name": "openai.simpleDallE"
+      },
+      "2364": {
+        "id": 2364,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "The notable global events or trend in tech that occurred in 2023 Q1",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2355,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -659.4580599804527,
+          -409.77582402273134
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "2464": {
+        "id": 2464,
+        "data": {
+          "instruction": "You are good at giving the article an image. Create a vivid and detailed illustration of this image in 200 characters. Illustrate [event] with [objects/people], showcasing [mood/setting] for the article image. The composition should be suitable for a feature article, with a clear focal point and balanced elements to guide the viewer’s eye through the story.",
+          "model": "gpt-3.5-turbo-1106",
+          "prompt": "",
+          "temperature": 0.3,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2355,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2505,
+                "input": "scene",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          497.81069590990114,
+          -637.0598006667385
+        ],
+        "name": "openai.simpleChatGPT"
+      },
+      "2505": {
+        "id": 2505,
+        "data": {
+          "button": "",
+          "images": "",
+          "replace": null,
+          "scene": "",
+          "source": "a realistic, high quality, award winning photograph captures the following scene. \n---\n{input:scene}\n----",
+          "x-omni-dynamicInputs": {
+            "scene": {
+              "customSocket": "text",
+              "name": "scene",
+              "title": "scene",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "scene": {
+            "connections": [
+              {
+                "node": 2464,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2356,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1084.7312956217315,
+          -737.8385359147562
+        ],
+        "name": "omnitool.multi_text_replace"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "openai.createSpeech",
+    "openai.simpleChatGPT",
+    "openai.simpleDallE"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
