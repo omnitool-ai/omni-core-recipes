@@ -1,0 +1,506 @@
+{
+  "id": "e165e5ee-3fe0-4364-8221-5cb2200bb9ea",
+  "meta": {
+    "name": "OmniLab: What to Cook for Today?",
+    "author": "omnitool.ai team",
+    "description": "Utilize the visual instruction tuning with Large Language models such as GPT-4 Vision and LLaVA to analyze images of your fridge's contents.",
+    "category": "",
+    "help": "## What to Cook for Today? 🍽️📸\nWelcome to this experimental recipe! Utilize the visual instruction tuning with advanced language models such as GPT-4 Vision and LLaVA-13B to analyze images of your fridge's contents and suggest what to prepare for your meal today. This is also a head-to-head comparison recipe, allowing you to compare the performance of different models directly.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Models**:\n\n- OpenAI: gpt-4-vision-preview\n- Replicate: yorickvp/llava-13b\n- Replicate: joehoover/instructblip-vicuna13b\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Take a picture or upload the image of your fridge contents you want the AI to analyze.\n- Type in your question or just use the default one\n- Hit **enter** or Press ▶️ Run button!\n- View the generated meal suggestions in the **Chat** box.\n- Enjoy your meal preparation with AI assistance!\n- Try modifying the question and upload another image to ask different questions.",
+    "created": 1699433017937,
+    "updated": 1699437731461,
+    "pictureUrl": "fridge.png",
+    "tags": [
+      "#ImageToText",
+      "#Beginner",
+      "#Llava",
+      "#lifestyle",
+      "#OpenAI DevDay"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2626": {
+        "id": 2626,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Utilize the visual instruction tuning with Large Language models such as GPT-4 Vision and LLaVA to analyze images of your fridge's contents.",
+          "help": "## What to Cook for Today? 🍽️📸\nWelcome to this experimental recipe! Utilize the visual instruction tuning with advanced language models such as GPT-4 Vision and LLaVA-13B to analyze images of your fridge's contents and suggest what to prepare for your meal today. This is also a head-to-head comparison recipe, allowing you to compare the performance of different models directly.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Models**:\n\n- OpenAI: gpt-4-vision-preview\n- Replicate: yorickvp/llava-13b\n- Replicate: joehoover/instructblip-vicuna13b\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Take a picture or upload the image of your fridge contents you want the AI to analyze.\n- Type in your question or just use the default one\n- Hit **enter** or Press ▶️ Run button!\n- View the generated meal suggestions in the **Chat** box.\n- Enjoy your meal preparation with AI assistance!\n- Try modifying the question and upload another image to ask different questions.",
+          "license": "CC0",
+          "tags": [
+            "#ImageToText",
+            "#Beginner",
+            "#Llava",
+            "#lifestyle",
+            "#OpenAI DevDay"
+          ],
+          "title": "OmniLab: What to Cook for Today?",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          25.774918379098743,
+          -996.5768073173317
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2629": {
+        "id": 2629,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/JfvBi04QfleIeJ3ASiBEMbJvhTQKWKLjKaajEbuhO1Y0wPHd/view.jpg",
+          "max_tokens": 1024,
+          "prompt": "Are you allowed to swim here?",
+          "temperature": 0.2,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 2651,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2651,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2632,
+                "input": "llava_13b",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1423.5447323545116,
+          -687.7311652102499
+        ],
+        "name": "omni-core-replicate:run.yorickvp/llava-13b"
+      },
+      "2631": {
+        "id": 2631,
+        "data": {
+          "debug": false,
+          "enabled": true,
+          "img": "https://replicate.delivery/pbxt/IqssJAmdxs9RQQQHlHD7R3aBlp73NVXPH3YmJU09TXYoMeF1/cute-cat.jpeg",
+          "length_penalty": 1,
+          "max_length": 512,
+          "no_repeat_ngram_size": 0,
+          "penalty_alpha": 0,
+          "prompt": "Explain in detail why this image is funny.",
+          "repetition_penalty": 1,
+          "seed": -1,
+          "temperature": 0.75,
+          "top_k": 0,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "img": {
+            "connections": [
+              {
+                "node": 2651,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "debug": {
+            "connections": []
+          },
+          "top_k": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2651,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "max_length": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "penalty_alpha": {
+            "connections": []
+          },
+          "length_penalty": {
+            "connections": []
+          },
+          "repetition_penalty": {
+            "connections": []
+          },
+          "no_repeat_ngram_size": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2632,
+                "input": "instructblip_vicuna13b",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1447.6124742322395,
+          -137.990316417845
+        ],
+        "name": "omni-core-replicate:run.joehoover/instructblip-vicuna13b"
+      },
+      "2632": {
+        "id": 2632,
+        "data": {
+          "blip_2": "",
+          "button": "",
+          "clip_interrogator": "",
+          "gpt4v": "",
+          "images": "",
+          "instructblip_vicuna13b": "",
+          "llava_13b": "",
+          "replace": null,
+          "source": "## GPT-4 Vision\n{input:gpt4v}\n\n## LLaVA-13B\n{input:llava-13b}\n\n## Instruct BLIP-2 - Vicuna-13B\n{input:instructblip-vicuna13b}",
+          "x-omni-dynamicInputs": {
+            "gpt4v": {
+              "customSocket": "text",
+              "name": "gpt4v",
+              "title": "gpt4v",
+              "type": "string"
+            },
+            "instructblip_vicuna13b": {
+              "customSocket": "text",
+              "name": "instructblip_vicuna13b",
+              "title": "instructblip-vicuna13b",
+              "type": "string"
+            },
+            "llava_13b": {
+              "customSocket": "text",
+              "name": "llava_13b",
+              "title": "llava-13b",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "gpt4v": {
+            "connections": [
+              {
+                "node": 2633,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "instructblip_vicuna13b": {
+            "connections": [
+              {
+                "node": 2631,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "llava_13b": {
+            "connections": [
+              {
+                "node": 2629,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2649,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2154.862817631484,
+          -619.0657760787149
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2633": {
+        "id": 2633,
+        "data": {
+          "images": "",
+          "instruction": "You are a helpful bot. You can help people by answering their questions.",
+          "model": "gpt-4-vision-preview",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 2651,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2651,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2632,
+                "input": "gpt4v",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1425.6484775868234,
+          -1280.3183131852322
+        ],
+        "name": "openai.simpleChatGPT-vision"
+      },
+      "2649": {
+        "id": 2649,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Expiring",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2632,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2840.8775127744075,
+          -445.02980439317713
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2651": {
+        "id": 2651,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "What can I prepare for lunch and dinner today?",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2631,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2629,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 2633,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2629,
+                "input": "image",
+                "data": {}
+              },
+              {
+                "node": 2631,
+                "input": "img",
+                "data": {}
+              },
+              {
+                "node": 2633,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          578.669314679288,
+          -662.6040532071859
+        ],
+        "name": "omnitool.chat_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.joehoover/instructblip-vicuna13b",
+    "omni-core-replicate:run.yorickvp/llava-13b",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "openai.simpleChatGPT-vision"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
