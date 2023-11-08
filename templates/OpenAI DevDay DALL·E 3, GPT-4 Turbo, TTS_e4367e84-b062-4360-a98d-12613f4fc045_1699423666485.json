@@ -1,5 +1,5 @@
 {
-  "id": "b50de796-a8f0-47cd-b632-29aec1ff4509",
+  "id": "e4367e84-b062-4360-a98d-12613f4fc045",
   "meta": {
     "name": "OpenAI DevDay: DALL·E 3, GPT-4 Turbo, TTS",
     "author": "Omnitool.ai team",
@@ -7,7 +7,7 @@
     "category": "",
     "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
     "created": 1699376830678,
-    "updated": 1699385814996,
+    "updated": 1699423661812,
     "pictureUrl": "openai-devday.png",
     "tags": [
       "#education",
@@ -73,8 +73,8 @@
           "images": {
             "connections": [
               {
-                "node": 2356,
-                "output": "data",
+                "node": 2542,
+                "output": "images",
                 "data": {}
               }
             ]
@@ -216,64 +216,6 @@
           -463.4488686740301
         ],
         "name": "openai.simpleChatGPT"
-      },
-      "2356": {
-        "id": 2356,
-        "data": {
-          "model": "dall-e-3",
-          "n": 1,
-          "prompt": "",
-          "quality": "hd",
-          "size": "1024x1024",
-          "style": "vivid",
-          "user": "",
-          "xOmniEnabled": true
-        },
-        "inputs": {
-          "prompt": {
-            "connections": [
-              {
-                "node": 2505,
-                "output": "text",
-                "data": {}
-              }
-            ]
-          },
-          "model": {
-            "connections": []
-          },
-          "n": {
-            "connections": []
-          },
-          "quality": {
-            "connections": []
-          },
-          "size": {
-            "connections": []
-          },
-          "style": {
-            "connections": []
-          },
-          "user": {
-            "connections": []
-          }
-        },
-        "outputs": {
-          "data": {
-            "connections": [
-              {
-                "node": 365,
-                "input": "images",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          1750.8420490923368,
-          -756.841183583269
-        ],
-        "name": "openai.simpleDallE2"
       },
       "2364": {
         "id": 2364,
@@ -422,7 +364,7 @@
           "text": {
             "connections": [
               {
-                "node": 2356,
+                "node": 2542,
                 "input": "prompt",
                 "data": {}
               }
@@ -434,6 +376,63 @@
           -737.8385359147562
         ],
         "name": "omnitool.multi_text_replace"
+      },
+      "2542": {
+        "id": 2542,
+        "data": {
+          "model": "dall-e-3",
+          "n": 1,
+          "prompt": "",
+          "quality": "hd",
+          "size": "1024x1024",
+          "style": "vivid",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 2505,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "n": {
+            "connections": []
+          },
+          "quality": {
+            "connections": []
+          },
+          "size": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "revised_prompts": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 365,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1715.8409271466385,
+          -783.3758146340255
+        ],
+        "name": "openai.simpleDallE2"
       }
     }
   },
