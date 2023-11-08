@@ -273,7 +273,7 @@
           1750.8420490923368,
           -756.841183583269
         ],
-        "name": "openai.simpleDallE"
+        "name": "openai.simpleDallE2"
       },
       "2364": {
         "id": 2364,
@@ -448,7 +448,7 @@
     "omnitool.recipe_metadata",
     "openai.createSpeech",
     "openai.simpleChatGPT",
-    "openai.simpleDallE"
+    "openai.simpleDallE2"
   ],
   "_flags": [
     "owner"
