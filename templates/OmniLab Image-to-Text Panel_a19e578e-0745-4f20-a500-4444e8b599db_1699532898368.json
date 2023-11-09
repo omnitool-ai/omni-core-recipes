@@ -1,13 +1,13 @@
 {
-  "id": "e165e5ee-3fe0-4364-8221-5cb2200bb9ea",
+  "id": "a19e578e-0745-4f20-a500-4444e8b599db",
   "meta": {
-    "name": "OmniLab: What to Cook for Today?",
-    "author": "omnitool.ai team",
-    "description": "Utilize the visual instruction tuning with Large Language models such as GPT-4 Vision and LLaVA to analyze images of your fridge's contents.",
+    "name": "OmniLab: Image-to-Text Panel",
+    "author": "Anonymous",
+    "description": "Utilize visual instruction tuning with large language models, such as GPT-4 Vision and LLaVA, for a head-to-head comparison in tasks like analyzing images of your fridge's contents!",
     "category": "",
-    "help": "## What to Cook for Today? 🍽️📸\nWelcome to this experimental recipe! Utilize the visual instruction tuning with advanced language models such as GPT-4 Vision and LLaVA-13B to analyze images of your fridge's contents and suggest what to prepare for your meal today. This is also a head-to-head comparison recipe, allowing you to compare the performance of different models directly.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Models**:\n\n- OpenAI: gpt-4-vision-preview\n- Replicate: yorickvp/llava-13b\n- Replicate: joehoover/instructblip-vicuna13b\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Take a picture or upload the image of your fridge contents you want the AI to analyze.\n- Type in your question or just use the default one\n- Hit **enter** or Press ▶️ Run button!\n- View the generated meal suggestions in the **Chat** box.\n- Enjoy your meal preparation with AI assistance!\n- Try modifying the question and upload another image to ask different questions.",
-    "created": 1699433017937,
-    "updated": 1699437731461,
+    "help": "## OmniLab: Image-to-Text Panel 📸\nWelcome to this experimental recipe! Utilize the visual instruction tuning with advanced language models such as GPT-4 Vision and LLaVA-13B to analyze images of your fridge's contents and suggest what to prepare for your meal today. This is also a head-to-head comparison recipe, allowing you to compare the performance of different models directly.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Models**:\n\n- OpenAI: gpt-4-vision-preview\n- Replicate: yorickvp/llava-13b\n- Replicate: joehoover/instructblip-vicuna13b\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Take a picture or upload the image of your fridge contents you want the AI to analyze.\n- Type in your question or just use the default one\n- Hit **enter** or Press ▶️ Run button!\n- View the generated meal suggestions in the **Chat** box.\n- Enjoy your meal preparation with AI assistance!\n- Try modifying the question and upload another image to ask different questions.",
+    "created": 1699532884224,
+    "updated": 1699532884224,
     "pictureUrl": "fridge.png",
     "tags": [
       "#ImageToText",
@@ -23,11 +23,11 @@
       "2626": {
         "id": 2626,
         "data": {
-          "author": "omnitool.ai team",
+          "author": "Omnitool.ai team",
           "button": "",
           "credits": "",
-          "description": "Utilize the visual instruction tuning with Large Language models such as GPT-4 Vision and LLaVA to analyze images of your fridge's contents.",
-          "help": "## What to Cook for Today? 🍽️📸\nWelcome to this experimental recipe! Utilize the visual instruction tuning with advanced language models such as GPT-4 Vision and LLaVA-13B to analyze images of your fridge's contents and suggest what to prepare for your meal today. This is also a head-to-head comparison recipe, allowing you to compare the performance of different models directly.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Models**:\n\n- OpenAI: gpt-4-vision-preview\n- Replicate: yorickvp/llava-13b\n- Replicate: joehoover/instructblip-vicuna13b\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Take a picture or upload the image of your fridge contents you want the AI to analyze.\n- Type in your question or just use the default one\n- Hit **enter** or Press ▶️ Run button!\n- View the generated meal suggestions in the **Chat** box.\n- Enjoy your meal preparation with AI assistance!\n- Try modifying the question and upload another image to ask different questions.",
+          "description": "Utilize visual instruction tuning with large language models, such as GPT-4 Vision and LLaVA, for a head-to-head comparison in tasks like analyzing images of your fridge's contents!",
+          "help": "## OmniLab: Image-to-Text Panel 📸\nWelcome to this experimental recipe! Utilize the visual instruction tuning with advanced language models such as GPT-4 Vision and LLaVA-13B to analyze images of your fridge's contents and suggest what to prepare for your meal today. This is also a head-to-head comparison recipe, allowing you to compare the performance of different models directly.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Models**:\n\n- OpenAI: gpt-4-vision-preview\n- Replicate: yorickvp/llava-13b\n- Replicate: joehoover/instructblip-vicuna13b\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Take a picture or upload the image of your fridge contents you want the AI to analyze.\n- Type in your question or just use the default one\n- Hit **enter** or Press ▶️ Run button!\n- View the generated meal suggestions in the **Chat** box.\n- Enjoy your meal preparation with AI assistance!\n- Try modifying the question and upload another image to ask different questions.",
           "license": "CC0",
           "tags": [
             "#ImageToText",
@@ -36,7 +36,7 @@
             "#lifestyle",
             "#OpenAI DevDay"
           ],
-          "title": "OmniLab: What to Cook for Today?",
+          "title": "OmniLab: Image-to-Text Panel",
           "xOmniEnabled": true
         },
         "inputs": {},
