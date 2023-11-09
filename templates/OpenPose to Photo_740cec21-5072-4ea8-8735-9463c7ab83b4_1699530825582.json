@@ -1,13 +1,13 @@
 {
-  "id": "1c8953ca-7b32-44f5-b661-7d7f0c00f6ad",
+  "id": "740cec21-5072-4ea8-8735-9463c7ab83b4",
   "meta": {
     "name": "OpenPose to Photo",
-    "author": "Omnitool Workshop",
+    "author": "Anonymous",
     "description": "Experiment with the OpenPose extension to create human posture inputs, then utilize multiple models and extensions to facilitate the generation of a photo.",
     "category": "",
     "help": "## OpenPose Demo 📸🎨 \nWelcome to this recipe, it's part of the recipe that was showcased in our Nov workshop! This recipe allows you to try out the OpenPose extension to create a human posture input, combining image-to-image from HuggingFace and Replicate, and use Sharp extension for image resizing.\n\n### Prerequisite\nAPI Keys: Replicate, HuggingFace, OpenAI\nExtensions: OpenPose, Replicate, Sharp\n\n### How to Use:\n1. Install the OpenPose, Sharp extension\n2. Launch the OpenPose extension, then make the desired edits to generate an OpenPose bone image\n3. Open the File Manager and add the image to your canvas \n4. Replacing the sample image with the one you just add.\n5. Press the ▶️ Run button.\n6. Once processed, view the generated photo in the **Chat** box.\n7. Tweak it!!",
-    "created": 1699084777672,
-    "updated": 1699102556029,
+    "created": 1699530823032,
+    "updated": 1699530823032,
     "pictureUrl": "pose_002.png",
     "tags": [
       "#art",
@@ -22,7 +22,7 @@
       "2590": {
         "id": 2590,
         "data": {
-          "author": "Omnitool Workshop",
+          "author": "Omnitool.ai team",
           "button": "",
           "credits": "Omnitool Workshop Nov 1st",
           "description": "Experiment with the OpenPose extension to create human posture inputs, then utilize multiple models and extensions to facilitate the generation of a photo.",
@@ -116,7 +116,7 @@
           "prompt": "a dancing man suspended in mid-air, 4k, Nikon D850, full-body shot clear and distinct lines, high-resolution, white background, , max quality, award-winning, captivating, elegant, centered, extremely detailed, , award winning photography",
           "strength": 1,
           "width": 512,
-          "xOmniEnabled": false
+          "xOmniEnabled": true
         },
         "inputs": {
           "model": {
@@ -205,7 +205,13 @@
             "connections": []
           },
           "image": {
-            "connections": []
+            "connections": [
+              {
+                "node": 2600,
+                "output": "images",
+                "data": {}
+              }
+            ]
           },
           "prompt": {
             "connections": []
@@ -291,7 +297,13 @@
         },
         "outputs": {
           "images": {
-            "connections": []
+            "connections": [
+              {
+                "node": 2599,
+                "input": "image",
+                "data": {}
+              }
+            ]
           }
         },
         "position": [
