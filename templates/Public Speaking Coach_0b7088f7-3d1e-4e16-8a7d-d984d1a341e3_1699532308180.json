@@ -1,13 +1,13 @@
 {
-  "id": "1e487e20-f25d-4374-ace6-a4d6981e4645",
+  "id": "0b7088f7-3d1e-4e16-8a7d-d984d1a341e3",
   "meta": {
     "name": "Public Speaking Coach",
     "author": "Omnitool.ai team",
     "description": "Combining LLM and text-to-speech, this app serves as a personal public speech coach. It provides feedback on your transcripts and offers audio demonstrations to help improve your speaking skills.",
     "category": "",
-    "help": "## Public Speaking Coach 🎙️👑\n\nWelcome to the public speaking coach! This app is your personal public speech assistant, designed to refine your transcripts and offer engaging audio demonstrations. Dive into the world of eloquent speeches with the help of elevenlabs and LLM.\n\n### Prerequisites:\n**API Keys**:\n- OpenAI\n- Elevenlabs\n\n**Models**:\n\n- Elevenlabs English v1(Monolingual v1)\n- LLM: OpenAI GPT 4\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Input your current speech transcript.\n- Hit Run Recipe!\n- Receive feedback on your transcript and listen to the engaging audio demo in the chat!",
-    "created": 1697982071186,
-    "updated": 1697982872669,
+    "help": "## Public Speaking Coach 🎙️👑\n\nWelcome to the public speaking coach! This app is your personal public speech assistant, designed to refine your transcripts and offer engaging audio demonstrations. Dive into the world of eloquent speeches with the help of elevenlabs and LLM.\n\n### Prerequisites:\n**API Keys**:\n- OpenAI\n- Elevenlabs\n\n**Models**:\n\n- Elevenlabs English v1(Monolingual v1)\n- LLM: OpenAI GPT 4 (1106 onward to support JSON mode)\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Input your current speech transcript.\n- Hit Run Recipe!\n- Receive feedback on your transcript and listen to the engaging audio demo in the chat!",
+    "created": 1699531298081,
+    "updated": 1699532305496,
     "pictureUrl": "toastmaster.png",
     "tags": [
       "#education",
@@ -128,8 +128,8 @@
           "text": {
             "connections": [
               {
-                "node": 702,
-                "output": "Reply",
+                "node": 3471,
+                "output": "answer_text",
                 "data": {}
               }
             ]
@@ -152,8 +152,8 @@
           }
         },
         "position": [
-          1561.8788247198077,
-          -1404.1040386929224
+          1583.1772760241518,
+          -1375.3479484846557
         ],
         "name": "omnitool.text_to_json"
       },
@@ -482,7 +482,7 @@
           -68.54037552181052,
           -1243.9717803384783
         ],
-        "name": "omni-extension-formio:formio.auto_ui"
+        "name": "omni-core-formio:formio.auto_ui"
       },
       "644": {
         "id": 644,
@@ -491,7 +491,7 @@
           "button": "",
           "credits": "",
           "description": "Combining LLM and text-to-speech, this app serves as a personal public speech coach. It provides feedback on your transcripts and offers audio demonstrations to help improve your speaking skills.",
-          "help": "## Public Speaking Coach 🎙️👑\n\nWelcome to the public speaking coach! This app is your personal public speech assistant, designed to refine your transcripts and offer engaging audio demonstrations. Dive into the world of eloquent speeches with the help of elevenlabs and LLM.\n\n### Prerequisites:\n**API Keys**:\n- OpenAI\n- Elevenlabs\n\n**Models**:\n\n- Elevenlabs English v1(Monolingual v1)\n- LLM: OpenAI GPT 4\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Input your current speech transcript.\n- Hit Run Recipe!\n- Receive feedback on your transcript and listen to the engaging audio demo in the chat!",
+          "help": "## Public Speaking Coach 🎙️👑\n\nWelcome to the public speaking coach! This app is your personal public speech assistant, designed to refine your transcripts and offer engaging audio demonstrations. Dive into the world of eloquent speeches with the help of elevenlabs and LLM.\n\n### Prerequisites:\n**API Keys**:\n- OpenAI\n- Elevenlabs\n\n**Models**:\n\n- Elevenlabs English v1(Monolingual v1)\n- LLM: OpenAI GPT 4 (1106 onward to support JSON mode)\n\n### How to Use:\n\n- Navigate to the custom UI window.\n- Input your current speech transcript.\n- Hit Run Recipe!\n- Receive feedback on your transcript and listen to the engaging audio demo in the chat!",
           "license": "CC0",
           "tags": [
             "#education",
@@ -532,8 +532,8 @@
           "text": {
             "connections": [
               {
-                "node": 702,
-                "input": "Prompt",
+                "node": 3471,
+                "input": "prompt",
                 "data": {}
               }
             ]
@@ -545,19 +545,38 @@
         ],
         "name": "omnitool.input_text"
       },
-      "702": {
-        "id": 702,
+      "3471": {
+        "id": 3471,
         "data": {
-          "Criteria": "accurate",
-          "Instruction": "As a top-tier Toastmaster and TED talk coach, your ultimate goal is to enhance my public speaking and storytelling abilities. I'll provide you with a unstructured transcript draft for an English speech, and your task is to write a transcript that embodies persuasive power, engagement, and impact. Please ensure strict grammar checks, and refine sentence phrasing to boost articulation. Aim for communication that is succinct yet effective. Where suitable, incorporate storytelling strategies and frameworks to enhance the narrative.\n\nPlease respond with two pieces of information:\n\n1. \"revise\" - provide the enhanced, presentation-ready transcription. Ensure they sound natural and spoken includes realistic elements of spoken language like pauses (represented by dots, with longer pauses for longer dot series) and fillers. When powerful, consider asking questions to engage the audiences, and always pause right after that. I suggest following this flow for the transcription:\n- Grabber: Begin in a way that piques the audience's interest.\n- Problem: Define the problem or opportunity clearly.\n- Relevance: Explain why this problem or the opportunity matters to the audience.\n- Solution: Discuss the recommended solutions.\n- Sticker: End with a memorable statement or a call to action.\n\n\n2. \"feedback\" - Provide a constructive feedback, presented in bullet points, of the strategy or structure you've made and the reasoning behind them. When applicable, make sure to reference any strategies or frameworks you've implemented. Engage as though you are in direct conversation with me as a coach. \n\nRemember, your ultimate goal is to enhance my effective presentation and storytelling skills.\n\nYou have to output pure valid and syntactically correct one layer JSON format without any other embellishments or comments, following the structure: {\"revise\": \"YOUR REVISED STRING\", \"feedback\": \"YOUR FEEDBACK STRING\"}. Double check the output to ensure it's valid json. \n\nFor example:\n{\"revise\":\"AI Lab In A Box is an open-source platform that allows you to explore, prototype, create, learn, and evaluate with generative AI, large language models, diffusion models, Cloud AI APIs, local AI, and applied artificial intelligence. It offers Omnitool, a versatile and open-sourced AI Lab that enables individuals and businesses to quickly create and prototype AI-infused applications. Its intuitive, flow-based visual editor allows users to customize their AI applications according to their specific workflows. With a diverse range of APIs/Models, Omnitool supports efficient and cost-effective orchestration. It also provides boundless customization capabilities, along with an extension ecosystem to expand its functionality. Omnitool democratizes access to AI, making cutting-edge technology accessible to users of all technical proficiency levels.\",\"feedback\":\"Here are the feedback points and explanations:\\n\\n- Added the name 'AI Lab In A Box' at the beginning to clarify the subject of the sentence.\\n- Replaced the bracketed options with a list using 'and'.\\n- Replaced 'users' with 'you' to create a more personal and engaging tone.\\n- Replaced 'facilitates' with 'supports' to vary the language.\\n- Rearranged the sentence structure for smoother flow.\\n- Removed the repetition of 'power' in the last sentence.\"}",
-          "Prompt": "",
+          "function": null,
+          "instruction": "As a top-tier Toastmaster and TED talk coach, your ultimate goal is to enhance my public speaking and storytelling abilities. I'll provide you with a unstructured transcript draft for an English speech, and your task is to write a transcript that embodies persuasive power, engagement, and impact. Please ensure strict grammar checks, and refine sentence phrasing to boost articulation. Aim for communication that is succinct yet effective. Where suitable, incorporate storytelling strategies and frameworks to enhance the narrative.\n\nPlease respond with two pieces of information:\n\n1. \"revise\" - provide the enhanced, presentation-ready transcription. Ensure they sound natural and spoken includes realistic elements of spoken language like pauses (represented by dots, with longer pauses for longer dot series) and fillers. When powerful, consider asking questions to engage the audiences, and always pause right after that. I suggest following this flow for the transcription:\n- Grabber: Begin in a way that piques the audience's interest.\n- Problem: Define the problem or opportunity clearly.\n- Relevance: Explain why this problem or the opportunity matters to the audience.\n- Solution: Discuss the recommended solutions.\n- Sticker: End with a memorable statement or a call to action.\n\n\n2. \"feedback\" - Provide a constructive feedback, presented in bullet points, of the strategy or structure you've made and the reasoning behind them. When applicable, make sure to reference any strategies or frameworks you've implemented. Engage as though you are in direct conversation with me as a coach. \n\nRemember, your ultimate goal is to enhance my effective presentation and storytelling skills.\n\nYou have to output pure valid and syntactically correct one layer JSON format without any other embellishments or comments, following the structure: {\"revise\": \"YOUR REVISED STRING\", \"feedback\": \"YOUR FEEDBACK STRING\"}. Double check the output to ensure it's valid json. \n\nFor example:\n{\"revise\":\"AI Lab In A Box is an open-source platform that allows you to explore, prototype, create, learn, and evaluate with generative AI, large language models, diffusion models, Cloud AI APIs, local AI, and applied artificial intelligence. It offers Omnitool, a versatile and open-sourced AI Lab that enables individuals and businesses to quickly create and prototype AI-infused applications. Its intuitive, flow-based visual editor allows users to customize their AI applications according to their specific workflows. With a diverse range of APIs/Models, Omnitool supports efficient and cost-effective orchestration. It also provides boundless customization capabilities, along with an extension ecosystem to expand its functionality. Omnitool democratizes access to AI, making cutting-edge technology accessible to users of all technical proficiency levels.\",\"feedback\":\"Here are the feedback points and explanations:\\n\\n- Added the name 'AI Lab In A Box' at the beginning to clarify the subject of the sentence.\\n- Replaced the bracketed options with a list using 'and'.\\n- Replaced 'users' with 'you' to create a more personal and engaging tone.\\n- Replaced 'facilitates' with 'supports' to vary the language.\\n- Rearranged the sentence structure for smoother flow.\\n- Removed the repetition of 'power' in the last sentence.\"}",
+          "json_mode": true,
+          "model": "gpt-3.5-turbo-1106",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
           "xOmniEnabled": true
         },
         "inputs": {
-          "Instruction": {
+          "model": {
             "connections": []
           },
-          "Prompt": {
+          "seed": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
             "connections": [
               {
                 "node": 701,
@@ -565,10 +584,13 @@
                 "data": {}
               }
             ]
+          },
+          "json_mode": {
+            "connections": []
           }
         },
         "outputs": {
-          "Reply": {
+          "answer_text": {
             "connections": [
               {
                 "node": 345,
@@ -576,13 +598,28 @@
                 "data": {}
               }
             ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
           }
         },
         "position": [
-          1015.0755677967147,
-          -1722.4819631328605
+          1054.2269008111045,
+          -1747.6651342163475
         ],
-        "name": "omnitool.large_language_model"
+        "name": "openai.advancedChatGPT"
       }
     }
   },
@@ -590,7 +627,16 @@
     "fields": {}
   },
   "ui": {},
-  "blockIds": {},
+  "blockIds": [
+    "elevenlabs.simpletts",
+    "omni-core-formio:formio.auto_ui",
+    "omnitool.chat_output",
+    "omnitool.input_text",
+    "omnitool.jsonata",
+    "omnitool.recipe_metadata",
+    "omnitool.text_to_json",
+    "openai.advancedChatGPT"
+  ],
   "_flags": [
     "owner"
   ]
