@@ -1,13 +1,13 @@
 {
-  "id": "cec0bd36-6ab0-4ee4-9c0b-8d3a65da4f7e",
+  "id": "98cfed95-991d-4731-8b15-003cd7b2a1c6",
   "meta": {
     "name": "OpenAI DevDay 2023 Playground",
     "author": "Omnitool.ai team",
     "description": "An experimental playground recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo/Vision, and TTS models.",
     "category": "",
-    "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, GPT-4 Vision and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n- **GPT-4 Vision**: known as gpt-4-vision-preview, allows for image inputs in the GPT 4 model and supports a variety of use cases such as generating captions, detailed image analysis, and document reading with visual elements. The pricing for this API varies based on the input image size, with an example cost of $0.00765 for an image with 1080×1080 pixels​.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
+    "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n- **GPT-4 Vision**: known as gpt-4-vision-preview, allows for image inputs in the GPT 4 model and supports a variety of use cases such as generating captions, detailed image analysis, and document reading with visual elements. The pricing for this API varies based on the input image size, with an example cost of $0.00765 for an image with 1080×1080 pixels​.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
     "created": 1699376830678,
-    "updated": 1699533557465,
+    "updated": 1699597961456,
     "pictureUrl": "openai-devday.png",
     "tags": [
       "#LLM",
@@ -29,7 +29,7 @@
           "credits": "",
           "description": "An experimental playground recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo/Vision, and TTS models.",
           "enabled": true,
-          "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo, GPT-4 Vision and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n- **GPT-4 Vision**: known as gpt-4-vision-preview, allows for image inputs in the GPT 4 model and supports a variety of use cases such as generating captions, detailed image analysis, and document reading with visual elements. The pricing for this API varies based on the input image size, with an example cost of $0.00765 for an image with 1080×1080 pixels​.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
+          "help": "# OpenAI DevDay 2023 Playground 🤖🚀\n\nWelcome to the **AI Journalist** recipe! This is an experimental recipe featuring the new offerings from OpenAI's DevDay 2023, including DALL·E 3, GPT-4 Turbo and TTS models. Explore the capabilities of these advanced AI models and see what you can create!\n\nPlease note that this is an experimental recipe. The outputs may vary based on the inputs and the selected model.\n\n## Models\n- **GPT-4 Turbo**: Known as `gpt-4-1106-preview`, this model has a 128K context window and is priced at roughly one-third the cost of GPT-4, yet about 10x more than GPT-3. It delivers answers with context up to April 2023.\n- **TTS**: The new TTS API comes with six preset voices and two model options: `tts-1` for efficient real-time use and `tts-1-hd` for high-quality output, with pricing starting at $0.015 per 1,000 characters.\n- **DALL-E 3**: The image generation API enables developers to craft images, starting at $0.04 per image.\n- **GPT-4 Vision**: known as gpt-4-vision-preview, allows for image inputs in the GPT 4 model and supports a variety of use cases such as generating captions, detailed image analysis, and document reading with visual elements. The pricing for this API varies based on the input image size, with an example cost of $0.00765 for an image with 1080×1080 pixels​.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n### How to Use:\n1. Navigate to the **Chat** window.\n2. Enter the headline or topic you want the article about.\n3. Hit **enter** or Run.\n4. Enjoy the AI-generated journalism!\n5. If needed, tweak the prompt to remove or fit within any character constraints.",
           "license": "CC0",
           "tags": [
             "#LLM",
@@ -71,11 +71,6 @@
             "connections": [
               {
                 "node": 2355,
-                "output": "text",
-                "data": {}
-              },
-              {
-                "node": 3569,
                 "output": "text",
                 "data": {}
               }
@@ -435,77 +430,15 @@
                 "node": 365,
                 "input": "images",
                 "data": {}
-              },
-              {
-                "node": 3569,
-                "input": "images",
-                "data": {}
               }
             ]
           }
         },
         "position": [
-          1715.8409271466385,
-          -783.3758146340255
+          1688.7926510276723,
+          -712.482278057096
         ],
         "name": "openai.simpleDallE2"
-      },
-      "3569": {
-        "id": 3569,
-        "data": {
-          "images": "",
-          "instruction": "You are a helpful bot. You can help people by answering their questions.",
-          "model": "gpt-4-vision-preview",
-          "prompt": "write a compelling caption for this photo suitable for a newspaper audience that succinctly conveys the essence of the image. Within 100 characters.",
-          "temperature": 0.3,
-          "top_p": 1,
-          "xOmniEnabled": true
-        },
-        "inputs": {
-          "model": {
-            "connections": []
-          },
-          "seed": {
-            "connections": []
-          },
-          "temperature": {
-            "connections": []
-          },
-          "top_p": {
-            "connections": []
-          },
-          "instruction": {
-            "connections": []
-          },
-          "prompt": {
-            "connections": []
-          },
-          "images": {
-            "connections": [
-              {
-                "node": 2542,
-                "output": "images",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "outputs": {
-          "text": {
-            "connections": [
-              {
-                "node": 365,
-                "input": "text",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          2430.4769411777756,
-          -945.2293341959942
-        ],
-        "name": "openai.simpleChatGPT-vision"
       }
     }
   },
@@ -520,7 +453,6 @@
     "omnitool.recipe_metadata",
     "openai.createSpeech",
     "openai.simpleChatGPT",
-    "openai.simpleChatGPT-vision",
     "openai.simpleDallE2"
   ],
   "_flags": [
