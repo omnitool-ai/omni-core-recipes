@@ -1,0 +1,776 @@
+{
+  "id": "387e52c4-be3f-419c-8683-57328d11e744",
+  "meta": {
+    "name": "Kids' Answer Engine 2.0",
+    "author": "Omnitool.ai team",
+    "description": "Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration.",
+    "category": "",
+    "help": "## Kids' Answer Engine - 100 Thousand Whys 🧪🔬\n\nWelcome to this recipe! Inspired by the popular Chinese children's science book series, \"100 Thousand Whys\", it uses a combination of LLM and Diffusion model to craft engaging answers and illustrations for the 'Why' questions, nurturing a child's thirst for knowledge.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n**Models:**\n- OpenAI: gpt-3.5 or gpt-4 1106 preview\n\n### How to Use:\n\n- Navigate to the Custom UI window.\n- Type in your 'Why' question.\n- Hit Run Recipe button!\n- View the generated answer and illustration in the **Chat** box.",
+    "created": 1699596557075,
+    "updated": 1699597402023,
+    "pictureUrl": "ulla.png",
+    "tags": [
+      "#education",
+      "#books",
+      "#intermediate",
+      "#diffusion",
+      "#LLM"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "108": {
+        "id": 108,
+        "data": {
+          "enabled": true,
+          "text": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3658,
+                "output": "answer_text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "json": {
+            "connections": [
+              {
+                "node": 111,
+                "input": "object",
+                "data": {}
+              },
+              {
+                "node": 112,
+                "input": "object",
+                "data": {}
+              },
+              {
+                "node": 113,
+                "input": "object",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          439.0608758758762,
+          -1092.3324653060183
+        ],
+        "name": "omnitool.text_to_json"
+      },
+      "111": {
+        "id": 111,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.\"1\"",
+          "x-omni-title": "Fetch 1st Illustration Description",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 108,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 3781,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          896.0442980829934,
+          -1536.8355006855393
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "112": {
+        "id": 112,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.\"2\"",
+          "x-omni-title": "Fetch 2nd Illustration Description",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 108,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 3782,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          915.804368097665,
+          -1171.9708241534368
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "113": {
+        "id": 113,
+        "data": {
+          "enabled": true,
+          "object": "",
+          "transform": "$.\"3\"",
+          "x-omni-title": "Fetch 3rd Illustration Description",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "transform": {
+            "connections": []
+          },
+          "object": {
+            "connections": [
+              {
+                "node": 108,
+                "output": "json",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "object": {
+            "connections": []
+          },
+          "text": {
+            "connections": [
+              {
+                "node": 3783,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          932.127669314511,
+          -833.3221956357697
+        ],
+        "name": "omnitool.jsonata"
+      },
+      "132": {
+        "id": 132,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "enabled": true,
+          "files": "",
+          "images": "",
+          "json": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": "",
+          "x-omni-title": "Chat Output",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3257,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3781,
+                "output": "images",
+                "data": {}
+              },
+              {
+                "node": 3782,
+                "output": "images",
+                "data": {}
+              },
+              {
+                "node": 3783,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2328.091105173318,
+          -1326.9031124832832
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "311": {
+        "id": 311,
+        "data": {
+          "author": "Omnitool.ai team",
+          "button": "",
+          "category": "",
+          "credits": "",
+          "description": "Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration.",
+          "enabled": true,
+          "help": "## Kids' Answer Engine - 100 Thousand Whys 🧪🔬\n\nWelcome to this recipe! Inspired by the popular Chinese children's science book series, \"100 Thousand Whys\", it uses a combination of LLM and Diffusion model to craft engaging answers and illustrations for the 'Why' questions, nurturing a child's thirst for knowledge.\n\n### Prerequisites:\n\n**API Keys**:\n- OpenAI\n\n**Models:**\n- OpenAI: gpt-3.5 or gpt-4 1106 preview\n\n### How to Use:\n\n- Navigate to the Custom UI window.\n- Type in your 'Why' question.\n- Hit Run Recipe button!\n- View the generated answer and illustration in the **Chat** box.",
+          "license": "CC0",
+          "tags": [
+            "#education",
+            "#books",
+            "#intermediate",
+            "#diffusion",
+            "#LLM"
+          ],
+          "title": "Kids' Answer Engine 2.0",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1639.285209921428,
+          -1931.0935505798354
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "1150": {
+        "id": 1150,
+        "data": {
+          "Prompt": "Why does moon has different shapes?",
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Kids' Answer Engine - 100 Thousand Whys",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "Drawing inspiration from the Chinese children's science series, \"100 Thousand Whys,\" this recipe creates a small chat bot that answers \"why\" questions by curious youngsters using a combination of Large Language Model and Stable Diffusion for text and illustration.",
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "defaultValue": "Why does moon has different shapes?",
+                        "description": "A string",
+                        "input": true,
+                        "key": "Prompt",
+                        "label": "Ask me any 'Why':",
+                        "tableView": true,
+                        "type": "textarea"
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  },
+                  {
+                    "components": [
+                      {
+                        "attrs": [
+                          {
+                            "attr": "id",
+                            "value": "outputContent"
+                          }
+                        ],
+                        "content": "Results will show up here!",
+                        "input": false,
+                        "key": "x-outputContent",
+                        "label": "Results Pane",
+                        "refreshOnChange": false,
+                        "tableView": false,
+                        "tag": "div",
+                        "type": "htmlelement"
+                      }
+                    ],
+                    "key": "x-results",
+                    "label": "Results"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "Prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A string",
+              "name": "Prompt",
+              "socketOpts": {},
+              "title": "Prompt",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "Prompt": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "text",
+              "description": "A string",
+              "name": "Prompt",
+              "socketOpts": {},
+              "title": "Prompt",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Prompt": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "Prompt": {
+            "connections": [
+              {
+                "node": 3257,
+                "input": "Prompt",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -1083.947914183003,
+          -1115.8793229300497
+        ],
+        "name": "omni-core-formio:formio.auto_ui"
+      },
+      "3257": {
+        "id": 3257,
+        "data": {
+          "Criteria": "",
+          "Instruction": "You are now the world's best and fastest teacher for young children. Your goal is to teach a 4 year-old kid complicated concepts, in a very innovative and understanding way. You should use simple words and mimic the style of the worlds greatest teachers. You should always include in the beginning a real (or fictitious or analogy even) world example of this concept for the kids to better visualize it. You should always attempt to use the simplest language and least amount of words possible to teach the kids (does not apply to the real world examples). \n\nExtra: Always begin every interaction with very informal and charismatic language. Kids need to feel like what you are about to talk about isn't that hard to understand.\n\nExtra: If the terminology is too difficult for the kid, consider using another term or analogy.\n\nExtra: Propose an experiment that could potentially help teaching the concept effectively\n\nExample:\n\"Have you ever heard a loud noise during a thunderstorm? That's thunder! When lightning bolts pass through the air, they heat up the air really quickly. The hot air tries to escape and pushes against the cooler air around it, creating a sound wave we hear as thunder. It's like when you pop popcorn and it makes a popping sound. The heated air inside the popcorn kernel expands and pops, just like the heated air in the thunderstorm creates a sound wave we hear as thunder!\"",
+          "Prompt": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "Instruction": {
+            "connections": []
+          },
+          "Prompt": {
+            "connections": [
+              {
+                "node": 1150,
+                "output": "Prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "Reply": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 3658,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -541.975502053985,
+          -1191.2998922869674
+        ],
+        "name": "omnitool.large_language_model"
+      },
+      "3658": {
+        "id": 3658,
+        "data": {
+          "function": null,
+          "instruction": "As the esteemed school book illustrator, your goal is to design a series of illustrations that seamlessly complement the explanation of the given concept. Your task is to meticulously design each picture to provide visual support and enhance the understanding of the given concept. \n\nGuidelines:\n- Compartment the provided concept into three main ideas it tried to convey. Extract the most important subjects and actions in the concept. \n- You output pure valid and syntactically correct JSON without any other embellishments or comments, following the exact structure: {\"1\": \"a picture illustration for the first compartment\", \"2\": \"a picture illustration of the second compartment\", \"3\": \"picture illustration of the third compartment\"}\n- If there is a proposed experiment in the given context, describe the experiment only in the third picture.\n\nFor example:\n\n{\"1\": \"a happy magnet, with eyes and a smile, pulling a metal spoon towards itself. The spoon is shown moving in the air, with dotted lines indicating its path towards the magnet.\", \"2\": \"the same happy magnet, this time feeling sad and confused, next to a plastic toy that it cannot stick to. The plastic toy is shown with a speech bubble that says 'Sorry, buddy!'. In the background, there is a paperclip stuck to the magnet, indicating its ability to stick to certain materials.\", \"3\": \"a scene where the child is exploring different materials with the magnet. They are shown holding the magnet in one hand and trying it out on different materials like a piece of paper, a rubber ball, a metal key, and a pencil. Each material is shown with a label to indicate if it sticks to the magnet or not. The child's face is full of wonder and curiosity.\"}\n\n{\"1\": \"A visual of the new moon phase. Show the moon positioned between the sun and Earth, with no reflective surface visible from Earth. Use an image of the moon and sun in proportion to each other and the Earth.\", \"2\": \"A visual of the waxing and waning crescent phases. Use an image of the portion of the moon visible from Earth, gradually increasing or decreasing in size, with the sun partially visible in the background to indicate the reflection of sunlight.\", \"3\": \"A visual of the full moon phase. Use an image of the fully visible moon, reflecting all the sunlight that it receives from the sun. Include a proportional image of the Earth to indicate that the moon orbits it.\"}\n\n{\"1\": \"A tree in full greenery with a blue sky background is shown. A leaf is zoomed in showing its internal structure, with all the parts labeled. Particularly, the chlorophyll is shown as abundant green blobs.\", \"2\": \"The same tree in autumn with a solemn, calm atmosphere. The tree is shown with colored leaves, the fallen ones on the ground, and some leaves still hanging on branches. A diagram shows the leaf structure again, but this time the colors contribute to the full picture. Chlorophyll blobs are smaller or absent, giving way to the orange and yellow pigments in a complex structure.\", \"3\": \"A hands-on experiment scene shows a clear plastic bag with a leaf turning yellow inside. The process depicts a pencil, a plastic bag, and rubbing alcohol as materials with simple instructions. There are other bags with different leaves around, already treated with alcohol, showing the pigments extracted from each one.\"}",
+          "json_mode": true,
+          "model": "gpt-4-1106-preview",
+          "prompt": "Create a novel AI koan.",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "function": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3257,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
+          },
+          "json_mode": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "answer_text": {
+            "connections": [
+              {
+                "node": 108,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          },
+          "function_call": {
+            "connections": []
+          },
+          "function_arguments_string": {
+            "connections": []
+          },
+          "function_arguments": {
+            "connections": []
+          },
+          "function_name": {
+            "connections": []
+          },
+          "raw_output": {
+            "connections": []
+          }
+        },
+        "position": [
+          -51.396094437439444,
+          -1871.7666996308444
+        ],
+        "name": "openai.advancedChatGPT"
+      },
+      "3781": {
+        "id": 3781,
+        "data": {
+          "model": "dall-e-3",
+          "n": 1,
+          "prompt": "",
+          "quality": "standard",
+          "size": "1024x1024",
+          "style": "vivid",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 111,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "n": {
+            "connections": []
+          },
+          "quality": {
+            "connections": []
+          },
+          "size": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "revised_prompts": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1581.3106013746617,
+          -1750.4024381417637
+        ],
+        "name": "openai.simpleDallE2"
+      },
+      "3782": {
+        "id": 3782,
+        "data": {
+          "model": "dall-e-3",
+          "n": 1,
+          "prompt": "",
+          "quality": "standard",
+          "size": "1024x1024",
+          "style": "vivid",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 112,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "n": {
+            "connections": []
+          },
+          "quality": {
+            "connections": []
+          },
+          "size": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "revised_prompts": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1570.1487855384999,
+          -1143.126651639145
+        ],
+        "name": "openai.simpleDallE2"
+      },
+      "3783": {
+        "id": 3783,
+        "data": {
+          "model": "dall-e-3",
+          "n": 1,
+          "prompt": "",
+          "quality": "standard",
+          "size": "1024x1024",
+          "style": "vivid",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "prompt": {
+            "connections": [
+              {
+                "node": 113,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": []
+          },
+          "n": {
+            "connections": []
+          },
+          "quality": {
+            "connections": []
+          },
+          "size": {
+            "connections": []
+          },
+          "style": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "revised_prompts": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 132,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1570.664059403329,
+          -542.3961404397994
+        ],
+        "name": "openai.simpleDallE2"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-formio:formio.auto_ui",
+    "omnitool.chat_output",
+    "omnitool.jsonata",
+    "omnitool.large_language_model",
+    "omnitool.recipe_metadata",
+    "omnitool.text_to_json",
+    "openai.advancedChatGPT",
+    "openai.simpleDallE2"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
