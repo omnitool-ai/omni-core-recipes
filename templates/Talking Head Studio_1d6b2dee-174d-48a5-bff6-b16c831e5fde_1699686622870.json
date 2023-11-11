@@ -1,0 +1,499 @@
+{
+  "id": "1d6b2dee-174d-48a5-bff6-b16c831e5fde",
+  "meta": {
+    "name": "Talking Head Studio",
+    "author": "omnitool.ai team",
+    "description": "Combines Text-to-Speech and image-to-video to transforms your portrait image into a speaking character.",
+    "category": "",
+    "help": "## Talking Head Studio 🖼️🔊🎥\n\nWelcome to this recipe! Utilize the power Text-to-Speech and image-to-video model such as Sadtalker to bring your portrait images to life. Upload a portrait image and type in a transcript to create a talking head video.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n**Models:**\n\n- OpenAI TTS\n- sadtalker\n\n### How to Use:\n\n- Navigate to the **Custom UI** window.\n- Upload the portrait image you want to animate.\n- Type in the transcript you want the image to say.\n- Tweak the model input parameters as needed, such as changing the voice for variation.\n- Hit **Run Recipe** button!\n- Enjoy the generated talking head video in the Chat window.",
+    "created": 1699662254683,
+    "updated": 1699686410236,
+    "pictureUrl": "talker.png",
+    "tags": [
+      "#Marketing",
+      "#Entertainment",
+      "#Business"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2553": {
+        "id": 2553,
+        "data": {
+          "driven_audio": "https://replicate.delivery/pbxt/Jf1gczNATWiC94VPrsTTLuXI0ZmtuZ6k0aWBcQpr7VuRc5f3/japanese.wav",
+          "enabled": true,
+          "enhancer": "gfpgan",
+          "preprocess": "full",
+          "ref_eyeblink": "",
+          "ref_pose": "",
+          "source_image": "https://replicate.delivery/pbxt/Jf1gcsODejVsGRd42eeUj0RXX11zjxzHuLuqXmVFwMAi2tZq/art_1.png",
+          "still": true,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "still": {
+            "connections": []
+          },
+          "enabled": {
+            "connections": []
+          },
+          "enhancer": {
+            "connections": []
+          },
+          "ref_pose": {
+            "connections": []
+          },
+          "preprocess": {
+            "connections": []
+          },
+          "driven_audio": {
+            "connections": [
+              {
+                "node": 2569,
+                "output": "result",
+                "data": {}
+              }
+            ]
+          },
+          "ref_eyeblink": {
+            "connections": []
+          },
+          "source_image": {
+            "connections": [
+              {
+                "node": 2570,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 2555,
+                "input": "videos",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          685.4786128997716,
+          -211.44193072189762
+        ],
+        "name": "omni-core-replicate:run.lucataco/sadtalker"
+      },
+      "2555": {
+        "id": 2555,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": null,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": [
+              {
+                "node": 2553,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1197.1397268187186,
+          -240.0213615651035
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2569": {
+        "id": 2569,
+        "data": {
+          "input": "I am jiexi robot. Give me your dinosaur, hahahaha.\nHappy birthday to Yi Chen Chen. See you soon in Taiwan! Love you!",
+          "model": "tts-1-hd",
+          "response_format": "mp3",
+          "speed": 1,
+          "voice": "nova",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "input": {
+            "connections": [
+              {
+                "node": 2573,
+                "output": "input",
+                "data": {}
+              }
+            ]
+          },
+          "voice": {
+            "connections": []
+          },
+          "response_format": {
+            "connections": []
+          },
+          "speed": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "result": {
+            "connections": [
+              {
+                "node": 2553,
+                "input": "driven_audio",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          117.77542071834054,
+          -531.897531878953
+        ],
+        "name": "openai.createSpeech"
+      },
+      "2570": {
+        "id": 2570,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 512,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 512,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2573,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2553,
+                "input": "source_image",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          110.76754737039673,
+          -26.383186802819882
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "2573": {
+        "id": 2573,
+        "data": {
+          "button": "",
+          "editMode": false,
+          "enableUI": true,
+          "images": "",
+          "input": "",
+          "source": {
+            "components": [
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "My Recipe",
+                "input": false,
+                "key": "x-title",
+                "label": "Recipe Title",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "h3",
+                "type": "htmlelement"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "input": false,
+                "key": "x-desc",
+                "label": "Recipe Description",
+                "refreshOnChange": false,
+                "tableView": false,
+                "type": "htmlelement"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "applyMaskOn": "change",
+                        "autoExpand": false,
+                        "description": "The text to generate audio for. The maximum length is 4096 characters.",
+                        "input": true,
+                        "key": "input",
+                        "label": "Voice transcript",
+                        "tableView": true,
+                        "type": "textarea"
+                      },
+                      {
+                        "applyMaskOn": "change",
+                        "capture": false,
+                        "description": "Images to resize.",
+                        "fileTypes": [
+                          {
+                            "label": "",
+                            "value": ""
+                          }
+                        ],
+                        "image": true,
+                        "imageSize": "256",
+                        "input": true,
+                        "key": "images",
+                        "label": "Upload your portrait photo",
+                        "storage": "b64-fixed-storage-provider",
+                        "tableView": false,
+                        "type": "file",
+                        "webcam": true
+                      }
+                    ],
+                    "key": "x-inputs",
+                    "label": "Inputs"
+                  }
+                ],
+                "input": false,
+                "key": "tabs",
+                "label": "Tabs",
+                "tableView": false,
+                "type": "tabs"
+              },
+              {
+                "attrs": [
+                  {
+                    "attr": "",
+                    "value": ""
+                  }
+                ],
+                "content": "&nbsp;",
+                "input": false,
+                "key": "html",
+                "label": "HTML",
+                "refreshOnChange": false,
+                "tableView": false,
+                "tag": "div",
+                "type": "htmlelement"
+              },
+              {
+                "disableOnInvalid": true,
+                "input": true,
+                "key": "submit",
+                "label": "Run Recipe",
+                "showValidations": false,
+                "tableView": true,
+                "type": "button"
+              }
+            ]
+          },
+          "x-omni-dynamicInputs": {
+            "images": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "image",
+              "description": "Images to resize.",
+              "name": "images",
+              "socketOpts": {
+                "array": true
+              },
+              "title": "Input Images",
+              "type": "object"
+            },
+            "input": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "description": "The text to generate audio for. The maximum length is 4096 characters.",
+              "name": "input",
+              "title": "input",
+              "type": "string"
+            }
+          },
+          "x-omni-dynamicOutputs": {
+            "images": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "customSocket": "image",
+              "description": "Images to resize.",
+              "name": "images",
+              "socketOpts": {
+                "array": true
+              },
+              "title": "Input Images",
+              "type": "object"
+            },
+            "input": {
+              "control": {
+                "type": "AlpineLabelControl"
+              },
+              "description": "The text to generate audio for. The maximum length is 4096 characters.",
+              "name": "input",
+              "title": "input",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": []
+          },
+          "input": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 2570,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "input": {
+            "connections": [
+              {
+                "node": 2569,
+                "input": "input",
+                "data": {}
+              }
+            ]
+          },
+          "any": {
+            "connections": []
+          }
+        },
+        "position": [
+          -447.1316737632719,
+          -336.44766539804306
+        ],
+        "name": "omni-core-formio:formio.auto_ui"
+      },
+      "2584": {
+        "id": 2584,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Combines Text-to-Speech and image-to-video to transforms your portrait image into a speaking character.",
+          "help": "## Talking Head Studio 🖼️🔊🎥\n\nWelcome to this recipe! Utilize the power Text-to-Speech and image-to-video model such as Sadtalker to bring your portrait images to life. Upload a portrait image and type in a transcript to create a talking head video.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n**Models:**\n\n- OpenAI TTS\n- sadtalker\n\n### How to Use:\n\n- Navigate to the **Custom UI** window.\n- Upload the portrait image you want to animate.\n- Type in the transcript you want the image to say.\n- Tweak the model input parameters as needed, such as changing the voice for variation.\n- Hit **Run Recipe** button!\n- Enjoy the generated talking head video in the Chat window.",
+          "license": "CC0",
+          "tags": [
+            "#Marketing",
+            "#Entertainment",
+            "#Business"
+          ],
+          "title": "Talking Head Studio",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -935.798693730891,
+          -786.1075038542285
+        ],
+        "name": "omnitool.recipe_metadata"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-formio:formio.auto_ui",
+    "omni-core-replicate:run.lucataco/sadtalker",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_output",
+    "omnitool.recipe_metadata",
+    "openai.createSpeech"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
