@@ -1,0 +1,229 @@
+{
+  "id": "9ae52599-9853-40dc-9aa2-b8e484883b05",
+  "meta": {
+    "name": "Web UI Builder",
+    "author": "omnitool.ai team",
+    "description": "Convert wireframe, screenshots, or sketches of website designs into fully functional Tailwind HTML code. Using advanced Visual Instruction Tuning models like GPT-4-Vision and LLaVA. Bring your web design concepts to life in just a few clicks!",
+    "category": "",
+    "help": "## Web UI Builder 🖼️➡️🌐\n\nWelcome to this recipe! Leveraging the capabilities of visual instruction tuning LLM model, this tool can effortlessly convert your website screenshots or design wireframe into functional Tailwind HTML code. \n\n### Prerequisites\nBefore you begin, ensure you have the following:\n\n**API Keys:**\n- OpenAI\n\n**Extensions:**\n- Replicate\n- TLDraw (Optional)\n\n**Models:**\n- OpenAI: GPT-4-Vision\n\n### How to Use\nFollow these simple steps to transform your design into a working website:\n\n1. **Prepare Your Design:** This can be in the form of a screenshot or a hand-drawn sketch. For creating wireframe sketches, the **TLDraw** extension is a recommended tool. Install it from the extension manager.\n\n2. **Navigate:** Go to the **Chat** window.\n\n3. **Upload:** Submit the screenshot or sketch of your website design.\n\n4. **Execute:** Press the ▶️ Run button.\n\n5. **Retrieve File:** Easily access your generated HTML through the File Manager. You can either click to open it directly in the viewer or choose to download it for viewing in your preferred web browser!",
+    "created": 1699532516300,
+    "updated": 1699688135624,
+    "pictureUrl": "web_builder.png",
+    "tags": [
+      "#Productivity",
+      "#Development"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "1": {
+        "id": 1,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Convert wireframe, screenshots, or sketches of website designs into fully functional Tailwind HTML code. Using advanced Visual Instruction Tuning models like GPT-4-Vision and LLaVA. Bring your web design concepts to life in just a few clicks!",
+          "help": "## Web UI Builder 🖼️➡️🌐\n\nWelcome to this recipe! Leveraging the capabilities of visual instruction tuning LLM model, this tool can effortlessly convert your website screenshots or design wireframe into functional Tailwind HTML code. \n\n### Prerequisites\nBefore you begin, ensure you have the following:\n\n**API Keys:**\n- OpenAI\n\n**Extensions:**\n- Replicate\n- TLDraw (Optional)\n\n**Models:**\n- OpenAI: GPT-4-Vision\n\n### How to Use\nFollow these simple steps to transform your design into a working website:\n\n1. **Prepare Your Design:** This can be in the form of a screenshot or a hand-drawn sketch. For creating wireframe sketches, the **TLDraw** extension is a recommended tool. Install it from the extension manager.\n\n2. **Navigate:** Go to the **Chat** window.\n\n3. **Upload:** Submit the screenshot or sketch of your website design.\n\n4. **Execute:** Press the ▶️ Run button.\n\n5. **Retrieve File:** Easily access your generated HTML through the File Manager. You can either click to open it directly in the viewer or choose to download it for viewing in your preferred web browser!",
+          "license": "CC0",
+          "tags": [
+            "#Productivity",
+            "#Development"
+          ],
+          "title": "Web UI Builder",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -538.2144345298368,
+          270.37870215219976
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "5": {
+        "id": 5,
+        "data": {
+          "images": "",
+          "instruction": "You are an expert tailwind developer. A user will provide you with a low-fidelity wireframe of an application and you will return a single html file that uses tailwind to create the website. Use creative license to make the application more fleshed out.\nif you need to insert an image, use placehold.co to create a placeholder image. Respond only with the html file.",
+          "max_tokens": 4096,
+          "model": "gpt-4-vision-preview",
+          "prompt": "Here is the wireframe. Please use a pleasing modern theme based on tailwindcss. Please do not enclose in markdown.",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3632,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 7,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          702.3684588382139,
+          334.21675832576204
+        ],
+        "name": "openai.simpleChatGPT-vision"
+      },
+      "7": {
+        "id": 7,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "fileName": "main",
+          "images": "",
+          "object": null,
+          "storageType": "Permanent",
+          "text": "",
+          "textType": "text/html",
+          "videos": null,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 5,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          1389.7654249580012,
+          352.8644078629639
+        ],
+        "name": "omnitool.file_output"
+      },
+      "3632": {
+        "id": 3632,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 5,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          67.17110709757628,
+          578.6844916473326
+        ],
+        "name": "omnitool.chat_input"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.file_output",
+    "omnitool.recipe_metadata",
+    "openai.simpleChatGPT-vision"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
