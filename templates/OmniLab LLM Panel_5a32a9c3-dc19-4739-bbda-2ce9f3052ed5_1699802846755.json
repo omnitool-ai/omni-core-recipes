@@ -1,0 +1,918 @@
+{
+  "id": "5a32a9c3-dc19-4739-bbda-2ce9f3052ed5",
+  "meta": {
+    "name": "OmniLab: LLM Panel",
+    "author": "omnitool.ai team",
+    "description": "Compare multiple LLMs in one place. This recipe uses the model supported by OpenRouter API.",
+    "category": "",
+    "help": "## LLM Panel 📊🧠\n\nWelcome to this recipe! Compare multiple LLMs in one place. This recipe uses the model APIs from OpenRouter. Get an OpenRouter key and try it out.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenRouter\n\n**Models:**\n- Multiple LLM models supported by OpenRouter\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Enter the text you want the LLMs to interpret.\n- In each OpenRouter LLM block, select the LLM models you want to compare\n- View the generated comparison markdown file in the **Chat** box",
+    "created": 1699692542388,
+    "updated": 1699802815365,
+    "pictureUrl": "machine_002.png",
+    "tags": [
+      "#LLM",
+      "#beginner"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "3839": {
+        "id": 3839,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "You are a talented rapper. Please write a rap lyrics about an AI discovery, learning, prototyping tool called Omnitool, in 100 words. Just the lyrics, no any commentary or explaination.",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3844,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 3845,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 3846,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 3847,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 3848,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 3849,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          286.562500345313,
+          -519.2405385786695
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "3840": {
+        "id": 3840,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": null,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3850,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": [
+              {
+                "node": 3871,
+                "output": "document",
+                "data": {}
+              }
+            ]
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3352.938786832227,
+          -549.0677640830991
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "3844": {
+        "id": 3844,
+        "data": {
+          "X-Title": "Omnitool",
+          "fallback": false,
+          "json_mode": false,
+          "model": "anthropic/claude-2",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "X-Title": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3839,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "temperature": {
+            "connections": []
+          },
+          "json_mode": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "fallback": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "choices": {
+            "connections": []
+          },
+          "answer": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_answer1",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_model1",
+                "data": {}
+              }
+            ]
+          },
+          "gen_id": {
+            "connections": []
+          }
+        },
+        "position": [
+          1483.269477652293,
+          -2020.6400694001072
+        ],
+        "name": "openrouter.advancedChat"
+      },
+      "3845": {
+        "id": 3845,
+        "data": {
+          "X-Title": "Omnitool",
+          "fallback": false,
+          "json_mode": false,
+          "model": "meta-llama/llama-2-70b-chat",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "X-Title": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3839,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "temperature": {
+            "connections": []
+          },
+          "json_mode": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "fallback": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "choices": {
+            "connections": []
+          },
+          "answer": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_answer2",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_model2",
+                "data": {}
+              }
+            ]
+          },
+          "gen_id": {
+            "connections": []
+          }
+        },
+        "position": [
+          1470.3003466129576,
+          -1393.8047209556348
+        ],
+        "name": "openrouter.advancedChat"
+      },
+      "3846": {
+        "id": 3846,
+        "data": {
+          "X-Title": "Omnitool",
+          "fallback": false,
+          "json_mode": false,
+          "model": "openai/gpt-4-1106-preview",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "X-Title": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3839,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "temperature": {
+            "connections": []
+          },
+          "json_mode": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "fallback": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "choices": {
+            "connections": []
+          },
+          "answer": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_answer3",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_model3",
+                "data": {}
+              }
+            ]
+          },
+          "gen_id": {
+            "connections": []
+          }
+        },
+        "position": [
+          1463.6868685831964,
+          -746.9094740847538
+        ],
+        "name": "openrouter.advancedChat"
+      },
+      "3847": {
+        "id": 3847,
+        "data": {
+          "X-Title": "Omnitool",
+          "fallback": false,
+          "json_mode": false,
+          "model": "google/palm-2-chat-bison",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "X-Title": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3839,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "temperature": {
+            "connections": []
+          },
+          "json_mode": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "fallback": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "choices": {
+            "connections": []
+          },
+          "answer": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_answer4",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_model4",
+                "data": {}
+              }
+            ]
+          },
+          "gen_id": {
+            "connections": []
+          }
+        },
+        "position": [
+          1451.1640022973606,
+          -93.85730355492565
+        ],
+        "name": "openrouter.advancedChat"
+      },
+      "3848": {
+        "id": 3848,
+        "data": {
+          "X-Title": "Omnitool",
+          "fallback": false,
+          "json_mode": false,
+          "model": "mistralai/mistral-7b-instruct",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "X-Title": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3839,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "temperature": {
+            "connections": []
+          },
+          "json_mode": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "fallback": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "choices": {
+            "connections": []
+          },
+          "answer": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_answer5",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_model5",
+                "data": {}
+              }
+            ]
+          },
+          "gen_id": {
+            "connections": []
+          }
+        },
+        "position": [
+          1449.090333680255,
+          569.9400098891317
+        ],
+        "name": "openrouter.advancedChat"
+      },
+      "3849": {
+        "id": 3849,
+        "data": {
+          "X-Title": "Omnitool",
+          "fallback": false,
+          "json_mode": false,
+          "model": "openai/gpt-3.5-turbo",
+          "prompt": "",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "X-Title": {
+            "connections": []
+          },
+          "model": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3839,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "temperature": {
+            "connections": []
+          },
+          "json_mode": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "fallback": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "choices": {
+            "connections": []
+          },
+          "answer": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_answer6",
+                "data": {}
+              }
+            ]
+          },
+          "model": {
+            "connections": [
+              {
+                "node": 3850,
+                "input": "_model6",
+                "data": {}
+              }
+            ]
+          },
+          "gen_id": {
+            "connections": []
+          }
+        },
+        "position": [
+          1441.1357928584287,
+          1219.84148395053
+        ],
+        "name": "openrouter.advancedChat"
+      },
+      "3850": {
+        "id": 3850,
+        "data": {
+          "_answer1": "",
+          "_answer2": "",
+          "_answer3": "",
+          "_answer4": "",
+          "_answer5": "",
+          "_answer6": "",
+          "_model1": "",
+          "_model2": "",
+          "_model3": "",
+          "_model4": "",
+          "_model5": "",
+          "_model6": "",
+          "button": "",
+          "images": "",
+          "replace": null,
+          "source": "## {input: model1}\n{input: answer1}\n\n## {input: model2}\n{input: answer2}\n\n## {input: model3}\n{input: answer3}\n\n## {input: model4}\n{input: answer4}\n\n## {input: model5}\n{input: answer5}\n\n## {input: model6}\n{input: answer6}",
+          "x-omni-dynamicInputs": {
+            "_answer1": {
+              "customSocket": "text",
+              "name": "_answer1",
+              "title": " answer1",
+              "type": "string"
+            },
+            "_answer2": {
+              "customSocket": "text",
+              "name": "_answer2",
+              "title": " answer2",
+              "type": "string"
+            },
+            "_answer3": {
+              "customSocket": "text",
+              "name": "_answer3",
+              "title": " answer3",
+              "type": "string"
+            },
+            "_answer4": {
+              "customSocket": "text",
+              "name": "_answer4",
+              "title": " answer4",
+              "type": "string"
+            },
+            "_answer5": {
+              "customSocket": "text",
+              "name": "_answer5",
+              "title": " answer5",
+              "type": "string"
+            },
+            "_answer6": {
+              "customSocket": "text",
+              "name": "_answer6",
+              "title": " answer6",
+              "type": "string"
+            },
+            "_model1": {
+              "customSocket": "text",
+              "name": "_model1",
+              "title": " model1",
+              "type": "string"
+            },
+            "_model2": {
+              "customSocket": "text",
+              "name": "_model2",
+              "title": " model2",
+              "type": "string"
+            },
+            "_model3": {
+              "customSocket": "text",
+              "name": "_model3",
+              "title": " model3",
+              "type": "string"
+            },
+            "_model4": {
+              "customSocket": "text",
+              "name": "_model4",
+              "title": " model4",
+              "type": "string"
+            },
+            "_model5": {
+              "customSocket": "text",
+              "name": "_model5",
+              "title": " model5",
+              "type": "string"
+            },
+            "_model6": {
+              "customSocket": "text",
+              "name": "_model6",
+              "title": " model6",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "_answer1": {
+            "connections": [
+              {
+                "node": 3844,
+                "output": "answer",
+                "data": {}
+              }
+            ]
+          },
+          "_answer2": {
+            "connections": [
+              {
+                "node": 3845,
+                "output": "answer",
+                "data": {}
+              }
+            ]
+          },
+          "_answer3": {
+            "connections": [
+              {
+                "node": 3846,
+                "output": "answer",
+                "data": {}
+              }
+            ]
+          },
+          "_answer4": {
+            "connections": [
+              {
+                "node": 3847,
+                "output": "answer",
+                "data": {}
+              }
+            ]
+          },
+          "_answer5": {
+            "connections": [
+              {
+                "node": 3848,
+                "output": "answer",
+                "data": {}
+              }
+            ]
+          },
+          "_answer6": {
+            "connections": [
+              {
+                "node": 3849,
+                "output": "answer",
+                "data": {}
+              }
+            ]
+          },
+          "_model1": {
+            "connections": [
+              {
+                "node": 3844,
+                "output": "model",
+                "data": {}
+              }
+            ]
+          },
+          "_model2": {
+            "connections": [
+              {
+                "node": 3845,
+                "output": "model",
+                "data": {}
+              }
+            ]
+          },
+          "_model3": {
+            "connections": [
+              {
+                "node": 3846,
+                "output": "model",
+                "data": {}
+              }
+            ]
+          },
+          "_model4": {
+            "connections": [
+              {
+                "node": 3847,
+                "output": "model",
+                "data": {}
+              }
+            ]
+          },
+          "_model5": {
+            "connections": [
+              {
+                "node": 3848,
+                "output": "model",
+                "data": {}
+              }
+            ]
+          },
+          "_model6": {
+            "connections": [
+              {
+                "node": 3849,
+                "output": "model",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3871,
+                "input": "text",
+                "data": {}
+              },
+              {
+                "node": 3840,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2314.248370970181,
+          -717.0623281167882
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "3871": {
+        "id": 3871,
+        "data": {
+          "fileName": "llm_panel",
+          "storageType": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3850,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "document": {
+            "connections": [
+              {
+                "node": 3840,
+                "input": "documents",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2862.0309636208103,
+          -449.12921749546933
+        ],
+        "name": "omnitool.write_document"
+      },
+      "3908": {
+        "id": 3908,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Compare multiple LLMs in one place. This recipe uses the model supported by OpenRouter API.",
+          "help": "## LLM Panel 📊🧠\n\nWelcome to this recipe! Compare multiple LLMs in one place. This recipe uses the model APIs from OpenRouter. Get an OpenRouter key and try it out.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenRouter\n\n**Models:**\n- Multiple LLM models supported by OpenRouter\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Enter the text you want the LLMs to interpret.\n- In each OpenRouter LLM block, select the LLM models you want to compare\n- View the generated comparison markdown file in the **Chat** box",
+          "license": "CC0",
+          "tags": [
+            "#LLM",
+            "#beginner"
+          ],
+          "title": "OmniLab: LLM Panel",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -401.0247505464676,
+          -765.101854653944
+        ],
+        "name": "omnitool.recipe_metadata"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "omnitool.write_document",
+    "openrouter.advancedChat"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
