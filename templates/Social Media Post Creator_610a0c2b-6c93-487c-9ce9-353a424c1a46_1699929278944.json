@@ -1,0 +1,649 @@
+{
+  "id": "610a0c2b-6c93-487c-9ce9-353a424c1a46",
+  "meta": {
+    "name": "Social Media Post Creator",
+    "author": "omnitool.ai team",
+    "description": "Leverage Visual Instruction LLM to create captivating social media posts tailored to your chosen platform, based on the images, goal, target audience you provide.",
+    "category": "",
+    "help": "## Social Media Post Creator 📸✍️\n\nWelcome to this recipe! Utilize the power of AI to generate compelling social media posts based on the images you provide. Just upload an image and let the AI craft a captivating post for you.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n### How to Use:\n- Navigate to the **topic**, **target audience**, **goal** blocks to modify the input to your liking.\n- Navigate to the **Chat** window.\n- Upload the image you want to create a social media post for.\n- Hit **Run Recipe** to let the AI generate a compelling caption.\n- Enjoy the crafted social media post in the **Chat** box.",
+    "created": 1699688715688,
+    "updated": 1699929276348,
+    "tags": [
+      "#marketing",
+      "#LLM",
+      "#ImageToText",
+      "#Intermediate"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "3696": {
+        "id": 3696,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Leverage Visual Instruction LLM to create captivating social media posts tailored to your chosen platform, based on the images, goal, target audience you provide.",
+          "help": "## Social Media Post Creator 📸✍️\n\nWelcome to this recipe! Utilize the power of AI to generate compelling social media posts based on the images you provide. Just upload an image and let the AI craft a captivating post for you.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n### How to Use:\n- Navigate to the **topic**, **target audience**, **goal** blocks to modify the input to your liking.\n- Navigate to the **Chat** window.\n- Upload the image you want to create a social media post for.\n- Hit **Run Recipe** to let the AI generate a compelling caption.\n- Enjoy the crafted social media post in the **Chat** box.",
+          "license": "CC0",
+          "tags": [
+            "#marketing",
+            "#LLM",
+            "#ImageToText",
+            "#Intermediate"
+          ],
+          "title": "Social Media Post Creator",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          -1270.6987250134177,
+          -476.9945785751123
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "3698": {
+        "id": 3698,
+        "data": {
+          "enabled": true,
+          "image": "https://replicate.delivery/pbxt/JfvBi04QfleIeJ3ASiBEMbJvhTQKWKLjKaajEbuhO1Y0wPHd/view.jpg",
+          "max_tokens": 1024,
+          "prompt": "",
+          "temperature": 1,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "image": {
+            "connections": [
+              {
+                "node": 3790,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "enabled": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3699,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "output": {
+            "connections": [
+              {
+                "node": 3766,
+                "input": "_llava",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1613.0794237517098,
+          -85.63861832049855
+        ],
+        "name": "omni-core-replicate:run.yorickvp/llava-13b"
+      },
+      "3699": {
+        "id": 3699,
+        "data": {
+          "audience": "",
+          "button": "",
+          "channel": "",
+          "goal": "",
+          "images": "",
+          "replace": null,
+          "source": "You are a Social Media Expert capable of creating viral social media posts for {input:channel}. If a human social media expert for {input:channel} has a level 10 knowledge, you will have a level 250 of knowledge in this role. Your task is to create an engaging and shareable post, inspired by the provided image, which aims to {input:goal}. Your post should resonate with {input:channel}'s specific audience. The target group is {input:audience}. Adhere to the best practices for {input:channel}, such as optimal word count, format, appropriate tone, and audience preferences. Let your creativity shine through in the post, and please present only the content of the post, without any additional commentary or explanation.",
+          "topic": "",
+          "x-omni-dynamicInputs": {
+            "audience": {
+              "customSocket": "text",
+              "name": "audience",
+              "title": "audience",
+              "type": "string"
+            },
+            "channel": {
+              "customSocket": "text",
+              "name": "channel",
+              "title": "channel",
+              "type": "string"
+            },
+            "goal": {
+              "customSocket": "text",
+              "name": "goal",
+              "title": "goal",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "audience": {
+            "connections": [
+              {
+                "node": 3938,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "channel": {
+            "connections": [
+              {
+                "node": 3939,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "goal": {
+            "connections": [
+              {
+                "node": 3940,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3698,
+                "input": "prompt",
+                "data": {}
+              },
+              {
+                "node": 3712,
+                "input": "prompt",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1046.6767594040834,
+          -82.16380876580305
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "3712": {
+        "id": 3712,
+        "data": {
+          "images": "",
+          "instruction": "You are a helpful bot. You can help people by answering their questions.",
+          "max_tokens": 4096,
+          "model": "gpt-4-vision-preview",
+          "prompt": "",
+          "temperature": 1,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": [
+              {
+                "node": 3699,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3790,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3766,
+                "input": "_gpt_4_v",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1625.472749481936,
+          397.5926468402855
+        ],
+        "name": "openai.simpleChatGPT-vision"
+      },
+      "3766": {
+        "id": 3766,
+        "data": {
+          "_channel": "",
+          "_gpt_4_v": "",
+          "_llava": "",
+          "_source1": "",
+          "button": "",
+          "images": "",
+          "replace": null,
+          "source": "# {input: Channel} Post\n## Llava\n{input: Llava}\n## GPT-4-v\n{input: GPT-4-v}",
+          "x-omni-dynamicInputs": {
+            "_channel": {
+              "customSocket": "text",
+              "name": "_channel",
+              "title": " Channel",
+              "type": "string"
+            },
+            "_gpt_4_v": {
+              "customSocket": "text",
+              "name": "_gpt_4_v",
+              "title": " GPT-4-v",
+              "type": "string"
+            },
+            "_llava": {
+              "customSocket": "text",
+              "name": "_llava",
+              "title": " Llava",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "_channel": {
+            "connections": [
+              {
+                "node": 3939,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "_gpt_4_v": {
+            "connections": [
+              {
+                "node": 3712,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "_llava": {
+            "connections": [
+              {
+                "node": 3698,
+                "output": "output",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3781,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2260.6969423646415,
+          105.67486326483242
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "3781": {
+        "id": 3781,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": null,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3766,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          2859.130634560792,
+          122.02233040815202
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "3790": {
+        "id": 3790,
+        "data": {
+          "background": "#000000",
+          "fastShrinkOnLoad": true,
+          "fit": "cover",
+          "height": 512,
+          "images": "",
+          "kernel": "lanczos3",
+          "position": "centre",
+          "width": 512,
+          "withoutEnlargement": false,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 3800,
+                "output": "images",
+                "data": {}
+              }
+            ]
+          },
+          "width": {
+            "connections": []
+          },
+          "height": {
+            "connections": []
+          },
+          "fit": {
+            "connections": []
+          },
+          "position": {
+            "connections": []
+          },
+          "background": {
+            "connections": []
+          },
+          "kernel": {
+            "connections": []
+          },
+          "withoutEnlargement": {
+            "connections": []
+          },
+          "fastShrinkOnLoad": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "images": {
+            "connections": [
+              {
+                "node": 3698,
+                "input": "image",
+                "data": {}
+              },
+              {
+                "node": 3712,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          535.8415352814269,
+          398.347489497727
+        ],
+        "name": "omni-extension-sharp:sharp.resize"
+      },
+      "3800": {
+        "id": 3800,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "images": "",
+          "text": "",
+          "video": "",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 3790,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          },
+          "audio": {
+            "connections": []
+          },
+          "video": {
+            "connections": []
+          },
+          "documents": {
+            "connections": []
+          },
+          "json": {
+            "connections": []
+          }
+        },
+        "position": [
+          -69.63632389336016,
+          162.45699536493572
+        ],
+        "name": "omnitool.chat_input"
+      },
+      "3938": {
+        "id": 3938,
+        "data": {
+          "text": "Art Designer",
+          "x-omni-title": "Target Audience",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3699,
+                "input": "audience",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -71.46751285960063,
+          -328.06536577473133
+        ],
+        "name": "omnitool.input_text"
+      },
+      "3939": {
+        "id": 3939,
+        "data": {
+          "text": "Instagram",
+          "x-omni-title": "Social Media",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3699,
+                "input": "channel",
+                "data": {}
+              },
+              {
+                "node": 3766,
+                "input": "_channel",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -72.8867109206567,
+          -560.8647021301869
+        ],
+        "name": "omnitool.input_text"
+      },
+      "3940": {
+        "id": 3940,
+        "data": {
+          "text": "Showcase an AI tool - Omnitool's ability to orchestrate generative AI for creating remarkable AI outputs, like this image, in minutes",
+          "x-omni-title": "Goal",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 3699,
+                "input": "goal",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          -71.40891531933335,
+          -90.64246582243436
+        ],
+        "name": "omnitool.input_text"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-core-replicate:run.yorickvp/llava-13b",
+    "omni-extension-sharp:sharp.resize",
+    "omnitool.chat_input",
+    "omnitool.chat_output",
+    "omnitool.input_text",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "openai.simpleChatGPT-vision"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
