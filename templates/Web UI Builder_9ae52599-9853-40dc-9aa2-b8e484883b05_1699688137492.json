@@ -11,7 +11,8 @@
     "pictureUrl": "web_builder.png",
     "tags": [
       "#Productivity",
-      "#Development"
+      "#Development",
+      "#Intermediate"
     ]
   },
   "rete": {
@@ -28,7 +29,8 @@
           "license": "CC0",
           "tags": [
             "#Productivity",
-            "#Development"
+            "#Development",
+            "#Intermediate"
           ],
           "title": "Web UI Builder",
           "xOmniEnabled": true

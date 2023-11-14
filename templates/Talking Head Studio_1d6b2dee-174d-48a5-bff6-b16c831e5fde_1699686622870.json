@@ -12,7 +12,8 @@
     "tags": [
       "#Marketing",
       "#Entertainment",
-      "#Business"
+      "#Business",
+      "#Intermediate"
     ]
   },
   "rete": {
@@ -466,7 +467,8 @@
           "tags": [
             "#Marketing",
             "#Entertainment",
-            "#Business"
+            "#Business",
+            "#Intermediate"
           ],
           "title": "Talking Head Studio",
           "xOmniEnabled": true

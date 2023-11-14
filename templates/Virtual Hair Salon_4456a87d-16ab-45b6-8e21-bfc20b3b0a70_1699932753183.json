@@ -10,8 +10,11 @@
     "updated": 1699932725776,
     "pictureUrl": "hairsalon.png",
     "tags": [
-      "Lifestyle",
-      "art"
+      "#lifestyle",
+      "#art",
+      "#intermediate",
+      "#diffusion",
+      "#faceswap"
     ]
   },
   "rete": {
@@ -251,8 +254,11 @@
           "help": "## Virtual Hair Salon 💇‍♀️📸\n\nWelcome to this recipe! With Virtual Hair Salon, you can preview your new hairstyle designed by AI. Simply upload your photo and tell us your desired hairstyle.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Click on the camera icon to take a photo, upload your own photo, or choose one of the samples in the File Manager.\n- Describe your desired hairstyle, including gender and style, in the chat box, and hit Enter!\n- Enjoy the preview of your new hairstyle in the **Chat** box.",
           "license": "CC0",
           "tags": [
-            "Lifestyle",
-            "art"
+            "#lifestyle",
+            "#art",
+            "#intermediate",
+            "#diffusion",
+            "#faceswap"
           ],
           "title": "Virtual Hair Salon",
           "xOmniEnabled": true
