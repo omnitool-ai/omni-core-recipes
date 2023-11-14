@@ -1,20 +1,17 @@
 {
-  "id": "e63d7b46-09e0-46b0-b7f7-47add869f9cf",
+  "id": "4456a87d-16ab-45b6-8e21-bfc20b3b0a70",
   "meta": {
     "name": "Virtual Hair Salon",
     "author": "Omnitool.ai team",
     "description": "Preview your new hairstyle! It combines text-to-image Stable Diffusion XL model with face-swap technique to give you a glimpse of your desired hairstyle. Simply upload your photo and describe the hairstyle you want, including gender and style.",
     "category": "",
-    "help": "## Virtual Hair Salon 💇‍♀️📸\n\nWelcome to this recipe! With Aurora's Hair Salon, you can preview your new hairstyle designed by Aurora. Simply upload your photo and tell us your desired hairstyle.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Click on the camera icon to take a photo, upload your own photo, or choose one of the samples in the File Manager.\n- Describe your desired hairstyle, including gender and style, in the chat box, and hit Enter!\n- Enjoy the preview of your new hairstyle in the **Chat** box.",
+    "help": "## Virtual Hair Salon 💇‍♀️📸\n\nWelcome to this recipe! With Virtual Hair Salon, you can preview your new hairstyle designed by AI. Simply upload your photo and tell us your desired hairstyle.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Click on the camera icon to take a photo, upload your own photo, or choose one of the samples in the File Manager.\n- Describe your desired hairstyle, including gender and style, in the chat box, and hit Enter!\n- Enjoy the preview of your new hairstyle in the **Chat** box.",
     "created": 1698067487745,
-    "updated": 1698067487745,
+    "updated": 1699932725776,
     "pictureUrl": "hairsalon.png",
     "tags": [
-      "#Lifestyle",
-      "#Art",
-      "#faceswap",
-      "#intermediate",
-      "#diffusion"
+      "Lifestyle",
+      "art"
     ]
   },
   "rete": {
@@ -85,7 +82,13 @@
         },
         "inputs": {
           "text": {
-            "connections": []
+            "connections": [
+              {
+                "node": 2744,
+                "output": "Reply",
+                "data": {}
+              }
+            ]
           },
           "images": {
             "connections": [
@@ -126,6 +129,7 @@
         "id": 1018,
         "data": {
           "apply_watermark": true,
+          "disable_safety_checker": false,
           "enabled": true,
           "guidance_scale": 7.5,
           "height": 1024,
@@ -133,15 +137,15 @@
           "image": "",
           "lora_scale": 0.6,
           "mask": "",
-          "negative_prompt": "nsfw, sexy, nude, cartoon, illustration, animation, multiple heads, grid",
-          "num_inference_steps": 50,
+          "negative_prompt": "nsfw, sexy, nude, cartoon, illustration, animation, multiple heads, grid, chaotic distribution of objects",
+          "num_inference_steps": 30,
           "num_outputs": 1,
           "prompt": "",
-          "prompt_strength": 0.7,
+          "prompt_strength": 1,
           "refine": "expert_ensemble_refiner",
           "refine_steps": 0,
           "replicate_weights": "",
-          "scheduler": "DDIM",
+          "scheduler": "K_EULER",
           "width": 1024,
           "xOmniEnabled": true
         },
@@ -153,16 +157,16 @@
             "connections": []
           },
           "seed": {
-            "connections": []
-          },
-          "image": {
             "connections": [
               {
-                "node": 2742,
-                "output": "images",
+                "node": 4058,
+                "output": "number",
                 "data": {}
               }
             ]
+          },
+          "image": {
+            "connections": []
           },
           "width": {
             "connections": []
@@ -214,6 +218,9 @@
           },
           "num_inference_steps": {
             "connections": []
+          },
+          "disable_safety_checker": {
+            "connections": []
           }
         },
         "outputs": {
@@ -228,7 +235,7 @@
           }
         },
         "position": [
-          1039.140036339335,
+          1038.8305513300238,
           -472.0271469484241
         ],
         "name": "omni-core-replicate:run.stability-ai/sdxl"
@@ -241,7 +248,7 @@
           "category": "",
           "credits": "",
           "description": "Preview your new hairstyle! It combines text-to-image Stable Diffusion XL model with face-swap technique to give you a glimpse of your desired hairstyle. Simply upload your photo and describe the hairstyle you want, including gender and style.",
-          "help": "## Virtual Hair Salon 💇‍♀️📸\n\nWelcome to this recipe! With Aurora's Hair Salon, you can preview your new hairstyle designed by Aurora. Simply upload your photo and tell us your desired hairstyle.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Click on the camera icon to take a photo, upload your own photo, or choose one of the samples in the File Manager.\n- Describe your desired hairstyle, including gender and style, in the chat box, and hit Enter!\n- Enjoy the preview of your new hairstyle in the **Chat** box.",
+          "help": "## Virtual Hair Salon 💇‍♀️📸\n\nWelcome to this recipe! With Virtual Hair Salon, you can preview your new hairstyle designed by AI. Simply upload your photo and tell us your desired hairstyle.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n- Replicate\n\n**Extensions**:\n\n- Replicate\n\n**Models:**\n- Replicate: stability-ai/sdxl\n\n### How to Use:\n\n- Navigate to the **Chat** window.\n- Click on the camera icon to take a photo, upload your own photo, or choose one of the samples in the File Manager.\n- Describe your desired hairstyle, including gender and style, in the chat box, and hit Enter!\n- Enjoy the preview of your new hairstyle in the **Chat** box.",
           "license": "CC0",
           "tags": [
             "Lifestyle",
@@ -253,8 +260,8 @@
         "inputs": {},
         "outputs": {},
         "position": [
-          -243.64793268005454,
-          5.385553039550757
+          -775.1516352617351,
+          10.011252751751833
         ],
         "name": "omnitool.recipe_metadata"
       },
@@ -264,7 +271,7 @@
           "audio": "",
           "documents": "",
           "images": "",
-          "text": "male, ivy league, blonde color",
+          "text": "male, korean obba style,",
           "video": "",
           "xOmniEnabled": true
         },
@@ -301,11 +308,6 @@
                 "node": 701,
                 "input": "swap_image",
                 "data": {}
-              },
-              {
-                "node": 1018,
-                "input": "image",
-                "data": {}
               }
             ]
           },
@@ -332,7 +334,7 @@
         "id": 2744,
         "data": {
           "Criteria": "",
-          "Instruction": "You are the world's best hair styler, and you also assist in interpreting inputs for the SDXL generative image system.\n\nBased on the provided hints in the user input such as gender, style, and color, think of a detailed description for a hairstyle that would fit the user's preference.\n\nYour output will be a string of words that describes the hairstyle in detail, ensuring the details are imaginative and informative.\n\nYou will always append the exact following string to the prompt:\n\"(professional hairstyle photography:1.1), close-up model shot, highly detailed, 4k, 8k, high quality\"\n\nSample input:\nmale, bohemian style, brown color\n\nOutput:\nDetailed professional photography of a male model's headshot, bohemian-inspired wavy hairstyle, rich brown color with subtle highlights, relaxed, natural, trendy, (professional hairstyle photography:1.1), close-up model shot, highly detailed, 4k, 8k, high quality\n\nSample input:\nfemale, retro bob, platinum blonde\n\nOutput:\nHigh quality photo of a feminine face, vintage-inspired bob cut, sleek platinum blonde with a glossy finish, classic, elegant, chic, (professional hairstyle photography:1.1), close-up model shot, highly detailed, 4k, 8k, high quality",
+          "Instruction": "You are the world's best hair styler, and you also assist in interpreting inputs for the SDXL generative image system.\n\nBased on the provided hints in the user input such as gender, style, and color, think of a detailed description for a hairstyle that would fit the user's preference.\n\nYour output will be a string of words that describes the hairstyle in detail, ensuring the details are imaginative and informative.\n\nYou will always append the exact following string to the prompt:\n\"DSLR, close-up model shot, highly detailed, 4k, 8k, high quality\"\n\nSample input:\nmale, bohemian style, brown color\n\nOutput:\nA professional hairstyle photography of a male model's headshot, bohemian-inspired wavy hairstyle, rich brown color with subtle highlights, relaxed, natural, trendy, DSLR, close-up model shot, highly detailed, 4k, 8k, high quality\n\nSample input:\nfemale, retro bob, platinum blonde\n\nOutput:\nHigh quality photo of a feminine face, vintage-inspired bob cut, sleek platinum blonde with a glossy finish, classic, elegant, chic, (professional hairstyle photography:1.1), close-up model shot, highly detailed, 4k, 8k, high quality",
           "Prompt": "",
           "x-omni-title": "Generate prompt for SDXL",
           "xOmniEnabled": true
@@ -358,15 +360,49 @@
                 "node": 1018,
                 "input": "prompt",
                 "data": {}
+              },
+              {
+                "node": 702,
+                "input": "text",
+                "data": {}
               }
             ]
           }
         },
         "position": [
-          370.66828683128983,
-          -281.649937742735
+          385.4459577975041,
+          -66.84996901693513
         ],
         "name": "omnitool.large_language_model"
+      },
+      "4058": {
+        "id": 4058,
+        "data": {
+          "number": 1,
+          "number_format": "timestamp",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "number": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "number": {
+            "connections": [
+              {
+                "node": 1018,
+                "input": "seed",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          399.3616436218813,
+          -1071.307942043649
+        ],
+        "name": "omnitool.number_input"
       }
     }
   },
@@ -380,6 +416,7 @@
     "omnitool.chat_input",
     "omnitool.chat_output",
     "omnitool.large_language_model",
+    "omnitool.number_input",
     "omnitool.recipe_metadata"
   ],
   "_flags": [
