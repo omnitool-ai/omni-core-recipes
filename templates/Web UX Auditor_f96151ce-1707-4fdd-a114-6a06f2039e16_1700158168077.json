@@ -1,0 +1,373 @@
+{
+  "id": "f96151ce-1707-4fdd-a114-6a06f2039e16",
+  "meta": {
+    "name": "Web UX Auditor",
+    "author": "omnitool.ai team",
+    "description": "Use extension for capturing web screenshots, coupled with a visual transformer model like GPT-4-V, to conduct a thorough UX audit of your website.",
+    "category": "",
+    "help": "## Web UX Auditor 🌐🔍\n\nWelcome to this recipe! Leverage AI to audit the user experience of your websites. Capture a screenshot of a web page and receive a comprehensive UX audit report in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n**Extensions**:\n\n- Puppeteer Web Tool\n\n**Models:**\n\n- OpenAI: gpt-4-v\n\n### How to Use:\n\n- Navigate to the **Web Screenshot** block.\n- Enter the URL of the website you want to audit.\n- Hit **Run** to start the auditing process.\n- View the generated website UX audit report markdown file in the **Chat** box. Enjoy the insights and recommendations.",
+    "created": 1700022576471,
+    "updated": 1700158163395,
+    "tags": [
+      "#Development",
+      "#Productivity",
+      "#Marketing"
+    ]
+  },
+  "rete": {
+    "id": "mercs@0.1.1",
+    "nodes": {
+      "2652": {
+        "id": 2652,
+        "data": {
+          "author": "omnitool.ai team",
+          "button": "",
+          "credits": "",
+          "description": "Use extension for capturing web screenshots, coupled with a visual transformer model like GPT-4-V, to conduct a thorough UX audit of your website.",
+          "help": "## Web UX Auditor 🌐🔍\n\nWelcome to this recipe! Leverage AI to audit the user experience of your websites. Capture a screenshot of a web page and receive a comprehensive UX audit report in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n**Extensions**:\n\n- Puppeteer Web Tool\n\n**Models:**\n\n- OpenAI: gpt-4-v\n\n### How to Use:\n\n- Navigate to the **Web Screenshot** block.\n- Enter the URL of the website you want to audit.\n- Hit **Run** to start the auditing process.\n- View the generated website UX audit report markdown file in the **Chat** box. Enjoy the insights and recommendations.",
+          "license": "CC0",
+          "tags": [
+            "#Development",
+            "#Productivity",
+            "#Marketing"
+          ],
+          "title": "Web UX Auditor",
+          "xOmniEnabled": true
+        },
+        "inputs": {},
+        "outputs": {},
+        "position": [
+          1117.5588560993808,
+          -679.6447098018228
+        ],
+        "name": "omnitool.recipe_metadata"
+      },
+      "2655": {
+        "id": 2655,
+        "data": {
+          "images": "",
+          "instruction": "You are a helpful bot. You can help people by answering their questions.",
+          "max_tokens": 4096,
+          "model": "gpt-4-vision-preview",
+          "prompt": "You are an experienced Website UX expert, and you are auditing the UX of my website. Based on the provided screenshot, please provide constructive suggestions for improvement. Your report should include specific \"Problem\" and \"Suggestion\" sections for each point identified. Focus on key UX areas such as Usability, Conversion Rate Optimization (CRO), Messaging, Navigation, Content Clarity, and Visual Design etc.  \n\nPlease structure your report in clear markdown format with headings, bullet points, or numbered lists for easy readability. The report should be a direct markdown response without additional commentary or the ```markdown``` code block annotations.\n\n\nHere are the audit report examples: \n------\n### **Navigation Menu Visibility**\n- **Problem**: The navigation menu items \"Docs\" and \"About Us\" are small and could be overlooked.\n- **Suggestion**: Increase the font size or add visual cues to make the navigation links more noticeable.\n- **Category**: USABILITY\n\n### **Engaging Headline**\n- **Problem**: The main headline \"Your Open Source AI Desktop\" could be more engaging.\n- **Suggestion**: Use a value proposition that highlights the unique benefits or outcomes for the user.\n- **Category**: MESSAGING, CRO\n\n### **Video Play Button**\n- **Problem**: The video play button blends in with the background.\n- **Suggestion**: Use a brighter color or add a contrasting outline to make the play button more visible.\n- **Category**: USABILITY\n\n### **Call-to-Action Post Video**\n- **Problem**: There is no direct call-to-action after the introductory video.\n- **Suggestion**: Place a prominent call-to-action button below the video to guide users on the next step.\n- **Category**: CRO\n\n### **Benefits Clarity**\n- **Problem**: The benefits of the platform are not immediately clear from the section titles.\n- **Suggestion**: Use more descriptive titles and subheadings to clearly communicate the value of each section.\n- **Category**: MESSAGING\n\n### **Contrast in 'AI Recipes' Section**\n- **Problem**: The contrast between the text and background in the \"AI Recipes\" section is low.\n- **Suggestion**: Improve text readability by increasing contrast or using a different background color.\n- **Category**: USABILITY\n\n### **Feature Description Brevity**\n- **Problem**: The feature descriptions are lengthy and may not be immediately digestible.\n- **Suggestion**: Summarize features with bullet points or icons for quick scanning.\n- **Category**: MESSAGING\n\n### **Feature Showcase**\n- **Problem**: The \"Explore AI capabilities in one platform\" section has small images.\n- **Suggestion**: Use larger images or a carousel to better showcase the platform's features.\n- **Category**: USABILITY\n\n### **Social Proof Elements**\n- **Problem**: The social proof elements such as testimonials or user count are missing.\n- **Suggestion**: Add testimonials or a user count to build trust and encourage conversions.\n- **Category**: USABILITY, CRO\n\n### **Call-to-Action Button Prominence**\n- **Problem**: The primary call-to-action buttons \"GitHub\" and \"Join Discord\" are not prominent enough.\n- **Suggestion**: Increase the size and contrast of these buttons to make them stand out more.\n- **Category**: USABILITY, CRO\n\n### **CTA in 'AI Learning Desktop' Section**\n- **Problem**: The \"Set up your AI learning desktop now.\" section is not immediately recognized as a call-to-action.\n- **Suggestion**: Highlight this section with a different background color or border to draw attention.\n- **Category**: USABILITY, CRO\n\n### **Footer Subscription Form**\n- **Problem**: The footer subscription form lacks a clear label.\n- **Suggestion**: Add a label above the email input field to indicate what users are subscribing to.\n- **Category**: USABILITY\n\n### **Footer Links Legibility**\n- **Problem**: The links in the footer (Terms of Service, GitHub, Discord, Youtube) are small and tightly packed.\n- **Suggestion**: Increase the spacing and font size to improve clickability and legibility.\n- **Category**: USABILITY",
+          "temperature": 0.3,
+          "top_p": 1,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "model": {
+            "connections": []
+          },
+          "max_tokens": {
+            "connections": []
+          },
+          "seed": {
+            "connections": []
+          },
+          "temperature": {
+            "connections": []
+          },
+          "top_p": {
+            "connections": []
+          },
+          "instruction": {
+            "connections": []
+          },
+          "prompt": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2749,
+                "output": "screenshot",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2659,
+                "input": "report",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2199.7132485849847,
+          -324.24099251871814
+        ],
+        "name": "openai.simpleChatGPT-vision"
+      },
+      "2657": {
+        "id": 2657,
+        "data": {
+          "audio": "",
+          "documents": "",
+          "files": "",
+          "images": "",
+          "object": "",
+          "persistData": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "videos": null,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": []
+          },
+          "images": {
+            "connections": []
+          },
+          "audio": {
+            "connections": []
+          },
+          "documents": {
+            "connections": [
+              {
+                "node": 2658,
+                "output": "document",
+                "data": {}
+              }
+            ]
+          },
+          "videos": {
+            "connections": []
+          },
+          "files": {
+            "connections": []
+          },
+          "object": {
+            "connections": []
+          },
+          "persistData": {
+            "connections": []
+          }
+        },
+        "outputs": {},
+        "position": [
+          3315.4975493235265,
+          -262.2808759992804
+        ],
+        "name": "omnitool.chat_output"
+      },
+      "2658": {
+        "id": 2658,
+        "data": {
+          "fileName": "webUX_audit_report",
+          "storageType": "Permanent",
+          "text": "",
+          "textType": "text/markdown",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2659,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "document": {
+            "connections": [
+              {
+                "node": 2657,
+                "input": "documents",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2754.4293748639675,
+          -65.95552768443329
+        ],
+        "name": "omnitool.write_document"
+      },
+      "2659": {
+        "id": 2659,
+        "data": {
+          "button": "",
+          "images": "",
+          "replace": null,
+          "report": "",
+          "source": "![Alt text]({IMAGE:website})\n{input:report}",
+          "x-omni-dynamicInputs": {
+            "report": {
+              "customSocket": "text",
+              "name": "report",
+              "title": "report",
+              "type": "string"
+            }
+          },
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "report": {
+            "connections": [
+              {
+                "node": 2655,
+                "output": "text",
+                "data": {}
+              }
+            ]
+          },
+          "source": {
+            "connections": []
+          },
+          "replace": {
+            "connections": []
+          },
+          "images": {
+            "connections": [
+              {
+                "node": 2666,
+                "output": "file",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "text": {
+            "connections": [
+              {
+                "node": 2658,
+                "input": "text",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2767.750450933852,
+          -629.8600985945201
+        ],
+        "name": "omnitool.multi_text_replace"
+      },
+      "2666": {
+        "id": 2666,
+        "data": {
+          "file": "",
+          "fileName": "website",
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 2749,
+                "output": "screenshot",
+                "data": {}
+              }
+            ]
+          },
+          "fileName": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "file": {
+            "connections": [
+              {
+                "node": 2659,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          2255.2752661908844,
+          -725.9368241966247
+        ],
+        "name": "omnitool.file_metadata_writer"
+      },
+      "2749": {
+        "id": 2749,
+        "data": {
+          "deviceScaleFactor": 1,
+          "fullPage": true,
+          "isMobile": false,
+          "url": "https://www.d-id.com/",
+          "viewportHeight": 2000,
+          "viewportWidth": 1280,
+          "waitingTime": 10000,
+          "xOmniEnabled": true
+        },
+        "inputs": {
+          "url": {
+            "connections": []
+          },
+          "viewportWidth": {
+            "connections": []
+          },
+          "viewportHeight": {
+            "connections": []
+          },
+          "deviceScaleFactor": {
+            "connections": []
+          },
+          "isMobile": {
+            "connections": []
+          },
+          "fullPage": {
+            "connections": []
+          },
+          "waitingTime": {
+            "connections": []
+          }
+        },
+        "outputs": {
+          "screenshot": {
+            "connections": [
+              {
+                "node": 2666,
+                "input": "file",
+                "data": {}
+              },
+              {
+                "node": 2655,
+                "input": "images",
+                "data": {}
+              }
+            ]
+          }
+        },
+        "position": [
+          1631.0691138991042,
+          -429.26592431343454
+        ],
+        "name": "omni-extension-puppeteer:webscreenshot.web-screenshot"
+      }
+    }
+  },
+  "api": {
+    "fields": {}
+  },
+  "ui": {},
+  "blockIds": [
+    "omni-extension-puppeteer:webscreenshot.web-screenshot",
+    "omnitool.chat_output",
+    "omnitool.file_metadata_writer",
+    "omnitool.multi_text_replace",
+    "omnitool.recipe_metadata",
+    "omnitool.write_document",
+    "openai.simpleChatGPT-vision"
+  ],
+  "_flags": [
+    "owner"
+  ]
+}
