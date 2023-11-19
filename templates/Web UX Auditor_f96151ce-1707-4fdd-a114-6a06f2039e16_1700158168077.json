@@ -8,10 +8,12 @@
     "help": "## Web UX Auditor 🌐🔍\n\nWelcome to this recipe! Leverage AI to audit the user experience of your websites. Capture a screenshot of a web page and receive a comprehensive UX audit report in return.\n\n### Prerequisites:\n\n**API Keys**:\n\n- OpenAI\n\n**Extensions**:\n\n- Puppeteer Web Tool\n\n**Models:**\n\n- OpenAI: gpt-4-v\n\n### How to Use:\n\n- Navigate to the **Web Screenshot** block.\n- Enter the URL of the website you want to audit.\n- Hit **Run** to start the auditing process.\n- View the generated website UX audit report markdown file in the **Chat** box. Enjoy the insights and recommendations.",
     "created": 1700022576471,
     "updated": 1700158163395,
+    "pictureUrl": "web_auditor.png",
     "tags": [
       "#Development",
       "#Productivity",
-      "#Marketing"
+      "#Marketing",
+      "#Intermediate"
     ]
   },
   "rete": {
