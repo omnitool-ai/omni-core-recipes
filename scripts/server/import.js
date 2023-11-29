@@ -3,10 +3,12 @@
  * All rights reserved.
  */
 
-import fs from 'node:fs/promises';
+//import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'crypto';
+import fs from 'node:fs';
 import { fileURLToPath } from 'url';
+import BetterSqlite3 from 'better-sqlite3';
 
 const MONO_COLLECTION_ID = "legacyMonoCollection";
 
@@ -28,12 +30,12 @@ function generateHashId(name) {
 async function importRecipes() {
     try {
         const templateDir = path.join(__dirname, '../../templates');
-        if (!(await fs.stat(templateDir)).isDirectory()) { 
+        if (!(fs.statSync(templateDir)).isDirectory()) { 
             console.error('Directory does not exist:', templateDir);
             return;
         }
 
-        const files = await fs.readdir(templateDir);
+        const files = fs.readdirSync(templateDir);
         const jsonFiles = files.filter(file => path.extname(file).toLowerCase() === '.json');
         const systemRecipes = [
             ['Bugbear', 'c0deba5e-417d-49df-96d3-8aeb8fc15402', false], //false means not visible
@@ -43,7 +45,7 @@ async function importRecipes() {
         let jsonArray = [];
         for (let file of jsonFiles) {
             console.info('Processing recipe json:', file);
-            let content = await fs.readFile(path.join(templateDir, file));
+            let content = fs.readFileSync(path.join(templateDir, file));
             let doc = JSON.parse(content);
             doc.owner = '-----public-----';
 
@@ -97,8 +99,69 @@ async function importRecipes() {
         }
 
         await reconcilePublishedRecipes(jsonArray);
+        await reconcilePublishedRecipesSQLite(jsonArray);
     } catch (error) {
         console.error(error);
+    }
+}
+
+async function reconcilePublishedRecipesSQLite(publishedRecipes) {
+    const dbpath = path.join(process.cwd(), 'data.local', 'db', 'legacy_monolith.db');
+    // do nothing if the db file does not exist
+    if (!fs.existsSync(dbpath)) {
+        return;
+    }
+    const db = new BetterSqlite3(dbpath);
+    try {
+        // Prepare statements
+        const deleteStmt = db.prepare(`DELETE FROM kvstore WHERE key = ?`);
+        const insertStmt = db.prepare(`INSERT OR REPLACE INTO kvstore (key, value, valueType) VALUES (?, ?, 'object')`);
+        const begin = db.prepare('BEGIN');
+        const commit = db.prepare('COMMIT');
+        const rollback = db.prepare('ROLLBACK');
+
+        // Fetch old records
+        const oldRecords = db.prepare(`SELECT key FROM kvstore WHERE 
+                                       (json_extract(value, '$.meta.template') = true OR json_extract(value, '$.owner') = '-----public-----') 
+                                       AND json_extract(value, '$.omni_id') LIKE '%wf%'`).all();
+
+        // Delete old records
+        begin.run();
+        try {
+            for (const record of oldRecords) {
+                deleteStmt.run(record.id);
+            }
+            commit.run();
+        } catch (e) {
+            rollback.run();
+            throw e;
+        }
+        console.info(`Deleted ${oldRecords.length} demo recipes.`);
+
+        // Create new records
+        begin.run();
+        try {
+            for (const element of publishedRecipes) {
+                if (!element.meta.tags.includes("system")) {
+                    // Use hash function to generate consistent ID based on recipe name
+                    element.id = generateHashId(element.meta.name);
+                    element._id = `wf:${element.id}`;
+                }
+                let omni_id = element._id;
+                let blob = JSON.stringify(element); // Assuming the blob is a JSON object
+                //console.log(`Inserting ${omni_id}`);
+                insertStmt.run(omni_id, blob);
+            }
+            commit.run();
+        } catch (e) {
+            rollback.run();
+            throw e;
+        }
+        omnilog.status_success(`Updated ${publishedRecipes.length} demo recipes.`);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        db.close();
     }
 }
 
@@ -128,7 +191,12 @@ async function reconcilePublishedRecipes(publishedRecipes) {
         await Promise.all(createCmd);
         omnilog.status_success(`Updated ${createCmd.length} demo recipes.`);
     } catch (error) {
-        console.error(error);
+        if (error.originalError.cause.code === 'ECONNREFUSED') {
+            // continue - pocketbase is not running and deprecated            
+        }
+        else {
+            console.error(error);
+        }
     }
 }
 
