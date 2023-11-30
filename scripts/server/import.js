@@ -121,9 +121,13 @@ async function reconcilePublishedRecipesSQLite(publishedRecipes) {
         const rollback = db.prepare('ROLLBACK');
 
         // Fetch old records
-        const oldRecords = db.prepare(`SELECT key FROM kvstore WHERE 
-                                       (json_extract(value, '$.meta.template') = true OR json_extract(value, '$.owner') = '-----public-----') 
-                                       AND json_extract(value, '$.omni_id') LIKE '%wf%'`).all();
+        const oldRecords = db.prepare(
+            `SELECT key FROM kvstore WHERE (json_extract(value, '$.meta.template') = true OR json_extract(value, '$.owner') = '-----public-----') 
+                AND key LIKE 'wf%'`,
+        )
+        .all();
+
+                                       
 
         // Delete old records
         begin.run();
