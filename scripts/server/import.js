@@ -3,14 +3,11 @@
  * All rights reserved.
  */
 
-//import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'crypto';
 import fs from 'node:fs';
 import { fileURLToPath } from 'url';
 import BetterSqlite3 from 'better-sqlite3';
-
-const MONO_COLLECTION_ID = "legacyMonoCollection";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -98,7 +95,6 @@ async function importRecipes() {
             jsonArray.push(doc);
         }
 
-        await reconcilePublishedRecipes(jsonArray);
         await reconcilePublishedRecipesSQLite(jsonArray);
     } catch (error) {
         console.error(error);
@@ -166,41 +162,6 @@ async function reconcilePublishedRecipesSQLite(publishedRecipes) {
         console.error(error);
     } finally {
         db.close();
-    }
-}
-
-async function reconcilePublishedRecipes(publishedRecipes) {
-    try {
-        const Pocketbase = (await import('pocketbase')).default;
-        let pb = new Pocketbase(process.env.DATABASE_URL || 'http://127.0.0.1:8090');
-        pb.autoCancellation(false);
-
-        let oldrecords = await pb.collection(MONO_COLLECTION_ID).getFullList(
-            { filter: `(blob.meta.template=true || blob.owner="-----public-----") && omni_id~"wf"` }
-        );
-        let deleteCmd = oldrecords.map(record => pb.collection(MONO_COLLECTION_ID).delete(record.id));
-        await Promise.all(deleteCmd);
-        console.info(`Deleted ${oldrecords.length} demo recipes.`);
-
-        let createCmd = publishedRecipes.map(element => {
-            if (!element.meta.tags.includes("system")) {
-                // Use hash function to generate consistent ID based on recipe name
-                element.id = generateHashId(element.meta.name);
-                element._id = `wf:${element.id}`;
-            }
-            let omni_id = element._id;
-            return pb.collection(MONO_COLLECTION_ID).create({ omni_id: omni_id, blob: element });
-        });
-
-        await Promise.all(createCmd);
-        omnilog.status_success(`Updated ${createCmd.length} demo recipes.`);
-    } catch (error) {
-        if (error.originalError.cause.code === 'ECONNREFUSED') {
-            // continue - pocketbase is not running and deprecated            
-        }
-        else {
-            console.error(error);
-        }
     }
 }
 
