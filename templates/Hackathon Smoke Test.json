@@ -1,0 +1,420 @@
+{
+    "id": "98a5584e-9812-4a6b-a0d2-edd2a0e769ed",
+    "meta": {
+        "name": "Hackathon Smoke Test",
+        "description": "A smoke test recipe for preparing for the Omnitool hackathon.",
+        "author": "omnitool.ai team",
+        "help": "This test is designed to check your API availability with the following models:\n- OpenAI GPT 3.5\n- OpenAI GPT4-V\n- OpenAI TTS\n- Replicate (sdxl)",
+        "created": 1707746370822,
+        "updated": 1707748352818,
+        "pictureUrl": "machine_001.png",
+        "tags": []
+    },
+    "rete": {
+        "id": "mercs@0.1.1",
+        "nodes": {
+            "25": {
+                "id": 25,
+                "data": {
+                    "xOmniEnabled": true,
+                    "title": "Hackathon Smoke Test",
+                    "description": "A smoke test recipe for preparing for the Omnitool hackathon.",
+                    "help": "This test is designed to check your API availability with the following models:\n- OpenAI GPT 3.5\n- OpenAI GPT4-V\n- OpenAI TTS\n- Replicate (sdxl)",
+                    "author": "omnitool.ai team",
+                    "tags": [],
+                    "license": "CC0",
+                    "credits": "",
+                    "button": ""
+                },
+                "inputs": {},
+                "outputs": {},
+                "position": [
+                    -1081.6586954363295,
+                    1465.744552438019
+                ],
+                "name": "omnitool.recipe_metadata"
+            },
+            "29": {
+                "id": 29,
+                "data": {
+                    "xOmniEnabled": true,
+                    "mask": "",
+                    "enabled": true,
+                    "image": "",
+                    "width": 768,
+                    "height": 768,
+                    "prompt": "A movie poster for AI Hackathon, sci-fi, cinematic",
+                    "refine": "expert_ensemble_refiner",
+                    "scheduler": "K_EULER",
+                    "lora_scale": 0.6,
+                    "num_outputs": 1,
+                    "guidance_scale": 7.5,
+                    "apply_watermark": true,
+                    "high_noise_frac": 0.8,
+                    "negative_prompt": "blurry, ugly, nsfw, cartoon, illustration, animation, chaotic distribution of objects",
+                    "prompt_strength": 0.8,
+                    "replicate_weights": "",
+                    "num_inference_steps": 25,
+                    "disable_safety_checker": false
+                },
+                "inputs": {
+                    "mask": {
+                        "connections": []
+                    },
+                    "enabled": {
+                        "connections": []
+                    },
+                    "seed": {
+                        "connections": []
+                    },
+                    "image": {
+                        "connections": []
+                    },
+                    "width": {
+                        "connections": []
+                    },
+                    "height": {
+                        "connections": []
+                    },
+                    "prompt": {
+                        "connections": []
+                    },
+                    "refine": {
+                        "connections": []
+                    },
+                    "scheduler": {
+                        "connections": []
+                    },
+                    "lora_scale": {
+                        "connections": []
+                    },
+                    "num_outputs": {
+                        "connections": []
+                    },
+                    "refine_steps": {
+                        "connections": []
+                    },
+                    "guidance_scale": {
+                        "connections": []
+                    },
+                    "apply_watermark": {
+                        "connections": []
+                    },
+                    "high_noise_frac": {
+                        "connections": []
+                    },
+                    "negative_prompt": {
+                        "connections": []
+                    },
+                    "prompt_strength": {
+                        "connections": []
+                    },
+                    "replicate_weights": {
+                        "connections": []
+                    },
+                    "num_inference_steps": {
+                        "connections": []
+                    },
+                    "disable_safety_checker": {
+                        "connections": []
+                    }
+                },
+                "outputs": {
+                    "output": {
+                        "connections": [
+                            {
+                                "node": 32,
+                                "input": "images",
+                                "data": {}
+                            },
+                            {
+                                "node": 34,
+                                "input": "images",
+                                "data": {}
+                            }
+                        ]
+                    }
+                },
+                "position": [
+                    131.0231019854597,
+                    1735.2820530669433
+                ],
+                "name": "omni-core-replicate:run.stability-ai/sdxl"
+            },
+            "30": {
+                "id": 30,
+                "data": {
+                    "xOmniEnabled": true,
+                    "model": "tts-1",
+                    "input": "",
+                    "voice": "alloy",
+                    "response_format": "mp3",
+                    "speed": 1
+                },
+                "inputs": {
+                    "model": {
+                        "connections": []
+                    },
+                    "input": {
+                        "connections": [
+                            {
+                                "node": 31,
+                                "output": "answer_text",
+                                "data": {}
+                            }
+                        ]
+                    },
+                    "voice": {
+                        "connections": []
+                    },
+                    "response_format": {
+                        "connections": []
+                    },
+                    "speed": {
+                        "connections": []
+                    }
+                },
+                "outputs": {
+                    "result": {
+                        "connections": [
+                            {
+                                "node": 32,
+                                "input": "audio",
+                                "data": {}
+                            }
+                        ]
+                    }
+                },
+                "position": [
+                    143.55038038910936,
+                    1162.244161996375
+                ],
+                "name": "openai.createSpeech"
+            },
+            "31": {
+                "id": 31,
+                "data": {
+                    "xOmniEnabled": true,
+                    "model": "gpt-3.5-turbo",
+                    "temperature": 0.3,
+                    "top_p": 1,
+                    "function": null,
+                    "instruction": "You are a talented rap lyrics writer.",
+                    "prompt": "Please write a 200 words rap about a Hackathon of a generative ai prototyping tool called Omnitool.",
+                    "json_mode": false
+                },
+                "inputs": {
+                    "model": {
+                        "connections": []
+                    },
+                    "seed": {
+                        "connections": []
+                    },
+                    "temperature": {
+                        "connections": []
+                    },
+                    "top_p": {
+                        "connections": []
+                    },
+                    "function": {
+                        "connections": []
+                    },
+                    "instruction": {
+                        "connections": []
+                    },
+                    "prompt": {
+                        "connections": []
+                    },
+                    "json_mode": {
+                        "connections": []
+                    }
+                },
+                "outputs": {
+                    "answer_text": {
+                        "connections": [
+                            {
+                                "node": 30,
+                                "input": "input",
+                                "data": {}
+                            },
+                            {
+                                "node": 32,
+                                "input": "text",
+                                "data": {}
+                            }
+                        ]
+                    },
+                    "function_call": {
+                        "connections": []
+                    },
+                    "function_arguments_string": {
+                        "connections": []
+                    },
+                    "function_arguments": {
+                        "connections": []
+                    },
+                    "function_name": {
+                        "connections": []
+                    },
+                    "raw_output": {
+                        "connections": []
+                    }
+                },
+                "position": [
+                    -509.4574398054999,
+                    1321.6116034882998
+                ],
+                "name": "openai.advancedChatGPT"
+            },
+            "32": {
+                "id": 32,
+                "data": {
+                    "xOmniEnabled": true,
+                    "text": "",
+                    "images": "",
+                    "audio": "",
+                    "documents": "",
+                    "videos": "",
+                    "files": "",
+                    "object": "",
+                    "persistData": "Permanent",
+                    "textType": "text/markdown"
+                },
+                "inputs": {
+                    "text": {
+                        "connections": [
+                            {
+                                "node": 31,
+                                "output": "answer_text",
+                                "data": {}
+                            },
+                            {
+                                "node": 34,
+                                "output": "text",
+                                "data": {}
+                            }
+                        ]
+                    },
+                    "images": {
+                        "connections": [
+                            {
+                                "node": 29,
+                                "output": "output",
+                                "data": {}
+                            }
+                        ]
+                    },
+                    "audio": {
+                        "connections": [
+                            {
+                                "node": 30,
+                                "output": "result",
+                                "data": {}
+                            }
+                        ]
+                    },
+                    "documents": {
+                        "connections": []
+                    },
+                    "videos": {
+                        "connections": []
+                    },
+                    "files": {
+                        "connections": []
+                    },
+                    "object": {
+                        "connections": []
+                    },
+                    "persistData": {
+                        "connections": []
+                    }
+                },
+                "outputs": {},
+                "position": [
+                    1700.6043559022912,
+                    1365.550518792631
+                ],
+                "name": "omnitool.chat_output"
+            },
+            "34": {
+                "id": 34,
+                "data": {
+                    "xOmniEnabled": true,
+                    "model": "gpt-4-vision-preview",
+                    "max_tokens": 4096,
+                    "temperature": 0.3,
+                    "top_p": 1,
+                    "instruction": "What does this picture imply?",
+                    "prompt": "",
+                    "images": ""
+                },
+                "inputs": {
+                    "model": {
+                        "connections": []
+                    },
+                    "max_tokens": {
+                        "connections": []
+                    },
+                    "seed": {
+                        "connections": []
+                    },
+                    "temperature": {
+                        "connections": []
+                    },
+                    "top_p": {
+                        "connections": []
+                    },
+                    "instruction": {
+                        "connections": []
+                    },
+                    "prompt": {
+                        "connections": []
+                    },
+                    "images": {
+                        "connections": [
+                            {
+                                "node": 29,
+                                "output": "output",
+                                "data": {}
+                            }
+                        ]
+                    }
+                },
+                "outputs": {
+                    "text": {
+                        "connections": [
+                            {
+                                "node": 32,
+                                "input": "text",
+                                "data": {}
+                            }
+                        ]
+                    }
+                },
+                "position": [
+                    812.9591435835359,
+                    1781.3443992950247
+                ],
+                "name": "openai.simpleChatGPT-vision"
+            }
+        }
+    },
+    "api": {
+        "fields": {}
+    },
+    "ui": {},
+    "blockIds": [
+        "omni-core-replicate:run.stability-ai/sdxl",
+        "omnitool.chat_output",
+        "omnitool.recipe_metadata",
+        "openai.advancedChatGPT",
+        "openai.createSpeech",
+        "openai.simpleChatGPT-vision"
+    ],
+    "_id": "wf:98a5584e-9812-4a6b-a0d2-edd2a0e769ed",
+    "owner": "URXHkejQOtN8xBnv",
+    "org": {
+        "id": "Y0G86S4PIsCN2uMI",
+        "name": "cloudflare"
+    }
+}
